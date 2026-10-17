@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form id="form" novalidate>
+      <h1>Create account</h1>
+
+      <label for="name">Name</label>
+      <input id="name" type="text" />
+      <small id="name-error"></small>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" />
+      <small id="email-error"></small>
+
+      <label for="password">Password</label>
+      <input id="password" type="password" />
+      <small id="password-error"></small>
+
+      <button type="submit">Sign up</button>
+      <p id="success" hidden>Registration successful!</p>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
