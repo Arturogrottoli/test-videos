@@ -29,9 +29,9 @@ input {
   border-radius: 6px;
 }
 
-input.invalid {
-  border-color: #dc2626;
-}
+input.invalid{border-color:#dc2626}
+
+
 
 small {
   min-height: 16px;

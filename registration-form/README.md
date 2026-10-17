@@ -6,21 +6,45 @@ Cada paso tiene: **ACCIÓN** (lo que haces en pantalla), **DECIR** (lo que lees 
 
 Los nombres de menús y botones están en inglés, tal como aparecen en VS Code en inglés.
 
+**En Mac:** donde dice `Ctrl` usa `Cmd`, donde dice `Alt` usa `Option`, y en el navegador las herramientas de desarrollo se abren con `Cmd + Option + I` en vez de `F12`.
+
 ## Antes de grabar (no sale en el video)
 
-ESLint no trae reglas por defecto, así que se deja listo antes de grabar. Live Server y Prettier no necesitan nada.
+ESLint no trae el programa ni las reglas, así que se deja listo en la carpeta del proyecto antes de grabar. Live Server y Prettier no necesitan nada. No hace falta `sudo` ni permisos de administrador.
 
-1. **Node.js:** en la terminal de VS Code (**Terminal → New Terminal**), escribe `node -v`. Si da error, instala la versión LTS desde https://nodejs.org y reinicia VS Code.
-2. **Instalar ESLint:** en la misma terminal, ejecuta `npm install -g eslint@9`.
-3. **Reglas de ESLint:** `Ctrl + Shift + P` → `Preferences: Open User Settings (JSON)`. Pega esta línea justo después de la primera `{` y guarda:
+1. **Abre la carpeta del proyecto** en VS Code (**File → Open Folder…** → `registration-form`). Todo lo que sigue va en esa carpeta.
+2. **Node.js:** abre **Terminal → New Terminal** y escribe `node -v`. Si da error, instala la versión LTS desde https://nodejs.org y reinicia VS Code.
+3. **Instala ESLint en el proyecto:** en la misma terminal, ejecuta:
 
-   ```json
-   "eslint.options": { "overrideConfigFile": true, "overrideConfig": { "languageOptions": { "globals": { "document": "readonly" } }, "rules": { "no-undef": "error", "no-unused-vars": "warn" } } },
+   ```
+   npm install --save-dev eslint@9
    ```
 
-4. **Prettier como formateador:** abre cualquier archivo CSS, pulsa `Shift + Alt + F`, haz clic en **Configure…** y elige **Prettier - Code formatter**.
+   Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
+
+4. **Reglas de ESLint:** en el Explorer, crea un archivo nuevo llamado `eslint.config.mjs` (en la carpeta del proyecto, junto a `package.json`), pega esto y guarda:
+
+   ```js
+   export default [
+     {
+       files: ["**/*.js"],
+       languageOptions: {
+         sourceType: "script",
+         globals: { document: "readonly" },
+       },
+       rules: {
+         "no-undef": "error",
+         "no-unused-vars": "warn",
+       },
+     },
+   ];
+   ```
+
+5. **Prettier como formateador:** abre cualquier archivo CSS, haz clic derecho en el código → **Format Document With…** → **Configure Default Formatter…** → **Prettier - Code formatter**.
 
 Si en el video ESLint no subraya nada, ejecuta `Ctrl + Shift + P` → `ESLint: Restart ESLint Server`.
+
+**Importante:** si antes pegaste la línea `"eslint.options"` en los ajustes de VS Code, bórrala. Con esa línea, ESLint ignora el archivo `eslint.config.mjs`.
 
 ---
 
@@ -369,7 +393,3 @@ form.addEventListener("submit", (event) => {
 > Thanks for watching!
 
 **ACCIÓN:** Detén la grabación.
-
----
-
-> **Después de grabar:** el ajuste `eslint.options` de "Antes de grabar" se aplica a todos tus proyectos. Para quitarlo, abre **Preferences: Open User Settings (JSON)** y borra el bloque `"eslint.options"`.
