@@ -301,7 +301,7 @@ form.addEventListener("submit", (event) => {
   const pass = document.getElementById("password").value;
 
   const okName = check("name", name.length >= 2, "Min. 2 characters");
-  const okEmail = check("email", /^\S+@\S+\.\S+$/.test(email), "Invalid email");
+  const okEmail = check("email", email.includes("@"), "Invalid email");
   const okPass = check("password", pass.length >= 8, "Min. 8 characters");
 
   success.hidden = !(okName && okEmail && okPass);
@@ -319,7 +319,7 @@ form.addEventListener("submit", (event) => {
 >
 > Next, we listen for the form's "submit" event. "preventDefault" stops the page from reloading. Then we read the three values. "trim" removes extra spaces.
 >
-> Now our three rules: the name needs at least 2 characters, the email must match a simple pattern, something, at sign, something, dot, something, and the password needs at least 8 characters.
+> Now our three rules: the name needs at least 2 characters, the email must contain an at sign, and the password needs at least 8 characters.
 >
 > Last, the success message. It's visible only if all three checks are OK. And when everything is valid, we clear the form.
 
@@ -360,13 +360,13 @@ form.addEventListener("submit", (event) => {
 
 **ACCIÓN:**
 
-1. Escribe `J`, `jane@` y `abc`, y haz clic en **Sign up**.
+1. Escribe `J`, `jane` y `abc`, y haz clic en **Sign up**.
 2. Escribe `Jane`, `jane@example.com` y `secret123`, y haz clic en **Sign up**.
 3. Pulsa `F12`, luego `Ctrl + Shift + M`, y elige un tamaño de celular. Después cierra las herramientas de desarrollo.
 
 **DECIR:**
 
-> Let's test it. Wrong values first: one letter, an email without a domain, and a short password. Three red errors.
+> Let's test it. Wrong values first: one letter, an email without an at sign, and a short password. Three red errors.
 >
 > Now valid values: "Jane", "jane@example.com", and "secret123". The errors disappear, the form is cleared, and we see "Registration successful!" in green.
 >
@@ -376,7 +376,7 @@ form.addEventListener("submit", (event) => {
 
 | Datos | Resultado |
 | ----- | --------- |
-| `J`, `jane@`, `abc` | Bordes rojos y los mensajes _Min. 2 characters_, _Invalid email_, _Min. 8 characters_ |
+| `J`, `jane`, `abc` | Bordes rojos y los mensajes _Min. 2 characters_, _Invalid email_, _Min. 8 characters_ |
 | `Jane`, `jane@example.com`, `secret123` | Sin errores, campos vacíos y el mensaje verde _Registration successful!_ |
 | Vista de celular | La tarjeta ocupa cerca del 90% del ancho |
 

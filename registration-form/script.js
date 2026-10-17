@@ -16,9 +16,9 @@ form.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("password").value;
 
-  const okName = check("name", name.length >= 2, "Min. 2 characters");
-  const okEmail = check("email", /^\S+@\S+\.\S+$/.test(email), "Invalid email");
-  const okPass = check("password", pass.length >= 8, "Min. 8 characters");
+  const okName = check("name", name.length >= 2, "Min. 2 characters.");
+  const okEmail = check("email", email.includes("@"), "Invalid email");
+  const okPass = check("password", pass.length >= 8, "Min. 8 characters.");
 
   success.hidden = !(okName && okEmail && okPass);
   if (!success.hidden) {
