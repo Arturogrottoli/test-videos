@@ -1,6 +1,12 @@
 # Formulario de registro — Guion de narración
 
-Un video corto de programación en vivo. Instalas tres extensiones de VS Code y después escribes un formulario de registro en tres archivos: `index.html` (estructura), `styles.css` (diseño) y `script.js` (funcionalidad).
+Un video corto de programación en vivo. Escribes un formulario de registro en tres archivos y, en cada uno, instalas y pruebas una extensión de VS Code:
+
+1. **HTML** (`index.html`) → **Live Server**
+2. **CSS** (`styles.css`) → **Prettier**
+3. **JavaScript** (`script.js`) → **ESLint**
+
+Al final muestras el proyecto funcionando.
 
 Cada paso tiene: **ACCIÓN** (lo que haces en pantalla), **DECIR** (lo que lees en voz alta, en inglés), **CÓDIGO** (lo que escribes) y **PRUEBA** (lo que deberías ver).
 
@@ -10,43 +16,13 @@ Los nombres de menús y botones están en inglés, tal como aparecen en VS Code 
 
 ## Antes de grabar (no sale en el video)
 
-ESLint no trae el programa ni las reglas, así que se deja listo en la carpeta del proyecto antes de grabar. Live Server y Prettier no necesitan nada. No hace falta `sudo` ni permisos de administrador.
-
-1. **Abre la carpeta del proyecto** en VS Code (**File → Open Folder…** → `registration-form`). Todo lo que sigue va en esa carpeta.
-2. **Node.js:** abre **Terminal → New Terminal** y escribe `node -v`. Si da error, instala la versión LTS desde https://nodejs.org y reinicia VS Code.
-3. **Instala ESLint en el proyecto:** en la misma terminal, ejecuta:
-
-   ```
-   npm install --save-dev eslint@9
-   ```
-
-   Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
-
-4. **Reglas de ESLint:** en el Explorer, crea un archivo nuevo llamado `eslint.config.mjs` (en la carpeta del proyecto, junto a `package.json`), pega esto y guarda:
-
-   ```js
-   export default [
-     {
-       files: ["**/*.js"],
-       languageOptions: {
-         sourceType: "script",
-         globals: { document: "readonly" },
-       },
-       rules: {
-         "no-undef": "error",
-         "no-unused-vars": "warn",
-       },
-     },
-   ];
-   ```
-
-5. **Prettier como formateador:** abre cualquier archivo CSS, haz clic derecho en el código → **Format Document With…** → **Configure Default Formatter…** → **Prettier - Code formatter**.
-
-Si en el video ESLint no subraya nada, ejecuta `Ctrl + Shift + P` → `ESLint: Restart ESLint Server`.
-
-**Importante:** si antes pegaste la línea `"eslint.options"` en los ajustes de VS Code, bórrala. Con esa línea, ESLint ignora el archivo `eslint.config.mjs`.
+1. **Node.js:** en VS Code, abre **Terminal → New Terminal** y escribe `node -v`. Tiene que mostrar una versión, por ejemplo `v22.14.0`. Si da error, instala la versión LTS desde https://nodejs.org y reinicia VS Code. Se necesita para instalar ESLint en el paso 11.
+2. **Extensiones:** si ya tienes instaladas Live Server, Prettier o ESLint, desinstálalas (engranaje → **Uninstall**) y reinicia VS Code, así en el video aparecen con el botón **Install**.
+3. **Carpeta:** no uses la copia de este proyecto que bajaste de GitHub, porque ya tiene los archivos terminados. En el video se crea una carpeta nueva y vacía.
 
 ---
+
+## Parte 1 — HTML y Live Server
 
 ### Paso 1 — Introducción
 
@@ -56,7 +32,7 @@ Si en el video ESLint no subraya nada, ejecuta `Ctrl + Shift + P` → `ESLint: R
 
 > Hi everyone! Today we'll build a registration form from scratch with HTML, CSS, and JavaScript. It will have three fields: name, email, and password. If something is wrong, we'll show an error under the field. If everything is right, we'll show a success message.
 >
-> First, we'll add three VS Code extensions that make our work easier: Live Server, Prettier, and ESLint. Then we'll write three files: HTML for the structure, CSS for the design, and JavaScript for the functionality.
+> We'll write three files: HTML for the structure, CSS for the design, and JavaScript for the functionality. And with each file, we'll add one VS Code extension that makes our work easier: Live Server, Prettier, and ESLint.
 
 **CÓDIGO:** Ninguno. **PRUEBA:** Ninguna.
 
@@ -76,31 +52,19 @@ Si en el video ESLint no subraya nada, ejecuta `Ctrl + Shift + P` → `ESLint: R
 
 ---
 
-### Paso 3 — Instalar las extensiones
+### Paso 3 — Instalar Live Server
 
-**ACCIÓN:** Abre la vista de **Extensions** (`Ctrl + Shift + X`) e instala:
-
-1. **Live Server**, de Ritwick Dey
-2. **Prettier - Code formatter**, de Prettier
-3. **ESLint**, de Microsoft
-
-Si ya las instalaste al preparar, solo muéstralas en la lista y no digas "Install".
+**ACCIÓN:** Abre **Extensions** (`Ctrl + Shift + X`), busca `Live Server`, elige **Live Server** de **Ritwick Dey** y haz clic en **Install**.
 
 **DECIR:**
 
-> I'll open the Extensions view with this icon on the left.
+> Our first extension is Live Server. I'll open the Extensions view with this icon on the left and search for "Live Server", by Ritwick Dey.
 >
-> First, Live Server. It opens our page in the browser and reloads it automatically every time we save. Install.
->
-> Second, Prettier. It's a code formatter. It fixes spaces, indentation, and quotes with one shortcut, so our code always looks clean. Install.
->
-> Third, ESLint. It's a linter. It reads our JavaScript and underlines real mistakes while we type, like a misspelled variable. ESLint needs a list of rules, and I already set them up before this video. Install.
->
-> In short: Live Server shows our work, Prettier keeps it clean, and ESLint keeps it correct.
+> Live Server opens our page in the browser, and reloads it automatically every time we save a file. We don't have to switch windows and press refresh again and again. Install.
 
 **CÓDIGO:** Ninguno.
 
-**PRUEBA:** Las tres extensiones muestran **Uninstall** o un ícono de engranaje. Aparece un botón **Go Live** abajo a la derecha, en la barra de estado.
+**PRUEBA:** La extensión muestra un engranaje en vez de **Install**, y aparece un botón **Go Live** abajo a la derecha, en la barra de estado.
 
 ---
 
@@ -162,15 +126,13 @@ Si ya las instalaste al preparar, solo muéstralas en la lista y no digas "Insta
 
 ---
 
-### Paso 5 — Ejemplo de Live Server
+### Paso 5 — Probar Live Server
 
-**ACCIÓN:**
-
-Con `index.html` guardado, haz clic en **Go Live**, en la barra de estado de abajo a la derecha.
+**ACCIÓN:** Con `index.html` guardado, haz clic en **Go Live**, abajo a la derecha en la barra de estado.
 
 **DECIR:**
 
-> Let's see our first extension. I'll click "Go Live" at the bottom of VS Code. Live Server opens our page in the browser. It's very plain, because we don't have any CSS yet. From now on, every time I save a file, the browser will update by itself.
+> Now let's try Live Server. I'll click "Go Live" at the bottom of VS Code, and our page opens in the browser. It's very plain, because we don't have any CSS yet. From now on, every time I save a file, the browser will update by itself.
 
 **CÓDIGO:** Ninguno.
 
@@ -178,7 +140,25 @@ Con `index.html` guardado, haz clic en **Go Live**, en la barra de estado de aba
 
 ---
 
-### Paso 6 — styles.css: el diseño
+## Parte 2 — CSS y Prettier
+
+### Paso 6 — Instalar Prettier
+
+**ACCIÓN:** En **Extensions**, busca `Prettier`, elige **Prettier - Code formatter** de **Prettier** y haz clic en **Install**.
+
+**DECIR:**
+
+> Before we write the CSS, let's add our second extension: Prettier. I'll search for "Prettier" and choose "Prettier - Code formatter".
+>
+> Prettier is a code formatter. It fixes spaces, indentation, and quotes with one shortcut, so our code always looks clean and consistent. We'll see it in action in a moment. Install.
+
+**CÓDIGO:** Ninguno.
+
+**PRUEBA:** La extensión muestra un engranaje en vez de **Install**.
+
+---
+
+### Paso 7 — styles.css: el diseño
 
 **ACCIÓN:** Crea `styles.css`, escribe el código de abajo y guarda. Mira el navegador.
 
@@ -249,23 +229,29 @@ button {
 >
 > The inputs get padding and a gray border. The class "invalid" turns the border red. JavaScript will add that class when a field is wrong. The error text is red, and the success message is green.
 >
-> I'll save, and look at the browser: it updated by itself again. That's Live Server.
+> I'll save, and look at the browser: it updated by itself. That's Live Server again.
 
 **PRUEBA:** Sin recargar, el navegador muestra una tarjeta blanca centrada con un botón azul.
 
 ---
 
-### Paso 7 — Ejemplo de Prettier
+### Paso 8 — Probar Prettier
 
-**ACCIÓN:** En `styles.css`, selecciona la regla `input.invalid` (líneas 32 a 34) y escríbela de nuevo en una sola línea, así: `input.invalid{border-color:#dc2626}`. Pulsa `Shift + Alt + F` y guarda.
+**ACCIÓN:**
+
+1. En `styles.css`, selecciona la regla `input.invalid` (líneas 32 a 34) y escríbela de nuevo en una sola línea, así: `input.invalid{border-color:#dc2626}`.
+2. Haz clic derecho en el código → **Format Document With…** → **Configure Default Formatter…** → **Prettier - Code formatter**. Esto se hace solo la primera vez.
+3. Guarda con `Ctrl + S`. A partir de ahora, alcanza con pulsar `Shift + Alt + F`.
 
 **DECIR:**
 
-> Now let's see Prettier. I'll write this rule on one messy line, with no spaces. It still works, but it's hard to read. I'll press Shift, Alt, and F, and Prettier puts it back on three clean lines.
+> Now let's try Prettier. I'll write this rule on one messy line, with no spaces. It still works, but it's hard to read.
+>
+> The first time, we tell VS Code to use Prettier: right-click, "Format Document With", "Configure Default Formatter", and Prettier. And there it is: Prettier puts the rule back on three clean lines. From now on, I just press Shift, Alt, and F.
 
 **CÓDIGO:** Solo el cambio de la regla, que Prettier corrige.
 
-**PRUEBA:** Al pulsar `Shift + Alt + F`, la regla vuelve a ocupar tres líneas:
+**PRUEBA:** La regla vuelve a ocupar tres líneas:
 
 ```css
 input.invalid {
@@ -275,7 +261,9 @@ input.invalid {
 
 ---
 
-### Paso 8 — script.js: la funcionalidad
+## Parte 3 — JavaScript y ESLint
+
+### Paso 9 — script.js: la funcionalidad
 
 **ACCIÓN:** Crea `script.js`, escribe el código de abajo y guarda.
 
@@ -300,9 +288,9 @@ form.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("password").value;
 
-  const okName = check("name", name.length >= 2, "Min. 2 characters");
+  const okName = check("name", name.length >= 2, "Min. 2 characters.");
   const okEmail = check("email", email.includes("@"), "Invalid email");
-  const okPass = check("password", pass.length >= 8, "Min. 8 characters");
+  const okPass = check("password", pass.length >= 8, "Min. 8 characters.");
 
   success.hidden = !(okName && okEmail && okPass);
   if (!success.hidden) {
@@ -323,72 +311,172 @@ form.addEventListener("submit", (event) => {
 >
 > Last, the success message. It's visible only if all three checks are OK. And when everything is valid, we clear the form.
 
-**PRUEBA:** En el navegador, haz clic en **Sign up** con los campos vacíos: aparecen tres bordes rojos y tres mensajes en rojo.
+**PRUEBA:** El archivo está guardado. El formulario se prueba completo en el paso 13.
 
 ---
 
-### Paso 9 — Ejemplo de ESLint
+### Paso 10 — Instalar la extensión de ESLint
 
-**ACCIÓN:**
-
-1. En la **línea 19**, cambia `name.length` por `nmae.length`.
-2. Pasa el mouse sobre la línea **roja** debajo de `nmae`, y después sobre la línea **amarilla** debajo de `name` en la línea 15.
-3. Guarda. En el navegador, haz clic en **Sign up**. Pulsa `F12` y abre la pestaña **Console**.
-4. Vuelve a cambiar `nmae` por `name` y guarda. Cierra las herramientas de desarrollo.
+**ACCIÓN:** En **Extensions**, busca `ESLint`, elige **ESLint** de **Microsoft** y haz clic en **Install**.
 
 **DECIR:**
 
-> Now let's see ESLint. I'll make a typical typo: on line 19, I'll write "nmae" instead of "name".
+> Our last extension is ESLint, by Microsoft. ESLint is a linter. It reads our JavaScript without running it and finds real mistakes, like a misspelled variable. Install.
 >
-> ESLint underlines it in red right away: "'nmae' is not defined". That variable doesn't exist. And there's also a yellow warning on line 15: "'name' is assigned a value but never used", because now we never use the real variable.
+> ESLint is different from Prettier. The extension only connects VS Code to ESLint. The ESLint program itself, and its rules, are installed in our project. Let's do that now.
+
+**CÓDIGO:** Ninguno.
+
+**PRUEBA:** La extensión muestra un engranaje en vez de **Install**.
+
+---
+
+### Paso 11 — Instalar ESLint en el proyecto
+
+**ACCIÓN:**
+
+1. Abre **Terminal → New Terminal** y escribe `pwd`. La ruta tiene que terminar en `registration-form`.
+2. Instala ESLint en el proyecto:
+
+   ```
+   npm install --save-dev eslint@9
+   ```
+
+   Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
+
+3. Comprueba la versión:
+
+   ```
+   npx eslint -v
+   ```
+
+4. En el Explorer, crea `eslint.config.mjs` junto a `package.json`, escribe el código de abajo y guarda.
+5. `Ctrl + Shift + P` → `ESLint: Restart ESLint Server` → Enter.
+
+**CÓDIGO — `eslint.config.mjs`:**
+
+```js
+export default [
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      sourceType: "script",
+      globals: { document: "readonly" },
+    },
+    rules: {
+      "no-undef": "error",
+      "no-unused-vars": "warn",
+    },
+  },
+];
+```
+
+**DECIR:**
+
+> I'll open the terminal and check that I'm in the project folder, with "pwd". Then I'll install ESLint in the project with "npm install --save-dev eslint@9". "Save-dev" means it's a tool for development, not part of the website.
 >
-> Is it really a bug? I'll save and try the form. I click Sign up, and nothing happens. In the browser console, there it is: "ReferenceError: nmae is not defined". The form is broken, and ESLint told us before we even opened the browser.
+> Let me check that it works with "npx eslint -v". It shows version 9.
 >
-> Notice that Prettier didn't complain. The code was well formatted, just wrong. Prettier checks how the code looks, and ESLint checks if it makes sense.
+> Now ESLint needs its rules. I'll create a file called "eslint.config.mjs". This is ESLint's configuration file. We turn on two rules: "no-undef" gives an error when we use a variable that doesn't exist, and "no-unused-vars" warns us about variables we never use. We also tell ESLint that our code runs in the browser, where "document" always exists.
 >
-> I'll fix the typo, and both lines disappear.
+> Finally, I'll restart the ESLint server, so the extension picks up the new configuration.
 
 **PRUEBA:**
 
-- **Con el error:** subrayado rojo `'nmae' is not defined.` (regla `no-undef`) y aviso amarillo `'name' is assigned a value but never used.` (regla `no-unused-vars`). La consola muestra `Uncaught ReferenceError: nmae is not defined`.
-- **Después de corregirlo:** no queda ningún subrayado.
-- **Si no aparece ningún subrayado:** ejecuta **ESLint: Restart ESLint Server** y revisa **View → Output → ESLint**.
+- `pwd` termina en `registration-form`.
+- `npx eslint -v` muestra una versión que empieza con `v9`, por ejemplo `v9.39.5`.
+- El Explorer muestra `eslint.config.mjs` junto a `package.json`.
+- Si el comando **ESLint: Restart ESLint Server** no aparece, la extensión no está instalada o está desactivada: vuelve al paso 10.
 
 ---
 
-### Paso 10 — Probar el formulario
+### Paso 12 — Probar ESLint
 
 **ACCIÓN:**
 
-1. Escribe `J`, `jane` y `abc`, y haz clic en **Sign up**.
-2. Escribe `Jane`, `jane@example.com` y `secret123`, y haz clic en **Sign up**.
-3. Pulsa `F12`, luego `Ctrl + Shift + M`, y elige un tamaño de celular. Después cierra las herramientas de desarrollo.
+1. En la terminal, revisa el archivo:
+
+   ```
+   npx eslint script.js
+   ```
+
+2. En `script.js`, agrega esta línea al final del archivo (línea 28) y guarda:
+
+   ```js
+   nmae;
+   ```
+
+3. Mira el subrayado rojo y pasa el mouse encima. Vuelve a ejecutar `npx eslint script.js`.
+4. Borra la línea `nmae;`, guarda y ejecuta `npx eslint script.js` una última vez.
 
 **DECIR:**
 
-> Let's test it. Wrong values first: one letter, an email without an at sign, and a short password. Three red errors.
+> Let's try ESLint. In the terminal, I'll run "npx eslint script.js". No output, which means ESLint didn't find any problems. Silence is good news.
 >
-> Now valid values: "Jane", "jane@example.com", and "secret123". The errors disappear, the form is cleared, and we see "Registration successful!" in green.
+> Now I'll make a typical mistake on purpose. At the end of the file, I'll write "nmae", a misspelled version of "name". Right away, ESLint underlines it in red, and when I hover over it, it says: "'nmae' is not defined". That variable doesn't exist.
 >
-> And on a phone-sized screen, the form fills the width and still looks good.
+> In the terminal, ESLint shows the same thing: line 28, an error, the message, and the rule name, "no-undef". ESLint found the bug without even running the code.
+>
+> Notice that Prettier didn't complain. The line is well formatted, just wrong. Prettier checks how the code looks, and ESLint checks if it makes sense.
+>
+> I'll delete the line, save, and run ESLint again. No output, so our code is clean.
+
+**PRUEBA:**
+
+- La primera vez, `npx eslint script.js` no muestra nada.
+- Con `nmae;`, aparece un subrayado **rojo** que dice `'nmae' is not defined.`, y la terminal muestra:
+
+  ```
+  28:1  error  'nmae' is not defined  no-undef
+
+  ✖ 1 problem (1 error, 0 warnings)
+  ```
+
+- Después de borrar la línea, `npx eslint script.js` vuelve a no mostrar nada.
+- Si no aparece el subrayado en el editor, ejecuta otra vez **ESLint: Restart ESLint Server** y revisa **View → Output → ESLint**.
+
+---
+
+## Parte 4 — El proyecto funcionando
+
+### Paso 13 — Probar el formulario
+
+**ACCIÓN:**
+
+1. En el navegador, recarga la página con `F5`.
+2. Haz clic en **Sign up** con todos los campos vacíos.
+3. Escribe `J`, `jane` y `abc`, y haz clic en **Sign up**.
+4. Escribe `Jane`, `jane@example.com` y `secret123`, y haz clic en **Sign up**.
+5. Pulsa `F12`, luego `Ctrl + Shift + M`, y elige un tamaño de celular. Después cierra las herramientas de desarrollo.
+
+**DECIR:**
+
+> Now let's see the whole project working. First, I'll click Sign up with everything empty. Three red borders and three error messages.
+>
+> Now wrong values: one letter, an email without an at sign, and a short password. Still three errors, because none of them follow the rules.
+>
+> And now valid values: "Jane", "jane@example.com", and "secret123". The errors disappear, the form is cleared, and we see "Registration successful!" in green.
+>
+> Last, on a phone-sized screen, the form fills the width and still looks good.
 
 **PRUEBA:**
 
 | Datos | Resultado |
 | ----- | --------- |
-| `J`, `jane`, `abc` | Bordes rojos y los mensajes _Min. 2 characters_, _Invalid email_, _Min. 8 characters_ |
+| Campos vacíos | Bordes rojos y los mensajes _Min. 2 characters._, _Invalid email_, _Min. 8 characters._ |
+| `J`, `jane`, `abc` | Los mismos tres errores |
 | `Jane`, `jane@example.com`, `secret123` | Sin errores, campos vacíos y el mensaje verde _Registration successful!_ |
 | Vista de celular | La tarjeta ocupa cerca del 90% del ancho |
 
 ---
 
-### Paso 11 — Cierre
+### Paso 14 — Cierre
 
 **DECIR:**
 
 > And that's it! With three short files, we built a working registration form: HTML for the structure, CSS for the design, and JavaScript for the validation.
 >
-> And we used three extensions: Live Server to see changes instantly, Prettier to keep the code clean, and ESLint to catch real mistakes before they reach the browser.
+> And with each file, we used one extension: Live Server to see our changes instantly, Prettier to keep the code clean, and ESLint to catch real mistakes before they reach the browser.
 >
 > Thanks for watching!
 
