@@ -70,13 +70,11 @@ Los nombres de menús y botones están en inglés, tal como aparecen en VS Code 
 
 ### Paso 4 — index.html: la estructura
 
-**ACCIÓN:**
+**ACCIÓN:** En el Explorer, haz clic en **New File…** y crea `index.html`. Escribe cada bloque y lee el texto que está debajo. Al final, guarda con `Ctrl + S`.
 
-1. En el Explorer, haz clic en **New File…** y crea `index.html`.
-2. Escribe `!` y pulsa **Tab**. VS Code (Emmet) crea el esqueleto básico de HTML.
-3. Cambia el título a `Registration Form`, agrega la línea `<link>` y escribe el contenido del `<body>`. Guarda con `Ctrl + S`.
+**CÓDIGO Y DECIR:**
 
-**CÓDIGO — `index.html`:**
+**Bloque 1 de 6** — escribe `!` y pulsa **Tab**: VS Code (Emmet) crea el esqueleto. Después cambia el título y agrega la línea `<link>`. El esqueleto de Emmet puede verse un poco distinto (por ejemplo `<!DOCTYPE html>` en mayúsculas o 4 espacios de sangría); funciona igual.
 
 ```html
 <!doctype html>
@@ -88,13 +86,32 @@ Los nombres de menús y botones están en inglés, tal como aparecen en VS Code 
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+```
+
+> Let's create index.html. A quick trick: I type an exclamation mark and press Tab, and VS Code writes the basic HTML skeleton for me. In the head, I'll change the title to "Registration Form", and link our stylesheet, styles.css. We'll create that file later.
+
+**Bloque 2 de 6** — dentro del `<body>`:
+
+```html
     <form id="form" novalidate>
       <h1>Create account</h1>
+```
 
+> Inside the body, we add a form with the id "form", so JavaScript can find it. The word "novalidate" turns off the browser's own validation, because our JavaScript will do it. And a heading: "Create account".
+
+**Bloque 3 de 6:**
+
+```html
       <label for="name">Name</label>
       <input id="name" type="text" />
       <small id="name-error"></small>
+```
 
+> Each field has three parts. First, a label, the text the user sees. Its "for" attribute matches the input's id, so clicking the label puts the cursor in the field. Then the input itself. And an empty "small" element, where we'll show the error message. Notice its id: "name-error". Our JavaScript will use that name to find it.
+
+**Bloque 4 de 6:**
+
+```html
       <label for="email">Email</label>
       <input id="email" type="email" />
       <small id="email-error"></small>
@@ -102,25 +119,29 @@ Los nombres de menús y botones están en inglés, tal como aparecen en VS Code 
       <label for="password">Password</label>
       <input id="password" type="password" />
       <small id="password-error"></small>
+```
 
+> The email and password fields follow exactly the same pattern: "email" and "email-error", "password" and "password-error". The type "password" hides what the user types with dots.
+
+**Bloque 5 de 6:**
+
+```html
       <button type="submit">Sign up</button>
       <p id="success" hidden>Registration successful!</p>
     </form>
+```
 
+> Then the button that sends the form, and the success message. It has the "hidden" attribute, so it's invisible for now. JavaScript will show it when everything is valid.
+
+**Bloque 6 de 6** — antes de `</body>`. Las etiquetas `</body>` y `</html>` ya las creó Emmet en el bloque 1.
+
+```html
     <script src="script.js"></script>
   </body>
 </html>
 ```
 
-**DECIR:**
-
-> Let's create index.html. A quick trick: I type an exclamation mark and press Tab, and VS Code writes the basic HTML skeleton for me. I'll change the title and link our stylesheet, styles.css.
->
-> In the body, we add a form. The word "novalidate" turns off the browser's own validation, because our JavaScript will do it.
->
-> Each field has three parts: a label, an input, and an empty "small" element for the error message. Notice the ids: "name" and "name-error", "email" and "email-error". Our JavaScript will use these names to find each error.
->
-> Then a button, and a success message with the "hidden" attribute, so it's invisible for now. At the end, we load script.js.
+> Finally, before closing the body, we load script.js. We put it at the end, so the whole form already exists when the script runs. I'll save the file.
 
 **PRUEBA:** La pestaña `index.html` no muestra el punto blanco, o sea que está guardado.
 
@@ -160,78 +181,47 @@ Los nombres de menús y botones están en inglés, tal como aparecen en VS Code 
 
 ### Paso 7 — styles.css: el diseño
 
-**ACCIÓN:** Crea `styles.css`, escribe el código de abajo y guarda. Mira el navegador.
+**ACCIÓN:** Crea `styles.css`. Escribe cada bloque y lee el texto que está debajo. Al final, guarda y mira el navegador.
 
-**CÓDIGO — `styles.css`:**
+**CÓDIGO Y DECIR:**
+
+**Bloque 1 de 3:**
 
 ```css
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  font-family: Arial, sans-serif;
-  background: #eef2ff;
-}
-
 form {
   display: grid;
   gap: 6px;
-  width: 90%;
-  max-width: 360px;
-  padding: 24px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  margin: 0 0 10px;
-  text-align: center;
-}
-
-input {
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-}
-
-input.invalid {
-  border-color: #dc2626;
-}
-
-small {
-  min-height: 16px;
-  color: #dc2626;
-}
-
-button {
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  background: #4f46e5;
-  cursor: pointer;
-}
-
-#success {
-  color: #16a34a;
-  font-weight: bold;
-  text-align: center;
+  max-width: 300px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
 }
 ```
 
-**DECIR:**
+> Now styles.css. We only need three rules. First, the form. "display: grid" puts each label and field one below the other, with a small gap. "max-width" keeps it narrow, and "margin auto" centers it on the page. That also makes it responsive: on a phone, it simply uses the available width.
 
-> Now styles.css. For the body, "display: grid" and "place-items: center" put our form right in the middle of the screen.
->
-> The form is a white card. Its width is 90 percent, but never more than 360 pixels. That makes it responsive: it fills a phone screen, and stays small on a big screen.
->
-> The inputs get padding and a gray border. The class "invalid" turns the border red. JavaScript will add that class when a field is wrong. The error text is red, and the success message is green.
+**Bloque 2 de 3:**
+
+```css
+input.invalid {
+  border: 2px solid red;
+}
+```
+
+> Second, the class "invalid" gives a field a red border. JavaScript will add that class when a field is wrong.
+
+**Bloque 3 de 3:**
+
+```css
+small {
+  color: red;
+}
+```
+
+> And third, the error messages, in the "small" elements, are red.
 >
 > I'll save, and look at the browser: it updated by itself. That's Live Server again.
 
-**PRUEBA:** Sin recargar, el navegador muestra una tarjeta blanca centrada con un botón azul.
+**PRUEBA:** Sin recargar, el navegador muestra el formulario centrado, con cada campo debajo de su etiqueta y la letra Arial.
 
 ---
 
@@ -239,7 +229,7 @@ button {
 
 **ACCIÓN:**
 
-1. En `styles.css`, selecciona la regla `input.invalid` (líneas 32 a 34) y escríbela de nuevo en una sola línea, así: `input.invalid{border-color:#dc2626}`.
+1. En `styles.css`, selecciona la regla `input.invalid` (líneas 9 a 11) y escríbela de nuevo en una sola línea, así: `input.invalid{border:2px solid red}`.
 2. Haz clic derecho en el código → **Format Document With…** → **Configure Default Formatter…** → **Prettier - Code formatter**. Esto se hace solo la primera vez.
 3. Guarda con `Ctrl + S`. A partir de ahora, alcanza con pulsar `Shift + Alt + F`.
 
@@ -255,7 +245,7 @@ button {
 
 ```css
 input.invalid {
-  border-color: #dc2626;
+  border: 2px solid red;
 }
 ```
 
@@ -265,14 +255,22 @@ input.invalid {
 
 ### Paso 9 — script.js: la funcionalidad
 
-**ACCIÓN:** Crea `script.js`, escribe el código de abajo y guarda.
+**ACCIÓN:** Crea `script.js`. Escribe cada bloque y lee el texto que está debajo. Al final, guarda con `Ctrl + S`.
 
-**CÓDIGO — `script.js`:**
+**CÓDIGO Y DECIR:**
+
+**Bloque 1 de 6:**
 
 ```js
 const form = document.getElementById("form");
 const success = document.getElementById("success");
+```
 
+> Finally, script.js. First, we get two elements from the page with "getElementById": the form, and the success message. We save them in constants, so we can use them later.
+
+**Bloque 2 de 6:**
+
+```js
 function check(id, isValid, message) {
   const input = document.getElementById(id);
   const error = document.getElementById(id + "-error");
@@ -280,18 +278,44 @@ function check(id, isValid, message) {
   error.textContent = isValid ? "" : message;
   return isValid;
 }
+```
 
+> Then one small function, "check", that we'll use for every field. It receives three things: the field's id, whether the value is valid, true or false, and an error message.
+>
+> First, it finds the input, and its error element, by adding "-error" to the id. That's the naming rule from our HTML. Then "classList.toggle" adds the red "invalid" class when the value is not valid, and removes it when it is. The next line shows the message, or clears it. And finally, the function returns the result.
+
+**Bloque 3 de 6** — VS Code agrega solo el cierre `});`, así que escribe el resto del código adentro.
+
+```js
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+```
 
+> Next, we listen for the form's "submit" event, which happens when the user clicks Sign up. By default, the browser would reload the page. "preventDefault" stops that, so we can check the data first.
+
+**Bloque 4 de 6:**
+
+```js
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("password").value;
+```
 
+> Then we read the three values. "trim" removes extra spaces at the start and the end. We don't trim the password, because a space can be part of it.
+
+**Bloque 5 de 6:**
+
+```js
   const okName = check("name", name.length >= 2, "Min. 2 characters.");
   const okEmail = check("email", email.includes("@"), "Invalid email");
   const okPass = check("password", pass.length >= 8, "Min. 8 characters.");
+```
 
+> Now our three rules, one line each, using our check function: the name needs at least 2 characters, the email must contain an at sign, and the password needs at least 8 characters.
+
+**Bloque 6 de 6:**
+
+```js
   success.hidden = !(okName && okEmail && okPass);
   if (!success.hidden) {
     form.reset();
@@ -299,19 +323,9 @@ form.addEventListener("submit", (event) => {
 });
 ```
 
-**DECIR:**
+> Last, the success message. It stays hidden unless all three checks are OK. And when everything is valid, "reset" clears the form. I'll save the file.
 
-> Finally, script.js. First, we get the form and the success message from the page.
->
-> Then one small function, "check", that we'll use for every field. It receives the field's id, whether the value is valid, and an error message. It finds the input and its error element, using the "-error" names from our HTML. If the value is not valid, it adds the red "invalid" class and shows the message. If it is valid, it removes the class and clears the message. And it returns the result.
->
-> Next, we listen for the form's "submit" event. "preventDefault" stops the page from reloading. Then we read the three values. "trim" removes extra spaces.
->
-> Now our three rules: the name needs at least 2 characters, the email must contain an at sign, and the password needs at least 8 characters.
->
-> Last, the success message. It's visible only if all three checks are OK. And when everything is valid, we clear the form.
-
-**PRUEBA:** El archivo está guardado. El formulario se prueba completo en el paso 13.
+**PRUEBA:** El archivo está guardado y tiene 27 líneas. El formulario se prueba completo en el paso 13.
 
 ---
 
@@ -333,27 +347,33 @@ form.addEventListener("submit", (event) => {
 
 ### Paso 11 — Instalar ESLint en el proyecto
 
-**ACCIÓN:**
+**ACCIÓN Y DECIR:**
 
-1. Abre **Terminal → New Terminal** y escribe `pwd`. La ruta tiene que terminar en `registration-form`.
-2. Instala ESLint en el proyecto:
+**1.** Abre **Terminal → New Terminal** y escribe:
 
-   ```
-   npm install --save-dev eslint@9
-   ```
+```
+pwd
+```
 
-   Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
+> I'll open the terminal and check that I'm in the project folder, with "pwd".
 
-3. Comprueba la versión:
+**2.** Instala ESLint en el proyecto. Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
 
-   ```
-   npx eslint -v
-   ```
+```
+npm install --save-dev eslint@9
+```
 
-4. En el Explorer, crea `eslint.config.mjs` junto a `package.json`, escribe el código de abajo y guarda.
-5. `Ctrl + Shift + P` → `ESLint: Restart ESLint Server` → Enter.
+> Then I'll install ESLint in the project with "npm install --save-dev eslint@9". "Save-dev" means it's a tool for development, not part of the website.
 
-**CÓDIGO — `eslint.config.mjs`:**
+**3.** Comprueba la versión:
+
+```
+npx eslint -v
+```
+
+> Let me check that it works with "npx eslint -v". It shows version 9.
+
+**4.** En el Explorer, crea `eslint.config.mjs` junto a `package.json`, escribe esto y guarda:
 
 ```js
 export default [
@@ -371,14 +391,10 @@ export default [
 ];
 ```
 
-**DECIR:**
-
-> I'll open the terminal and check that I'm in the project folder, with "pwd". Then I'll install ESLint in the project with "npm install --save-dev eslint@9". "Save-dev" means it's a tool for development, not part of the website.
->
-> Let me check that it works with "npx eslint -v". It shows version 9.
->
 > Now ESLint needs its rules. I'll create a file called "eslint.config.mjs". This is ESLint's configuration file. We turn on two rules: "no-undef" gives an error when we use a variable that doesn't exist, and "no-unused-vars" warns us about variables we never use. We also tell ESLint that our code runs in the browser, where "document" always exists.
->
+
+**5.** `Ctrl + Shift + P` → `ESLint: Restart ESLint Server` → Enter.
+
 > Finally, I'll restart the ESLint server, so the extension picks up the new configuration.
 
 **PRUEBA:**
@@ -455,7 +471,7 @@ export default [
 >
 > Now wrong values: one letter, an email without an at sign, and a short password. Still three errors, because none of them follow the rules.
 >
-> And now valid values: "Jane", "jane@example.com", and "secret123". The errors disappear, the form is cleared, and we see "Registration successful!" in green.
+> And now valid values: "Jane", "jane@example.com", and "secret123". The errors disappear, the form is cleared, and we see "Registration successful!".
 >
 > Last, on a phone-sized screen, the form fills the width and still looks good.
 
@@ -465,8 +481,8 @@ export default [
 | ----- | --------- |
 | Campos vacíos | Bordes rojos y los mensajes _Min. 2 characters._, _Invalid email_, _Min. 8 characters._ |
 | `J`, `jane`, `abc` | Los mismos tres errores |
-| `Jane`, `jane@example.com`, `secret123` | Sin errores, campos vacíos y el mensaje verde _Registration successful!_ |
-| Vista de celular | La tarjeta ocupa cerca del 90% del ancho |
+| `Jane`, `jane@example.com`, `secret123` | Sin errores, campos vacíos y el mensaje _Registration successful!_ |
+| Vista de celular | El formulario usa el ancho de la pantalla, hasta 300 píxeles |
 
 ---
 
