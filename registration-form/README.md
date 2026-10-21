@@ -230,14 +230,25 @@ small {
 **ACCIÓN:**
 
 1. En `styles.css`, selecciona la regla `input.invalid` (líneas 9 a 11) y escríbela de nuevo en una sola línea, así: `input.invalid{border:2px solid red}`.
-2. Haz clic derecho en el código → **Format Document With…** → **Configure Default Formatter…** → **Prettier - Code formatter**. Esto se hace solo la primera vez.
-3. Guarda con `Ctrl + S`. A partir de ahora, alcanza con pulsar `Shift + Alt + F`.
+2. **Elige Prettier como formateador (solo la primera vez):** clic derecho dentro del código → **Format Document With…** → en la lista de arriba, **Configure Default Formatter…** → **Prettier - Code formatter**. Este paso solo elige Prettier: **todavía no formatea**.
+3. **Formatea:** pulsa `Shift + Option + F` (en Windows, `Shift + Alt + F`). Ahora sí la regla vuelve a ocupar 3 líneas.
+4. Guarda con `Cmd + S`.
+
+**Si no funciona (revísalo antes de grabar, en Mac):**
+
+- **Prettier está activado:** abajo a la derecha, en la barra de estado, tiene que aparecer **{ } Prettier** con una tilde (✓). Si tiene una ✗ o un aviso, haz clic ahí para ver el error.
+- **La extensión no está desactivada:** `Cmd + Shift + X` → **Prettier - Code formatter**. Si hay un botón **Enable**, haz clic en él.
+- **Formatear directo con Prettier:** clic derecho → **Format Document With…** → elige **Prettier - Code formatter**, no la opción "Configure…". Esto formatea aunque Prettier no esté elegido por defecto.
+- **Revisa los ajustes:** `Cmd + ,` para abrir **Settings**.
+  - Busca `default formatter` y elige **Prettier - Code formatter**.
+  - Busca `prettier require config`: la casilla tiene que estar **desmarcada**. Si está marcada, Prettier no formatea porque el proyecto no tiene archivo de configuración.
+- **Recarga VS Code:** `Cmd + Shift + P` → `Developer: Reload Window`.
 
 **DECIR:**
 
 > Now let's try Prettier. I'll write this rule on one messy line, with no spaces. It still works, but it's hard to read.
 >
-> The first time, we tell VS Code to use Prettier: right-click, "Format Document With", "Configure Default Formatter", and Prettier. And there it is: Prettier puts the rule back on three clean lines. From now on, I just press Shift, Alt, and F.
+> The first time, we tell VS Code to use Prettier: right-click, "Format Document With", "Configure Default Formatter", and Prettier. Now I'll press Shift, Option, and F, which is "Format Document". And there it is: Prettier puts the rule back on three clean lines. From now on, I just use that shortcut.
 
 **CÓDIGO:** Solo el cambio de la regla, que Prettier corrige.
 
@@ -259,7 +270,7 @@ input.invalid {
 
 **CÓDIGO Y DECIR:**
 
-**Bloque 1 de 6:**
+**Bloque 1 de 5:**
 
 ```js
 const form = document.getElementById("form");
@@ -268,23 +279,19 @@ const success = document.getElementById("success");
 
 > Finally, script.js. First, we get two elements from the page with "getElementById": the form, and the success message. We save them in constants, so we can use them later.
 
-**Bloque 2 de 6:**
+**Bloque 2 de 5:**
 
 ```js
-function check(id, isValid, message) {
-  const input = document.getElementById(id);
-  const error = document.getElementById(id + "-error");
-  input.classList.toggle("invalid", !isValid);
-  error.textContent = isValid ? "" : message;
-  return isValid;
-}
+const rules = {
+  name: [(v) => v.trim().length >= 2, "Min. 2 characters."],
+  email: [(v) => v.includes("@"), "Invalid email"],
+  password: [(v) => v.length >= 8, "Min. 8 characters."],
+};
 ```
 
-> Then one small function, "check", that we'll use for every field. It receives three things: the field's id, whether the value is valid, true or false, and an error message.
->
-> First, it finds the input, and its error element, by adding "-error" to the id. That's the naming rule from our HTML. Then "classList.toggle" adds the red "invalid" class when the value is not valid, and removes it when it is. The next line shows the message, or clears it. And finally, the function returns the result.
+> Then our rules, all in one place. For each field id, we have two things: a small function that tests the value, and the error message. The name needs at least 2 characters, and "trim" makes sure extra spaces don't count. The email must contain an at sign. And the password needs at least 8 characters. If we want a new field later, we just add one line here.
 
-**Bloque 3 de 6** — VS Code agrega solo el cierre `});`, así que escribe el resto del código adentro.
+**Bloque 3 de 5** — VS Code agrega solo el cierre `});`, así que escribe el resto del código adentro.
 
 ```js
 form.addEventListener("submit", (event) => {
@@ -293,39 +300,35 @@ form.addEventListener("submit", (event) => {
 
 > Next, we listen for the form's "submit" event, which happens when the user clicks Sign up. By default, the browser would reload the page. "preventDefault" stops that, so we can check the data first.
 
-**Bloque 4 de 6:**
+**Bloque 4 de 5:**
 
 ```js
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("password").value;
+  const ok = Object.entries(rules)
+    .map(([id, [test, message]]) => {
+      const valid = test(form.elements[id].value);
+      form.elements[id].classList.toggle("invalid", !valid);
+      document.getElementById(id + "-error").textContent = valid ? "" : message;
+      return valid;
+    })
 ```
 
-> Then we read the three values. "trim" removes extra spaces at the start and the end. We don't trim the password, because a space can be part of it.
+> Now we go through our rules, one field at a time. "Object.entries" gives us each id with its test and its message. We find the input with "form.elements", and run the test on its value.
+>
+> Then "classList.toggle" adds the red "invalid" class when the value is not valid, and removes it when it is. We find the error element by adding "-error" to the id. That's the naming rule from our HTML. We show the message, or clear it. And we return true or false.
 
-**Bloque 5 de 6:**
-
-```js
-  const okName = check("name", name.length >= 2, "Min. 2 characters.");
-  const okEmail = check("email", email.includes("@"), "Invalid email");
-  const okPass = check("password", pass.length >= 8, "Min. 8 characters.");
-```
-
-> Now our three rules, one line each, using our check function: the name needs at least 2 characters, the email must contain an at sign, and the password needs at least 8 characters.
-
-**Bloque 6 de 6:**
+**Bloque 5 de 5:**
 
 ```js
-  success.hidden = !(okName && okEmail && okPass);
-  if (!success.hidden) {
-    form.reset();
-  }
+    .every(Boolean);
+
+  success.hidden = !ok;
+  if (ok) form.reset();
 });
 ```
 
-> Last, the success message. It stays hidden unless all three checks are OK. And when everything is valid, "reset" clears the form. I'll save the file.
+> "every" checks that all the results are true. We use "map" first, so every field gets checked, even when the first one is wrong. Last, the success message stays hidden unless everything is OK. And when everything is valid, "reset" clears the form. I'll save the file.
 
-**PRUEBA:** El archivo está guardado y tiene 27 líneas. El formulario se prueba completo en el paso 13.
+**PRUEBA:** El archivo está guardado y tiene 24 líneas. El formulario se prueba completo en el paso 13.
 
 ---
 
@@ -416,7 +419,7 @@ export default [
    npx eslint script.js
    ```
 
-2. En `script.js`, agrega esta línea al final del archivo (línea 28) y guarda:
+2. En `script.js`, agrega esta línea al final del archivo (línea 25) y guarda:
 
    ```js
    nmae;
@@ -431,7 +434,7 @@ export default [
 >
 > Now I'll make a typical mistake on purpose. At the end of the file, I'll write "nmae", a misspelled version of "name". Right away, ESLint underlines it in red, and when I hover over it, it says: "'nmae' is not defined". That variable doesn't exist.
 >
-> In the terminal, ESLint shows the same thing: line 28, an error, the message, and the rule name, "no-undef". ESLint found the bug without even running the code.
+> In the terminal, ESLint shows the same thing: line 25, an error, the message, and the rule name, "no-undef". ESLint found the bug without even running the code.
 >
 > Notice that Prettier didn't complain. The line is well formatted, just wrong. Prettier checks how the code looks, and ESLint checks if it makes sense.
 >
@@ -443,7 +446,7 @@ export default [
 - Con `nmae;`, aparece un subrayado **rojo** que dice `'nmae' is not defined.`, y la terminal muestra:
 
   ```
-  28:1  error  'nmae' is not defined  no-undef
+  25:1  error  'nmae' is not defined  no-undef
 
   ✖ 1 problem (1 error, 0 warnings)
   ```
