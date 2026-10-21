@@ -16,15 +16,17 @@ Guion paso a paso para grabar la tarea **dje548b6**: un análisis exploratorio d
 
 ```
 dje548b6-ecommerce-exploratory-analysis/
-├── README.md            ← este guion
-├── ecommerce_eda.ipynb  ← el notebook completo, listo para abrir en Colab
-├── notebook_cells.py    ← el mismo código como script de Python
+├── README.md            ← este guion: qué hacer, qué explica cada línea y qué decir en inglés
+├── notebook_cells.py    ← todas las celdas del notebook, en orden, para replicarlas en Colab
 └── retail-orders.csv    ← copia de respaldo del dataset (descargada el 21/10/2026)
 ```
 
-`ecommerce_eda.ipynb` ya hace todo el análisis, punto por punto, con las mismas celdas de texto y de código que este guion. Para abrirlo en Colab: en https://colab.research.google.com elegís **Archivo → Subir notebook** (*File → Upload notebook*), seleccionás `ecommerce_eda.ipynb` y después **Entorno de ejecución → Ejecutar todas** (*Runtime → Run all*). Colab solo abre archivos `.ipynb`: el `.py` no se puede subir como notebook.
+`notebook_cells.py` tiene el notebook completo, punto por punto. Cada bloque `# %%` es una celda de Colab:
 
-`notebook_cells.py` tiene el mismo código, para ejecutarlo fuera de Colab con `python notebook_cells.py`. Si las reglas de Odin piden escribir el código en pantalla, usá estos archivos solo para practicar y **no los pegues** durante la grabación.
+- **`# %% TEXT cell`:** va en una celda **+ Texto**. Escribila sin los `# ` del principio de cada línea. Por ejemplo, `# ## 1. Explore the data` se escribe `## 1. Explore the data`.
+- **`# %% Code cell N`:** va en una celda **+ Código**, tal cual.
+
+El código del archivo es idéntico al de este guion. Si las reglas de Odin piden escribir el código en pantalla, escribilo durante la grabación y **no lo pegues**.
 
 ---
 
@@ -50,7 +52,7 @@ Comprobé en el CSV que existen las tres columnas que usamos:
 ## Antes de grabar
 
 1. Leé el Goal oficial y las reglas de Odin para `dje548b6`.
-2. Abrí `ecommerce_eda.ipynb` en Colab, ejecutalo entero y anotá tus números reales.
+2. Hacé una práctica completa en un notebook aparte de Colab, replicando `notebook_cells.py`, y anotá tus números reales.
 3. Dejá dos pestañas abiertas: la página del dataset y Colab. Agrandá el zoom del navegador (`Ctrl + +`).
 
 ---
@@ -111,7 +113,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("https://datanemics.com/datasets/data/retail-orders.csv")
-df.head()
+print(df.head())
 ```
 
 Qué hace cada línea:
@@ -119,7 +121,7 @@ Qué hace cada línea:
 - `import pandas as pd`: carga pandas con su alias habitual, `pd`.
 - `import matplotlib.pyplot as plt`: carga el módulo de gráficos de Matplotlib con el alias `plt`.
 - `df = pd.read_csv(...)`: lee el CSV directamente desde el enlace y lo guarda en un DataFrame llamado `df`.
-- `df.head()`: muestra las primeras 5 filas, para comprobar que los datos se cargaron bien.
+- `print(df.head())`: muestra las primeras 5 filas, para comprobar que los datos se cargaron bien.
 
 Mientras la escribís, lo contás:
 
@@ -169,13 +171,13 @@ Agregás una celda de texto con `## 2. Dates and missing values` y escribís la 
 
 ```python
 df["ordered_at"] = pd.to_datetime(df["ordered_at"])
-df.isna().sum()
+print(df.isna().sum())
 ```
 
 Qué hace cada línea:
 
 - `pd.to_datetime(df["ordered_at"])`: convierte el texto en fechas reales y reemplaza la columna. Ahora se puede agrupar por mes.
-- `df.isna().sum()`: `isna()` marca cada celda vacía como `True`, y `sum()` las cuenta por columna.
+- `print(df.isna().sum())`: `isna()` marca cada celda vacía como `True`, y `sum()` las cuenta por columna.
 
 La ejecutás y lo explicás:
 
