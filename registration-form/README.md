@@ -376,10 +376,12 @@ npx eslint -v
 
 > Let me check that it works with "npx eslint -v". It shows version 9.
 
-**4.** En el Explorer, crea `eslint.config.mjs` junto a `package.json`, escribe esto y guarda:
+**4.** En el Explorer, crea `eslint.config.mjs` junto a `package.json`, escribe esto y guarda. El formato es el de la documentación oficial de ESLint: https://eslint.org/docs/latest/use/configure/configuration-files
 
 ```js
-export default [
+import { defineConfig } from "eslint/config";
+
+export default defineConfig([
   {
     files: ["**/*.js"],
     languageOptions: {
@@ -391,10 +393,10 @@ export default [
       "no-unused-vars": "warn",
     },
   },
-];
+]);
 ```
 
-> Now ESLint needs its rules. I'll create a file called "eslint.config.mjs". This is ESLint's configuration file. We turn on two rules: "no-undef" gives an error when we use a variable that doesn't exist, and "no-unused-vars" warns us about variables we never use. We also tell ESLint that our code runs in the browser, where "document" always exists.
+> Now ESLint needs its rules. I'll create a file called "eslint.config.mjs". This is ESLint's configuration file, in the same format as the official ESLint docs. "defineConfig" comes with ESLint and helps VS Code suggest the right options. We turn on two rules: "no-undef" gives an error when we use a variable that doesn't exist, and "no-unused-vars" warns us about variables we never use. We also tell ESLint that our code runs in the browser, where "document" always exists.
 
 **5.** `Ctrl + Shift + P` → `ESLint: Restart ESLint Server` → Enter.
 
