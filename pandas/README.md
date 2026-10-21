@@ -1,26 +1,20 @@
-# Sales Data Analysis and Business Insights
+# E-commerce Exploratory Data Analysis
 
-A beginner-friendly data analysis project in **Google Colab**, using **Python**, **pandas**, and **Matplotlib**. You upload a synthetic sales dataset, clean it, calculate key business metrics, find the best-selling products and the sales trend over the year, and create three charts.
+A beginner-friendly exploratory data analysis (EDA) in **Google Colab**, using **Python**, **pandas**, and **Matplotlib**. You load a public e-commerce dataset, explore it, convert the dates, check for missing values, and create three charts: revenue by category, monthly revenue, and the distribution of revenue per order line.
 
 Colab already includes pandas and Matplotlib, so there is **nothing to install**.
 
+> **Before recording:** open the official Mercor Goal for task `dje548b6` and compare it with this plan. If the Goal asks for a different dataset, different charts, or extra steps, the Goal wins. Change this plan to match it.
+
 ---
 
-## Business problem and objectives
+## Objectives
 
-A small company that sells electronics, furniture, and office supplies wants to understand its sales from last year. Managers want simple answers to these questions:
-
-1. How much revenue did we make, and how many units did we sell?
-2. How many orders did we get, and what is the average order value?
-3. Which products and categories bring in the most money?
-4. Are sales growing, shrinking, or flat during the year?
-
-**Objectives**
-
-- Check the quality of the raw data and fix common problems (duplicates, missing values, wrong data types).
-- Calculate the key metrics above.
-- Show the results in clear charts that a non-technical audience can read.
-- Save a clean version of the data.
+1. Load a public CSV file with pandas.
+2. Explore the data: first rows, columns, size, and data types.
+3. Convert the `ordered_at` column to real dates.
+4. Check for missing values.
+5. Create three readable charts with Matplotlib and explain what each one shows.
 
 ---
 
@@ -29,59 +23,39 @@ A small company that sells electronics, furniture, and office supplies wants to 
 | Tool | Purpose |
 | ---- | ------- |
 | Google Colab | Free online notebook that runs Python in the browser |
-| pandas | Loading, cleaning, and analyzing tabular data |
-| Matplotlib | Creating and saving charts |
+| pandas | Loading, exploring, and grouping tabular data |
+| Matplotlib | Creating charts |
 
 ---
 
-## Project structure
+## Dataset
 
-```
-pandas/
-├── README.md        ← this file
-└── sales_data.csv   ← raw synthetic dataset
-```
+**Retail orders** by Datanemics.
 
-The notebook is written in Colab during the session. Running it creates these files in Colab's **Files** panel:
+- Page: https://datanemics.com/datasets/retail-orders/
+- Direct CSV link: https://datanemics.com/datasets/data/retail-orders.csv
+- License: public domain (CC0 1.0). The data is **synthetic**, so there are no real customers.
+- Size: **7,000 rows** (order lines) and **12 columns**, from January 2023 to December 2024.
+- One order can have several lines, so `order_id` repeats.
 
-```
-cleaned_sales_data.csv
-charts/
-├── revenue_by_product.png
-├── revenue_by_category.png
-└── monthly_revenue.png
-```
-
-Colab deletes uploaded and created files when the session ends. To keep them, right-click each file in the **Files** panel and choose **Download**.
-
----
-
-## Dataset description
-
-`sales_data.csv` is a **synthetic** dataset: it was generated for practice and does not contain real customers, people, or companies. It has **205 rows** of orders from January to December 2025, sold in four regions.
-
-To practice data cleaning, the file **intentionally** contains:
-
-- **5 duplicate rows** (exact copies of another order)
-- **9 missing values**: 4 in `region`, 3 in `unit_price`, and 2 in `quantity`
-
-### Column definitions
+### Columns
 
 | Column | Type | Description |
 | ------ | ---- | ----------- |
-| `order_id` | text | Unique order ID, for example `ORD-1001` |
-| `order_date` | date | Date of the order, in `YYYY-MM-DD` format |
-| `product` | text | Laptop, Headphones, Wireless Mouse, Office Chair, Standing Desk, Notebook Pack, or Pen Set |
-| `category` | text | Electronics, Furniture, or Office Supplies |
-| `quantity` | number | Units sold in the order |
-| `unit_price` | number | Price of one unit, in US dollars |
-| `region` | text | North, South, East, or West |
+| `order_id` | text | Order ID. Repeats across the lines of one order |
+| `line_no` | integer | Line number inside the order |
+| `ordered_at` | timestamp | When the order was placed (UTC) |
+| `customer_id` | text | Customer ID |
+| `channel` | text | web, ios, android, or marketplace |
+| `country` | text | Two-letter shipping country code |
+| `category` | text | apparel, beauty, electronics, grocery, home, or sports |
+| `units` | integer | Units on this line |
+| `unit_price_usd` | float | List price per unit |
+| `discount_pct` | float | Discount, from 0 to 0.45 |
+| `revenue_usd` | float | `units × unit_price_usd × (1 − discount_pct)` |
+| `returned` | boolean | Whether the line was returned later |
 
-The analysis adds one more column:
-
-| Column | Type | Description |
-| ------ | ---- | ----------- |
-| `revenue` | number | `quantity * unit_price` |
+This analysis uses only `ordered_at`, `category`, and `revenue_usd`.
 
 ---
 
@@ -89,12 +63,15 @@ The analysis adds one more column:
 
 1. Open https://colab.research.google.com and sign in with a Google account.
 2. Click **New notebook**.
-3. Click the folder icon (**Files**) on the left, then **Upload to session storage**, and choose `sales_data.csv`.
-4. Type each cell from [The notebook, cell by cell](#the-notebook-cell-by-cell) and run it with `Shift + Enter`.
+3. Type each cell from [The notebook, cell by cell](#the-notebook-cell-by-cell) and run it with `Shift + Enter`.
+
+Cell 1 loads the CSV straight from its URL. If that doesn't work, download the file from the dataset page, open the **Files** panel (folder icon on the left), click **Upload to session storage**, choose `retail-orders.csv`, and use `pd.read_csv("retail-orders.csv")` instead.
 
 ---
 
 ## The notebook, cell by cell
+
+Add a short Markdown cell above each code cell with its title, for example `## 1. Load the data`.
 
 ### Cell 1 — Load the data
 
@@ -102,7 +79,8 @@ The analysis adds one more column:
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("sales_data.csv")
+url = "https://datanemics.com/datasets/data/retail-orders.csv"
+df = pd.read_csv(url)
 df.head()
 ```
 
@@ -114,341 +92,232 @@ print("Columns:", df.columns.tolist())
 df.dtypes
 ```
 
-### Cell 3 — Check data quality
+### Cell 3 — Convert dates and check missing values
 
 ```python
-print("Missing values per column:")
+df["ordered_at"] = pd.to_datetime(df["ordered_at"])
+print("From", df["ordered_at"].min(), "to", df["ordered_at"].max())
 print(df.isna().sum())
-print("Duplicate rows:", df.duplicated().sum())
 ```
 
-### Cell 4 — Clean the data
+### Cell 4 — Chart 1: revenue by category (bar chart)
 
 ```python
-df = df.drop_duplicates()
+by_category = df.groupby("category")["revenue_usd"].sum().sort_values(ascending=False)
 
-df["order_date"] = pd.to_datetime(df["order_date"])
-df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
-df["unit_price"] = pd.to_numeric(df["unit_price"], errors="coerce")
-
-df["region"] = df["region"].fillna("Unknown")
-product_price = df.groupby("product")["unit_price"].transform("median")
-df["unit_price"] = df["unit_price"].fillna(product_price)
-df = df.dropna(subset=["quantity"])
-df["quantity"] = df["quantity"].astype(int)
-
-print("Rows after cleaning:", len(df))
-print("Missing values left:", df.isna().sum().sum())
-```
-
-### Cell 5 — Revenue and key metrics
-
-```python
-df["revenue"] = df["quantity"] * df["unit_price"]
-
-total_revenue = df["revenue"].sum()
-total_units = df["quantity"].sum()
-orders = df["order_id"].nunique()
-average_order = total_revenue / orders
-
-print(f"Total revenue: ${total_revenue:,.2f}")
-print(f"Total units sold: {total_units}")
-print(f"Number of orders: {orders}")
-print(f"Average order value: ${average_order:,.2f}")
-```
-
-### Cell 6 — Revenue by product, category, and month
-
-```python
-by_product = df.groupby("product")["revenue"].sum().sort_values(ascending=False)
-by_category = df.groupby("category")["revenue"].sum().sort_values(ascending=False)
-monthly = df.groupby(df["order_date"].dt.strftime("%Y-%m"))["revenue"].sum()
-
-print(by_product, "\n")
-print(by_category, "\n")
-print(monthly)
-```
-
-### Cell 7 — Chart: revenue by product
-
-```python
-import os
-os.makedirs("charts", exist_ok=True)
-
-by_product.plot(kind="bar", title="Revenue by Product", color="steelblue", rot=30)
-plt.ylabel("Revenue ($)")
+by_category.plot(kind="bar", color="steelblue", rot=0)
+plt.title("Total Revenue by Category")
+plt.xlabel("Category")
+plt.ylabel("Revenue (USD)")
 plt.tight_layout()
-plt.savefig("charts/revenue_by_product.png")
 plt.show()
 ```
 
-### Cell 8 — Chart: revenue by category
+### Cell 5 — Chart 2: monthly revenue (line chart)
 
 ```python
-by_category.plot(kind="bar", title="Revenue by Category", color="seagreen", rot=0)
-plt.ylabel("Revenue ($)")
-plt.tight_layout()
-plt.savefig("charts/revenue_by_category.png")
-plt.show()
-```
+monthly = df.groupby(df["ordered_at"].dt.to_period("M"))["revenue_usd"].sum()
 
-### Cell 9 — Chart: monthly revenue trend
-
-```python
-monthly.plot(kind="line", marker="o", title="Monthly Revenue Trend")
+monthly.plot(kind="line", marker="o")
+plt.title("Monthly Revenue")
 plt.xlabel("Month")
-plt.ylabel("Revenue ($)")
-plt.xticks(range(len(monthly)), monthly.index, rotation=45)
+plt.ylabel("Revenue (USD)")
 plt.grid(alpha=0.3)
 plt.tight_layout()
-plt.savefig("charts/monthly_revenue.png")
 plt.show()
 ```
 
-### Cell 10 — Save the cleaned data
+### Cell 6 — Chart 3: revenue per order line (histogram)
 
 ```python
-df.to_csv("cleaned_sales_data.csv", index=False)
-print("Saved cleaned_sales_data.csv")
+print(df["revenue_usd"].describe())
+
+df["revenue_usd"].plot(kind="hist", bins=50, color="seagreen", edgecolor="white")
+plt.title("Distribution of Revenue per Order Line")
+plt.xlabel("Revenue per line (USD)")
+plt.ylabel("Number of order lines")
+plt.tight_layout()
+plt.show()
 ```
-
----
-
-## Data cleaning steps
-
-| Step | Problem | What the code does | Why |
-| ---- | ------- | ------------------ | --- |
-| 1 | Duplicate rows | `drop_duplicates()` removes exact copies | The same order should only be counted once |
-| 2 | Dates stored as text | `pd.to_datetime()` converts `order_date` | So we can group by month |
-| 3 | Numbers with gaps | `pd.to_numeric(errors="coerce")` converts `quantity` and `unit_price` | Guarantees numeric columns; bad values become missing |
-| 4 | Missing `region` | Filled with `"Unknown"` | We can't guess the region, but the order is still valid |
-| 5 | Missing `unit_price` | Filled with the median price of the same product | Each product has one fixed price in this dataset |
-| 6 | Missing `quantity` | The order is removed | We can't know how many items were sold, and guessing would distort revenue |
-
----
-
-## Key metrics and analysis performed
-
-- **Total revenue:** sum of `revenue`
-- **Total units sold:** sum of `quantity`
-- **Number of orders:** number of unique `order_id` values
-- **Average order value:** total revenue ÷ number of orders
-- **Revenue by product** and **by category:** `groupby`, sorted from highest to lowest
-- **Monthly revenue:** revenue grouped by year and month (`YYYY-MM`)
 
 ---
 
 ## Charts generated
 
-| File | Chart | Question it answers |
-| ---- | ----- | ------------------- |
-| `charts/revenue_by_product.png` | Bar chart | Which products make the most money? |
-| `charts/revenue_by_category.png` | Bar chart | Which categories make the most money? |
-| `charts/monthly_revenue.png` | Line chart | How did revenue change during the year? |
+| Chart | Type | Question it answers |
+| ----- | ---- | ------------------- |
+| Total Revenue by Category | Bar chart | Which categories bring in the most money? |
+| Monthly Revenue | Line chart | How does revenue change over time? |
+| Distribution of Revenue per Order Line | Histogram | Are most order lines small or large? |
 
 ---
 
 ## Example findings (illustrative)
 
-> **Illustrative only.** These numbers come from one test run of the cells above on the included `sales_data.csv`. Run the notebook yourself and use **your** output as the source of truth. If you change the dataset, these numbers will change.
+> **Illustrative only.** I calculated these numbers from the CSV downloaded on 21 Oct 2026, outside Colab. Run the notebook yourself and use **your** output as the source of truth. If the dataset changes, these numbers will change.
 
-- After cleaning, 198 of the 205 rows remain: 5 duplicates and 2 orders without a quantity were removed.
-- Total revenue was about **$36,986** from **812 units** in **198 orders**, an average order value of about **$186.80**.
-- **Laptop** was the top product (about $8,500), followed by **Standing Desk** (about $7,700). **Pen Set** was the lowest (about $1,992).
-- **Electronics** brought in about half of the revenue (about $18,355), then **Furniture** (about $13,460) and **Office Supplies** (about $5,171).
-- Monthly revenue grew strongly during the year, from about $349 in January to about $6,904 in December, with small dips in March and October.
-
-Note: depending on the pandas version, text columns show the data type `object` or `str`. Both are fine.
+- The file has 7,000 order lines from 4,169 orders, from 1 Jan 2023 to 30 Dec 2024. It has **no missing values**.
+- Total revenue is about **$773,924**.
+- **Electronics** is the top category (about $326,204, roughly 42% of revenue), even though it has fewer lines (960) than apparel (1,696). Electronics items are more expensive. **Grocery** is the lowest (about $36,694).
+- Monthly revenue mostly stays between about $25,000 and $38,000. It peaks in **December** in both years (about $48,202 in 2023 and $43,976 in 2024) and drops in January (the lowest month is January 2024, about $18,567).
+- The histogram is **right-skewed**: most lines are small (median about $60, and 75% are under about $125), but a few lines are much larger (198 lines are over $500, and the maximum is about $2,318).
 
 ---
 
-## Limitations and possible future improvements
+## Limitations
 
-**Limitations**
-
-- The data is synthetic and small (about 200 orders), so the results are for practice, not for real decisions.
-- Removing orders with a missing quantity loses a little revenue. A real project would try to recover that data from the source system.
-- Each row is treated as one order with one product. Real orders often contain many products.
-- There are no costs in the data, so we can measure revenue but not profit.
-
-**Future improvements**
-
-- Analyze revenue by region and by region over time.
-- Find the best and worst months and compare quarters.
-- Add costs to calculate profit and margin.
-- Use a larger, real (anonymized) dataset.
+- The data is synthetic, so the results are for practice, not for real business decisions.
+- Revenue includes the 677 lines that were later returned. A deeper analysis could exclude them.
+- We only use three of the twelve columns. Channel, country, and discount could also be analyzed.
 
 ---
 
-## Recording guide (15–20 minutes)
+## Recording guide (about 15 minutes)
 
-A step-by-step walkthrough for a screen recording in Google Colab. Each step says **what to do** and **what to say**. Times are approximate.
+Each block says **which window to show**, **what to do**, **what code to write**, and **what to say**. The English lines are for the recording. The Spanish lines are only for your preparation. Times are approximate: if the official Goal needs more time, take it.
 
 ### Before you record
 
-1. Sign in to your Google account in the browser.
-2. Keep `sales_data.csv` somewhere easy to find, like your Desktop.
-3. Zoom in the browser so the code is easy to read (`Ctrl + +`, or `Cmd + +` on a Mac).
-4. Do one full practice run in a separate notebook.
+1. Read the official Mercor Goal and recording rules for `dje548b6`. Check that the three charts are the ones the task asks for.
+2. Sign in to Google in the browser.
+3. Open the dataset page in one tab and Colab in another.
+4. Zoom in so the code is easy to read (`Ctrl + +`).
+5. Do one full practice run in a separate notebook, and write down your real numbers for the last block.
+6. If the recording rules say you must type the code on screen, type it. Don't paste it.
 
 ---
 
-### Step 1 — Introduction (about 1 minute)
+### 0:00–2:00 — Objective and the dataset
 
-**Do:** Show https://colab.research.google.com.
+**Window:** the dataset page (https://datanemics.com/datasets/retail-orders/).
+
+**Do:** Scroll through the page and show the column list and the CSV download link.
 
 **Say:**
 
-> Hi everyone! Today we're going to analyze a year of sales data with Python, using two very popular libraries: pandas, for working with tables of data, and Matplotlib, for charts.
+> **EN:** Hi! Today I'm going to do an exploratory data analysis of a public e-commerce dataset, using Python, pandas, and Matplotlib in Google Colab.
+> *ES: ¡Hola! Hoy voy a hacer un análisis exploratorio de un dataset público de e-commerce, usando Python, pandas y Matplotlib en Google Colab.*
 >
-> Imagine a small company that sells electronics, furniture, and office supplies. The managers want to know four things: how much money they made, how many orders they got, which products sell best, and whether sales are growing. We'll answer all four questions, and we'll create charts to show the results.
+> **EN:** This is the Retail Orders dataset. It's synthetic, so there's no real customer data, and it's in the public domain. It has 7,000 order lines from 2023 and 2024.
+> *ES: Este es el dataset Retail Orders. Es sintético, así que no hay datos reales de clientes, y es de dominio público. Tiene 7.000 líneas de pedidos de 2023 y 2024.*
 >
-> We'll use Google Colab, which runs Python in the browser for free. pandas and Matplotlib are already installed, so there's nothing to set up.
+> **EN:** The data comes as a CSV file. CSV means "comma-separated values": it's a simple text file where each line is a row, and commas separate the columns.
+> *ES: Los datos vienen en un archivo CSV. CSV significa "valores separados por comas": es un archivo de texto simple donde cada línea es una fila y las comas separan las columnas.*
+>
+> **EN:** I'll focus on three columns: the order date, the product category, and the revenue in US dollars.
+> *ES: Me voy a centrar en tres columnas: la fecha del pedido, la categoría del producto y el ingreso en dólares.*
 
 ---
 
-### Step 2 — Create the notebook and upload the data (about 2 minutes)
+### 2:00–4:00 — Open Colab, pandas, and load the data
 
-**Do:** Click **New notebook**. Rename it to `sales_analysis.ipynb` (click the name at the top left). Open the **Files** panel, click **Upload to session storage**, and choose `sales_data.csv`. Click **OK** on the warning.
+**Window:** Google Colab.
+
+**Do:** Click **New notebook** and rename it to `ecommerce_eda.ipynb`. Add a Markdown cell with the title. Type **Cell 1** and run it.
 
 **Say:**
 
-> I'll create a new notebook and call it "sales_analysis". A notebook is made of cells. We write code in a cell, run it, and the result appears right below.
+> **EN:** I'll create a new notebook. A notebook is made of cells: we write code in a cell, run it, and the result appears below.
+> *ES: Voy a crear un notebook nuevo. Un notebook está formado por celdas: escribimos código en una celda, la ejecutamos y el resultado aparece debajo.*
 >
-> Now I'll upload our dataset. I'll open the Files panel on the left and upload sales_data.csv. Colab warns us that uploaded files are deleted when the session ends. That's fine for today.
+> **EN:** pandas is a Python library for working with tables of data. It lets us load, filter, and summarize data with very little code. Colab already has it installed.
+> *ES: pandas es una librería de Python para trabajar con tablas de datos. Nos permite cargar, filtrar y resumir datos con muy poco código. Colab ya la tiene instalada.*
 >
-> This is synthetic data. It was generated for practice, so there's no real customer information. It has about 200 orders from 2025, with seven columns: an order ID, the date, the product, its category, the quantity, the unit price, and the region.
+> **EN:** read_csv loads the file straight from its link into a DataFrame. A DataFrame is like a spreadsheet inside Python. And head shows the first five rows.
+> *ES: read_csv carga el archivo directamente desde su enlace en un DataFrame. Un DataFrame es como una hoja de cálculo dentro de Python. Y head muestra las primeras cinco filas.*
+
+If the link doesn't load, upload the file from the **Files** panel instead:
+
+> **EN:** If loading from the link doesn't work, we can download the CSV and upload it to Colab from the Files panel.
+> *ES: Si la carga desde el enlace no funciona, podemos descargar el CSV y subirlo a Colab desde el panel de archivos.*
 
 ---
 
-### Step 3 — Load the data (cell 1, about 1.5 minutes)
+### 4:00–6:00 — Explore the data and convert the dates
 
-**Do:** Type cell 1 and press `Shift + Enter`.
+**Window:** Colab.
+
+**Do:** Type and run **Cell 2**, then **Cell 3**.
 
 **Say:**
 
-> In the first cell, we import pandas as "pd", which is the usual short name, and Matplotlib for the charts.
+> **EN:** First, let's get to know the data. shape gives us the number of rows and columns, and dtypes shows the type of each column.
+> *ES: Primero, conozcamos los datos. shape nos da el número de filas y columnas, y dtypes muestra el tipo de cada columna.*
 >
-> "read_csv" loads our file into a DataFrame. A DataFrame is like a spreadsheet inside Python, with rows and columns. And "head" shows the first five rows, so we can check that everything loaded correctly.
+> **EN:** Look at ordered_at: pandas reads it as text, not as a date. So I'll convert it with to_datetime. Now we can group by month.
+> *ES: Fíjense en ordered_at: pandas lo lee como texto, no como fecha. Así que lo convierto con to_datetime. Ahora podemos agrupar por mes.*
+>
+> **EN:** Next, I check for missing values. This matters because missing or dirty data can give us wrong totals. Here, every column shows zero, so the data is complete.
+> *ES: Después, reviso los valores faltantes. Esto importa porque los datos faltantes o sucios pueden darnos totales incorrectos. Acá todas las columnas muestran cero, así que los datos están completos.*
+
+(Say "zero" only if your output really shows zero.)
 
 ---
 
-### Step 4 — Size, columns, and types (cell 2, about 1.5 minutes)
+### 6:00–11:30 — Matplotlib and the three charts
 
-**Do:** Type cell 2 and run it.
+**Window:** Colab.
+
+**Do:** Type and run **Cell 4**, **Cell 5**, and **Cell 6**, one at a time. Look at each chart before moving on.
 
 **Say:**
 
-> Next, let's get to know our data. "shape" tells us how many rows and columns we have. Then we list the column names. And "dtypes" shows the data type of each column.
+> **EN:** Now the charts. Matplotlib is the most common Python library for charts. pandas uses it behind the scenes when we call plot.
+> *ES: Ahora los gráficos. Matplotlib es la librería de gráficos más común en Python. pandas la usa por detrás cuando llamamos a plot.*
+
+**Chart 1 — bar chart:**
+
+> **EN:** For the first chart, I group the rows by category and add up the revenue. I sort it from highest to lowest, and I show it as a bar chart, with a title and labels on both axes.
+> *ES: Para el primer gráfico, agrupo las filas por categoría y sumo los ingresos. Lo ordeno de mayor a menor y lo muestro como gráfico de barras, con un título y etiquetas en los dos ejes.*
+
+**Chart 2 — line chart:**
+
+> **EN:** For the second chart, I group the revenue by month, using the dates we converted earlier. A line chart is a good choice here, because it shows how revenue changes over time.
+> *ES: Para el segundo gráfico, agrupo los ingresos por mes, usando las fechas que convertimos antes. Un gráfico de líneas es una buena opción acá, porque muestra cómo cambian los ingresos con el tiempo.*
+
+**Chart 3 — histogram:**
+
+> **EN:** The third chart is a histogram. It splits the revenue of each order line into ranges, called bins, and counts how many lines fall into each range. So it shows the distribution: are most lines small or large?
+> *ES: El tercer gráfico es un histograma. Divide el ingreso de cada línea de pedido en rangos, llamados bins, y cuenta cuántas líneas caen en cada rango. Así muestra la distribución: ¿la mayoría de las líneas son chicas o grandes?*
 >
-> Look at the order date. pandas sees it as text, not as a date. We'll fix that during cleaning.
+> **EN:** I also print describe, which gives the mean, the median, and the minimum and maximum values.
+> *ES: También imprimo describe, que da la media, la mediana y los valores mínimo y máximo.*
 
 ---
 
-### Step 5 — Check data quality (cell 3, about 1.5 minutes)
+### 11:30–14:00 — Interpret and check the charts
 
-**Do:** Type cell 3 and run it.
+**Window:** Colab. Scroll back to each chart.
+
+**Do:** Check that each chart has a title and axis labels, and that the numbers make sense compared with the printed output. Describe **what you see in your own output**. The lines below are based on the [example findings](#example-findings-illustrative). Change them if your results are different.
 
 **Say:**
 
-> Before doing any math, we always check the quality of the data, because dirty data gives wrong answers.
+> **EN:** In the bar chart, electronics is clearly the top category, even though it doesn't have the most order lines. That's because electronics products are more expensive. Grocery brings in the least revenue.
+> *ES: En el gráfico de barras, electrónica es claramente la categoría principal, aunque no tiene la mayor cantidad de líneas de pedido. Eso es porque los productos de electrónica son más caros. Almacén es la que menos ingresos genera.*
 >
-> "isna().sum()" counts the missing values in each column. We have some missing quantities, prices, and regions. And "duplicated().sum()" counts the rows that are exact copies of another row. We have a few of those too.
+> **EN:** In the line chart, revenue is fairly stable most of the year, but it peaks in December in both years and drops in January. That looks like a holiday season effect.
+> *ES: En el gráfico de líneas, los ingresos son bastante estables durante la mayor parte del año, pero tienen un pico en diciembre en los dos años y bajan en enero. Parece un efecto de la temporada de fiestas.*
+>
+> **EN:** The histogram is right-skewed. Most order lines are small, under about 125 dollars, but there's a long tail of a few large lines. That's why the mean is higher than the median.
+> *ES: El histograma tiene asimetría a la derecha. La mayoría de las líneas de pedido son chicas, de menos de unos 125 dólares, pero hay una cola larga de pocas líneas grandes. Por eso la media es mayor que la mediana.*
+>
+> **EN:** Let me check the charts: each one has a title, labeled axes, and the values match the totals we printed.
+> *ES: Reviso los gráficos: cada uno tiene título, ejes con etiquetas, y los valores coinciden con los totales que imprimimos.*
 
 ---
 
-### Step 6 — Clean the data (cell 4, about 3 minutes)
+### 14:00–15:00 — Summary
 
-**Do:** Type cell 4 slowly, one block at a time, and run it.
-
-**Say:**
-
-> Now the cleaning. This is where a lot of real data work happens.
->
-> First, "drop_duplicates" removes the copied rows, so we don't count the same order twice.
->
-> Then we fix the data types. "to_datetime" turns the date text into real dates, so we can group by month later. "to_numeric" makes sure quantity and price are numbers.
->
-> Now the missing values. Each column needs a different decision.
->
-> If the region is missing, we don't know it, but the sale still happened. So we fill it with the word "Unknown".
->
-> If the unit price is missing, we can fix it, because each product always has the same price. So we fill it with the usual price of that product.
->
-> But if the quantity is missing, we can't know how many items were sold. Guessing would make our revenue wrong. So we remove those orders.
->
-> Let's run it. We can see how many rows are left, and zero missing values. Our data is clean.
-
----
-
-### Step 7 — Revenue and key metrics (cell 5, about 2 minutes)
-
-**Do:** Type cell 5 and run it.
-
-**Say:**
-
-> Now we can answer our business questions. First, we create a new column, revenue, which is quantity times unit price. pandas calculates it for every row at once.
->
-> Total revenue is the sum of that column. Total units is the sum of quantity. The number of orders counts the unique order IDs. And the average order value is the total revenue divided by the number of orders.
->
-> Let's run it, and here are our four key numbers.
-
----
-
-### Step 8 — Revenue by product, category, and month (cell 6, about 2 minutes)
-
-**Do:** Type cell 6 and run it.
-
-**Say:**
-
-> Now let's dig deeper with "groupby". It groups rows that share a value, and then adds them up.
->
-> We group by product to see which products make the most money, and by category to see which part of the business is strongest. We sort both from highest to lowest, so the winners come first.
->
-> And we group by month, using the date we fixed during cleaning, to see how sales changed over the year.
-
----
-
-### Step 9 — The charts (cells 7 to 9, about 3 minutes)
-
-**Do:** Type and run cells 7, 8, and 9, one at a time. After each one, look at the chart.
-
-**Say:**
-
-> Numbers are useful, but charts are easier to understand. First, we create a folder called "charts" to save our images.
->
-> Our first chart is a bar chart of revenue by product. We add a title and a label for the vertical axis, "savefig" saves it as an image, and "show" displays it here. The tallest bars are our best sellers.
->
-> The second chart shows revenue by category, which tells us which part of the business brings in the most money.
->
-> And the third one is a line chart of revenue by month. This shows the trend over the year: we can see right away if sales are going up or down.
-
----
-
-### Step 10 — Save the cleaned data (cell 10, about 1 minute)
-
-**Do:** Type cell 10 and run it. Open the **Files** panel and show `cleaned_sales_data.csv` and the `charts` folder. Right-click one file and show **Download**.
-
-**Say:**
-
-> Finally, we save our clean data to a new CSV file, so we, or anyone on the team, can reuse it without cleaning it again.
->
-> In the Files panel, we can see our cleaned file and the charts folder. To keep them, right-click and choose Download.
-
----
-
-### Step 11 — Business insights and conclusion (about 2 minutes)
-
-**Do:** Scroll back to the metrics and the charts.
+**Window:** Colab, scrolled to the top of the notebook.
 
 **Say** (replace the words in brackets with your real results):
 
-> So, what did we learn? The company made [total revenue] from [number of orders] orders, with an average order value of [average order value].
+> **EN:** To sum up, we loaded a public e-commerce dataset with pandas, explored its structure, converted the dates, checked for missing values, and created three charts with Matplotlib.
+> *ES: Para resumir, cargamos un dataset público de e-commerce con pandas, exploramos su estructura, convertimos las fechas, revisamos los valores faltantes y creamos tres gráficos con Matplotlib.*
 >
-> The top product was [top product], and the top category was [top category]. And over the year, monthly revenue [describe the trend, for example: grew from January to December].
+> **EN:** The main findings: [top category] brings in the most revenue, sales peak in [peak month], and most order lines are small.
+> *ES: Los hallazgos principales: [categoría principal] genera la mayor cantidad de ingresos, las ventas tienen su pico en [mes pico], y la mayoría de las líneas de pedido son chicas.*
 >
-> For the business, this suggests focusing on the products that bring in the most money, and understanding what drove the trend during the year.
->
-> And from the technical side, we practiced the full workflow: loading data, checking its quality, cleaning it, calculating metrics with groupby, and sharing the results with charts. You can use the same steps with your own data.
->
-> Thanks for watching!
+> **EN:** The goal of an exploratory analysis is to understand the data before making decisions or building anything more complex. Thanks for watching!
+> *ES: El objetivo de un análisis exploratorio es entender los datos antes de tomar decisiones o construir algo más complejo. ¡Gracias por mirar!*
