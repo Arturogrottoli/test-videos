@@ -5,7 +5,8 @@ Guion paso a paso para grabar la tarea **dje548b6**: un análisis exploratorio d
 **Cómo leer este guion:**
 
 - Las frases que empiezan con 🟢 son lo que **decís en inglés** durante la grabación.
-- El resto, en castellano, es lo que hacés en pantalla y la explicación de cada línea de código. Las traducciones aparecen entre paréntesis después de cada frase.
+- Debajo de cada bloque de código, la lista **What each line does** explica cada línea en inglés. La leés en voz alta mientras escribís esa línea.
+- El resto, en castellano, es lo que hacés en pantalla. Las traducciones aparecen entre paréntesis después de cada frase 🟢.
 
 > **Importante:** el Goal oficial de Mercor y las reglas de grabación de Odin tienen prioridad sobre este guion. Antes de grabar, comparalos, sobre todo el dataset y los tres gráficos. Este guion no garantiza que la tarea se apruebe ni que 15 minutos alcancen.
 
@@ -96,11 +97,10 @@ Hacés clic en **+ Text** y escribís el título del notebook:
 Dataset: Retail Orders (Datanemics, CC0). Goal: explore revenue by category, by month, and per order line.
 ```
 
-Qué hace: es una celda de texto, no de código. El `#` del principio la convierte en el título principal. Las líneas que empiezan con `##` arman las secciones del notebook, que se pueden plegar y aparecen en el índice de la izquierda.
+**What each line does:**
 
-> 🟢 First, I'll add a text cell with a title and the goal. Text cells don't run code. They organize the notebook into sections, so it's easy to follow.
->
-> (Primero agrego una celda de texto con un título y el objetivo. Las celdas de texto no ejecutan código. Organizan el notebook en secciones, para que sea fácil de seguir.)
+- 🟢 `# E-commerce Exploratory Data Analysis`: this is a text cell, not a code cell, so it doesn't run code. The hash sign at the start makes this line the main title. Later, lines that start with two hash signs create sections, which appear in the table of contents on the left.
+- 🟢 `Dataset: ... Goal: ...`: this line says which dataset I'm using and what I want to find out, so the notebook is easy to follow.
 
 Antes de escribir código, abrís una pestaña nueva con el sitio oficial de pandas, https://pandas.pydata.org, y lo mostrás unos 15 segundos:
 
@@ -117,21 +117,11 @@ df = pd.read_csv("https://datanemics.com/datasets/data/retail-orders.csv")
 print(df.head())
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `import pandas as pd`: `import` carga una librería para poder usarla en el notebook. `as pd` le da un alias corto. Así, en vez de escribir `pandas.read_csv`, escribimos `pd.read_csv`. `pd` es el alias que usa todo el mundo.
-- `df = pd.read_csv(...)`: `read_csv` es la función de pandas que lee un CSV. Le pasamos el enlace del archivo, y el resultado se guarda en una variable llamada `df` (por *DataFrame*). Un DataFrame es la tabla de pandas: filas y columnas, como una hoja de cálculo.
-- `print(df.head())`: `head()` devuelve las primeras 5 filas y `print` las muestra. Sirve para comprobar que los datos se cargaron bien.
-
-Mientras la escribís, lo contás:
-
-> 🟢 I start by importing pandas. import loads a library so we can use it, and "as pd" gives it a short name, so I can write pd instead of pandas. Everyone uses pd.
->
-> (Empiezo importando pandas. import carga una librería para poder usarla, y "as pd" le da un nombre corto, así puedo escribir pd en vez de pandas. Todo el mundo usa pd.)
->
-> 🟢 read_csv loads the file straight from its link into a DataFrame. A DataFrame is like a spreadsheet inside Python. head shows the first five rows.
->
-> (read_csv carga el archivo directamente desde su enlace en un DataFrame. Un DataFrame es como una hoja de cálculo dentro de Python. head muestra las primeras cinco filas.)
+- 🟢 `import pandas as pd`: import loads the pandas library so we can use it in the notebook. "as pd" gives it a short name, so I can write pd instead of pandas. Everyone uses pd.
+- 🟢 `df = pd.read_csv(...)`: read_csv reads the CSV file straight from its link. The result is stored in a variable called df, short for DataFrame. A DataFrame is a pandas table with rows and columns, like a spreadsheet inside Python.
+- 🟢 `print(df.head())`: head returns the first five rows, and print shows them. This lets me check that the data loaded correctly.
 
 Ejecutás la celda con `Shift + Enter` y mostrás la tabla.
 
@@ -152,20 +142,12 @@ print(df.shape)
 df.info()
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `print(df.shape)`: muestra (filas, columnas). Tiene que dar `(7000, 12)`.
-- `df.info()`: en una sola tabla muestra cada columna con su nombre, cuántos valores no vacíos tiene y su tipo de dato (`Dtype`). Ahí comprobás que existen `ordered_at`, `category` y `revenue_usd`, y que `ordered_at` es texto (`object` o `str`, según la versión de pandas), no fecha.
+- 🟢 `print(df.shape)`: shape gives the number of rows and columns. We have 7,000 rows and 12 columns.
+- 🟢 `df.info()`: info lists every column with its name, how many values it has, and its data type. I can see the three columns I need: ordered_at, category, and revenue_usd. Notice that ordered_at is stored as text, not as a date. I'll fix that next.
 
-La ejecutás y lo explicás:
-
-> 🟢 shape tells us we have 7,000 rows and 12 columns. info lists every column with its data type, and I can see the three I need: ordered_at, category, and revenue_usd.
->
-> (shape nos dice que tenemos 7.000 filas y 12 columnas. info lista cada columna con su tipo de dato, y veo las tres que necesito: ordered_at, category y revenue_usd.)
->
-> 🟢 Notice that ordered_at is stored as text, not as a date. I'll fix that next.
->
-> (Fíjense que ordered_at está guardada como texto, no como fecha. Eso lo arreglo ahora.)
+La ejecutás y señalás el resultado. Tiene que dar `(7000, 12)`, y `ordered_at` aparece como `object` o `str` (según la versión de pandas).
 
 Agregás una celda de texto con `## 2. Dates and missing values` y escribís la **celda 3**:
 
@@ -174,22 +156,12 @@ df["ordered_at"] = pd.to_datetime(df["ordered_at"])
 print(df.isna().sum())
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `pd.to_datetime(df["ordered_at"])`: convierte el texto en fechas reales y reemplaza la columna. Ahora se puede agrupar por mes.
-- `print(df.isna().sum())`: `isna()` marca cada celda vacía como `True`, y `sum()` las cuenta por columna.
+- 🟢 `df["ordered_at"] = pd.to_datetime(df["ordered_at"])`: to_datetime converts the ordered_at text into real dates and replaces the column. Now we can group the data by month.
+- 🟢 `print(df.isna().sum())`: this checks for missing values. isna marks each empty cell as True, and sum counts them per column. This matters because missing or dirty data can give us wrong totals. Here, every column shows zero, so no cleaning is needed.
 
-La ejecutás y lo explicás:
-
-> 🟢 I convert ordered_at with pd.to_datetime, so now it's a real date and we can group it by month.
->
-> (Convierto ordered_at con pd.to_datetime, así que ahora es una fecha real y la podemos agrupar por mes.)
->
-> 🟢 Next, I check for missing values. isna marks each empty cell, and sum counts them per column. This matters because missing or dirty data can give us wrong totals. Here, every column shows zero, so no cleaning is needed.
->
-> (Después reviso los valores faltantes. isna marca cada celda vacía, y sum las cuenta por columna. Esto importa porque los datos faltantes o sucios pueden darnos totales incorrectos. Acá todas las columnas muestran cero, así que no hace falta limpiar.)
-
-Decí "zero" solo si tu resultado muestra ceros.
+Decí "every column shows zero" solo si tu resultado muestra ceros.
 
 ---
 
@@ -220,30 +192,12 @@ by_category.plot(kind="bar", title="Revenue by Category", xlabel="Category", yla
 plt.show()
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `import matplotlib.pyplot as plt`: carga `pyplot`, el módulo de Matplotlib que dibuja y muestra los gráficos, con el alias habitual `plt`. Se importa una sola vez: las celdas 5 y 6 ya lo pueden usar.
-- `groupby("category")` agrupa las filas por categoría, `["revenue_usd"].sum()` suma los ingresos de cada grupo y `sort_values(ascending=False)` ordena de mayor a menor. El resultado se guarda en `by_category`.
-- `by_category.plot(kind="bar", ...)`: dibuja un gráfico de barras. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes. `rot=0` deja los nombres de las categorías horizontales.
-- `plt.show()`: muestra el gráfico debajo de la celda.
-
-Mientras la escribís, lo contás:
-
-> 🟢 First, I import pyplot, the part of Matplotlib that draws and shows charts, with its usual short name, plt.
->
-> (Primero importo pyplot, la parte de Matplotlib que dibuja y muestra los gráficos, con su alias habitual, plt.)
->
-> 🟢 groupby puts together the rows with the same category, sum adds up their revenue, and I sort the result from highest to lowest.
->
-> (groupby junta las filas con la misma categoría, sum suma sus ingresos, y ordeno el resultado de mayor a menor.)
->
-> 🟢 Then I plot it as a bar chart, with a title and labels for both axes.
->
-> (Después lo grafico como barras, con un título y nombres para los dos ejes.)
->
-> 🟢 I can set the title and the axis labels right inside plot, and plt.show displays the chart.
->
-> (Puedo poner el título y los nombres de los ejes directamente dentro de plot, y plt.show muestra el gráfico.)
+- 🟢 `import matplotlib.pyplot as plt`: this imports pyplot, the part of Matplotlib that draws and shows charts, with its usual short name, plt. I only import it once, and the next cells can use it too.
+- 🟢 `by_category = df.groupby("category")["revenue_usd"].sum().sort_values(ascending=False)`: groupby puts together the rows with the same category, sum adds up their revenue, and sort_values orders the result from highest to lowest. I store it in by_category.
+- 🟢 `by_category.plot(kind="bar", ...)`: this draws a bar chart. title, xlabel, and ylabel set the chart title and the names of both axes, and rot equals zero keeps the category names horizontal.
+- 🟢 `plt.show()`: this displays the chart below the cell.
 
 Ejecutás la celda y te detenés un momento en el gráfico.
 
@@ -257,25 +211,11 @@ monthly.plot(marker="o", title="Monthly Revenue", xlabel="Month", ylabel="Revenu
 plt.show()
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `monthly = df.groupby(...)["revenue_usd"].sum()`: dentro del `groupby`, `df["ordered_at"].dt.to_period("M")` convierte cada fecha en su mes (por ejemplo `2023-01`). `.dt` da acceso a las funciones de fecha, y por eso esto funciona solo porque antes convertimos la columna. Después agrupa por mes, suma los ingresos de cada uno y guarda los 24 totales en `monthly`.
-- `monthly.plot(...)`: dibuja un gráfico de líneas, que es el tipo por defecto, así que no hace falta `kind`. `marker="o"` pone un punto en cada mes. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes.
-- `plt.show()`: muestra el gráfico.
-
-Mientras la escribís, lo contás:
-
-> 🟢 to_period with "M" turns each date into its month. This only works because we converted the column to dates. Then I group by month and add up the revenue.
->
-> (to_period con "M" convierte cada fecha en su mes. Esto funciona solo porque convertimos la columna a fechas. Después agrupo por mes y sumo los ingresos.)
->
-> 🟢 A line chart is the right choice for data over time, and the markers show each month.
->
-> (Un gráfico de líneas es la opción adecuada para datos en el tiempo, y los marcadores muestran cada mes.)
->
-> 🟢 Again, I set the title and the axis labels inside plot, and plt.show displays it.
->
-> (De nuevo, pongo el título y los nombres de los ejes dentro de plot, y plt.show lo muestra.)
+- 🟢 `monthly = df.groupby(df["ordered_at"].dt.to_period("M"))["revenue_usd"].sum()`: dt gives access to date functions, and to_period with "M" turns each date into its month, like 2023-01. This only works because we converted the column to dates. Then groupby groups the rows by month, sum adds up the revenue, and I store the 24 monthly totals in monthly.
+- 🟢 `monthly.plot(marker="o", ...)`: this draws a line chart, which is the default type, so I don't need kind. A line chart is the right choice for data over time, and marker "o" puts a dot on each month. Again, title, xlabel, and ylabel set the title and the axis names.
+- 🟢 `plt.show()`: this displays the chart.
 
 Ejecutás la celda.
 
@@ -289,25 +229,11 @@ plt.xlabel("Revenue (USD)")
 plt.show()
 ```
 
-Qué hace cada línea:
+**What each line does:**
 
-- `df["revenue_usd"].plot(kind="hist", bins=50, ...)`: `df["revenue_usd"]` toma solo la columna de ingresos, sin agrupar, así que cada valor es una línea de pedido. `kind="hist"` dibuja un histograma: divide los ingresos en 50 rangos (`bins=50`) y cuenta cuántas líneas caen en cada uno. `title` pone el título. El eje vertical sale solo con el nombre `Frequency`: es una **cantidad de líneas**, no dinero.
-- `plt.xlabel("Revenue (USD)")`: pone el nombre del eje horizontal. En el histograma se pone con `plt` aparte, porque pandas no siempre lo toma dentro de `plot`.
-- `plt.show()`: muestra el gráfico.
-
-Mientras la escribís, lo contás:
-
-> 🟢 For the histogram, I take the revenue column on its own, without grouping, so each value is one order line.
->
-> (Para el histograma, tomo la columna de ingresos sola, sin agrupar, así que cada valor es una línea de pedido.)
->
-> 🟢 A histogram splits the revenue into ranges, called bins. Here I use fifty. The height of each bar is how many order lines fall in that range, so the vertical axis, Frequency, is a count, not money.
->
-> (Un histograma divide los ingresos en rangos, llamados bins. Acá uso cincuenta. La altura de cada barra es cuántas líneas de pedido caen en ese rango, así que el eje vertical, Frequency, es una cantidad, no dinero.)
->
-> 🟢 I add the horizontal axis label with plt.xlabel, and plt.show displays the chart.
->
-> (Agrego el nombre del eje horizontal con plt.xlabel, y plt.show muestra el gráfico.)
+- 🟢 `df["revenue_usd"].plot(kind="hist", bins=50, ...)`: I take the revenue column on its own, without grouping, so each value is one order line. kind "hist" draws a histogram: it splits the revenue into fifty ranges, called bins, and the height of each bar is how many order lines fall in that range. So the vertical axis, Frequency, is a count, not money.
+- 🟢 `plt.xlabel("Revenue (USD)")`: this sets the name of the horizontal axis. For the histogram I set it separately with plt, because pandas doesn't always apply it inside plot.
+- 🟢 `plt.show()`: this displays the chart.
 
 Ejecutás la celda.
 
