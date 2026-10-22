@@ -8,9 +8,8 @@
 
 # %% Code cell 1 — Load the data
 import pandas as pd
-import matplotlib.pyplot as plt
 
-df = pd.read_csv("https://datanemics.com/datasets/data/retail-orders.csv")
+df =pd.read_csv("https://datanemics.com/datasets/data/retail-orders.csv")
 print(df.head())
 
 # %% TEXT cell
@@ -32,6 +31,8 @@ print(df.isna().sum())
 # Matplotlib is Python's most widely used charting library. pandas uses it when we call `.plot()`.
 
 # %% Code cell 4 — Bar chart: revenue by category
+import matplotlib.pyplot as plt
+
 by_category = df.groupby("category")["revenue_usd"].sum().sort_values(ascending=False)
 by_category.plot(kind="bar", title="Revenue by Category", xlabel="Category", ylabel="Revenue (USD)", rot=0)
 plt.show()

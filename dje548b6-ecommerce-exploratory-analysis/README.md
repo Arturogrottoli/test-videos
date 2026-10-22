@@ -100,17 +100,22 @@ Hacés clic en **+ Text** y escribís el título del notebook:
 Dataset: Retail Orders (Datanemics, CC0). Goal: explore revenue by category, by month, and per order line.
 ```
 
-Antes de escribir código, explicás qué es pandas:
+Qué hace: es una celda de texto, no de código. El `#` del principio la convierte en el título principal. Las líneas que empiezan con `##` arman las secciones del notebook, que se pueden plegar y aparecen en el índice de la izquierda.
 
-> <span style="color:#3fb950">pandas is a Python library for working with tables of data. It lets us load, explore, and summarize data with just a few lines of code. Colab already has it installed, so there's nothing to install.</span>
+> <span style="color:#3fb950">First, I'll add a text cell with a title and the goal. Text cells don't run code. They organize the notebook into sections, so it's easy to follow.</span>
 >
-> (pandas es una librería de Python para trabajar con tablas de datos. Nos permite cargar, explorar y resumir datos con pocas líneas de código. Colab ya la tiene instalada, así que no hay que instalar nada.)
+> (Primero agrego una celda de texto con un título y el objetivo. Las celdas de texto no ejecutan código. Organizan el notebook en secciones, para que sea fácil de seguir.)
 
-Hacés clic en **+ Code** y escribís la **celda 1**:
+Antes de escribir código, abrís una pestaña nueva con el sitio oficial de pandas, https://pandas.pydata.org, y lo mostrás unos 15 segundos:
+
+> <span style="color:#3fb950">This is the official pandas website. pandas is a free, open-source Python library for working with tables of data. It lets us load, explore, and summarize data with just a few lines of code. Colab already has it installed, so there's nothing to install.</span>
+>
+> (Este es el sitio oficial de pandas. pandas es una librería de Python gratuita y de código abierto para trabajar con tablas de datos. Nos permite cargar, explorar y resumir datos con pocas líneas de código. Colab ya la tiene instalada, así que no hay que instalar nada.)
+
+Volvés a Colab, hacés clic en **+ Code** y escribís la **celda 1**:
 
 ```python
 import pandas as pd
-import matplotlib.pyplot as plt
 
 df = pd.read_csv("https://datanemics.com/datasets/data/retail-orders.csv")
 print(df.head())
@@ -118,16 +123,15 @@ print(df.head())
 
 Qué hace cada línea:
 
-- `import pandas as pd`: carga pandas con su alias habitual, `pd`.
-- `import matplotlib.pyplot as plt`: carga el módulo de gráficos de Matplotlib con el alias `plt`.
-- `df = pd.read_csv(...)`: lee el CSV directamente desde el enlace y lo guarda en un DataFrame llamado `df`.
-- `print(df.head())`: muestra las primeras 5 filas, para comprobar que los datos se cargaron bien.
+- `import pandas as pd`: `import` carga una librería para poder usarla en el notebook. `as pd` le da un alias corto. Así, en vez de escribir `pandas.read_csv`, escribimos `pd.read_csv`. `pd` es el alias que usa todo el mundo.
+- `df = pd.read_csv(...)`: `read_csv` es la función de pandas que lee un CSV. Le pasamos el enlace del archivo, y el resultado se guarda en una variable llamada `df` (por *DataFrame*). Un DataFrame es la tabla de pandas: filas y columnas, como una hoja de cálculo.
+- `print(df.head())`: `head()` devuelve las primeras 5 filas y `print` las muestra. Sirve para comprobar que los datos se cargaron bien.
 
 Mientras la escribís, lo contás:
 
-> <span style="color:#3fb950">I import pandas as "pd", and Matplotlib's pyplot as "plt". Those are the usual short names.</span>
+> <span style="color:#3fb950">I start by importing pandas. import loads a library so we can use it, and "as pd" gives it a short name, so I can write pd instead of pandas. Everyone uses pd.</span>
 >
-> (Importo pandas como "pd" y el pyplot de Matplotlib como "plt". Son los alias habituales.)
+> (Empiezo importando pandas. import carga una librería para poder usarla, y "as pd" le da un nombre corto, así puedo escribir pd en vez de pandas. Todo el mundo usa pd.)
 >
 > <span style="color:#3fb950">read_csv loads the file straight from its link into a DataFrame. A DataFrame is like a spreadsheet inside Python. head shows the first five rows.</span>
 >
@@ -202,17 +206,19 @@ Agregás una celda de texto:
 Matplotlib is Python's most widely used charting library. pandas uses it when we call `.plot()`.
 ```
 
-Y presentás la librería:
+Abrís una pestaña nueva con el sitio oficial de Matplotlib, https://matplotlib.org, y lo mostrás unos 15 segundos:
 
-> <span style="color:#3fb950">Matplotlib is the most popular charting library in Python. pandas uses it behind the scenes when we call plot, so I can set the title and the axis labels right inside plot. plt.show displays the chart.</span>
+> <span style="color:#3fb950">This is the official Matplotlib website. Matplotlib is the most popular charting library in Python. It draws bar charts, line charts, histograms, and much more. pandas uses it behind the scenes when we call plot. Colab already has it installed too.</span>
 >
-> (Matplotlib es la librería de gráficos más popular de Python. pandas la usa por detrás cuando llamamos a plot, así que puedo poner el título y los nombres de los ejes directamente dentro de plot. plt.show muestra el gráfico.)
+> (Este es el sitio oficial de Matplotlib. Matplotlib es la librería de gráficos más popular de Python. Dibuja gráficos de barras, de líneas, histogramas y mucho más. pandas la usa por detrás cuando llamamos a plot. Colab también la tiene instalada.)
 
 ### Gráfico 1: barras, ingresos por categoría
 
-Escribís la **celda 4**:
+Volvés a Colab y escribís la **celda 4**:
 
 ```python
+import matplotlib.pyplot as plt
+
 by_category = df.groupby("category")["revenue_usd"].sum().sort_values(ascending=False)
 by_category.plot(kind="bar", title="Revenue by Category", xlabel="Category", ylabel="Revenue (USD)", rot=0)
 plt.show()
@@ -220,12 +226,17 @@ plt.show()
 
 Qué hace cada línea:
 
-- Línea 1: `groupby("category")` agrupa las filas por categoría, `["revenue_usd"].sum()` suma los ingresos de cada grupo y `sort_values(ascending=False)` ordena de mayor a menor.
-- Línea 2: `plot(kind="bar", ...)` dibuja un gráfico de barras. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes. `rot=0` deja los nombres de las categorías horizontales.
-- Línea 3: `plt.show()` muestra el gráfico debajo de la celda.
+- `import matplotlib.pyplot as plt`: carga `pyplot`, el módulo de Matplotlib que dibuja y muestra los gráficos, con el alias habitual `plt`. Se importa una sola vez: las celdas 5 y 6 ya lo pueden usar.
+- `groupby("category")` agrupa las filas por categoría, `["revenue_usd"].sum()` suma los ingresos de cada grupo y `sort_values(ascending=False)` ordena de mayor a menor. El resultado se guarda en `by_category`.
+- `by_category.plot(kind="bar", ...)`: dibuja un gráfico de barras. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes. `rot=0` deja los nombres de las categorías horizontales.
+- `plt.show()`: muestra el gráfico debajo de la celda.
 
 Mientras la escribís, lo contás:
 
+> <span style="color:#3fb950">First, I import pyplot, the part of Matplotlib that draws and shows charts, with its usual short name, plt.</span>
+>
+> (Primero importo pyplot, la parte de Matplotlib que dibuja y muestra los gráficos, con su alias habitual, plt.)
+>
 > <span style="color:#3fb950">groupby puts together the rows with the same category, sum adds up their revenue, and I sort the result from highest to lowest.</span>
 >
 > (groupby junta las filas con la misma categoría, sum suma sus ingresos, y ordeno el resultado de mayor a menor.)
@@ -233,6 +244,10 @@ Mientras la escribís, lo contás:
 > <span style="color:#3fb950">Then I plot it as a bar chart, with a title and labels for both axes.</span>
 >
 > (Después lo grafico como barras, con un título y nombres para los dos ejes.)
+>
+> <span style="color:#3fb950">I can set the title and the axis labels right inside plot, and plt.show displays the chart.</span>
+>
+> (Puedo poner el título y los nombres de los ejes directamente dentro de plot, y plt.show muestra el gráfico.)
 
 Ejecutás la celda y te detenés un momento en el gráfico.
 
@@ -248,9 +263,9 @@ plt.show()
 
 Qué hace cada línea:
 
-- Línea 1: `dt.to_period("M")` convierte cada fecha en su mes (por ejemplo `2023-01`). Funciona solo porque antes convertimos la columna a fechas. Después agrupa por mes y suma los ingresos.
-- Línea 2: `plot(...)` dibuja un gráfico de líneas, que es el tipo por defecto. `marker="o"` pone un punto en cada mes. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes.
-- Línea 3: `plt.show()` muestra el gráfico.
+- `monthly = df.groupby(...)["revenue_usd"].sum()`: dentro del `groupby`, `df["ordered_at"].dt.to_period("M")` convierte cada fecha en su mes (por ejemplo `2023-01`). `.dt` da acceso a las funciones de fecha, y por eso esto funciona solo porque antes convertimos la columna. Después agrupa por mes, suma los ingresos de cada uno y guarda los 24 totales en `monthly`.
+- `monthly.plot(...)`: dibuja un gráfico de líneas, que es el tipo por defecto, así que no hace falta `kind`. `marker="o"` pone un punto en cada mes. `title`, `xlabel` y `ylabel` ponen el título y los nombres de los ejes.
+- `plt.show()`: muestra el gráfico.
 
 Mientras la escribís, lo contás:
 
@@ -261,6 +276,10 @@ Mientras la escribís, lo contás:
 > <span style="color:#3fb950">A line chart is the right choice for data over time, and the markers show each month.</span>
 >
 > (Un gráfico de líneas es la opción adecuada para datos en el tiempo, y los marcadores muestran cada mes.)
+>
+> <span style="color:#3fb950">Again, I set the title and the axis labels inside plot, and plt.show displays it.</span>
+>
+> (De nuevo, pongo el título y los nombres de los ejes dentro de plot, y plt.show lo muestra.)
 
 Ejecutás la celda.
 
@@ -276,15 +295,23 @@ plt.show()
 
 Qué hace cada línea:
 
-- Línea 1: `plot(kind="hist", bins=50, ...)` dibuja un histograma. Divide los ingresos en 50 rangos (bins) y cuenta cuántas líneas caen en cada uno. El eje vertical sale solo con el nombre `Frequency`: es una **cantidad de líneas**, no dinero.
-- Línea 2: `plt.xlabel(...)` pone el nombre del eje horizontal. En los histogramas se pone con `plt` porque pandas no siempre lo toma dentro de `plot`.
-- Línea 3: `plt.show()` muestra el gráfico.
+- `df["revenue_usd"].plot(kind="hist", bins=50, ...)`: `df["revenue_usd"]` toma solo la columna de ingresos, sin agrupar, así que cada valor es una línea de pedido. `kind="hist"` dibuja un histograma: divide los ingresos en 50 rangos (`bins=50`) y cuenta cuántas líneas caen en cada uno. `title` pone el título. El eje vertical sale solo con el nombre `Frequency`: es una **cantidad de líneas**, no dinero.
+- `plt.xlabel("Revenue (USD)")`: pone el nombre del eje horizontal. En el histograma se pone con `plt` aparte, porque pandas no siempre lo toma dentro de `plot`.
+- `plt.show()`: muestra el gráfico.
 
 Mientras la escribís, lo contás:
 
-> <span style="color:#3fb950">A histogram splits the revenue into ranges, called bins. Here I use fifty. The height of each bar is how many order lines fall in that range, so the vertical axis is a count, not money.</span>
+> <span style="color:#3fb950">For the histogram, I take the revenue column on its own, without grouping, so each value is one order line.</span>
 >
-> (Un histograma divide los ingresos en rangos, llamados bins. Acá uso cincuenta. La altura de cada barra es cuántas líneas de pedido caen en ese rango, así que el eje vertical es una cantidad, no dinero.)
+> (Para el histograma, tomo la columna de ingresos sola, sin agrupar, así que cada valor es una línea de pedido.)
+>
+> <span style="color:#3fb950">A histogram splits the revenue into ranges, called bins. Here I use fifty. The height of each bar is how many order lines fall in that range, so the vertical axis, Frequency, is a count, not money.</span>
+>
+> (Un histograma divide los ingresos en rangos, llamados bins. Acá uso cincuenta. La altura de cada barra es cuántas líneas de pedido caen en ese rango, así que el eje vertical, Frequency, es una cantidad, no dinero.)
+>
+> <span style="color:#3fb950">I add the horizontal axis label with plt.xlabel, and plt.show displays the chart.</span>
+>
+> (Agrego el nombre del eje horizontal con plt.xlabel, y plt.show muestra el gráfico.)
 
 Ejecutás la celda.
 
