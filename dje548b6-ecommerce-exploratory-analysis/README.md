@@ -501,7 +501,7 @@ Agregás la celda de observaciones. Coincide con los valores de referencia de ar
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a text cell with my observations, so the findings are saved next to the charts.
 >
-> (Hago clic en el botón + Text de la barra de herramientas, para agregar una celda de texto con mis observaciones, así los hallazgos quedan guardados junto a los gráficos.)
+> (Hago clic en el botón + Text de la barra de herramientas, para agregar una celda de texto con mis observaciones, así los hallazgos quedan guardados juntolo  a los gráficos.)
 
 ```markdown
 ## 4. Observations
