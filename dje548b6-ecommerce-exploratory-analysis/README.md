@@ -54,13 +54,29 @@ Comprobé en el CSV que existen las tres columnas que usamos:
 
 ---
 
-## 0:00–2:00 — El objetivo y la página del CSV
+## 0:00–3:00 — El objetivo, Colab y la página del CSV
 
 Empezás con la pestaña del dataset abierta en https://datanemics.com/datasets/retail-orders/. Saludás y presentás el objetivo:
 
 > 🟢 Hi! In this video, I'll do an exploratory data analysis of a public e-commerce dataset, using Python, pandas, and Matplotlib in Google Colab.
 >
 > (¡Hola! En este video voy a hacer un análisis exploratorio de un dataset público de e-commerce, usando Python, pandas y Matplotlib en Google Colab.)
+
+Explicás qué es un análisis exploratorio:
+
+> 🟢 Exploratory data analysis, or EDA, is the first step when we get a new dataset. Before building models or making decisions, we look at the data to understand what it contains: how big it is, what each column means, whether there are missing or wrong values, and what patterns stand out. Charts are a big part of it, because a chart shows in seconds what a table of thousands of rows can't.
+>
+> (El análisis exploratorio de datos, o EDA, es el primer paso cuando recibimos un dataset nuevo. Antes de construir modelos o tomar decisiones, miramos los datos para entender qué contienen: qué tamaño tienen, qué significa cada columna, si hay valores faltantes o incorrectos y qué patrones se destacan. Los gráficos son una parte importante, porque un gráfico muestra en segundos lo que una tabla de miles de filas no puede.)
+
+Explicás qué es Colab y cómo usa Python:
+
+> 🟢 I'll work in Google Colab. Colab is a free tool from Google that runs Python notebooks in the browser. There's nothing to install: the code runs on a computer in Google's cloud, and popular data libraries like pandas and Matplotlib are already installed.
+>
+> (Voy a trabajar en Google Colab. Colab es una herramienta gratuita de Google que ejecuta notebooks de Python en el navegador. No hay que instalar nada: el código se ejecuta en una computadora en la nube de Google, y las librerías de datos más populares, como pandas y Matplotlib, ya vienen instaladas.)
+>
+> 🟢 Python is the programming language we'll use. It's the most popular language for data analysis, because its code is short and easy to read. In Colab, I write Python in a cell, run it, and see the result right below, so I can explore the data step by step.
+>
+> (Python es el lenguaje de programación que vamos a usar. Es el lenguaje más popular para análisis de datos, porque su código es corto y fácil de leer. En Colab escribo Python en una celda, la ejecuto y veo el resultado justo debajo, así que puedo explorar los datos paso a paso.)
 
 Bajás despacio por la página para mostrar la descripción del dataset:
 
@@ -80,9 +96,23 @@ Mostrás la lista de columnas y contás qué vas a buscar:
 >
 > (Quiero responder tres preguntas: qué categorías generan más ingresos, cómo cambian los ingresos mes a mes y cómo se distribuyen los ingresos entre las líneas de pedido.)
 
+Contás el plan, paso por paso:
+
+> 🟢 Here's the plan. First, I'll read the CSV with pandas and look at the first rows. Second, I'll check its structure: how many rows and columns it has, and the data type of each column.
+>
+> (Este es el plan. Primero, voy a leer el CSV con pandas y mirar las primeras filas. Segundo, voy a revisar su estructura: cuántas filas y columnas tiene y el tipo de dato de cada columna.)
+>
+> 🟢 Third, I'll clean the data. I'll convert the order dates from text to real dates, and check for missing values, because dirty data gives wrong results.
+>
+> (Tercero, voy a limpiar los datos. Voy a convertir las fechas de los pedidos de texto a fechas reales y revisar los valores faltantes, porque los datos sucios dan resultados incorrectos.)
+>
+> 🟢 Finally, I'll build three charts with Matplotlib, one for each question: a bar chart, a line chart, and a histogram. Then I'll explain what each chart tells us.
+>
+> (Por último, voy a armar tres gráficos con Matplotlib, uno para cada pregunta: un gráfico de barras, uno de líneas y un histograma. Después voy a explicar qué nos dice cada gráfico.)
+
 ---
 
-## 2:00–4:00 — Abrir Colab, explicar pandas y cargar los datos
+## 3:00–4:30 — Abrir Colab, explicar pandas y cargar los datos
 
 Pasás a la pestaña de Colab (https://colab.research.google.com) y hacés clic en **New notebook**. Hacés clic en el nombre de arriba a la izquierda y lo cambiás a `ecommerce_eda.ipynb`.
 
@@ -133,7 +163,7 @@ Ejecutás la celda con `Shift + Enter` y mostrás la tabla.
 
 ---
 
-## 4:00–6:00 — Explorar los datos y convertir las fechas
+## 4:30–6:00 — Explorar los datos y convertir las fechas
 
 Agregás una celda de texto con `## 1. Explore the data` y escribís la **celda 2**:
 
@@ -243,31 +273,57 @@ Ejecutás la celda.
 
 Volvés a subir hasta cada gráfico. Revisás que tenga título y ejes con nombre, que el de barras tenga 6 categorías y que el de líneas tenga 24 meses.
 
-**Valores de referencia.** Los calculé directamente del CSV el 21/10/2026, fuera de Colab. Compará con **tu** resultado antes de decirlos:
+**Valores de referencia.** Los calculé directamente del CSV, fuera de Colab (21/10/2026 y 23/10/2026). Compará con **tu** resultado antes de decirlos:
 
 | Gráfico | Lo que muestran los datos |
 | ------- | ------------------------- |
-| Barras | Electronics lidera con unos $326.000 de $774.000 en total (~42%). Le siguen home (~$152.000) y apparel (~$126.000). Grocery es la más baja (~$37.000). |
-| Líneas | La mayoría de los meses están entre $25.000 y $38.000. Hay un pico en diciembre en los dos años (~$48.000 en 2023 y ~$44.000 en 2024). El mes más bajo es enero de 2024 (~$18.600). |
-| Histograma | Asimetría a la derecha: la mayoría de las líneas son de menos de ~$125 (la mediana ronda los $60). Hay una cola de pocas líneas grandes, hasta ~$2.300. |
+| Barras | Total: ~$774.000. Electronics ~$326.000 (42%), home ~$152.000 (20%), apparel ~$126.000 (16%), sports ~$81.000 (11%), beauty ~$51.000 (7%), grocery ~$37.000 (5%). Las tres primeras suman ~78%. Electronics sola (~$326.000) supera a las cuatro últimas juntas (~$295.000). |
+| Líneas | Promedio ~$32.000 por mes; la mayoría entre $25.000 y $38.000. Pico en diciembre en los dos años (~$48.000 en 2023 y ~$44.000 en 2024). El mes más bajo es enero de 2024 (~$18.600), justo después del pico. Septiembre es flojo en los dos años (~$27.000 y ~$25.000). Total anual: 2023 ~$403.000 y 2024 ~$371.000 (~8% menos). |
+| Histograma | Asimetría a la derecha. Mediana ~$60 y promedio ~$111. 3 de cada 4 líneas son de menos de ~$125 y 9 de cada 10, de menos de $250. Máximo ~$2.300. El 10% de líneas más grandes aporta ~41% de los ingresos. |
 
 Mientras recorrés el gráfico de barras:
 
-> 🟢 In the bar chart, electronics is clearly the top category, with about 42 percent of all revenue. Grocery brings in the least.
+> 🟢 In the bar chart, electronics is clearly the top category, with about 42 percent of all revenue. Grocery brings in the least, about 5 percent.
 >
-> (En el gráfico de barras, electrónica es claramente la categoría principal, con cerca del 42 por ciento de los ingresos. Grocery es la que menos genera.)
+> (En el gráfico de barras, electrónica es claramente la categoría principal, con cerca del 42 por ciento de los ingresos. Grocery es la que menos genera, cerca del 5 por ciento.)
+>
+> 🟢 The top three categories, electronics, home, and apparel, bring in almost 80 percent of the revenue. In fact, electronics alone earns more than the four smallest categories combined.
+>
+> (Las tres primeras categorías, electrónica, hogar e indumentaria, generan casi el 80 por ciento de los ingresos. De hecho, electrónica sola gana más que las cuatro categorías más chicas juntas.)
+>
+> 🟢 For the business, this means electronics is the most important category to protect, for example by keeping it in stock. But depending so much on one category is also a risk.
+>
+> (Para el negocio, esto significa que electrónica es la categoría más importante para cuidar, por ejemplo manteniendo stock. Pero depender tanto de una categoría también es un riesgo.)
 
 Bajás al gráfico de líneas:
 
-> 🟢 In the line chart, revenue is fairly stable most of the year, but it peaks in December in both years and drops in January. That looks like a holiday season effect.
+> 🟢 In the line chart, revenue is fairly stable most of the year, around 32 thousand dollars a month, but it peaks in December in both years and drops in January. That looks like a holiday season effect.
 >
-> (En el gráfico de líneas, los ingresos son bastante estables la mayor parte del año, pero tienen un pico en diciembre en los dos años y bajan en enero. Parece un efecto de la temporada de fiestas.)
+> (En el gráfico de líneas, los ingresos son bastante estables la mayor parte del año, alrededor de 32 mil dólares por mes, pero tienen un pico en diciembre en los dos años y bajan en enero. Parece un efecto de la temporada de fiestas.)
+>
+> 🟢 January 2024 is the lowest month in the whole dataset, right after the December peak. September is also weak in both years.
+>
+> (Enero de 2024 es el mes más bajo de todo el dataset, justo después del pico de diciembre. Septiembre también es flojo en los dos años.)
+>
+> 🟢 Comparing the two years, 2024 brought in about 8 percent less than 2023. That's worth investigating, but with only two years of data we can't call it a trend yet.
+>
+> (Comparando los dos años, 2024 generó cerca de un 8 por ciento menos que 2023. Vale la pena investigarlo, pero con solo dos años de datos todavía no podemos decir que sea una tendencia.)
 
 Bajás al histograma:
 
 > 🟢 The histogram is right-skewed. Most order lines are small, but there's a long tail of a few large ones.
 >
 > (El histograma tiene asimetría a la derecha. La mayoría de las líneas de pedido son chicas, pero hay una cola larga de pocas líneas grandes.)
+>
+> 🟢 About three out of four order lines are under 125 dollars, and nine out of ten are under 250. The largest one is about 2,300 dollars.
+>
+> (Cerca de tres de cada cuatro líneas de pedido son de menos de 125 dólares, y nueve de cada diez, de menos de 250. La más grande es de unos 2.300 dólares.)
+>
+> 🟢 Because of that tail, the average line, about 110 dollars, is almost double the median, about 60. So the median describes a typical order line better. And the largest 10 percent of lines bring in about 40 percent of the revenue.
+>
+> (Por esa cola, el promedio por línea, unos 110 dólares, es casi el doble de la mediana, unos 60. Así que la mediana describe mejor una línea de pedido típica. Y el 10 por ciento de líneas más grandes aporta cerca del 40 por ciento de los ingresos.)
+
+El promedio, la mediana y los porcentajes del histograma no se leen en el gráfico. Si querés mostrarlos en pantalla, podés agregar una celda con `df["revenue_usd"].describe()`, que muestra el promedio (`mean`), la mediana (`50%`) y el máximo (`max`).
 
 Verificás en voz alta:
 
@@ -275,13 +331,16 @@ Verificás en voz alta:
 >
 > (Verifico: cada gráfico tiene título y ejes con nombre, el de barras muestra las seis categorías y el de líneas cubre los veinticuatro meses.)
 
-Agregás una celda de texto con las observaciones: una o dos frases por gráfico, con lo que se ve en él. Estas coinciden con los resultados del notebook ejecutado en Colab el 22/10/2026:
+Agregás una celda de texto con las observaciones de cada gráfico. Coinciden con los valores de referencia de arriba:
 
 ```markdown
 ## 4. Observations
-- **Bar chart:** electronics is the top category, with about $326K of the $774K total (around 42%). Home and apparel follow, and grocery is the lowest (about $37K).
-- **Line chart:** monthly revenue stays mostly between $25K and $38K. It peaks in December in both years (about $48K in 2023 and $44K in 2024) and drops in January, which suggests a holiday-season effect.
-- **Histogram:** the distribution is right-skewed. Most order lines are under about $125, and a few large lines go up to about $2,300.
+- **Bar chart:** electronics is the top category, with about $326K of the $774K total (around 42%). Home and apparel follow, and grocery is the lowest (about $37K, around 5%).
+  The top three categories bring in almost 80% of revenue, and electronics alone earns more than the four smallest categories combined.
+- **Line chart:** monthly revenue averages about $32K and stays mostly between $25K and $38K. It peaks in December in both years (about $48K in 2023 and $44K in 2024) and drops in January, which suggests a holiday-season effect.
+  January 2024 is the lowest month (about $18.6K), September is weak in both years, and 2024 brought in about 8% less than 2023.
+- **Histogram:** the distribution is right-skewed. About 3 in 4 order lines are under $125, 9 in 10 are under $250, and the largest is about $2,300.
+  The mean (about $111) is almost double the median (about $60), and the largest 10% of lines bring in about 41% of revenue.
 ```
 
 Mientras la escribís:
