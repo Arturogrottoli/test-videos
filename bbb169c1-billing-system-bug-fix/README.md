@@ -1,6 +1,6 @@
 # bbb169c1 — Billing System Bug Fix
 
-Guion paso a paso para grabar la tarea **bbb169c1**: diagnosticar y corregir un error en un script de facturación en **Python**. El script aplica el descuento porcentual mientras va sumando los artículos, en vez de aplicarlo una sola vez sobre el subtotal. En la grabación reproducís el total incorrecto, rastreás el orden del cálculo, lo corregís y creás **tres pruebas unitarias**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **21 minutos**, epílogo incluido.
+Guion paso a paso para grabar la tarea **bbb169c1** en **Google Colab**: diagnosticar y corregir un error en un script de facturación en **Python**. El script aplica el descuento porcentual mientras va sumando los artículos, en vez de aplicarlo una sola vez sobre el subtotal. En la grabación reproducís el total incorrecto, rastreás el orden del cálculo, lo corregís y creás **tres pruebas unitarias**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **21 minutos**, epílogo incluido.
 
 **Cómo leer este guion:**
 
@@ -9,7 +9,7 @@ Guion paso a paso para grabar la tarea **bbb169c1**: diagnosticar y corregir un 
 - Debajo de cada bloque de código, la lista **What each line does** explica cada línea en inglés. La leés en voz alta mientras escribís (o señalás) esa línea.
 - El resto, en castellano, es lo que hacés en pantalla. Las traducciones aparecen entre paréntesis después de cada frase.
 
-> **Importante:** el Goal de Studio tiene prioridad sobre este guion. Antes de grabar, comparalo con el campo **Describe your idea** de la tarea y confirmá qué apps están aprobadas. Este guion usa **Visual Studio Code** y su terminal.
+> **Importante:** el Goal de Studio tiene prioridad sobre este guion. Antes de grabar, comparalo con el campo **Describe your idea** de la tarea y **confirmá que Google Colab es una app aprobada para esta tarea**.
 
 ---
 
@@ -47,24 +47,35 @@ Cómo llega el script a 273,15: 100 − 10% = 90 → 90 + 25 = 115 − 10% = 103
 
 ---
 
+## Cómo se trabaja con un script en Colab
+
+Colab es un notebook, pero también puede trabajar con archivos `.py` comunes:
+
+- **Subir y editar:** subís `billing.py` desde el panel **Files**. Con **doble clic** se abre en un **editor de archivos**, en un panel a la derecha. Ahí lo leés y lo modificás.
+- **Ejecutar:** en una celda de código, `!python billing.py` ejecuta el script. El `!` le dice a Colab que ejecute un comando de terminal.
+- **Crear un archivo:** una celda que empieza con `%%writefile test_billing.py` guarda el resto de la celda como un archivo nuevo con ese nombre.
+
+**Plan B**, por si el editor de archivos no guarda los cambios: en una celda nueva escribís `%%writefile billing.py` en la primera línea, debajo el código corregido completo (el de la sección 9:00–12:00) y la ejecutás. Eso reemplaza el archivo.
+
+---
+
 ## Antes de grabar
 
 1. Leé el Goal y compará este guion con el campo **Describe your idea** de Studio.
-2. **Instalá Python 3** en la computadora donde vas a grabar (https://www.python.org/downloads/; en el instalador marcá **Add python.exe to PATH**). En esta PC no hay Python instalado. Comprobá en una terminal que `python --version` funcione. Si no funciona, probá con `py`, y en ese caso usá `py` en lugar de `python` en todo el guion.
-3. Copiá **solo** `billing.py` (el que tiene el error) a una carpeta nueva y limpia, por ejemplo `Escritorio\billing-system`. No copies la carpeta `solution`.
-4. Practicá una vez entera, leyendo en voz alta las frases 🖱️ y 🟢, y cronometrá. Después volvé a copiar el `billing.py` con el error.
-5. Dejá abiertos el documento **Goal** en Firefox y VS Code (sin ninguna carpeta abierta). Agrandá la letra de VS Code (`Ctrl + +`).
-6. Maximizá la ventana que estés mostrando y cerrá o minimizá las demás, para que ninguna tape a otra.
-7. Pausa de ~1 segundo después de cada clic y nunca más de 45 segundos en silencio.
-8. No muestres Studio, Mercor, información privada ni herramientas de IA, ni la carpeta `solution`. Cerrá este guion si está en la misma pantalla.
+2. Practicá una vez entera en Colab, leyendo en voz alta las frases 🖱️ y 🟢, y cronometrá. Comprobá que el doble clic abre `billing.py` en el editor y que `Ctrl + S` guarda los cambios. Si no funciona, usá el plan B.
+3. Tené **solo** el `billing.py` con el error en una carpeta fácil de encontrar, como el Escritorio. No dejes a mano la carpeta `solution`.
+4. Dejá dos pestañas abiertas en Firefox: el documento **Goal** y Colab (https://colab.research.google.com). Agrandá el zoom (`Ctrl + +`).
+5. Maximizá el navegador y cerrá o minimizá las demás ventanas, para que ninguna tape a otra.
+6. Pausa de ~1 segundo después de cada clic y nunca más de 45 segundos en silencio.
+7. No muestres Studio, Mercor, información privada ni herramientas de IA, ni la carpeta `solution`. Cerrá este guion si está en la misma pantalla.
 
 ---
 
 ## 0:00–0:45 — Mostrar el Goal
 
-> 🖱️ I'm on the Goal document in the browser, to show what this task asks for.
+> 🖱️ I'm on the Goal document in the first browser tab, to show what this task asks for.
 >
-> (Estoy en el documento del Goal, en el navegador, para mostrar qué pide esta tarea.)
+> (Estoy en el documento del Goal, en la primera pestaña del navegador, para mostrar qué pide esta tarea.)
 >
 > 🟢 As a developer maintaining a billing system, I'll fix a bug where the percentage discount is applied while the items are being added, instead of once on the subtotal. I'll reproduce it, trace it, fix it, and add three unit tests.
 >
@@ -72,25 +83,37 @@ Cómo llega el script a 273,15: 100 − 10% = 90 → 90 + 25 = 115 − 10% = 103
 
 ---
 
-## 0:45–5:00 — Abrir e inspeccionar el script
+## 0:45–5:00 — Abrir Colab, subir e inspeccionar el script
 
-> 🖱️ I'm clicking the VS Code icon in the taskbar at the bottom of the screen, to open the code editor.
+> 🖱️ I'm clicking the second browser tab, at the top of the window, to open Google Colab.
 >
-> (Hago clic en el ícono de VS Code en la barra de tareas, abajo de la pantalla, para abrir el editor de código.)
+> (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para abrir Google Colab.)
 >
-> 🖱️ I'm opening the File menu at the top left and choosing Open Folder, to open the billing project.
+> 🟢 I'll work in Google Colab. It runs Python in the browser, so I can open the script, run it, and test it without installing anything.
 >
-> (Abro el menú File, arriba a la izquierda, y elijo Open Folder, para abrir el proyecto de facturación.)
+> (Voy a trabajar en Google Colab. Ejecuta Python en el navegador, así que puedo abrir el script, ejecutarlo y probarlo sin instalar nada.)
 >
-> 🖱️ I'm selecting the billing-system folder on the Desktop and clicking the Select Folder button at the bottom right of the dialog.
+> 🖱️ I'm clicking the New notebook button at the bottom of the Open notebook dialog, to create a fresh notebook.
 >
-> (Selecciono la carpeta billing-system en el Escritorio y hago clic en el botón Select Folder, abajo a la derecha del cuadro.)
+> (Hago clic en el botón New notebook, abajo del cuadro Open notebook, para crear un notebook nuevo.)
+>
+> 🖱️ I'm clicking the notebook title field at the top left, and typing billing_bug_fix.ipynb, to identify this work.
+>
+> (Hago clic en el campo del título del notebook, arriba a la izquierda, y escribo billing_bug_fix.ipynb, para identificar este trabajo.)
+>
+> 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to upload the billing script.
+>
+> (Hago clic en el ícono Files, la carpeta de la barra lateral izquierda, para subir el script de facturación.)
+>
+> 🖱️ I'm clicking the Upload to session storage icon, at the top of the Files pane, and choosing billing.py from my computer.
+>
+> (Hago clic en el ícono Upload to session storage, arriba del panel Files, y elijo billing.py de mi computadora.)
 
-Si VS Code pregunta si confiás en los autores: *"I'm clicking Yes, I trust the authors, in the center of the dialog, because this is my own project folder."*
+Si aparece un aviso: *"I'm clicking OK on this warning, in the center of the screen, to continue the upload."*
 
-> 🖱️ I'm clicking billing.py in the Explorer panel on the left, to open the billing script.
+> 🖱️ I'm double-clicking billing.py in the Files pane on the left, to open it in Colab's file editor on the right.
 >
-> (Hago clic en billing.py en el panel Explorer de la izquierda, para abrir el script de facturación.)
+> (Hago doble clic en billing.py en el panel Files de la izquierda, para abrirlo en el editor de archivos de Colab, a la derecha.)
 
 Recorrés el código con el mouse, señalando cada línea mientras la explicás:
 
@@ -128,25 +151,39 @@ if __name__ == "__main__":
 
 ## 5:00–9:00 — Reproducir el error y rastrear el cálculo
 
-> 🖱️ I'm opening the Terminal menu at the top of VS Code and choosing New Terminal, to run the script.
+> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a heading for this step.
 >
-> (Abro el menú Terminal, arriba de VS Code, y elijo New Terminal, para ejecutar el script.)
->
-> 🖱️ I'm typing python billing.py in the terminal at the bottom of the window, and pressing Enter, to reproduce the invoice total.
->
-> (Escribo python billing.py en la terminal, abajo de la ventana, y presiono Enter, para reproducir el total de la factura.)
+> (Hago clic en el botón + Text de la barra de herramientas, arriba a la izquierda, para agregar un título para este paso.)
 
-La terminal muestra `Invoice total: 273.15`.
+Escribís `## 1. Reproduce the bug`.
+
+> 🖱️ I'm clicking the plus Code button in the toolbar, to add a code cell that runs the script.
+>
+> (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que ejecuta el script.)
+
+```python
+!python billing.py
+```
+
+**What each line does:**
+
+- 🟢 `!python billing.py`: the exclamation mark tells Colab to run a terminal command. This command runs billing.py with Python, just like on a normal computer.
+
+> 🖱️ I'm clicking the Run cell button, the play icon to the left of this cell, to reproduce the invoice total.
+>
+> (Hago clic en el botón Run cell, el ícono de play a la izquierda de esta celda, para reproducir el total de la factura.)
+
+Debajo aparece `Invoice total: 273.15`.
 
 > 🟢 The script says the total is 273.15. Let me calculate it by hand. Two keyboards at 50 dollars is 100, plus a 25-dollar mouse, plus a 200-dollar monitor. The subtotal is 325 dollars. Ten percent of 325 is 32.50, so the correct total is 292.50. The script charges 19.35 dollars less than it should. I've reproduced the bug.
 >
 > (El script dice que el total es 273,15. Lo calculo a mano. Dos teclados a 50 dólares son 100, más un mouse de 25, más un monitor de 200. El subtotal es 325 dólares. El 10 por ciento de 325 es 32,50, así que el total correcto es 292,50. El script cobra 19,35 dólares menos de lo que debería. Reproduje el error.)
 
-Para rastrear el cálculo, agregás una línea temporal:
+Para rastrear el cálculo, agregás una línea temporal en el editor:
 
-> 🖱️ I'm clicking at the end of the discount line, line 6 in the editor, and pressing Enter, to add a temporary print that shows the running total.
+> 🖱️ I'm clicking at the end of the discount line in the file editor on the right, and pressing Enter, to add a temporary print that shows the running total.
 >
-> (Hago clic al final de la línea del descuento, la línea 6 del editor, y presiono Enter, para agregar un print temporal que muestra el total parcial.)
+> (Hago clic al final de la línea del descuento en el editor de archivos de la derecha, y presiono Enter, para agregar un print temporal que muestra el total parcial.)
 
 Escribís, con la misma sangría que la línea de arriba:
 
@@ -158,11 +195,11 @@ Escribís, con la misma sangría que la línea de arriba:
 
 - 🟢 `print("After", item["name"], "running total:", round(total, 2))`: this prints the total after each item, so I can see the order of the calculation step by step. It's temporary: I'll remove it after the fix.
 
-> 🖱️ I'm pressing Control and S to save the file, and then clicking in the terminal at the bottom and running python billing.py again, to trace the calculation.
+> 🖱️ I'm pressing Control and S to save the file, and clicking the Run cell button to the left of the same cell, to run the script again and trace the calculation.
 >
-> (Presiono Control y S para guardar el archivo, y después hago clic en la terminal de abajo y ejecuto python billing.py otra vez, para rastrear el cálculo.)
+> (Presiono Control y S para guardar el archivo, y hago clic en el botón Run cell a la izquierda de la misma celda, para ejecutar el script de nuevo y rastrear el cálculo.)
 
-La terminal muestra:
+Debajo aparece:
 
 ```
 After Keyboard running total: 90.0
@@ -183,9 +220,9 @@ Invoice total: 273.15
 
 ## 9:00–12:00 — Corregir el cálculo
 
-> 🖱️ I'm selecting the body of the function in the editor, from line 3 to line 8, to replace it with the corrected logic.
+> 🖱️ I'm selecting the body of the function in the file editor on the right, from the total line down to the return line, to replace it with the corrected logic.
 >
-> (Selecciono el cuerpo de la función en el editor, de la línea 3 a la 8, para reemplazarlo con la lógica corregida.)
+> (Selecciono el cuerpo de la función en el editor de archivos de la derecha, desde la línea de total hasta la del return, para reemplazarlo con la lógica corregida.)
 
 Escribís el cuerpo nuevo. La función queda así:
 
@@ -209,11 +246,11 @@ def calculate_invoice_total(items, discount_percent):
 
 Con el cambio también desaparece el `print` temporal.
 
-> 🖱️ I'm pressing Control and S to save, and running python billing.py again in the terminal at the bottom, to check the fix.
+> 🖱️ I'm pressing Control and S to save, and clicking the Run cell button to the left of the same cell, to check the fix.
 >
-> (Presiono Control y S para guardar y ejecuto python billing.py otra vez en la terminal de abajo, para comprobar la corrección.)
+> (Presiono Control y S para guardar, y hago clic en el botón Run cell a la izquierda de la misma celda, para comprobar la corrección.)
 
-La terminal muestra `Invoice total: 292.5`.
+Debajo aparece `Invoice total: 292.5`.
 
 > 🟢 Now the total is 292.5, which is the 292.50 I calculated by hand. Python doesn't show the last zero, but the value is the same.
 >
@@ -227,17 +264,20 @@ La terminal muestra `Invoice total: 292.5`.
 >
 > (La corrección funciona para esta factura, pero quiero asegurarme de que el error no vuelva. Para eso voy a escribir pruebas unitarias: pequeños programas que revisan la función automáticamente, cada vez que los ejecutamos.)
 >
-> 🖱️ I'm clicking the New File icon next to the folder name, at the top of the Explorer panel on the left, and typing test_billing.py, to create the test file.
+> 🖱️ I'm clicking the plus Text button in the toolbar, to add a heading for the tests.
 >
-> (Hago clic en el ícono New File al lado del nombre de la carpeta, arriba del panel Explorer de la izquierda, y escribo test_billing.py, para crear el archivo de pruebas.)
->
-> 🖱️ I'm typing in the new test_billing.py tab in the editor, to write the tests.
->
-> (Escribo en la pestaña nueva de test_billing.py del editor, para escribir las pruebas.)
+> (Hago clic en el botón + Text de la barra de herramientas, para agregar un título para las pruebas.)
 
-Escribís el archivo de pruebas:
+Escribís `## 2. Unit tests`.
+
+> 🖱️ I'm clicking the plus Code button in the toolbar, to add a code cell that creates the test file.
+>
+> (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que crea el archivo de pruebas.)
+
+Escribís la celda:
 
 ```python
+%%writefile test_billing.py
 import unittest
 
 from billing import calculate_invoice_total
@@ -267,6 +307,7 @@ if __name__ == "__main__":
 
 **What each line does:**
 
+- 🟢 `%%writefile test_billing.py`: this first line tells Colab to save the rest of the cell as a file called test_billing.py, instead of running it. This way, the tests live in their own file, next to billing.py.
 - 🟢 `import unittest`: unittest is Python's built-in testing library, so there's nothing to install.
 - 🟢 `from billing import calculate_invoice_total`: this imports the function I want to test from billing.py.
 - 🟢 `class TestInvoiceTotal(unittest.TestCase):`: a test class groups the tests. Every method whose name starts with test is one test.
@@ -276,27 +317,53 @@ if __name__ == "__main__":
 - 🟢 `def test_multiple_items(self):`: the third test uses several items: the same invoice as the bug, which must cost 292.50. This is the test that catches this bug, because the error only appears with more than one item.
 - 🟢 `if __name__ == "__main__": unittest.main()`: this lets me run the tests by running the file directly.
 
-> 🖱️ I'm pressing Control and S to save the test file, and then clicking in the terminal at the bottom and typing python -m unittest -v, to run all the tests.
+> 🖱️ I'm clicking the Run cell button to the left of this cell, to save the test file.
 >
-> (Presiono Control y S para guardar el archivo de pruebas, y después hago clic en la terminal de abajo y escribo python -m unittest -v, para ejecutar todas las pruebas.)
-
-La terminal muestra las tres pruebas con `ok`, después `Ran 3 tests` y al final `OK`.
-
-> 🟢 All three tests pass. The -v option, for verbose, shows each test by name: multiple items, normal invoice, and zero discount, all ok. "Ran 3 tests" and "OK" at the end confirm the corrected results.
+> (Hago clic en el botón Run cell a la izquierda de esta celda, para guardar el archivo de pruebas.)
 >
-> (Las tres pruebas pasan. La opción -v, de verbose, muestra cada prueba por su nombre: varios artículos, factura normal y descuento cero, todas ok. "Ran 3 tests" y "OK" al final confirman los resultados corregidos.)
+> 🟢 Colab says "Writing test_billing.py", and the new file appears in the Files pane on the left, next to billing.py.
+>
+> (Colab dice "Writing test_billing.py", y el archivo nuevo aparece en el panel Files de la izquierda, al lado de billing.py.)
+>
+> 🖱️ I'm clicking the plus Code button in the toolbar, to add a code cell that runs all the tests.
+>
+> (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que ejecuta todas las pruebas.)
+
+```python
+!python -m unittest -v
+```
+
+**What each line does:**
+
+- 🟢 `!python -m unittest -v`: this runs unittest from the terminal. It finds every file whose name starts with test, runs all its tests, and the -v option, for verbose, shows each test by name.
+
+> 🖱️ I'm clicking the Run cell button to the left of this cell, to run the tests.
+>
+> (Hago clic en el botón Run cell a la izquierda de esta celda, para ejecutar las pruebas.)
+
+Debajo aparecen las tres pruebas con `ok`, después `Ran 3 tests` y al final `OK`.
+
+> 🟢 All three tests pass: multiple items, normal invoice, and zero discount, all ok. "Ran 3 tests" and "OK" at the end confirm the corrected results.
+>
+> (Las tres pruebas pasan: varios artículos, factura normal y descuento cero, todas ok. "Ran 3 tests" y "OK" al final confirman los resultados corregidos.)
 
 ---
 
-## 16:30–17:30 — Verificación final
+## 16:30–17:30 — Verificación final y descarga
 
-> 🖱️ I'm clicking the billing.py tab at the top of the editor, to review the final code once more.
+> 🖱️ I'm scrolling through billing.py in the file editor on the right, to review the final code once more.
 >
-> (Hago clic en la pestaña billing.py, arriba del editor, para revisar el código final una vez más.)
+> (Recorro billing.py en el editor de archivos de la derecha, para revisar el código final una vez más.)
 >
-> 🟢 Let me verify: the temporary print is gone, the discount is outside the loop, the script prints 292.5, and the three tests pass. The deliverables are the corrected billing.py and the test file, test_billing.py.
+> 🟢 Let me verify: the temporary print is gone, the discount is outside the loop, the script prints 292.5, and the three tests pass.
 >
-> (Verifico: el print temporal ya no está, el descuento está afuera del loop, el script imprime 292,5 y las tres pruebas pasan. Los entregables son el billing.py corregido y el archivo de pruebas, test_billing.py.)
+> (Verifico: el print temporal ya no está, el descuento está afuera del loop, el script imprime 292,5 y las tres pruebas pasan.)
+>
+> 🖱️ I'm right-clicking billing.py in the Files pane on the left and choosing Download, and doing the same with test_billing.py, to save the two deliverables.
+>
+> (Hago clic derecho en billing.py en el panel Files de la izquierda y elijo Download, y hago lo mismo con test_billing.py, para guardar los dos entregables.)
+
+Los archivos subidos a Colab se borran cuando se cierra la sesión, así que **descargalos antes de cerrar**.
 
 ---
 
@@ -304,9 +371,9 @@ La terminal muestra las tres pruebas con `ok`, después `Ran 3 tests` y al final
 
 Revisá en las reglas de Odin qué tiene que tener el epílogo y ajustá este texto si piden algo distinto.
 
-> 🖱️ I'm scrolling slowly through billing.py in the editor with the mouse wheel, to go over the fix.
+> 🖱️ I'm scrolling slowly up through the notebook with the mouse wheel, to go over the steps.
 >
-> (Recorro despacio billing.py en el editor con la rueda del mouse, para repasar la corrección.)
+> (Subo despacio por el notebook con la rueda del mouse, para repasar los pasos.)
 >
 > 🟢 In this epilogue, I want to go over my approach. First, I reproduced the bug and calculated the right answer by hand, so I knew exactly what "correct" meant before changing anything.
 >
@@ -316,13 +383,13 @@ Revisá en las reglas de Odin qué tiene que tener el epílogo y ajustá este te
 >
 > (Después rastreé el cálculo con un print temporal. Eso mostró la causa de fondo: una línea en el lugar equivocado. El descuento estaba adentro del loop, así que los primeros artículos se descontaban varias veces. La corrección fue chica, sacar el descuento del loop, pero encontrar la causa exacta es lo que hace que una corrección sea segura.)
 >
-> 🖱️ I'm clicking the test_billing.py tab at the top of the editor, to talk about the tests.
->
-> (Hago clic en la pestaña test_billing.py, arriba del editor, para hablar de las pruebas.)
->
 > 🟢 An interesting detail: with one item, the old code gave the right answer, because the discount ran only once. So the normal invoice and zero discount tests would pass even with the bug. The multiple items test is the one that protects us. With the old code, it would get 273.15 instead of 292.50 and fail. That's why testing several items matters.
 >
 > (Un detalle interesante: con un solo artículo, el código viejo daba bien, porque el descuento se ejecutaba una sola vez. Entonces las pruebas de factura normal y de descuento cero pasarían incluso con el error. La prueba de varios artículos es la que nos protege. Con el código viejo obtendría 273,15 en vez de 292,50 y fallaría. Por eso importa probar varios artículos.)
+>
+> 🟢 I kept the code and the tests as separate .py files, not just notebook cells, because in a real billing system they would live in the project and run automatically before every change.
+>
+> (Dejé el código y las pruebas como archivos .py separados, no solo como celdas del notebook, porque en un sistema de facturación real estarían en el proyecto y se ejecutarían automáticamente antes de cada cambio.)
 >
 > 🟢 As next steps, I would add tests for edge cases, like an empty invoice, a 100 percent discount, or an invalid negative discount, and decide how the function should handle them. For real money, I would also use Python's Decimal type instead of floats, to avoid small rounding errors. Thanks for watching!
 >
@@ -335,4 +402,4 @@ Si el reloj todavía no pasó los 15:00, no cortes: volvé a explicar el rastreo
 ## Después de grabar
 
 1. Ejecutá **Run full AutoQC**, no solo *Rerun failing*.
-2. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con `billing.py` corregido y `test_billing.py`) y **Metadata.rtf**.
+2. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con `billing.py` corregido y `test_billing.py`; si querés, también el notebook desde **File → Download → Download .ipynb**) y **Metadata.rtf**.

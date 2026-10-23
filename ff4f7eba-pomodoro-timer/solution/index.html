@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #fee2e2; margin-top: 60px; }
+    body.break { background: #dcfce7; }
+    #mode { font-size: 28px; }
+    #time { font-size: 96px; font-weight: bold; margin: 20px; }
+    button { font-size: 18px; padding: 10px 24px; margin: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Pomodoro Timer</h1>
+  <div id="mode">Work</div>
+  <div id="time">25:00</div>
+  <button id="start">Start</button>
+  <button id="pause">Pause</button>
+  <button id="reset">Reset</button>
+  <p>Sessions completed: <span id="sessions">0</span></p>
+
+  <script>
+    const WORK_MINUTES = 25;
+    const BREAK_MINUTES = 5;
+    const timeText = document.getElementById("time");
+    const modeText = document.getElementById("mode");
+    const sessionsText = document.getElementById("sessions");
+    let isWork = true;
+    let secondsLeft = WORK_MINUTES * 60;
+    let sessions = 0;
+    let timer = null;
+
+    function updateDisplay() {
+      const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
+      const seconds = String(secondsLeft % 60).padStart(2, "0");
+      timeText.textContent = `${minutes}:${seconds}`;
+      modeText.textContent = isWork ? "Work" : "Break";
+      document.body.classList.toggle("break", !isWork);
+      document.title = `${minutes}:${seconds} - Pomodoro`;
+    }
+
+    function tick() {
+      secondsLeft--;
+      if (secondsLeft < 0) {
+        if (isWork) {
+          sessions++;
+          sessionsText.textContent = sessions;
+        }
+        isWork = !isWork;
+        secondsLeft = (isWork ? WORK_MINUTES : BREAK_MINUTES) * 60;
+      }
+      updateDisplay();
+    }
+
+    function start() {
+      if (timer) return;
+      timer = setInterval(tick, 1000);
+    }
+
+    function pause() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function reset() {
+      pause();
+      isWork = true;
+      secondsLeft = WORK_MINUTES * 60;
+      updateDisplay();
+    }
+
+    document.getElementById("start").addEventListener("click", start);
+    document.getElementById("pause").addEventListener("click", pause);
+    document.getElementById("reset").addEventListener("click", reset);
+    updateDisplay();
+  </script>
+</body>
+</html>
