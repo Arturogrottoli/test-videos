@@ -1,0 +1,201 @@
+customer_id,tenure_months,monthly_charges,contract,support_calls,churn
+C001,31,43.79,Two year,0,No
+C002,25,81.87,One year,5,Yes
+C003,33,74.34,Two year,0,No
+C004,49,48.07,Two year,0,No
+C005,21,78.86,Month-to-month,3,Yes
+C006,30,65.45,Two year,3,No
+C007,18,70.74,Two year,3,No
+C008,16,76.68,Month-to-month,1,Yes
+C009,10,83.74,Month-to-month,3,Yes
+C010,36,56.40,Two year,2,No
+C011,19,57.84,Two year,3,No
+C012,22,69.27,Month-to-month,1,Yes
+C013,64,31.51,Two year,0,No
+C014,38,111.31,Two year,1,No
+C015,16,120.00,Month-to-month,1,Yes
+C016,27,59.68,Two year,0,No
+C017,33,,Two year,1,No
+C018,11,77.42,Month-to-month,3,Yes
+C019,19,50.75,Two year,2,No
+C020,34,70.93,Two year,0,No
+C021,14,59.74,Month-to-month,4,Yes
+C022,27,73.57,Two year,2,No
+C023,17,62.12,Month-to-month,0,No
+C024,25,46.59,Month-to-month,3,Yes
+C025,25,118.41,Month-to-month,2,No
+C026,13,66.34,Month-to-month,1,Yes
+C027,17,68.67,Month-to-month,3,Yes
+C028,46,51.64,One year,4,No
+C029,27,79.94,Month-to-month,2,No
+C030,51,83.71,One year,3,Yes
+C031,28,91.90,Month-to-month,2,No
+C032,6,73.03,Month-to-month,1,Yes
+C033,28,82.37,Month-to-month,5,No
+C034,35,65.71,Month-to-month,2,Yes
+C035,13,52.22,Month-to-month,0,No
+C036,29,40.26,Two year,3,No
+C037,23,53.48,One year,0,No
+C038,12,65.14,Month-to-month,3,Yes
+C039,5,58.76,Month-to-month,2,Yes
+C040,13,27.66,Month-to-month,4,Yes
+C041,38,68.77,One year,1,No
+C042,18,120.00,Month-to-month,2,Yes
+C043,50,49.65,One year,5,No
+C044,1,105.89,Month-to-month,1,No
+C045,48,70.25,One year,1,No
+C046,63,,Two year,3,No
+C047,32,39.97,Month-to-month,2,No
+C048,1,100.84,Month-to-month,2,Yes
+C049,27,24.19,One year,0,No
+C050,28,71.97,Two year,2,No
+C051,51,91.10,One year,3,No
+C052,51,89.86,Two year,2,No
+C053,49,96.73,One year,1,No
+C054,56,65.46,One year,4,No
+C055,1,70.35,Month-to-month,2,Yes
+C056,24,85.40,Month-to-month,2,No
+C057,53,47.85,Two year,4,No
+C058,23,65.86,Month-to-month,0,No
+C059,5,20.00,Month-to-month,4,Yes
+C060,8,29.57,One year,3,No
+C061,36,77.11,Month-to-month,0,No
+C062,1,75.28,Month-to-month,0,Yes
+C063,70,70.82,One year,1,No
+C064,39,24.68,Two year,3,No
+C065,32,55.46,Month-to-month,1,No
+C066,20,95.98,Month-to-month,0,Yes
+C067,24,78.24,Month-to-month,0,Yes
+C068,10,69.97,Month-to-month,1,Yes
+C069,18,95.50,Month-to-month,4,Yes
+C070,1,62.82,Month-to-month,1,Yes
+C071,1,57.67,Month-to-month,0,Yes
+C072,7,93.22,Month-to-month,3,Yes
+C073,18,39.35,Month-to-month,1,No
+C074,40,86.96,Two year,1,No
+C075,14,87.34,Month-to-month,2,Yes
+C076,33,93.00,Month-to-month,0,No
+C077,11,63.11,Month-to-month,2,No
+C078,14,53.89,Month-to-month,4,Yes
+C079,63,83.55,Two year,2,No
+C080,13,84.35,Two year,3,No
+C081,17,69.41,Month-to-month,7,Yes
+C082,35,52.84,Two year,1,No
+C083,1,,Month-to-month,2,Yes
+C084,39,20.00,One year,2,No
+C085,1,77.73,Month-to-month,3,Yes
+C086,1,71.48,Month-to-month,1,Yes
+C087,17,88.04,One year,4,No
+C088,44,113.29,One year,0,No
+C089,7,47.15,Month-to-month,2,Yes
+C090,21,80.38,Two year,3,No
+C091,1,100.30,Month-to-month,2,Yes
+C092,24,100.45,Month-to-month,3,Yes
+C093,56,70.60,One year,4,No
+C094,1,85.63,Month-to-month,3,Yes
+C095,72,79.30,One year,2,No
+C096,9,89.44,Month-to-month,2,No
+C097,42,97.52,Two year,3,No
+C098,47,75.78,One year,4,Yes
+C099,55,70.15,One year,0,No
+C100,17,32.84,Two year,3,Yes
+C101,13,61.69,Month-to-month,4,Yes
+C102,53,27.60,One year,1,No
+C103,10,57.90,Two year,3,Yes
+C104,44,81.41,Two year,3,Yes
+C105,15,36.45,Month-to-month,0,No
+C106,17,73.69,Month-to-month,3,Yes
+C107,47,71.34,One year,5,No
+C108,40,89.95,One year,3,No
+C109,46,66.47,One year,4,No
+C110,25,51.56,One year,0,No
+C111,1,58.63,Month-to-month,4,Yes
+C112,27,115.38,One year,2,No
+C113,34,62.86,One year,3,No
+C114,5,74.28,Month-to-month,1,No
+C115,1,59.58,Month-to-month,1,Yes
+C116,24,96.16,Month-to-month,3,Yes
+C117,47,90.04,One year,2,No
+C118,11,92.55,Month-to-month,2,Yes
+C119,6,69.80,Month-to-month,1,Yes
+C120,33,84.92,Month-to-month,2,No
+C121,26,,Two year,1,No
+C122,50,51.20,Two year,1,No
+C123,64,62.98,One year,4,Yes
+C124,25,73.83,Month-to-month,2,No
+C125,1,57.05,Month-to-month,1,Yes
+C126,52,86.25,One year,2,No
+C127,14,103.25,Month-to-month,2,Yes
+C128,27,106.59,Two year,2,No
+C129,49,48.56,One year,1,No
+C130,26,98.23,One year,3,No
+C131,14,71.47,Month-to-month,3,Yes
+C132,1,60.18,Month-to-month,3,Yes
+C133,33,60.17,One year,2,No
+C134,64,55.17,Two year,4,No
+C135,11,72.22,Two year,0,No
+C136,36,45.21,Two year,2,No
+C137,2,47.42,Month-to-month,2,Yes
+C138,19,92.11,Month-to-month,1,Yes
+C139,13,59.37,Month-to-month,2,Yes
+C140,59,52.02,Two year,3,No
+C141,1,54.39,Month-to-month,2,Yes
+C142,22,49.78,Month-to-month,2,Yes
+C143,25,51.86,Month-to-month,2,Yes
+C144,19,74.02,Month-to-month,2,Yes
+C145,36,76.22,Two year,2,No
+C146,24,83.81,Month-to-month,2,No
+C147,37,46.92,One year,5,No
+C148,26,58.34,Two year,3,No
+C149,28,41.51,One year,5,No
+C150,4,68.28,Month-to-month,3,No
+C151,28,49.38,Month-to-month,1,No
+C152,1,75.25,Month-to-month,2,Yes
+C153,16,52.25,Month-to-month,2,No
+C154,53,38.05,Two year,2,No
+C155,46,67.96,Two year,1,No
+C156,8,45.39,Month-to-month,1,No
+C157,2,96.27,Month-to-month,5,Yes
+C158,46,,Two year,2,No
+C159,9,45.00,Month-to-month,2,Yes
+C160,51,37.34,One year,4,No
+C161,40,68.46,Month-to-month,3,No
+C162,46,71.58,One year,2,No
+C163,39,88.62,Two year,1,No
+C164,29,53.45,Two year,1,No
+C165,53,92.02,Two year,3,No
+C166,45,104.80,Two year,0,No
+C167,44,57.27,One year,4,No
+C168,51,63.97,Two year,4,No
+C169,27,40.29,One year,1,No
+C170,46,74.25,Two year,3,No
+C171,29,75.65,Month-to-month,4,Yes
+C172,9,50.99,Month-to-month,6,Yes
+C173,44,116.40,One year,3,Yes
+C174,25,69.54,Month-to-month,3,Yes
+C175,20,62.71,One year,2,No
+C176,60,20.00,Two year,2,No
+C177,4,59.98,Month-to-month,2,No
+C178,45,85.41,One year,3,Yes
+C179,39,71.55,One year,2,No
+C180,64,49.94,Two year,2,No
+C181,34,62.97,Two year,3,No
+C182,26,108.91,Month-to-month,4,No
+C183,57,54.10,Two year,4,No
+C184,17,37.58,Month-to-month,2,Yes
+C185,17,111.69,Month-to-month,3,Yes
+C186,19,69.88,Month-to-month,1,Yes
+C187,26,57.93,One year,3,Yes
+C188,13,39.62,Month-to-month,5,Yes
+C189,1,84.18,Month-to-month,2,Yes
+C190,12,,Month-to-month,4,Yes
+C191,29,55.08,One year,3,No
+C192,19,48.73,Month-to-month,3,Yes
+C193,12,71.38,Month-to-month,1,No
+C194,21,48.55,Month-to-month,1,Yes
+C195,52,77.58,One year,2,No
+C196,43,91.01,Two year,4,Yes
+C197,9,89.58,Month-to-month,0,No
+C198,66,50.80,Two year,0,No
+C199,21,75.90,Month-to-month,1,Yes
+C200,11,74.72,Month-to-month,1,Yes
