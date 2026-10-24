@@ -18,7 +18,7 @@ Guion paso a paso para grabar la tarea **dje548b6**: un análisis exploratorio d
 | Control | Qué pasó | Qué hacer ahora |
 | ------- | -------- | --------------- |
 | **Narración: dónde (bloquea el envío)** | En 0 de 59 interacciones dijiste dónde estaba el elemento. | Leé **todas** las frases 🖱️. Al menos el 70% de las interacciones tiene que decir **dónde** y **por qué**. Fórmula: *I'm clicking **[elemento]** **[ubicación]** to **[motivo]**.* |
-| Ventanas superpuestas | Una ventana tapó otra durante 17 segundos (01:11–01:27). | Antes de grabar, dejá **solo el navegador** maximizado. Cerrá o minimizá todo lo demás, también este guion si está en la misma pantalla. |
+| Ventanas superpuestas | Una ventana tapó otra durante 17 segundos (01:11–01:27). | Antes de grabar, dejá en pantalla solo el inicio con TaskRecorder y el Goal, y Firefox minimizado. Cerrá todo lo demás, también este guion si está en la misma pantalla. Cuando abras Firefox, que se abra maximizado. |
 | Porcentaje de escritura | 23,5% (para programación se acepta hasta ~30%). | Ejecutá las celdas con el **botón Run** (mouse), no con el teclado. Escribí solo el código y los títulos cortos. |
 | Duración | Tiene que ser una sola grabación continua de 15:00 a 50:59. | Seguí los tiempos de este guion. No dejes silencios de más de 45 segundos y hacé una pausa de ~1 segundo después de cada clic. |
 | Goal y epílogo | Hay que mostrar el Goal al principio y, en esta tarea, incluir un epílogo de 3–4 minutos (aprobado el 22/10). | El Goal está en la sección 0:00–0:45 (máximo 30 segundos de narración). El epílogo está al final. |
@@ -65,8 +65,14 @@ Comprobé en el CSV que existen las tres columnas que usamos:
 
 1. Leé el Goal oficial y las reglas de Odin para `dje548b6`.
 2. Subí `ecommerce_eda.ipynb` a Colab, ejecutalo entero y anotá tus números reales. Después practicá una vez escribiendo las celdas vos, en un notebook nuevo, **leyendo en voz alta todas las frases 🖱️ y 🟢** y cronometrando.
-3. Dejá tres pestañas abiertas en el navegador, en este orden: el documento **Goal**, la página del dataset y Colab (https://colab.research.google.com). Agrandá el zoom del navegador (`Ctrl + +`).
-4. Maximizá el navegador y cerrá o minimizá las demás ventanas, para que ninguna tape a otra durante la grabación.
+3. Dejá el **Goal** visible en la pantalla de inicio, junto a TaskRecorder.
+4. Prepará Firefox con **cuatro pestañas**, en este orden:
+   1. la página del dataset (https://datanemics.com/datasets/retail-orders/), para descargar el CSV;
+   2. Google Colab (https://colab.research.google.com);
+   3. el sitio de pandas (https://pandas.pydata.org);
+   4. el sitio de Matplotlib (https://matplotlib.org).
+
+   Dejá la **primera pestaña** seleccionada, maximizá Firefox, agrandá el zoom (`Ctrl + +`) y minimizalo, así se abre recién después del Goal. Cerrá las demás ventanas, para que ninguna tape a otra durante la grabación.
 5. Recordá: pausa de ~1 segundo después de cada clic, y nunca más de 45 segundos en silencio.
 6. No muestres Studio, Mercor, información privada ni herramientas de IA en ningún momento de la grabación. Usá solo las apps permitidas (Google Colab en Firefox). Cerrá también este guion si está en la misma pantalla.
 
@@ -74,11 +80,11 @@ Comprobé en el CSV que existen las tres columnas que usamos:
 
 ## 0:00–0:45 — Mostrar el Goal
 
-Empezás con la pestaña del **Goal** abierta. Lo mostrás y no lo narrás más de 30 segundos:
+La grabación arranca en la pantalla de inicio, con el **Goal** visible junto a TaskRecorder. No hay una introducción aparte antes: el saludo va en la misma primera frase. Lo mostrás y no lo narrás más de 30 segundos:
 
-> 🖱️ I'm on the Goal document in the first browser tab, to show what this task asks for.
+> 🟢 Hi! Here on the start screen, next to TaskRecorder, is the Goal of this task, so let me go over what it asks for.
 >
-> (Estoy en el documento del Goal, en la primera pestaña del navegador, para mostrar qué pide esta tarea.)
+> (¡Hola! Acá en la pantalla de inicio, junto a TaskRecorder, está el Goal de esta tarea, así que repaso qué pide.)
 >
 > 🟢 The goal is to do an exploratory data analysis of a public e-commerce dataset in Google Colab, using Python, pandas, and Matplotlib, and to create and explain three charts.
 >
@@ -88,17 +94,57 @@ Ajustá esta frase a lo que diga tu Goal.
 
 ---
 
-## 0:45–4:00 — La página del CSV y el plan
+## 0:45–4:00 — Descargar el CSV y el plan
 
-La introducción tiene que durar **menos de 20 segundos**: una sola frase y enseguida la primera acción. Las explicaciones largas (qué es EDA, Colab y Python) van después, mientras hacés algo en pantalla.
+Apenas terminás el Goal, abrís Firefox y lo primero que mostrás es **cómo se descarga el CSV**. Las explicaciones largas (qué es EDA, Colab y Python) van después, mientras hacés algo en pantalla.
 
-> 🟢 Hi! In this video, I'll do an exploratory data analysis of a public e-commerce dataset, using Python, pandas, and Matplotlib in Google Colab.
+> 🖱️ I'm clicking the Firefox icon in the taskbar at the bottom of the screen, to open the browser with the tabs I prepared.
 >
-> (¡Hola! En este video voy a hacer un análisis exploratorio de un dataset público de e-commerce, usando Python, pandas y Matplotlib en Google Colab.)
+> (Hago clic en el ícono de Firefox en la barra de tareas, abajo de la pantalla, para abrir el navegador con las pestañas que preparé.)
 >
-> 🖱️ I'm clicking the second browser tab, at the top of the window, to open the dataset page.
+> 🟢 I have four tabs open: the dataset page, Google Colab, the pandas website, and the Matplotlib website. I'll use them in that order.
 >
-> (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para abrir la página del dataset.)
+> (Tengo cuatro pestañas abiertas: la página del dataset, Google Colab, el sitio de pandas y el sitio de Matplotlib. Las voy a usar en ese orden.)
+
+### Cómo descargamos el CSV
+
+> 🖱️ I'm on the first browser tab, at the top left of the window, which is the dataset page, to download the data.
+>
+> (Estoy en la primera pestaña del navegador, arriba a la izquierda de la ventana, que es la página del dataset, para descargar los datos.)
+
+Si Firefox se abre en otra pestaña, decí: *"I'm clicking the first browser tab, at the top left of the window, to open the dataset page and download the data."*
+
+> 🟢 This is the Retail Orders dataset, from Datanemics. It's synthetic and in the public domain, and it has 7,000 order lines from 2023 and 2024.
+>
+> (Este es el dataset Retail Orders, de Datanemics. Es sintético y de dominio público, y tiene 7.000 líneas de pedidos de 2023 y 2024.)
+>
+> 🟢 The data comes as a CSV file. CSV means comma-separated values: it's a plain text table, where each line is a row and commas separate the columns.
+>
+> (Los datos vienen en un archivo CSV. CSV significa valores separados por comas: es una tabla en texto plano, donde cada línea es una fila y las comas separan las columnas.)
+>
+> 🖱️ I'm scrolling down the dataset page with the mouse wheel, to find the Download CSV button.
+>
+> (Bajo por la página del dataset con la rueda del mouse, para encontrar el botón Download CSV.)
+>
+> 🖱️ I'm clicking the Download CSV button on this page, to save the dataset file to my computer.
+>
+> (Hago clic en el botón Download CSV de esta página, para guardar el archivo del dataset en mi computadora.)
+
+Si Firefox abre el panel de descargas, mostrás el archivo; si no, abrilo vos:
+
+> 🖱️ I'm clicking the Downloads arrow at the top right of Firefox, to check that retail-orders.csv was saved.
+>
+> (Hago clic en la flecha de Descargas, arriba a la derecha de Firefox, para comprobar que se guardó retail-orders.csv.)
+>
+> 🟢 The file is called retail-orders.csv, and it's now in my Downloads folder. This button points to a direct link to the same file, which ends in retail-orders.csv. In Colab, I'll give that link to pandas, so it reads the data straight from the internet. The copy I just downloaded is my backup: if the link doesn't work in Colab, I'll upload this file instead.
+>
+> (El archivo se llama retail-orders.csv y ahora está en mi carpeta de Descargas. Este botón apunta a un enlace directo al mismo archivo, que termina en retail-orders.csv. En Colab le voy a pasar ese enlace a pandas, para que lea los datos directamente de internet. La copia que acabo de descargar es mi respaldo: si el enlace no funciona en Colab, subo este archivo.)
+>
+> 🖱️ I'm clicking the X at the right of the Downloads panel, or anywhere on the page, to close the panel and go back to the dataset page.
+>
+> (Hago clic en la X a la derecha del panel de Descargas, o en cualquier parte de la página, para cerrar el panel y volver a la página del dataset.)
+
+### Qué es un EDA y el plan
 
 Bajás despacio por la página mientras explicás qué es un análisis exploratorio:
 
@@ -109,20 +155,6 @@ Bajás despacio por la página mientras explicás qué es un análisis explorato
 > 🟢 Exploratory data analysis, or EDA, is the first step when we get a new dataset. Before building models or making decisions, we look at the data to understand what it contains: how big it is, what each column means, whether there are missing or wrong values, and what patterns stand out. Charts are a big part of it, because a chart shows in seconds what a table of thousands of rows can't.
 >
 > (El análisis exploratorio de datos, o EDA, es el primer paso cuando recibimos un dataset nuevo. Antes de construir modelos o tomar decisiones, miramos los datos para entender qué contienen: qué tamaño tienen, qué significa cada columna, si hay valores faltantes o incorrectos y qué patrones se destacan. Los gráficos son una parte importante, porque un gráfico muestra en segundos lo que una tabla de miles de filas no puede.)
->
-> 🟢 This is the Retail Orders dataset. It's synthetic and in the public domain, and it has 7,000 order lines from 2023 and 2024.
->
-> (Este es el dataset Retail Orders. Es sintético y de dominio público, y tiene 7.000 líneas de pedidos de 2023 y 2024.)
-
-Señalás el botón de descarga y explicás qué es un CSV:
-
-> 🟢 The data comes as a CSV file. CSV means comma-separated values: it's a plain text table, where each line is a row and commas separate the columns.
->
-> (Los datos vienen en un archivo CSV. CSV significa valores separados por comas: es una tabla en texto plano, donde cada línea es una fila y las comas separan las columnas.)
->
-> 🖱️ I'm clicking the Download CSV button on this page to save a copy of the dataset, as a backup in case the direct link doesn't work in Colab.
->
-> (Hago clic en el botón Download CSV de esta página para guardar una copia del dataset, como respaldo por si el enlace directo no funciona en Colab.)
 
 Bajás hasta la lista de columnas y contás qué vas a buscar:
 
@@ -152,9 +184,9 @@ Contás el plan, paso por paso:
 
 ## 4:00–7:00 — Abrir Colab, explicar pandas y cargar los datos
 
-> 🖱️ I'm clicking the third browser tab, at the top of the window, to open Google Colab.
+> 🖱️ I'm clicking the second browser tab, at the top of the window, to open Google Colab.
 >
-> (Hago clic en la tercera pestaña del navegador, arriba de la ventana, para abrir Google Colab.)
+> (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para abrir Google Colab.)
 >
 > 🟢 This is Google Colab. Colab is a free tool from Google that runs Python notebooks in the browser. There's nothing to install: the code runs on a computer in Google's cloud, and popular data libraries like pandas and Matplotlib are already installed.
 >
@@ -170,10 +202,46 @@ Contás el plan, paso por paso:
 
 Si no aparece el cuadro, usás el menú: *"I'm opening the File menu at the top left and choosing New notebook, to create a fresh notebook."*
 
-> 🟢 A notebook is made of cells. I write Python in a cell, run it, and the result appears right below the cell, so I can explore the data step by step.
+Con el notebook nuevo abierto, explicás cómo funciona antes de escribir nada. Señalás cada parte con el mouse mientras la nombrás:
+
+> 🟢 A notebook is made of cells. A cell is a box where I write something, and the notebook is just a list of these boxes, one under the other. This lets me split the analysis into small steps instead of one long program.
 >
-> (Un notebook está formado por celdas. Escribo Python en una celda, la ejecuto y el resultado aparece justo debajo de la celda, así que puedo explorar los datos paso a paso.)
+> (Un notebook está formado por celdas. Una celda es un recuadro donde escribo algo, y el notebook es una lista de estos recuadros, uno debajo del otro. Así puedo dividir el análisis en pasos chicos en vez de un programa largo.)
 >
+> 🖱️ I'm pointing with the mouse at the empty cell in the middle of the screen, to show what a code cell looks like.
+>
+> (Señalo con el mouse la celda vacía en el medio de la pantalla, para mostrar cómo es una celda de código.)
+>
+> 🟢 There are two kinds of cells. This one is a code cell: I write Python in it. The other kind is a text cell, where I write titles and notes, so the notebook explains itself.
+>
+> (Hay dos tipos de celdas. Esta es una celda de código: ahí escribo Python. El otro tipo es la celda de texto, donde escribo títulos y notas, así el notebook se explica solo.)
+>
+> 🖱️ I'm pointing at the plus Code and plus Text buttons in the toolbar at the top left, to show how to add each kind of cell.
+>
+> (Señalo los botones + Code y + Text de la barra de herramientas, arriba a la izquierda, para mostrar cómo se agrega cada tipo de celda.)
+>
+> 🖱️ I'm pointing at the play icon on the left side of the cell, to show the button that runs it.
+>
+> (Señalo el ícono de play del lado izquierdo de la celda, para mostrar el botón que la ejecuta.)
+>
+> 🟢 To run a code cell, I click this play button. The result, like a table or a chart, appears right below the cell. Then I can look at it before moving on to the next step.
+>
+> (Para ejecutar una celda de código, hago clic en este botón de play. El resultado, como una tabla o un gráfico, aparece justo debajo de la celda. Así puedo mirarlo antes de pasar al siguiente paso.)
+>
+> 🟢 Cells share their memory. If I load the data in one cell, the next cells can use it without loading it again. That's why I'll run the cells in order, from top to bottom. After a cell runs, a number appears next to it, showing the order in which it ran.
+>
+> (Las celdas comparten la memoria. Si cargo los datos en una celda, las siguientes pueden usarlos sin volver a cargarlos. Por eso voy a ejecutar las celdas en orden, de arriba hacia abajo. Cuando una celda se ejecuta, aparece un número al lado, que muestra en qué orden se ejecutó.)
+>
+> 🖱️ I'm pointing at the Connect button at the top right of Colab, to show where the notebook connects to Google's computer.
+>
+> (Señalo el botón Connect, arriba a la derecha de Colab, para mostrar dónde se conecta el notebook a la computadora de Google.)
+>
+> 🟢 The code doesn't run on my laptop. When I run the first cell, Colab connects to a computer in Google's cloud, called the runtime, and this button changes to show its memory and disk. If I close the notebook, that memory is cleared, so I'd need to run the cells again.
+>
+> (El código no se ejecuta en mi laptop. Cuando ejecuto la primera celda, Colab se conecta a una computadora en la nube de Google, llamada runtime, y este botón cambia para mostrar su memoria y su disco. Si cierro el notebook, esa memoria se borra y tendría que volver a ejecutar las celdas.)
+
+Si el botón ya dice **RAM / Disk** en vez de **Connect**, decí *"the indicator at the top right"* en lugar de *"the Connect button"*.
+
 > 🖱️ I'm clicking the notebook title field at the top left, and typing ecommerce_eda.ipynb, to identify this analysis.
 >
 > (Hago clic en el campo del título del notebook, arriba a la izquierda, y escribo ecommerce_eda.ipynb, para identificar este análisis.)
@@ -196,17 +264,17 @@ Dataset: Retail Orders (Datanemics, CC0). Goal: explore revenue by category, by 
 
 Antes de escribir código, mostrás el sitio oficial de pandas unos 15 segundos:
 
-> 🖱️ I'm clicking the plus button next to the browser tabs at the top, and typing pandas.pydata.org in the address bar, to show the official pandas website.
+> 🖱️ I'm clicking the third browser tab, at the top of the window, to show the official pandas website.
 >
-> (Hago clic en el botón + al lado de las pestañas del navegador, arriba, y escribo pandas.pydata.org en la barra de direcciones, para mostrar el sitio oficial de pandas.)
+> (Hago clic en la tercera pestaña del navegador, arriba de la ventana, para mostrar el sitio oficial de pandas.)
 >
 > 🟢 This is the official pandas website. pandas is a free, open-source Python library for working with tables of data. It lets us load, explore, and summarize data with just a few lines of code. Colab already has it installed, so there's nothing to install.
 >
 > (Este es el sitio oficial de pandas. pandas es una librería de Python gratuita y de código abierto para trabajar con tablas de datos. Nos permite cargar, explorar y resumir datos con pocas líneas de código. Colab ya la tiene instalada, así que no hay que instalar nada.)
 >
-> 🖱️ I'm clicking the Colab tab at the top of the browser, to go back to my notebook.
+> 🖱️ I'm clicking the Colab tab, the second tab at the top of the browser, to go back to my notebook.
 >
-> (Hago clic en la pestaña de Colab, arriba del navegador, para volver a mi notebook.)
+> (Hago clic en la pestaña de Colab, la segunda arriba del navegador, para volver a mi notebook.)
 >
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add a code cell below the title.
 >
@@ -342,17 +410,17 @@ Matplotlib is Python's most widely used charting library. pandas uses it when we
 
 Mostrás el sitio oficial de Matplotlib unos 15 segundos:
 
-> 🖱️ I'm clicking the plus button next to the browser tabs at the top, and typing matplotlib.org in the address bar, to show the official Matplotlib website.
+> 🖱️ I'm clicking the fourth browser tab, the last one at the top of the window, to show the official Matplotlib website.
 >
-> (Hago clic en el botón + al lado de las pestañas del navegador, arriba, y escribo matplotlib.org en la barra de direcciones, para mostrar el sitio oficial de Matplotlib.)
+> (Hago clic en la cuarta pestaña del navegador, la última arriba de la ventana, para mostrar el sitio oficial de Matplotlib.)
 >
 > 🟢 This is the official Matplotlib website. Matplotlib is the most popular charting library in Python. It draws bar charts, line charts, histograms, and much more. pandas uses it behind the scenes when we call plot. Colab already has it installed too.
 >
 > (Este es el sitio oficial de Matplotlib. Matplotlib es la librería de gráficos más popular de Python. Dibuja gráficos de barras, de líneas, histogramas y mucho más. pandas la usa por detrás cuando llamamos a plot. Colab también la tiene instalada.)
 >
-> 🖱️ I'm clicking the Colab tab at the top of the browser, to go back to my notebook.
+> 🖱️ I'm clicking the Colab tab, the second tab at the top of the browser, to go back to my notebook.
 >
-> (Hago clic en la pestaña de Colab, arriba del navegador, para volver a mi notebook.)
+> (Hago clic en la pestaña de Colab, la segunda arriba del navegador, para volver a mi notebook.)
 
 ### Gráfico 1: barras, ingresos por categoría
 
@@ -501,7 +569,7 @@ Agregás la celda de observaciones. Coincide con los valores de referencia de ar
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a text cell with my observations, so the findings are saved next to the charts.
 >
-> (Hago clic en el botón + Text de la barra de herramientas, para agregar una celda de texto con mis observaciones, así los hallazgos quedan guardados juntolo  a los gráficos.)
+> (Hago clic en el botón + Text de la barra de herramientas, para agregar una celda de texto con mis observaciones, así los hallazgos quedan guardados junto a los gráficos.)
 
 ```markdown
 ## 4. Observations
