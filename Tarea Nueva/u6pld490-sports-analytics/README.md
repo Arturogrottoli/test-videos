@@ -142,7 +142,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("athlete_games.csv")
-df.head()
+df
 ```
 
 **What each line does:**
@@ -151,15 +151,37 @@ df.head()
 - 🟢 `import numpy as np`: this loads NumPy with its usual short name, np. I'll use it for percentiles.
 - 🟢 `import matplotlib.pyplot as plt`: this loads pyplot, the part of Matplotlib that draws charts, as plt.
 - 🟢 `df = pd.read_csv("athlete_games.csv")`: read_csv reads the file I uploaded and stores it in a DataFrame called df. A DataFrame is a table with rows and columns, like a spreadsheet.
-- 🟢 `df.head()`: head shows the first five rows, so I can check that the data loaded correctly.
+- 🟢 `df`: writing df alone, as the last line of the cell, shows the table. This file is small, so pandas shows every row, and I can check the whole dataset right here in the notebook.
 
-> 🖱️ I'm clicking the Run cell button, the play icon to the left of this cell, to load the data.
+> 🖱️ I'm clicking the Run cell button, the play icon to the left of this cell, to load and show the data.
 >
-> (Hago clic en el botón Run cell, el ícono de play a la izquierda de esta celda, para cargar los datos.)
+> (Hago clic en el botón Run cell, el ícono de play a la izquierda de esta celda, para cargar y mostrar los datos.)
 >
-> 🟢 Each row is one game: the date, the opponent, the minutes played, the points, rebounds, and assists.
+> 🟢 This is a fictional dataset I prepared for this analysis: one season of games for one basketball player. Like most real data, it isn't perfectly clean, so after loading it, the first step will be to inspect it and fix any problems.
 >
-> (Cada fila es un partido: la fecha, el rival, los minutos jugados, los puntos, los rebotes y las asistencias.)
+> (Este es un dataset ficticio que preparé para este análisis: una temporada de partidos de un jugador de básquet. Como pasa con casi todos los datos reales, no está perfectamente limpio, así que después de cargarlo, el primer paso va a ser inspeccionarlo y corregir los problemas.)
+
+Señalás cada columna con el mouse, de izquierda a derecha, mientras la nombrás:
+
+> 🟢 Each row is one game, and there are seven columns. game is the game number, in order. date is the day of the game. opponent is the rival team. minutes is how long the player was on the court. A basketball game lasts 48 minutes, so no value should be higher than that.
+>
+> (Cada fila es un partido, y hay siete columnas. game es el número de partido, en orden. date es el día del partido. opponent es el equipo rival. minutes es cuánto tiempo estuvo el jugador en la cancha. Un partido de básquet dura 48 minutos, así que ningún valor debería ser mayor.)
+>
+> 🟢 points is how many points he scored. This is the main column of the analysis: I'll use it for the statistics, the outliers, and the histogram. rebounds counts the balls he caught after a missed shot, and assists counts the passes that led directly to a teammate's basket.
+>
+> (points es cuántos puntos anotó. Es la columna principal del análisis: la uso para las estadísticas, los valores atípicos y el histograma. rebounds cuenta las pelotas que agarró después de un tiro fallado, y assists cuenta los pases que terminaron directamente en un punto de un compañero.)
+
+🖱️ Bajás despacio por la tabla con la rueda del mouse hasta la última fila:
+
+> 🖱️ I'm scrolling down through the table, in the output under the cell, to show every game.
+>
+> (Bajo por la tabla, en la salida debajo de la celda, para mostrar todos los partidos.)
+>
+> 🟢 At the bottom, pandas shows the size: 59 rows and 7 columns. And here in row 4, notice tigers is written in lowercase. I'll come back to that when I inspect the data.
+>
+> (Abajo, pandas muestra el tamaño: 59 filas y 7 columnas. Y acá, en la fila 4, fíjense que tigers está escrito en minúscula. Vuelvo a eso cuando inspeccione los datos.)
+
+Si Colab corta la tabla con `...` en el medio, agregás `pd.set_option("display.max_rows", 100)` antes de `df` y decís: *"This line tells pandas to show up to 100 rows, so we see the whole table."* Probalo antes de grabar.
 
 ---
 
@@ -189,7 +211,7 @@ df.describe()
 - 🟢 `df.info()`: info lists every column with how many values it has and its data type. If a column has fewer values than the number of rows, it has missing values.
 - 🟢 `print("Duplicate rows:", df.duplicated().sum())`: duplicated marks each row that is an exact copy of an earlier row, and sum counts them.
 - 🟢 `print(df["opponent"].unique())`: unique lists every different value in the opponent column, so I can see if the team names are written consistently.
-- 🟢 `df.describe()`: describe gives a summary of each number column: count, mean, minimum, maximum, and percentiles. It helps me spot impossible values.
+- 🟢 `df.describe()`: describe gives a summary of each number column: count, mean, minimum, maximum, and percentiles. It helps me spot impossible values. I don't need print for info, because it prints by itself, or for describe, because Colab always shows the result of the last line of a cell.
 
 > 🖱️ I'm clicking the Run cell button to the left of this cell, to inspect the data.
 >
