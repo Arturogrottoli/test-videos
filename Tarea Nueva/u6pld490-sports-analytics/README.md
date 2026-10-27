@@ -1,6 +1,6 @@
 # u6pld490 — Sports Analytics
 
-Guion paso a paso para grabar la tarea **u6pld490**: analizar en **Google Colab**, con **pandas** y **NumPy**, los datos ficticios de rendimiento de un deportista. El trabajo incluye limpiar los datos, calcular estadísticas descriptivas, detectar valores atípicos con el **IQR** y crear un **histograma** y un **gráfico de dispersión**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **22 minutos**, epílogo incluido.
+Guion paso a paso para grabar la tarea **u6pld490**: analizar en **Google Colab**, con **pandas** y **NumPy**, los datos ficticios de rendimiento de un deportista. El trabajo incluye limpiar los datos, calcular estadísticas descriptivas, detectar valores atípicos con el **IQR** y crear un **histograma** y un **gráfico de dispersión**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **25 minutos**, epílogo incluido.
 
 **Cómo leer este guion:**
 
@@ -55,47 +55,53 @@ Para probar el notebook de referencia: en https://colab.research.google.com eleg
 
 1. Leé el Goal y compará este guion con el campo **Describe your idea** de Studio.
 2. Practicá una vez entera en un notebook nuevo, leyendo en voz alta todas las frases 🖱️ y 🟢, y cronometrá.
-3. Dejá tres pestañas abiertas en Firefox, en este orden: el documento **Goal**, el sitio de NumPy (https://numpy.org) y Colab (https://colab.research.google.com). Tené `athlete_games.csv` en una carpeta fácil de encontrar, como el Escritorio. Agrandá el zoom del navegador (`Ctrl + +`).
+3. Dejá tres pestañas abiertas en Firefox, en este orden: Colab (https://colab.research.google.com), el sitio de pandas (https://pandas.pydata.org) y el sitio de NumPy (https://numpy.org). En Colab dejá a la vista el cuadro **Open notebook**, sin crear todavía el notebook. Tené `athlete_games.csv` en una carpeta fácil de encontrar, como el Escritorio. Agrandá el zoom del navegador (`Ctrl + +`).
 4. Maximizá el navegador y cerrá o minimizá las demás ventanas, para que ninguna tape a otra.
 5. Pausa de ~1 segundo después de cada clic y nunca más de 45 segundos en silencio.
 6. No muestres Studio, Mercor, información privada ni herramientas de IA. Cerrá este guion si está en la misma pantalla.
 
 ---
 
-## 0:00–0:45 — Mostrar el Goal
+## 0:00–1:15 — Colab, pandas y NumPy
 
-Empezás con la pestaña del **Goal** abierta. No lo narres más de 30 segundos:
+Empezás en la primera pestaña, la de **Colab**, con el cuadro **Open notebook** a la vista. La introducción dura menos de 20 segundos: decís el objetivo y enseguida pasás a la primera acción.
 
-> 🖱️ I'm on the Goal document in the first browser tab, to show what this task asks for.
+> 🖱️ I'm on Google Colab, in the first browser tab, where I'll do this whole analysis.
 >
-> (Estoy en el documento del Goal, en la primera pestaña del navegador, para mostrar qué pide esta tarea.)
+> (Estoy en Google Colab, en la primera pestaña del navegador, donde voy a hacer todo el análisis.)
 >
 > 🟢 As a data analyst for a sports performance team, I'll analyze a fictional athlete's game data in Google Colab. I'll clean it, calculate descriptive statistics, find outliers with the IQR method, and create a histogram and a scatter plot.
 >
 > (Como analista de datos de un equipo de rendimiento deportivo, voy a analizar en Google Colab los datos de partidos de un deportista ficticio. Los voy a limpiar, calcular estadísticas descriptivas, encontrar valores atípicos con el método IQR y crear un histograma y un gráfico de dispersión.)
-
----
-
-## 0:45–4:30 — NumPy, Colab y cargar los datos
-
-La introducción dura menos de 20 segundos: la frase del Goal y enseguida la primera acción.
-
-> 🖱️ I'm clicking the second browser tab, at the top of the window, to show the official NumPy website.
->
-> (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para mostrar el sitio oficial de NumPy.)
->
-> 🟢 This is NumPy, a free Python library for fast math with numbers and arrays. I'll use it for percentiles and for the IQR method. I'll also use pandas, the library for tables of data, which is built on top of NumPy. Both come already installed in Colab.
->
-> (Esto es NumPy, una librería gratuita de Python para hacer cálculos rápidos con números y arreglos. La voy a usar para los percentiles y para el método IQR. También voy a usar pandas, la librería para tablas de datos, que está construida sobre NumPy. Las dos vienen instaladas en Colab.)
->
-> 🖱️ I'm clicking the third browser tab, at the top of the window, to open Google Colab.
->
-> (Hago clic en la tercera pestaña del navegador, arriba de la ventana, para abrir Google Colab.)
 >
 > 🟢 Google Colab is a free tool from Google that runs Python notebooks in the browser. The code runs in Google's cloud, so there's nothing to install.
 >
 > (Google Colab es una herramienta gratuita de Google que ejecuta notebooks de Python en el navegador. El código se ejecuta en la nube de Google, así que no hay que instalar nada.)
 >
+> 🖱️ I'm clicking the second browser tab, at the top of the window, to show the official pandas website.
+>
+> (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para mostrar el sitio oficial de pandas.)
+>
+> 🟢 This is pandas, a free Python library for tables of data. I'll use it to load the games, clean them, and calculate the statistics.
+>
+> (Esto es pandas, una librería gratuita de Python para trabajar con tablas de datos. La voy a usar para cargar los partidos, limpiarlos y calcular las estadísticas.)
+>
+> 🖱️ I'm clicking the third browser tab, at the top of the window, to show the official NumPy website.
+>
+> (Hago clic en la tercera pestaña del navegador, arriba de la ventana, para mostrar el sitio oficial de NumPy.)
+>
+> 🟢 This is NumPy, a free Python library for fast math with numbers and arrays. pandas is built on top of NumPy, and I'll use NumPy for percentiles and for the IQR method. Both libraries come already installed in Colab.
+>
+> (Esto es NumPy, una librería gratuita de Python para hacer cálculos rápidos con números y arreglos. pandas está construida sobre NumPy, y voy a usar NumPy para los percentiles y para el método IQR. Las dos librerías vienen instaladas en Colab.)
+>
+> 🖱️ I'm clicking the first browser tab, at the top left of the window, to go back to Google Colab.
+>
+> (Hago clic en la primera pestaña del navegador, arriba a la izquierda de la ventana, para volver a Google Colab.)
+
+---
+
+## 1:15–5:30 — Notebook nuevo y cargar los datos
+
 > 🖱️ I'm clicking the New notebook button at the bottom of the Open notebook dialog, to create a fresh notebook.
 >
 > (Hago clic en el botón New notebook, abajo del cuadro Open notebook, para crear un notebook nuevo.)
@@ -185,7 +191,7 @@ Si Colab corta la tabla con `...` en el medio, agregás `pd.set_option("display.
 
 ---
 
-## 4:30–9:00 — Inspeccionar y limpiar los datos
+## 5:30–10:00 — Inspeccionar y limpiar los datos
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading called Inspect the data.
 >
@@ -271,7 +277,7 @@ print(df["opponent"].unique())
 
 ---
 
-## 9:00–13:00 — Estadísticas descriptivas y valores atípicos
+## 10:00–14:00 — Estadísticas descriptivas y valores atípicos
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for the statistics.
 >
@@ -351,7 +357,7 @@ df[(points < lower) | (points > upper)]
 
 ---
 
-## 13:00–16:30 — Histograma y gráfico de dispersión
+## 14:00–17:30 — Histograma y gráfico de dispersión
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for the charts.
 >
@@ -413,7 +419,7 @@ print("Correlation:", round(df["minutes"].corr(df["points"]), 2))
 
 ---
 
-## 16:30–18:30 — Observaciones y conclusión
+## 17:30–19:30 — Observaciones y conclusión
 
 **Valores de referencia** (los calculé directamente del CSV). Compará con tu resultado antes de decirlos:
 
@@ -455,14 +461,80 @@ The player is a consistent scorer of about 20 points per game. The two 40+ point
 
 ---
 
-## 18:30–22:00 — Epílogo (3–4 minutos)
+## 19:30–25:00 — Epílogo (5–6 minutos)
 
 Revisá en las reglas de Odin qué tiene que tener el epílogo y ajustá este texto si piden algo distinto.
 
 > 🖱️ I'm opening the File menu at the top left of Colab and choosing Download, then Download .ipynb, to save the finished notebook for the deliverables.
 >
 > (Abro el menú File, arriba a la izquierda de Colab, y elijo Download y después Download .ipynb, para guardar el notebook terminado para los entregables.)
+
+### Resumen paso a paso
+
+Subís hasta el principio del notebook y vas bajando: cada frase va cuando la sección correspondiente está en pantalla. Señalá con el mouse lo que nombrás.
+
+> 🖱️ I'm scrolling up to the top of the notebook with the mouse wheel, to go over everything we did, step by step.
 >
+> (Subo hasta el principio del notebook con la rueda del mouse, para repasar todo lo que hicimos, paso a paso.)
+>
+> 🟢 Let me summarize the whole analysis. We started with the title and the goal: clean the data, describe the scoring, find outliers, and explore patterns with charts.
+>
+> (Les resumo todo el análisis. Empezamos con el título y el objetivo: limpiar los datos, describir los puntos, encontrar valores atípicos y explorar patrones con gráficos.)
+>
+> 🟢 In the first cell, we imported three libraries: pandas for the table, NumPy for the percentiles, and Matplotlib for the charts. Then we loaded the CSV and looked at the whole table: 59 rows, one per game, and 7 columns.
+>
+> (En la primera celda importamos tres librerías: pandas para la tabla, NumPy para los percentiles y Matplotlib para los gráficos. Después cargamos el CSV y miramos la tabla completa: 59 filas, una por partido, y 7 columnas.)
+>
+> 🖱️ I'm scrolling down to section 1, Inspect the data, to show what we found.
+>
+> (Bajo hasta la sección 1, Inspect the data, para mostrar lo que encontramos.)
+>
+> 🟢 In section 1, we inspected the data before calculating anything, and we found four problems: missing minutes and points, one duplicate game, 15 spellings for only 8 teams, and an impossible value of 340 minutes.
+>
+> (En la sección 1 inspeccionamos los datos antes de calcular nada, y encontramos cuatro problemas: minutos y puntos faltantes, un partido duplicado, 15 formas de escribir solo 8 equipos y un valor imposible de 340 minutos.)
+>
+> 🖱️ I'm scrolling down to section 2, Clean and prepare the data.
+>
+> (Bajo hasta la sección 2, Clean and prepare the data.)
+>
+> 🟢 In section 2, we fixed those four problems, one line each. We removed the duplicate, the three rows with missing values, and the impossible game, and we fixed the team names. We went from 59 rows to 54 clean games.
+>
+> (En la sección 2 arreglamos esos cuatro problemas, con una línea para cada uno. Quitamos el duplicado, las tres filas con valores faltantes y el partido imposible, y corregimos los nombres de los equipos. Pasamos de 59 filas a 54 partidos limpios.)
+>
+> 🖱️ I'm scrolling down to section 3, Descriptive statistics.
+>
+> (Bajo hasta la sección 3, Descriptive statistics.)
+>
+> 🟢 In section 3, we described the points. The mean is about 20.9 and the median is 20.5. They are very close, so the scoring is balanced. The standard deviation, about 6.4, tells us how much the points usually move away from the average. And the percentiles showed that half of the games are between 17 and 23 points.
+>
+> (En la sección 3 describimos los puntos. El promedio es unos 20,9 y la mediana 20,5. Están muy cerca, así que los puntos están equilibrados. La desviación estándar, unos 6,4, nos dice cuánto se alejan normalmente los puntos del promedio. Y los percentiles mostraron que la mitad de los partidos está entre 17 y 23 puntos.)
+>
+> 🖱️ I'm scrolling down to section 4, Outliers with the IQR method.
+>
+> (Bajo hasta la sección 4, Outliers with the IQR method.)
+>
+> 🟢 In section 4, we used the IQR method. The IQR is the distance between the first and third quartiles, 5.75 points. Any game below 8.6 or above 31.6 points is an outlier. We found three: 46 and 41 points, two great games, and 3 points, in a game where the player only played 11 minutes.
+>
+> (En la sección 4 usamos el método IQR. El IQR es la distancia entre el primer y el tercer cuartil, 5,75 puntos. Cualquier partido por debajo de 8,6 o por encima de 31,6 puntos es atípico. Encontramos tres: 46 y 41 puntos, dos partidos excelentes, y 3 puntos, en un partido donde el jugador solo jugó 11 minutos.)
+>
+> 🖱️ I'm scrolling down to section 5, Charts, to show the two charts again.
+>
+> (Bajo hasta la sección 5, Charts, para mostrar otra vez los dos gráficos.)
+>
+> 🟢 In section 5, we drew two charts. The histogram shows that most games, 40 of 54, are between 15 and 25 points. The scatter plot shows that more minutes usually means more points, with a correlation of 0.63, which is a moderate to strong positive relationship.
+>
+> (En la sección 5 hicimos dos gráficos. El histograma muestra que la mayoría de los partidos, 40 de 54, está entre 15 y 25 puntos. El gráfico de dispersión muestra que más minutos suele significar más puntos, con una correlación de 0,63, que es una relación positiva entre moderada y fuerte.)
+>
+> 🖱️ I'm scrolling down to sections 6 and 7, Observations and Conclusion, at the end of the notebook.
+>
+> (Bajo hasta las secciones 6 y 7, Observations y Conclusion, al final del notebook.)
+>
+> 🟢 And finally, we wrote down our observations and the conclusion: the player is a consistent scorer of about 20 points per game, and playing time is a key factor in scoring.
+>
+> (Y por último, escribimos las observaciones y la conclusión: el jugador anota de forma constante unos 20 puntos por partido, y el tiempo de juego es un factor clave para anotar.)
+
+### Decisiones y próximos pasos
+
 > 🖱️ I'm scrolling slowly up through the notebook with the mouse wheel, to go over the decisions I made.
 >
 > (Subo despacio por el notebook con la rueda del mouse, para repasar las decisiones que tomé.)
