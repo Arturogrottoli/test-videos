@@ -1,6 +1,24 @@
 # 5yd86428 — Bookstore Sales Analysis
 
-Guion paso a paso para grabar la tarea **5yd86428**: analizar 200 transacciones ficticias de una librería en **Google Colab**, con **Python** y **pandas**. El trabajo incluye limpiar los datos, resumir las ventas por categoría y por mes, calcular estadísticas descriptivas y detectar posibles valores atípicos con el **IQR**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **24 minutos**, epílogo incluido.
+Guion paso a paso para grabar la tarea **5yd86428**: analizar 200 transacciones ficticias de una librería en **Google Colab**, con **Python** y **pandas**. El trabajo incluye limpiar los datos, resumir las ventas por categoría y por mes, calcular estadísticas descriptivas, dibujar un **gráfico de barras** de ingresos por categoría y un **histograma** de los montos, y detectar posibles valores atípicos con el **IQR**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **26 minutos**, epílogo incluido.
+
+### Cambios en esta versión
+
+Los bloques nuevos llevan la marca **🆕 AGREGADO** y los que cambiaron, **✏️ MODIFICADO**. Todo lo demás queda igual que en la versión anterior.
+
+| Requisito del Goal | Estado | Dónde |
+| ------------------ | ------ | ----- |
+| 1. Dataset de 200 transacciones | Ya estaba | `bookstore_sales.csv` (T001 a T200) |
+| 2. `head()`, `info()` y `shape` | Ya estaba | Celdas 1, 2 y 3 |
+| 3. Media, mediana, desviación estándar, mínimo y máximo | Ya estaba | Celda 7 (`describe`) |
+| 4. Ventas por categoría y por mes | Ya estaba | Celdas 4 y 6 |
+| 5. Gráfico de barras de ingresos por categoría | 🆕 **Agregado** | Celda 5, sección 3 |
+| 6. Histograma de los montos | 🆕 **Agregado** | Celda 8, sección 5 |
+| 7. Valores atípicos con IQR | Ya estaba | Celda 9 |
+| 8. Conclusiones (categoría, mes, cantidad de outliers) | Ya estaba | Sección 7, Findings |
+| 9. Entrega del notebook **y del CSV** | ✏️ **Modificado** | El CSV no estaba en Deliverables.zip |
+
+Las celdas se renumeraron (ahora son 9) y los tiempos de cada sección se corrieron unos 2 minutos.
 
 **Cómo leer este guion:**
 
@@ -53,7 +71,7 @@ Para probar el notebook de referencia: en https://colab.research.google.com eleg
 1. Leé el Goal y compará este guion con el campo **Describe your idea** de Studio.
 2. Practicá una vez entera en un notebook nuevo, leyendo en voz alta todas las frases 🖱️ y 🟢, y cronometrá.
 3. Pegá el Goal en un documento de **Google Docs** y borrá el **Approval ID** y cualquier dato personal. Agrandá el texto hasta que se lea completo.
-4. Dejá tres pestañas abiertas en Firefox, en este orden: el documento del **Goal**, Colab (https://colab.research.google.com) y el sitio de pandas (https://pandas.pydata.org). En Colab dejá a la vista el cuadro **Open notebook**, sin crear todavía el notebook. Tené `bookstore_sales.csv` en una carpeta fácil de encontrar, como el Escritorio. Agrandá el zoom del navegador (`Ctrl + +`).
+4. ✏️ **MODIFICADO:** dejá cuatro pestañas abiertas en Firefox, en este orden: el documento del **Goal**, Colab (https://colab.research.google.com), el sitio de pandas (https://pandas.pydata.org) y el sitio de Matplotlib (https://matplotlib.org). En Colab dejá a la vista el cuadro **Open notebook**, sin crear todavía el notebook. Tené `bookstore_sales.csv` en una carpeta fácil de encontrar, como el Escritorio. Agrandá el zoom del navegador (`Ctrl + +`).
 5. Maximizá el navegador y cerrá o minimizá las demás ventanas, para que ninguna tape a otra.
 6. Pausa de ~1 segundo después de cada clic y nunca más de 45 segundos en silencio.
 7. No muestres Studio, Mercor, información privada ni herramientas de IA. Si Colab muestra funciones de IA (Gemini), no las uses. Cerrá este guion si está en la misma pantalla.
@@ -72,9 +90,11 @@ Empezás en la primera pestaña, la del **Goal**, con el texto completo y legibl
 >
 > (Estoy en el documento del Goal, en la primera pestaña del navegador, para mostrar qué pide esta tarea.)
 >
-> 🟢 As a data analyst, I'll analyze 200 bookstore transactions with Python and pandas. I'll clean the data, summarize sales by category and by month, calculate descriptive statistics, and find potential outliers with the IQR method.
+✏️ **MODIFICADO** (se agregan los dos gráficos):
+
+> 🟢 As a data analyst, I'll analyze 200 bookstore transactions with Python and pandas. I'll clean the data, summarize sales by category and by month, calculate descriptive statistics, draw two charts, and find potential outliers with the IQR method.
 >
-> (Como analista de datos, voy a analizar 200 transacciones de una librería con Python y pandas. Voy a limpiar los datos, resumir las ventas por categoría y por mes, calcular estadísticas descriptivas y encontrar posibles valores atípicos con el método IQR.)
+> (Como analista de datos, voy a analizar 200 transacciones de una librería con Python y pandas. Voy a limpiar los datos, resumir las ventas por categoría y por mes, calcular estadísticas descriptivas, dibujar dos gráficos y encontrar posibles valores atípicos con el método IQR.)
 
 Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por paso:
 
@@ -85,10 +105,12 @@ Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por pas
 > 🟢 Second, I'll clean the data and add two new columns: the total amount of each sale, and its month.
 >
 > (Segundo, voy a limpiar los datos y agregar dos columnas nuevas: el monto total de cada venta y su mes.)
+
+✏️ **MODIFICADO:**
+
+> 🟢 Third, I'll summarize the sales by category and by month, with a bar chart of the revenue of each category. Fourth, I'll describe the sale amounts with statistics and a histogram, and use the IQR method to find the unusual sales.
 >
-> 🟢 Third, I'll summarize the sales by category and by month. Fourth, I'll describe the sale amounts with statistics, and use the IQR method to find the unusual sales.
->
-> (Tercero, voy a resumir las ventas por categoría y por mes. Cuarto, voy a describir los montos de las ventas con estadísticas y usar el método IQR para encontrar las ventas inusuales.)
+> (Tercero, voy a resumir las ventas por categoría y por mes, con un gráfico de barras de los ingresos de cada categoría. Cuarto, voy a describir los montos de las ventas con estadísticas y un histograma, y usar el método IQR para encontrar las ventas inusuales.)
 >
 > 🟢 Finally, I'll write down my findings in the notebook, so the results are saved next to the code.
 >
@@ -96,7 +118,7 @@ Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por pas
 
 ---
 
-## 1:30–2:30 — Colab y pandas
+## 1:30–3:00 — Colab, pandas y Matplotlib
 
 > 🖱️ I'm clicking the second browser tab, at the top of the window, to open Google Colab.
 >
@@ -113,14 +135,24 @@ Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por pas
 > 🟢 This is pandas, a free Python library for tables of data. I'll use it to load the sales, clean them, group them by category and month, and calculate the statistics. It comes already installed in Colab.
 >
 > (Esto es pandas, una librería gratuita de Python para trabajar con tablas de datos. La voy a usar para cargar las ventas, limpiarlas, agruparlas por categoría y por mes y calcular las estadísticas. Viene ya instalada en Colab.)
+
+🆕 **AGREGADO:**
+
+> 🖱️ I'm clicking the fourth browser tab, at the top of the window, to show the official Matplotlib website.
 >
+> (Hago clic en la cuarta pestaña del navegador, arriba de la ventana, para mostrar el sitio oficial de Matplotlib.)
+>
+> 🟢 Matplotlib is a free Python library for charts. pandas uses it to draw the bar chart and the histogram, and it also comes installed in Colab.
+>
+> (Matplotlib es una librería gratuita de Python para hacer gráficos. pandas la usa para dibujar el gráfico de barras y el histograma, y también viene instalada en Colab.)
+
 > 🖱️ I'm clicking the second browser tab, at the top of the window, to go back to Google Colab.
 >
 > (Hago clic en la segunda pestaña del navegador, arriba de la ventana, para volver a Google Colab.)
 
 ---
 
-## 2:30–6:00 — Notebook nuevo y cargar los datos
+## 3:00–6:30 — Notebook nuevo y cargar los datos
 
 > 🖱️ I'm clicking the New notebook button at the bottom of the Open notebook dialog, to create a fresh notebook.
 >
@@ -199,7 +231,7 @@ Señalás cada columna con el mouse, de izquierda a derecha, mientras la nombrá
 
 ---
 
-## 6:00–10:00 — Inspeccionar y limpiar los datos
+## 6:30–10:30 — Inspeccionar y limpiar los datos
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading called Inspect the data.
 >
@@ -293,7 +325,7 @@ print(df["category"].unique())
 
 ---
 
-## 10:00–14:00 — Ventas por categoría y por mes
+## 10:30–15:30 — Ventas por categoría y por mes
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for sales by category.
 >
@@ -337,6 +369,43 @@ by_category
 >
 > (Science es interesante: tiene solo 16 ventas y 36 libros, pero casi 985 dólares. Es porque los libros de ciencia son caros, unos 27 dólares cada uno, contra unos 15 los de ficción. Comics es la que menos genera, unos 490 dólares.)
 
+🆕 **AGREGADO — gráfico de barras de ingresos por categoría:**
+
+> 🖱️ I'm clicking the plus Code button in the toolbar, to add a code cell with a bar chart of the revenue by category.
+>
+> (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código con un gráfico de barras de los ingresos por categoría.)
+
+Escribís la **celda 5**:
+
+```python
+import matplotlib.pyplot as plt
+
+by_category["revenue"].plot(kind="bar", color="steelblue", edgecolor="black")
+plt.title("Revenue by category")
+plt.xlabel("Category")
+plt.ylabel("Revenue (USD)")
+plt.xticks(rotation=0)
+plt.show()
+```
+
+**What each line does:**
+
+- 🟢 `import matplotlib.pyplot as plt`: this loads pyplot, the part of Matplotlib that controls the chart, with its usual short name, plt.
+- 🟢 `by_category["revenue"].plot(kind="bar", ...)`: this takes the revenue column of the table I just made and draws one bar per category. The table is already sorted, so the bars go from highest to lowest. edgecolor draws a black border around each bar.
+- 🟢 `plt.title(...)`, `plt.xlabel(...)`, `plt.ylabel(...)`: these add a title and a name to each axis, so the chart is clear without reading the code.
+- 🟢 `plt.xticks(rotation=0)`: this keeps the category names horizontal, so they're easy to read.
+- 🟢 `plt.show()`: this displays the chart.
+
+> 🖱️ I'm clicking the Run cell button to the left of this cell, to draw the chart.
+>
+> (Hago clic en el botón Run cell a la izquierda de esta celda, para dibujar el gráfico.)
+
+Señalás las barras con el mouse, de izquierda a derecha:
+
+> 🟢 The chart shows the same ranking as the table, but the differences are easier to see. Fiction has the tallest bar, about 1,800 dollars, followed by Children and Non-Fiction. History and Comics are the shortest, both around 500 dollars, so Fiction earns more than three times as much as Comics.
+>
+> (El gráfico muestra el mismo orden que la tabla, pero las diferencias se ven más fácil. Fiction tiene la barra más alta, unos 1.800 dólares, seguida por Children y Non-Fiction. History y Comics son las más bajas, las dos de unos 500 dólares, así que Fiction gana más del triple que Comics.)
+
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for sales by month.
 >
 > (Hago clic en el botón + Text de la barra de herramientas, para agregar un título de sección para las ventas por mes.)
@@ -347,7 +416,7 @@ Escribís `## 4. Sales by month`.
 >
 > (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que resume cada mes.)
 
-Escribís la **celda 5**:
+Escribís la **celda 6**:
 
 ```python
 by_month = df.groupby("month").agg(
@@ -383,7 +452,7 @@ by_month
 
 ---
 
-## 14:00–18:00 — Estadísticas descriptivas y valores atípicos
+## 15:30–20:30 — Estadísticas descriptivas, histograma y valores atípicos
 
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for the statistics.
 >
@@ -395,7 +464,7 @@ Escribís `## 5. Descriptive statistics`.
 >
 > (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que describe los montos de las ventas.)
 
-Escribís la **celda 6**:
+Escribís la **celda 7**:
 
 ```python
 df["total"].describe().round(2)
@@ -423,6 +492,42 @@ Señalás cada valor con el mouse mientras lo nombrás:
 >
 > (El percentil 25 es de unos 15 dólares y el 75 de unos 39, así que la mitad de las ventas están entre esos dos valores.)
 
+🆕 **AGREGADO — histograma de los montos de las transacciones:**
+
+> 🖱️ I'm clicking the plus Code button in the toolbar, to add a code cell with a histogram of the sale amounts.
+>
+> (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código con un histograma de los montos de las ventas.)
+
+Escribís la **celda 8**:
+
+```python
+df["total"].plot(kind="hist", bins=20, color="steelblue", edgecolor="black")
+plt.title("Distribution of transaction amounts")
+plt.xlabel("Transaction amount (USD)")
+plt.ylabel("Number of transactions")
+plt.show()
+```
+
+**What each line does:**
+
+- 🟢 `df["total"].plot(kind="hist", bins=20, ...)`: a histogram splits the sale amounts into 20 ranges of the same width, called bins, about 25 dollars each, and the height of each bar is how many sales fall in that range. I already imported plt in the bar chart cell, so I don't import it again.
+- 🟢 `plt.title(...)`, `plt.xlabel(...)`, `plt.ylabel(...)`: the title and the axis names: the amount of the sale on the horizontal axis, and the number of sales on the vertical axis.
+- 🟢 `plt.show()`: this displays the chart.
+
+> 🖱️ I'm clicking the Run cell button to the left of this cell, to draw the histogram.
+>
+> (Hago clic en el botón Run cell a la izquierda de esta celda, para dibujar el histograma.)
+
+Señalás con el mouse la primera barra y después la barra aislada de la derecha:
+
+> 🟢 Most sales are on the left: the first bar alone has about 130 sales under 32 dollars. The bars get shorter very quickly, and on the right there are a few small, isolated bars, the last one at about 500 dollars.
+>
+> (La mayoría de las ventas están a la izquierda: solo la primera barra tiene unas 130 ventas de menos de 32 dólares. Las barras bajan muy rápido, y a la derecha hay unas pocas barras chicas y aisladas, la última en unos 500 dólares.)
+>
+> 🟢 This long tail to the right explains why the mean is higher than the median. Those isolated bars are the possible outliers, and I'll measure them now with the IQR method.
+>
+> (Esta cola larga hacia la derecha explica por qué el promedio es más alto que la mediana. Esas barras aisladas son los posibles valores atípicos, y ahora los mido con el método IQR.)
+
 > 🖱️ I'm clicking the plus Text button in the toolbar, to add a section heading for the outliers.
 >
 > (Hago clic en el botón + Text de la barra de herramientas, para agregar un título de sección para los valores atípicos.)
@@ -433,7 +538,7 @@ Escribís `## 6. Outliers with the IQR method`.
 >
 > (Hago clic en el botón + Code de la barra de herramientas, para agregar una celda de código que encuentra las ventas inusuales.)
 
-Escribís la **celda 7**:
+Escribís la **celda 9**:
 
 ```python
 q1, q3 = df["total"].quantile([0.25, 0.75])
@@ -481,7 +586,7 @@ outliers.sort_values("total", ascending=False)
 
 ---
 
-## 18:00–19:30 — Hallazgos
+## 20:30–22:00 — Hallazgos
 
 **Valores de referencia** (los calculé directamente del CSV). Compará con tu resultado antes de decirlos:
 
@@ -491,7 +596,9 @@ outliers.sort_values("total", ascending=False)
 | Limpieza | `(197, 7)` y 6 categorías: Fiction, Children, Non-Fiction, History, Comics, Science |
 | Por categoría | Fiction 62 ventas / 120 libros / $1.823,05 · Children 48 / 105 / $1.467,88 · Non-Fiction 39 / 58 / $1.355,93 · Science 16 / 36 / $984,53 · History 14 / 20 / $510,87 · Comics 18 / 33 / $489,58. Total: $6.631,84 |
 | Por mes | Diciembre $1.071,82 (25 ventas) · junio $926,01 · septiembre $896,62 · noviembre $662,29 (25 ventas) · mayo $182,62 y febrero $192,80 (los más bajos) |
+| Gráfico de barras 🆕 | 6 barras, de mayor a menor: Fiction (~1.823) · Children · Non-Fiction · Science · History (~511) · Comics (~490) |
 | Estadísticas de `total` | count 197 · mean 33,66 · std 43,47 · min 6,86 · 25% 15,36 · 50% 22,71 · 75% 38,80 · max 507,50 |
+| Histograma 🆕 | Primera barra (6,86–31,89): 132 ventas · segunda: 43 · tercera: 16 · después barras sueltas de 1 o 2 ventas · la última, sola, en ~507 |
 | IQR | IQR 23,44; límites −19,80 y 73,96; **11** posibles atípicos, todos por arriba. Los 3 más grandes: T061 (25 libros infantiles, $507,50), T132 (12 de ciencia, $218,16) y T178 (15 de ficción, $178,65) |
 
 En la tabla por categoría, la columna `units` aparece con decimales (`120.0`), por la misma razón que `quantity`. Es normal.
@@ -517,13 +624,19 @@ Mientras escribís, decí en voz alta lo que vas escribiendo:
 
 ---
 
-## 19:30–24:00 — Epílogo (4–5 minutos)
+## 22:00–26:30 — Epílogo (4–5 minutos)
 
 Revisá en las reglas de Odin qué tiene que tener el epílogo y ajustá este texto si piden algo distinto.
+
+✏️ **MODIFICADO** (se nombra el CSV como entregable):
 
 > 🖱️ I'm opening the File menu at the top left of Colab and choosing Download, then Download .ipynb, to save the finished notebook for the deliverables.
 >
 > (Abro el menú File, arriba a la izquierda de Colab, y elijo Download y después Download .ipynb, para guardar el notebook terminado para los entregables.)
+>
+> 🟢 The deliverables are this notebook, with the code, the results, and both charts, and the bookstore_sales.csv file it reads, so anyone can run the analysis again.
+>
+> (Los entregables son este notebook, con el código, los resultados y los dos gráficos, y el archivo bookstore_sales.csv que lee, así cualquiera puede volver a ejecutar el análisis.)
 
 ### Resumen paso a paso
 
@@ -561,17 +674,21 @@ Subís hasta el principio del notebook y vas bajando: cada frase va cuando la se
 >
 > (Bajo hasta las secciones 3 y 4, Sales by category y Sales by month.)
 >
-> 🟢 In sections 3 and 4, we grouped the sales. Fiction leads revenue, and Science earns a lot from few books because of its high prices. December is the best month, and February and May are the weakest.
+✏️ **MODIFICADO** (se nombra el gráfico de barras):
+
+> 🟢 In sections 3 and 4, we grouped the sales. Fiction leads revenue, as the bar chart shows, and Science earns a lot from few books because of its high prices. December is the best month, and February and May are the weakest.
 >
-> (En las secciones 3 y 4 agrupamos las ventas. Fiction lidera los ingresos, y Science gana mucho con pocos libros por sus precios altos. Diciembre es el mejor mes, y febrero y mayo son los más flojos.)
+> (En las secciones 3 y 4 agrupamos las ventas. Fiction lidera los ingresos, como muestra el gráfico de barras, y Science gana mucho con pocos libros por sus precios altos. Diciembre es el mejor mes, y febrero y mayo son los más flojos.)
 >
 > 🖱️ I'm scrolling down to sections 5 and 6, Descriptive statistics and Outliers.
 >
 > (Bajo hasta las secciones 5 y 6, Descriptive statistics y Outliers.)
 >
-> 🟢 In section 5, the mean of about 34 dollars was much higher than the median of about 23, a sign of a few large sales. In section 6, the IQR method confirmed it: 11 potential outliers, all above about 74 dollars, and the three biggest are bulk orders.
+✏️ **MODIFICADO** (se nombra el histograma):
+
+> 🟢 In section 5, the mean of about 34 dollars was much higher than the median of about 23, and the histogram showed why: most sales are small, with a long tail to the right. In section 6, the IQR method confirmed it: 11 potential outliers, all above about 74 dollars, and the three biggest are bulk orders.
 >
-> (En la sección 5, el promedio de unos 34 dólares fue mucho más alto que la mediana de unos 23, una señal de unas pocas ventas grandes. En la sección 6, el método IQR lo confirmó: 11 posibles atípicos, todos por encima de unos 74 dólares, y los tres más grandes son pedidos al por mayor.)
+> (En la sección 5, el promedio de unos 34 dólares fue mucho más alto que la mediana de unos 23, y el histograma mostró por qué: la mayoría de las ventas son chicas, con una cola larga hacia la derecha. En la sección 6, el método IQR lo confirmó: 11 posibles atípicos, todos por encima de unos 74 dólares, y los tres más grandes son pedidos al por mayor.)
 >
 > 🖱️ I'm scrolling down to section 7, Findings, at the end of the notebook.
 >
@@ -614,4 +731,4 @@ Si el reloj todavía no pasó los 15:00, no cortes: recorré la tabla mensual me
 ## Después de grabar
 
 1. Ejecutá **Run full AutoQC**, no solo *Rerun failing*.
-2. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con el `.ipynb` descargado) y **Metadata.rtf**.
+2. ✏️ **MODIFICADO:** subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con el `.ipynb` descargado **y** `bookstore_sales.csv`) y **Metadata.rtf**.
