@@ -75,7 +75,7 @@ La más débil es la #1. La más fuerte es la #10: empata en puntaje con la #9, 
    Agrandá el zoom del navegador (`Ctrl + +`).
 5. Maximizá el navegador y cerrá o minimizá las demás ventanas, para que ninguna tape a otra.
 6. Pausa de ~1 segundo después de cada clic y nunca más de 45 segundos en silencio.
-7. Escribí el código **despacio, un renglón por vez**, y decí la explicación de ese renglón mientras lo escribís. Si terminás de escribir antes de terminar la frase, terminá la frase antes de pasar al siguiente renglón.
+7. Escribí el código **un renglón por vez**, a tu ritmo normal (no más lento a propósito: el tiempo tipeando cuenta para el **porcentaje de escritura**, que tiene que quedar por debajo de ~30%). Decí la explicación de ese renglón mientras lo escribís, y si terminás de escribir antes, terminá la frase antes de pasar al siguiente renglón. Ejecutá las celdas siempre con el **botón Run** (mouse), no con el teclado.
 8. No muestres Studio, Mercor, información privada ni herramientas de IA. Si Colab muestra funciones de IA (Gemini) o te sugiere código mientras escribís, ignorá la sugerencia y seguí escribiendo vos. Cerrá este guion si está en la misma pantalla.
 9. **No uses contraseñas reales tuyas** en ningún momento. Para el ejemplo de la penalización usá `aaa123`.
 
@@ -147,9 +147,9 @@ Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por pas
 >
 > (¿Por qué no el módulo random común? random sirve para juegos o simulaciones, pero sus números salen de una fórmula. Si alguien ve suficientes resultados, puede predecir los siguientes. Para una contraseña eso es inaceptable, así que voy a usar secrets para elegir cada carácter.)
 >
-> 🖱️ I'm scrolling down the secrets page with the mouse wheel, to show the choice function.
+> 🖱️ I'm scrolling down the secrets page, in the center of the window, with the mouse wheel, to show the choice function.
 >
-> (Bajo por la página de secrets con la rueda del mouse, para mostrar la función choice.)
+> (Bajo por la página de secrets, en el centro de la ventana, con la rueda del mouse, para mostrar la función choice.)
 >
 > 🟢 The function I'll use is secrets.choice. It picks one random element from a sequence, like one letter from the alphabet. I'll call it once for every character of the password.
 >
@@ -163,9 +163,9 @@ Ajustá esta frase a lo que diga tu Goal. Después contás el plan, paso por pas
 >
 > (Esto es pandas, en pandas.pydata.org. pandas es una librería de Python gratuita y de código abierto para trabajar con tablas de datos, como una hoja de cálculo dentro de Python. Su objeto principal es el DataFrame, una tabla con filas y columnas. Es una de las librerías más usadas en análisis de datos.)
 >
-> 🖱️ I'm scrolling down the pandas homepage with the mouse wheel, to show what the project offers.
+> 🖱️ I'm scrolling down the pandas homepage, in the center of the window, with the mouse wheel, to show what the project offers.
 >
-> (Bajo por la página principal de pandas con la rueda del mouse, para mostrar lo que ofrece el proyecto.)
+> (Bajo por la página principal de pandas, en el centro de la ventana, con la rueda del mouse, para mostrar lo que ofrece el proyecto.)
 >
 > 🟢 Because pandas is not part of Python, on a normal computer you install it first, with the command pip install pandas. pip is Python's package installer, and it downloads libraries from the Python Package Index, called PyPI. But Colab already comes with pandas installed, so I can import it directly.
 >
@@ -368,9 +368,9 @@ print(generate_password(12))
 
 Mirá la contraseña antes de decirlo: siempre tiene los cuatro tipos, pero nombralos señalándolos con el mouse.
 
-> 🖱️ I'm clicking the Run cell button again, to show that each password is different.
+> 🖱️ I'm clicking the Run cell button again, to the left of the same cell, to show that each password is different.
 >
-> (Hago clic en el botón Run cell otra vez, para mostrar que cada contraseña es distinta.)
+> (Hago clic en el botón Run cell otra vez, a la izquierda de la misma celda, para mostrar que cada contraseña es distinta.)
 >
 > 🟢 A new password appeared, completely different from the first one. That's what we want: nobody can predict the next one.
 >
@@ -712,10 +712,8 @@ def find_weakest(results):
 def find_strongest(results):
     return max(results, key=lambda r: (r["strength_score"], r["entropy"]))
 
-weakest = find_weakest(results)
-strongest = find_strongest(results)
-print("Weakest:", weakest["password"], "-", weakest["strength_score"], weakest["strength_label"], "-", weakest["configuration"])
-print("Strongest:", strongest["password"], "-", strongest["strength_score"], strongest["strength_label"], "-", strongest["configuration"])
+print("Weakest:", find_weakest(results))
+print("Strongest:", find_strongest(results))
 ```
 
 **What each line does:**
@@ -736,21 +734,13 @@ print("Strongest:", strongest["password"], "-", strongest["strength_score"], str
 
   (max devuelve el elemento más grande, con el mismo key: primero el puntaje más alto, y la entropía más alta si hay empate.)
 
-- 🟢 `weakest = find_weakest(results)`: I call find_weakest with my ten results, and save the answer in weakest.
+- 🟢 `print("Weakest:", find_weakest(results))`: I call find_weakest with my ten results, and print shows the answer. print can show several values separated by commas: first the word Weakest, and then the whole dictionary of the weakest password, with its password, length, configuration, score, label, and entropy.
 
-  (Llamo a find_weakest con mis diez resultados y guardo la respuesta en weakest.)
+  (Llamo a find_weakest con mis diez resultados, y print muestra la respuesta. print puede mostrar varios valores separados por comas: primero la palabra Weakest, y después el diccionario completo de la contraseña más débil, con su contraseña, longitud, configuración, puntaje, etiqueta y entropía.)
 
-- 🟢 `strongest = find_strongest(results)`: and the same for the strongest.
+- 🟢 `print("Strongest:", find_strongest(results))`: the same line for the strongest password, using find_strongest.
 
-  (Y lo mismo para la más fuerte.)
-
-- 🟢 `print("Weakest:", weakest["password"], "-", weakest["strength_score"], weakest["strength_label"], "-", weakest["configuration"])`: print can show several values separated by commas. Here it shows the word Weakest, then the password, its score, its label, and its configuration. The square brackets read each value from the dictionary by its key. The dashes are just separators, to make the line easier to read.
-
-  (print puede mostrar varios valores separados por comas. Acá muestra la palabra Weakest, después la contraseña, su puntaje, su etiqueta y su configuración. Los corchetes leen cada valor del diccionario por su clave. Los guiones son solo separadores, para que la línea sea más fácil de leer.)
-
-- 🟢 `print("Strongest:", ...)`: the same line for the strongest password.
-
-  (La misma línea para la contraseña más fuerte.)
+  (La misma línea para la contraseña más fuerte, usando find_strongest.)
 
 > 🖱️ I'm clicking the Run cell button to the left of this cell, to find the weakest and the strongest.
 >
@@ -768,41 +758,41 @@ print("Strongest:", strongest["password"], "-", strongest["strength_score"], str
 
 ## 24:00–26:00 — Conclusiones
 
-> 🖱️ I'm clicking the plus Text button in the toolbar, to add the conclusions and recommendations.
+> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add the conclusions and recommendations.
 >
 > (Hago clic en el botón + Text de la barra de herramientas, para agregar las conclusiones y recomendaciones.)
 
 Mientras escribís, decí en voz alta lo que vas escribiendo:
 
 ```markdown
-## 6. Conclusions and recommendations
-- **Weakest:** 6 lowercase letters (score 1, Weak, about 28 bits of entropy). Short passwords with one character type can be guessed quickly.
-- **Strongest:** 20 characters with uppercase, digits, and symbols (score 9, Strong, about 131 bits of entropy).
-- **Length matters most:** 16 characters with letters and digits (score 8) is stronger than 12 characters with symbols (score 7).
-- **Recommendations:** use at least 16 characters, mix uppercase, lowercase, digits, and symbols, avoid repeated characters or patterns, and use the `secrets` module (not `random`) to generate passwords.
+## 6. Conclusions
+- Weakest: 6 lowercase letters (score 1, about 28 bits).
+- Strongest: 20 characters with every type (score 9, about 131 bits).
+- Length matters most: 16 characters without symbols (score 8) beats 12 with symbols (score 7).
+- Use 16+ characters, every type, no repeated patterns, and the secrets module.
 ```
 
 **What each line does:**
 
-- 🟢 `## 6. Conclusions and recommendations`: the last section heading. Each line below starts with a dash, which makes a bullet point, and the double asterisks make the first words bold.
+- 🟢 `## 6. Conclusions`: the last section heading. Each line below starts with a dash, which makes a bullet point.
 
-  (El último título de sección. Cada línea de abajo empieza con un guion, que hace una viñeta, y los dos asteriscos ponen las primeras palabras en negrita.)
+  (El último título de sección. Cada línea de abajo empieza con un guion, que hace una viñeta.)
 
-- 🟢 `**Weakest:** ...`: the weakest was 6 lowercase letters, with a score of 1 and about 28 bits. Short passwords with only one type of character can be guessed very quickly.
+- 🟢 `- Weakest: ...`: the weakest was 6 lowercase letters, with a score of 1, Weak, and about 28 bits of entropy. Short passwords with only one type of character can be guessed very quickly.
 
-  (La más débil fue la de 6 minúsculas, con puntaje 1 y unos 28 bits. Las contraseñas cortas con un solo tipo de carácter se pueden adivinar muy rápido.)
+  (La más débil fue la de 6 minúsculas, con puntaje 1, Weak, y unos 28 bits de entropía. Las contraseñas cortas con un solo tipo de carácter se pueden adivinar muy rápido.)
 
-- 🟢 `**Strongest:** ...`: the strongest was 20 characters with every type, with a score of 9 and about 131 bits.
+- 🟢 `- Strongest: ...`: the strongest was 20 characters with uppercase and lowercase letters, digits, and symbols, with a score of 9, Strong, and about 131 bits.
 
-  (La más fuerte fue la de 20 caracteres con todos los tipos, con puntaje 9 y unos 131 bits.)
+  (La más fuerte fue la de 20 caracteres con mayúsculas, minúsculas, dígitos y símbolos, con puntaje 9, Strong, y unos 131 bits.)
 
-- 🟢 `**Length matters most:** ...`: a 16-character password with letters and digits scored 8, more than a 12-character password with symbols, which scored 7.
+- 🟢 `- Length matters most: ...`: a 16-character password with letters and digits, but no symbols, scored 8. That's more than a 12-character password with symbols, which scored 7.
 
-  (Una contraseña de 16 caracteres con letras y dígitos sacó 8, más que una de 12 caracteres con símbolos, que sacó 7.)
+  (Una contraseña de 16 caracteres con letras y dígitos, pero sin símbolos, sacó 8. Eso es más que una de 12 caracteres con símbolos, que sacó 7.)
 
-- 🟢 `**Recommendations:** ...`: my recommendations: at least 16 characters, every type of character, no repeated patterns, and always the secrets module to generate them. The backticks around secrets and random show them as code.
+- 🟢 `- Use 16+ characters, ...`: my recommendations: at least 16 characters, every type of character, no repeated characters or patterns, and always the secrets module, not plain random, to generate them.
 
-  (Mis recomendaciones: al menos 16 caracteres, todos los tipos de carácter, nada de patrones repetidos y siempre el módulo secrets para generarlas. Las comillas invertidas alrededor de secrets y random los muestran como código.)
+  (Mis recomendaciones: al menos 16 caracteres, todos los tipos de carácter, nada de caracteres ni patrones repetidos, y siempre el módulo secrets, no random común, para generarlas.)
 
 > 🟢 The most interesting result is that length matters more than symbols. A 16-character password with letters and digits is stronger than a 12-character password with symbols, because each extra character multiplies the number of possible passwords.
 >
@@ -830,33 +820,33 @@ Subís hasta el principio del notebook y vas bajando: cada frase va cuando la se
 >
 > (Les resumo todo el proyecto. Empezamos con el título y el objetivo, y después importamos cinco librerías. Cuatro vienen con Python, en la librería estándar: secrets y random para la aleatoriedad segura, string para los conjuntos de caracteres y math para la entropía. Y pandas, una librería externa que ya viene instalada en Colab, para la tabla.)
 >
-> 🖱️ I'm scrolling down to section 1, Password generator.
+> 🖱️ I'm scrolling down the notebook, in the center of the screen, to section 1, Password generator, to review the generator.
 >
-> (Bajo hasta la sección 1, Password generator.)
+> (Bajo por el notebook, en el centro de la pantalla, hasta la sección 1, Password generator, para repasar el generador.)
 >
 > 🟢 In section 1, we built the generator. It takes a length and three options, guarantees one character of each chosen type, fills the rest at random with secrets, and shuffles everything.
 >
 > (En la sección 1 armamos el generador. Recibe una longitud y tres opciones, garantiza un carácter de cada tipo elegido, completa el resto al azar con secrets y mezcla todo.)
 >
-> 🖱️ I'm scrolling down to section 2, Strength checker.
+> 🖱️ I'm scrolling down the notebook, in the center of the screen, to section 2, Strength checker, to review the scoring.
 >
-> (Bajo hasta la sección 2, Strength checker.)
+> (Bajo por el notebook, en el centro de la pantalla, hasta la sección 2, Strength checker, para repasar el puntaje.)
 >
 > 🟢 In section 2, we built the checker, with a helper function that finds repeated sequences. It gives up to three points for length, four for variety, and two for entropy, and takes one point away for repeated sequences. We checked it by hand with "aaa123", which scored 1.
 >
 > (En la sección 2 armamos el validador, con una función auxiliar que encuentra secuencias repetidas. Da hasta tres puntos por longitud, cuatro por variedad y dos por entropía, y resta un punto por secuencias repetidas. Lo comprobamos a mano con "aaa123", que sacó 1.)
 >
-> 🖱️ I'm scrolling down to sections 3 and 4, the batch and the results table.
+> 🖱️ I'm scrolling down the notebook, in the center of the screen, to sections 3 and 4, to review the batch and the results table.
 >
-> (Bajo hasta las secciones 3 y 4, el lote y la tabla de resultados.)
+> (Bajo por el notebook, en el centro de la pantalla, hasta las secciones 3 y 4, para repasar el lote y la tabla de resultados.)
 >
 > 🟢 In sections 3 and 4, we generated ten passwords from weak to strong settings and showed them in a colored table: four Weak, three Medium, and three Strong.
 >
 > (En las secciones 3 y 4 generamos diez contraseñas, de configuraciones débiles a fuertes, y las mostramos en una tabla con colores: cuatro Weak, tres Medium y tres Strong.)
 >
-> 🖱️ I'm scrolling down to sections 5 and 6, Weakest and strongest, and the conclusions.
+> 🖱️ I'm scrolling down the notebook, in the center of the screen, to sections 5 and 6, to review the weakest and strongest passwords and the conclusions.
 >
-> (Bajo hasta las secciones 5 y 6, Weakest and strongest, y las conclusiones.)
+> (Bajo por el notebook, en el centro de la pantalla, hasta las secciones 5 y 6, para repasar la contraseña más débil y la más fuerte, y las conclusiones.)
 >
 > 🟢 In section 5, we found the weakest, 6 lowercase letters, and the strongest, 20 characters with everything, using the entropy to break the tie. And in section 6, we wrote the conclusions and the recommendations.
 >
@@ -864,9 +854,9 @@ Subís hasta el principio del notebook y vas bajando: cada frase va cuando la se
 
 ### Decisiones y próximos pasos
 
-> 🖱️ I'm scrolling slowly up through the notebook with the mouse wheel, to go over the decisions I made.
+> 🖱️ I'm scrolling slowly up through the notebook, in the center of the screen, with the mouse wheel, to go over the decisions I made.
 >
-> (Subo despacio por el notebook con la rueda del mouse, para repasar las decisiones que tomé.)
+> (Subo despacio por el notebook, en el centro de la pantalla, con la rueda del mouse, para repasar las decisiones que tomé.)
 >
 > 🟢 In this epilogue, I want to go over my approach. For the generator, I used the secrets module instead of plain random, because password randomness must be unpredictable. I also guaranteed at least one character of each chosen type, so the settings always mean what they say.
 >
