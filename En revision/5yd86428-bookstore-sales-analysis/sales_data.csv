@@ -1,0 +1,201 @@
+date,book category,title,units sold,unit price,total revenue
+2025-01-01,Non-Fiction,The Money Mind,2,20.15,40.3
+2025-01-01,Fiction,Midnight Garden,3,14.14,42.42
+2025-01-02,Fiction,The Silent River,3,13.65,40.95
+2025-01-03,Fiction,Midnight Garden,2,13.02,26.04
+2025-01-07,Fiction,Midnight Garden,3,13.94,41.82
+2025-01-08,Fiction,Midnight Garden,1,15.26,15.26
+2025-01-09,Non-Fiction,The Money Mind,2,19.25,38.5
+2025-01-10,Fiction,Midnight Garden,1,14.59,14.59
+2025-01-18,History,Roads of Rome,2,22.93,45.86
+2025-01-20,Fiction,The Silent River,3,15.17,45.51
+2025-01-21,Non-Fiction,Small Habits,2,17.16,34.32
+2025-01-22,Non-Fiction,Small Habits,3,17.63,52.89
+2025-01-23,Fiction,Midnight Garden,3,16.22,48.66
+2025-01-23,Children,Leo the Brave Lion,3,10.37,31.11
+2025-01-24,Science,Tiny Atoms,1,24.5,24.5
+2025-01-25,Fiction,Midnight Garden,1,15.16,15.16
+2025-01-27,Fiction,Midnight Garden,3,16.87,50.61
+2025-01-28,Children,Leo the Brave Lion,3,8.77,26.31
+2025-01-30,History,Roads of Rome,1,23.23,23.23
+2025-01-30,History,Roads of Rome,2,20.23,40.46
+2025-02-03,Fiction,Midnight Garden,3,12.38,37.14
+2025-02-09,Children,Leo the Brave Lion,3,14.66,43.98
+2025-02-18,Non-Fiction,The Money Mind,3,21.63,64.89
+2025-02-18,History,Roads of Rome,3,21.17,63.51
+2025-03-05,Non-Fiction,Small Habits,1,16.38,16.38
+2025-03-10,Fiction,The Silent River,1,16.9,16.9
+2025-03-10,Children,Stars for Mia,2,10.42,20.84
+2025-03-11,Non-Fiction,Small Habits,2,18.89,37.78
+2025-03-13,Comics,Night Patrol,3,13.46,40.38
+2025-03-16,Fiction,The Silent River,2,14.81,29.62
+2025-03-27,Fiction,The Silent River,3,14.58,43.74
+2025-03-29,Comics,Captain Comet,1,8.88,8.88
+2025-03-29,Fiction,The Silent River,3,11.96,35.88
+2025-03-30,Non-Fiction,The Money Mind,2,20.37,40.74
+2025-03-30,Comics,Night Patrol,1,12.54,12.54
+2025-03-31,Comics,Night Patrol,3,15.68,47.04
+2025-04-03,Fiction,The Silent River,2,15.14,30.28
+2025-04-03,Children,Leo the Brave Lion,1,12.59,12.59
+2025-04-03,Fiction,The Silent River,1,15.07,15.07
+2025-04-08,Non-Fiction,The Money Mind,1,19.37,19.37
+2025-04-10,Non-Fiction,The Money Mind,3,17.53,52.59
+2025-04-12,Fiction,The Silent River,2,13.32,26.64
+2025-04-14,Comics,Captain Comet,3,16.67,50.01
+2025-04-16,Non-Fiction,The Money Mind,3,19.36,58.08
+2025-04-18,Fiction,Midnight Garden,1,18.02,18.02
+2025-04-18,Fiction,The Silent River,3,18.17,54.51
+2025-04-18,Non-Fiction,Small Habits,2,16.83,33.66
+2025-04-20,Children,Leo the Brave Lion,2,11.83,23.66
+2025-04-23,Comics,Night Patrol,2,14.91,29.82
+2025-04-24,Children,Leo the Brave Lion,2,10.77,21.54
+2025-04-24,Comics,Night Patrol,1,14.39,14.39
+2025-04-25,Children,Stars for Mia,1,9.42,9.42
+2025-04-28,Fiction,The Silent River,2,16.0,32.0
+2025-04-30,History,Roads of Rome,3,20.82,62.46
+2025-05-05,Fiction,The Silent River,1,17.26,17.26
+2025-05-06,Science,The Living Planet,1,23.8,23.8
+2025-05-08,History,The Long War,2,21.1,42.2
+2025-05-11,Fiction,The Silent River,3,14.83,44.49
+2025-05-15,Science,The Living Planet,2,25.1,50.2
+2025-05-25,Non-Fiction,The Money Mind,3,20.47,61.41
+2025-05-25,Children,Stars for Mia,3,10.25,30.75
+2025-05-25,Non-Fiction,The Money Mind,1,19.94,19.94
+2025-05-27,Comics,Night Patrol,2,16.05,32.1
+2025-05-28,Fiction,Midnight Garden,2,17.02,34.04
+2025-05-29,Fiction,The Silent River,1,16.43,16.43
+2025-05-30,Non-Fiction,The Money Mind,2,18.42,36.84
+2025-06-04,Comics,Captain Comet,2,13.24,26.48
+2025-06-06,History,Roads of Rome,3,22.76,68.28
+2025-06-06,History,The Long War,2,21.62,43.24
+2025-06-09,Children,Stars for Mia,2,10.3,20.6
+2025-06-17,Fiction,The Silent River,1,16.32,16.32
+2025-06-18,Non-Fiction,The Money Mind,2,16.01,32.02
+2025-06-21,Children,Stars for Mia,2,10.59,21.18
+2025-06-22,Science,The Living Planet,2,25.09,50.18
+2025-06-23,Comics,Night Patrol,3,15.56,46.68
+2025-06-25,Fiction,The Silent River,3,14.66,43.98
+2025-06-28,Fiction,The Silent River,2,13.01,26.02
+2025-06-29,Non-Fiction,The Money Mind,2,17.3,34.6
+2025-07-02,History,The Long War,3,24.99,74.97
+2025-07-02,Children,Leo the Brave Lion,1,10.03,10.03
+2025-07-03,History,Roads of Rome,2,24.3,48.6
+2025-07-03,Comics,Captain Comet,2,12.82,25.64
+2025-07-05,Children,Leo the Brave Lion,3,8.21,24.63
+2025-07-06,Fiction,Midnight Garden,1,16.14,16.14
+2025-07-10,Fiction,Midnight Garden,3,14.83,44.49
+2025-07-12,Children,Leo the Brave Lion,2,9.18,18.36
+2025-07-18,Children,Stars for Mia,2,8.87,17.74
+2025-07-19,Fiction,The Silent River,3,15.25,45.75
+2025-07-22,Science,The Living Planet,1,26.62,26.62
+2025-07-24,Fiction,The Silent River,3,13.06,39.18
+2025-07-24,Comics,Captain Comet,20,13.67,273.4
+2025-07-27,Children,Leo the Brave Lion,2,8.3,16.6
+2025-07-27,Fiction,The Silent River,3,12.92,38.76
+2025-07-31,Science,Tiny Atoms,3,25.66,76.98
+2025-08-07,Comics,Night Patrol,2,11.37,22.74
+2025-08-08,Science,Tiny Atoms,3,24.46,73.38
+2025-08-08,Fiction,The Silent River,3,16.84,50.52
+2025-08-12,Children,Leo the Brave Lion,2,10.75,21.5
+2025-08-13,Fiction,Midnight Garden,2,16.2,32.4
+2025-08-13,Fiction,The Silent River,1,13.99,13.99
+2025-08-13,Non-Fiction,The Money Mind,1,19.87,19.87
+2025-08-14,Children,Leo the Brave Lion,3,10.16,30.48
+2025-08-14,Science,The Living Planet,1,24.16,24.16
+2025-08-18,Fiction,The Silent River,3,12.86,38.58
+2025-08-18,Science,The Living Planet,3,26.77,80.31
+2025-08-19,Fiction,The Silent River,2,13.87,27.74
+2025-08-19,Children,Leo the Brave Lion,1,13.07,13.07
+2025-08-20,History,Roads of Rome,2,24.44,48.88
+2025-08-20,Non-Fiction,The Money Mind,1,17.07,17.07
+2025-08-24,Non-Fiction,The Money Mind,1,20.35,20.35
+2025-08-28,Fiction,The Silent River,2,15.85,31.7
+2025-08-29,Fiction,Midnight Garden,2,15.66,31.32
+2025-08-31,Fiction,Midnight Garden,1,15.13,15.13
+2025-09-02,Children,Leo the Brave Lion,1,9.49,9.49
+2025-09-08,Non-Fiction,The Money Mind,3,18.23,54.69
+2025-09-10,Fiction,Midnight Garden,2,14.73,29.46
+2025-09-10,Comics,Captain Comet,3,12.09,36.27
+2025-09-10,Fiction,Midnight Garden,1,14.83,14.83
+2025-09-11,Children,Leo the Brave Lion,2,11.3,22.6
+2025-09-12,Fiction,Midnight Garden,3,13.66,40.98
+2025-09-12,Fiction,Midnight Garden,2,16.12,32.24
+2025-09-15,Fiction,The Silent River,3,15.24,45.72
+2025-09-29,Children,Stars for Mia,1,8.9,8.9
+2025-10-01,Children,Stars for Mia,1,9.4,9.4
+2025-10-02,Children,Leo the Brave Lion,1,8.54,8.54
+2025-10-07,Children,Leo the Brave Lion,1,8.84,8.84
+2025-10-09,Science,Tiny Atoms,3,24.51,73.53
+2025-10-16,Fiction,Midnight Garden,1,16.77,16.77
+2025-10-18,Children,Stars for Mia,1,10.08,10.08
+2025-10-20,Non-Fiction,The Money Mind,1,18.91,18.91
+2025-10-26,History,Roads of Rome,3,21.55,64.65
+2025-11-01,Children,Stars for Mia,2,8.6,17.2
+2025-11-02,Non-Fiction,Small Habits,1,20.26,20.26
+2025-11-03,Non-Fiction,The Money Mind,1,18.49,18.49
+2025-11-03,Fiction,Midnight Garden,1,13.56,13.56
+2025-11-03,Non-Fiction,Small Habits,3,18.9,56.7
+2025-11-04,Non-Fiction,Small Habits,3,19.26,57.78
+2025-11-04,History,Roads of Rome,3,20.57,61.71
+2025-11-05,Science,Tiny Atoms,2,22.6,45.2
+2025-11-06,Fiction,Midnight Garden,2,15.55,31.1
+2025-11-06,Comics,Night Patrol,3,14.67,44.01
+2025-11-07,Non-Fiction,The Money Mind,3,19.8,59.4
+2025-11-08,Fiction,The Silent River,2,14.64,29.28
+2025-11-08,Children,Leo the Brave Lion,3,10.19,30.57
+2025-11-10,Non-Fiction,The Money Mind,3,15.74,47.22
+2025-11-10,Comics,Captain Comet,3,11.39,34.17
+2025-11-11,History,The Long War,2,20.71,41.42
+2025-11-11,Children,Leo the Brave Lion,1,11.12,11.12
+2025-11-14,History,Roads of Rome,2,20.8,41.6
+2025-11-14,Fiction,Midnight Garden,1,15.46,15.46
+2025-11-15,Fiction,Midnight Garden,1,17.75,17.75
+2025-11-16,Children,Stars for Mia,3,12.6,37.8
+2025-11-17,Fiction,Midnight Garden,3,14.2,42.6
+2025-11-18,Fiction,Midnight Garden,2,16.0,32.0
+2025-11-19,Children,Leo the Brave Lion,2,11.33,22.66
+2025-11-28,Children,Stars for Mia,1,10.48,10.48
+2025-11-30,Non-Fiction,Small Habits,3,19.6,58.8
+2025-12-01,Fiction,Midnight Garden,2,16.14,32.28
+2025-12-01,Non-Fiction,Small Habits,3,19.27,57.81
+2025-12-01,Non-Fiction,The Money Mind,2,20.09,40.18
+2025-12-01,Fiction,Midnight Garden,3,13.92,41.76
+2025-12-02,Comics,Captain Comet,1,11.67,11.67
+2025-12-02,Children,Leo the Brave Lion,1,13.04,13.04
+2025-12-02,Fiction,Midnight Garden,1,16.49,16.49
+2025-12-02,Fiction,Midnight Garden,2,17.4,34.8
+2025-12-05,Comics,Captain Comet,2,11.66,23.32
+2025-12-05,Fiction,Midnight Garden,1,16.11,16.11
+2025-12-05,Science,Tiny Atoms,3,24.35,73.05
+2025-12-06,Fiction,The Silent River,3,15.96,47.88
+2025-12-08,History,Roads of Rome,2,21.05,42.1
+2025-12-08,Non-Fiction,Small Habits,1,18.13,18.13
+2025-12-08,Fiction,The Silent River,1,15.16,15.16
+2025-12-10,History,The Long War,2,22.75,45.5
+2025-12-10,Children,Leo the Brave Lion,2,6.95,13.9
+2025-12-10,Fiction,The Silent River,12,13.42,161.04
+2025-12-11,Fiction,Midnight Garden,3,15.12,45.36
+2025-12-12,Non-Fiction,Small Habits,2,19.34,38.68
+2025-12-12,Children,Leo the Brave Lion,1,11.64,11.64
+2025-12-12,History,The Long War,3,22.48,67.44
+2025-12-13,Science,Tiny Atoms,1,22.68,22.68
+2025-12-14,Fiction,Midnight Garden,2,17.06,34.12
+2025-12-15,Comics,Night Patrol,3,13.65,40.95
+2025-12-16,Non-Fiction,Small Habits,2,20.78,41.56
+2025-12-16,Fiction,Midnight Garden,2,14.25,28.5
+2025-12-20,Children,Stars for Mia,1,10.25,10.25
+2025-12-20,History,Roads of Rome,2,21.1,42.2
+2025-12-21,Comics,Night Patrol,2,12.07,24.14
+2025-12-21,Fiction,The Silent River,1,14.31,14.31
+2025-12-22,Non-Fiction,The Money Mind,1,16.79,16.79
+2025-12-22,Comics,Captain Comet,2,13.98,27.96
+2025-12-23,Children,Leo the Brave Lion,2,8.97,17.94
+2025-12-23,Fiction,Midnight Garden,2,17.42,34.84
+2025-12-24,Fiction,The Silent River,2,14.07,28.14
+2025-12-25,Non-Fiction,Small Habits,2,17.84,35.68
+2025-12-25,Non-Fiction,Small Habits,15,19.61,294.15
+2025-12-28,Comics,Night Patrol,3,13.3,39.9
+2025-12-30,Children,Leo the Brave Lion,1,6.9,6.9
+2025-12-30,Non-Fiction,The Money Mind,2,19.41,38.82
+2025-12-30,Science,The Living Planet,3,25.24,75.72
+2025-12-31,Comics,Captain Comet,2,14.74,29.48
