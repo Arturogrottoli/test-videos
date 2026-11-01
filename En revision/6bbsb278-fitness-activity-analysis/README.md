@@ -1,6 +1,6 @@
 # 6bbsb278 — Fitness Activity Data Analysis
 
-Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **28 minutos**, epílogo incluido (la grabación anterior duró ~35).
+Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **26 minutos**, epílogo incluido (la grabación anterior duró ~35).
 
 ### Cambios en esta versión
 
@@ -9,7 +9,7 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 | Solo 43,4% de acciones con What + Where (mínimo 70%) | Cada clic, scroll, celda nueva, ejecución y corrección tiene su frase 🖱️ con **qué** hacés y **dónde** está |
 | Se explicaba el código línea por línea | Una frase corta por **bloque** de código, que dice para qué sirve |
 | Consulta a la documentación de pandas y Matplotlib en Firefox | **Eliminada.** Todo pasa en Colab |
-| El dataset no seguía los pasos aprobados (`fitness_activity.csv`, sin `day_of_week`, `calories_burned` ni `exercise_minutes`) | El paso 1 **crea** `fitness_data.csv` en Colab, con las 6 columnas aprobadas |
+| El dataset no seguía los pasos aprobados (`fitness_activity.csv`, sin `day_of_week`, `calories_burned` ni `exercise_minutes`) `fitness_data.csv` (6 columnas aprobadas) se **prepara antes de grabar**, como dice la idea aprobada, y en el paso 1 se sube a Colab |
 | Faltaba el análisis de outliers con IQR | Nueva sección 7, IQR sobre `steps` |
 | El scatter era `active_minutes` vs `calories` | Ahora es exactamente `steps` vs `calories_burned` |
 
@@ -17,7 +17,7 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 
 | Paso | Dónde |
 | ---- | ----- |
-| 1. Crear `fitness_data.csv` (`date`, `day_of_week`, `steps`, `calories_burned`, `exercise_minutes`, `active_hours`) | Celda 1 |
+| 1. `fitness_data.csv` preparado antes de grabar (`date`, `day_of_week`, `steps`, `calories_burned`, `exercise_minutes`, `active_hours`) | Subida en el panel Files + celda 1 (imports) |
 | 2. `pd.read_csv()`, `head()`, `info()`, `shape` | Celdas 2 y 3 |
 | 3. mean, median, std, min, max de steps, calories y exercise_minutes | Celda 4 |
 | 4. `groupby()` por `day_of_week` | Celda 5 |
@@ -42,17 +42,17 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 ```
 6bbsb278-fitness-activity-analysis/
 ├── README.md                    ← este guion
-├── fitness_data.csv             ← el CSV que crea la celda 1 (referencia, para comparar)
+├── fitness_data.csv             ← el dataset sintético, preparado antes de grabar (archivo de entrada)
 └── fitness_data_analysis.ipynb  ← notebook de referencia, completo y en orden
 ```
 
-Para probar el notebook de referencia: en Colab, **File → Upload notebook → Browse**, elegís `fitness_data_analysis.ipynb` y ejecutás **Runtime → Run all**. No hace falta subir el CSV: la celda 1 lo crea.
+Para probar el notebook de referencia: en Colab, **File → Upload notebook → Browse**, elegís `fitness_data_analysis.ipynb`, subís `fitness_data.csv` en el panel **Files** y ejecutás **Runtime → Run all**.
 
 ---
 
 ## El dataset
 
-La celda 1 genera 200 días **sintéticos** (del 1/1/2025 al 19/7/2025) con una semilla fija (`42`), así que los números salen **siempre iguales** y coinciden con las tablas de este guion.
+`fitness_data.csv` tiene 200 días **sintéticos** (del 1/1/2025 al 19/7/2025), preparados **antes de grabar**, como dice la idea aprobada: *"I will create a synthetic CSV file with 200 fictional daily activity records before recording."* En el video no se muestra cómo se generó: se sube y se analiza. Los números coinciden con las tablas de este guion.
 
 | Columna | Qué contiene |
 | ------- | ------------ |
@@ -70,7 +70,7 @@ Tres días tienen valores fuera de lo común **a propósito**, para que el IQR t
 ## Antes de grabar
 
 1. Leé el Goal y comparalo con este guion.
-2. Abrí **solo** Colab (https://colab.research.google.com), con el cuadro **Open notebook** a la vista. Ninguna otra pestaña.
+2. Abrí **solo** Colab (https://colab.research.google.com), sin otras pestañas. Creá el notebook antes de grabar: **File → New notebook in Drive**, hacé clic en el nombre (arriba a la izquierda) y escribí `fitness_data_analysis`. Dejalo **vacío y abierto**, así arrancás la grabación directamente adentro. Tené `fitness_data.csv` a mano en una carpeta fácil de encontrar (por ejemplo, el Escritorio), porque lo subís durante la grabación.
 3. Maximizá el navegador y agrandá el zoom (`Ctrl + +`) para que el código se lea.
 4. Practicá una vez entera en voz alta con cronómetro.
 5. Ejecutá las celdas con el **botón Run** (mouse), no con el teclado, así cada ejecución tiene su frase.
@@ -79,17 +79,15 @@ Tres días tienen valores fuera de lo común **a propósito**, para que el IQR t
 
 ---
 
-## 0:00–1:30 — Introducción y notebook nuevo
+## 0:00–1:00 — Introducción
 
-La introducción dura **menos de 20 segundos**:
+Empezás con el notebook `fitness_data_analysis` ya abierto y vacío. La introducción dura **menos de 20 segundos**:
 
 > 🟢 I will be beginning my task soon. As a data analyst for a fitness company, I'll analyze 200 days of synthetic activity data in Google Colab with pandas and Matplotlib.
 
-> 🟢 The plan: create the CSV, load and inspect it, calculate statistics, compare the days of the week, check the correlation between steps and calories, draw two charts, find outliers with the IQR method, and write my conclusions.
+> 🟢 The plan: upload the CSV I prepared, load and inspect it, calculate statistics, compare the days of the week, check the correlation between steps and calories, draw two charts, find outliers with the IQR method, and write my conclusions.
 
-> 🖱️ I'm clicking the New notebook button at the bottom of the Open notebook dialog, in the center of the screen, to start a blank notebook.
-
-> 🖱️ I'm clicking the notebook name at the top left, next to the Colab logo, and typing fitness_data_analysis, so the file has a clear name.
+> 🖱️ I'm in Google Colab, with an empty notebook called fitness_data_analysis already open. The name is at the top left, next to the Colab logo.
 
 > 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a title cell above the code.
 
@@ -108,79 +106,53 @@ Si Colab dejó una celda de código vacía arriba de todo:
 
 ---
 
-## 1:30–5:00 — Paso 1: crear `fitness_data.csv`
+## 1:00–3:00 — Paso 1: subir `fitness_data.csv` e importar las librerías
 
 > 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add the heading for step one under the title.
 
-Escribís `## 1. Create the dataset`.
+Escribís:
 
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the first code cell under that heading.
-
-> 🟢 In this first code cell I'll import the libraries and build the dataset: 200 days, with the six columns the task asks for, saved as fitness_data.csv.
-
-Escribís la **celda 1**. Decí cada frase 🟢 cuando llegás a ese bloque:
-
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
-rng = np.random.default_rng(42)
-fitness = pd.DataFrame({"date": pd.date_range("2025-01-01", periods=200)})
-fitness["day_of_week"] = fitness["date"].dt.day_name()
-
-avg_steps = {"Monday": 8000, "Tuesday": 7500, "Wednesday": 8000, "Thursday": 7500,
-             "Friday": 7000, "Saturday": 10500, "Sunday": 5500}
-steps = fitness["day_of_week"].map(avg_steps) + rng.normal(0, 1500, 200)
-steps[[45, 118, 160]] = [21500, 19800, 600]
-minutes = steps / 200 + rng.normal(0, 8, 200)
-
-fitness["steps"] = steps.round().astype(int)
-fitness["calories_burned"] = (1600 + steps * 0.07 + minutes * 3 + rng.normal(0, 120, 200)).round().astype(int)
-fitness["exercise_minutes"] = minutes.clip(0).round().astype(int)
-fitness["active_hours"] = (steps / 4000 + rng.normal(0, 0.4, 200)).clip(0.2).round(1)
-
-fitness.to_csv("fitness_data.csv", index=False)
-print("Saved fitness_data.csv:", fitness.shape)
+```markdown
+## 1. Dataset
+I prepared `fitness_data.csv` before the analysis: 200 fictional daily activity records with six columns (`date`, `day_of_week`, `steps`, `calories_burned`, `exercise_minutes`, `active_hours`). It is uploaded to the Colab session.
 ```
 
-- Al escribir los imports y la semilla:
+> 🟢 I prepared this synthetic dataset with 200 fictional daily activity records before starting the analysis. Now I'm uploading the CSV file into Google Colab to begin exploring the data.
 
-  > 🟢 First, the imports: NumPy for random numbers, pandas for the table, and Matplotlib for the charts. The seed, 42, makes the random numbers the same every time, so the results are reproducible.
+> 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to open the file panel.
 
-- Al escribir `date` y `day_of_week`:
+> 🖱️ I'm clicking the Upload to session storage button, the page with an up arrow at the top of the Files panel, to choose the CSV.
 
-  > 🟢 Next, 200 dates starting on January 1st, 2025, and the name of each day, which I'll need to compare the days of the week.
+> 🖱️ In the file window, I'm selecting fitness_data.csv on the Desktop and clicking Open, at the bottom right of the window.
 
-- Al escribir `avg_steps` y `steps`:
+Si aparece el aviso de que los archivos se borran al reiniciar el runtime:
 
-  > 🟢 Each day of the week gets a typical number of steps, with Saturday the highest and Sunday the lowest, plus random variation. I'm also adding three unusual days on purpose, a very long walk, a race, and a day the tracker was barely worn, so the outlier check has something real to find.
+> 🖱️ I'm clicking OK on the warning in the center of the screen. It only says the uploaded files are deleted when the runtime restarts.
 
-- Al escribir las cuatro columnas `fitness[...]`:
-
-  > 🟢 Calories and exercise minutes grow with the steps, plus some noise, like real tracker data. I round every value, so the CSV looks like a real export.
-
-- Al escribir `to_csv`:
-
-  > 🟢 And finally, I save the table as fitness_data.csv, without the index, and print its size.
-
-> 🖱️ I'm clicking the Run cell button, the play icon on the left edge of this cell, to create the CSV.
-
-> 🟢 The first run takes a few seconds, because Colab is connecting to a runtime. The status at the top right turns green when it's ready.
-
-Salida esperada: `Saved fitness_data.csv: (200, 6)`.
-
-> 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to check that the file was created.
-
-> 🟢 Here it is: fitness_data.csv, in the session storage. 200 rows and 6 columns, as the output says.
+> 🟢 Here it is: fitness_data.csv, in the session storage, ready to be read.
 
 > 🖱️ I'm clicking the Files icon in the left sidebar again, to close the panel and get the space back.
 
+> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the first code cell under the step one heading.
+
+> 🟢 In this first code cell I import the two libraries: pandas for the table and Matplotlib for the charts.
+
+Escribís la **celda 1**:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+> 🖱️ I'm clicking the Run cell button, the play icon on the left edge of this cell, to import the libraries.
+
+> 🟢 The first run takes a few seconds, because Colab is connecting to a runtime. The status at the top right turns green when it's ready. No output means the imports worked.
+
 ---
 
-## 5:00–8:30 — Paso 2: cargar e inspeccionar
+## 3:00–6:30 — Paso 2: cargar e inspeccionar
 
-> 🖱️ I'm scrolling down to the bottom of the notebook, below the output of the first cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step two.
+> 🖱️ I'm scrolling down to the bottom of the notebook, below the first code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step two.
 
 Escribís `## 2. Load and inspect the data`.
 
@@ -226,7 +198,7 @@ Según la versión de pandas, el texto aparece como `object` o como `str`. Si di
 
 ---
 
-## 8:30–11:00 — Paso 3: estadísticas descriptivas
+## 6:30–9:00 — Paso 3: estadísticas descriptivas
 
 > 🖱️ I'm scrolling down below the info output, and clicking the plus Text button in the toolbar at the top left, to add the heading for step three.
 
@@ -263,7 +235,7 @@ df[metrics].agg(["mean", "median", "std", "min", "max"]).round(1)
 
 ---
 
-## 11:00–13:30 — Paso 4: `groupby()` por día de la semana
+## 9:00–11:30 — Paso 4: `groupby()` por día de la semana
 
 > 🖱️ I'm scrolling down below the statistics table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step four.
 
@@ -292,7 +264,7 @@ by_day
 
 ---
 
-## 13:30–16:00 — Paso 5: correlación de Pearson
+## 11:30–14:00 — Paso 5: correlación de Pearson
 
 > 🖱️ I'm scrolling down below the day table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step five.
 
@@ -322,7 +294,7 @@ df[["steps", "calories_burned", "exercise_minutes", "active_hours"]].corr().roun
 
 ---
 
-## 16:00–20:00 — Paso 6: gráficos con Matplotlib
+## 14:00–18:00 — Paso 6: gráficos con Matplotlib
 
 > 🖱️ I'm scrolling down below the correlation matrix, and clicking the plus Text button in the toolbar at the top left, to add the heading for step six.
 
@@ -378,7 +350,7 @@ plt.show()
 
 ---
 
-## 20:00–23:30 — Paso 7: outliers con el método IQR
+## 18:00–21:30 — Paso 7: outliers con el método IQR
 
 > 🖱️ I'm scrolling down below the scatter plot, and clicking the plus Text button in the toolbar at the top left, to add the heading for step seven.
 
@@ -427,7 +399,7 @@ outliers
 
 ---
 
-## 23:30–25:00 — Paso 8: conclusiones y guardar
+## 21:30–23:00 — Paso 8: conclusiones y guardar
 
 > 🖱️ I'm scrolling down to the bottom of the notebook, below the outlier table, and clicking the plus Text button in the toolbar at the top left, to add the conclusions cell.
 
@@ -446,15 +418,15 @@ Escribís:
 
 > 🖱️ I'm opening the File menu at the top left again, choosing Download, then Download .ipynb, to keep the notebook for the deliverables.
 
-> 🖱️ I'm clicking the Files icon in the left sidebar, then the three dots next to fitness_data.csv, and choosing Download, to keep the CSV too.
+> 🟢 The CSV I uploaded stays as the input file of the deliverables, next to the notebook.
 
 ---
 
-## 25:00–28:00 — Epílogo
+## 23:00–26:00 — Epílogo
 
 > 🖱️ I'm scrolling up to the top of the notebook with the mouse wheel, in the center of the screen, to go over the whole analysis.
 
-> 🟢 Let me summarize. In step one, I created a synthetic dataset of 200 days with the six columns the task asks for, and saved it as fitness_data.csv.
+> 🟢 Let me summarize. In step one, I uploaded fitness_data.csv, the synthetic dataset of 200 days I prepared before the analysis, with the six columns the task asks for.
 
 > 🖱️ I'm scrolling down to sections 2 and 3, in the middle of the notebook.
 
@@ -468,7 +440,7 @@ Escribís:
 
 > 🟢 The bar chart shows the Saturday peak, and the scatter plot shows the rising pattern of steps and calories. The IQR method found 3 outlier days, two very active ones and one with almost no activity.
 
-> 🟢 About my decisions: I used a fixed seed so the results are reproducible. I used the median next to the mean because of the extreme days. And I chose IQR for outliers because it isn't pulled by the outliers themselves, the way the mean and standard deviation are.
+> 🟢 About my decisions: I used the median next to the mean because of the extreme days. And I chose IQR for outliers because it isn't pulled by the outliers themselves, the way the mean and standard deviation are.
 
 > 🟢 One limit: the data is synthetic and comes from one person, and a correlation doesn't prove that steps cause the calories. As a next step, the company could use real tracker data, compare months, or flag days like June 10th automatically as possible tracking problems.
 
@@ -486,7 +458,7 @@ Siempre decí **qué** corregís y **en qué celda**:
 | ----- | -------- | ----------------- |
 | Error de tipeo en el nombre de una columna (`KeyError`) | Escribiste mal `"calories_burned"` u otra | 🖱️ *"There's a KeyError in the sixth code cell, because I misspelled calories_burned. I'm clicking on that line, fixing the name, and clicking Run again."* |
 | `NameError: name 'pd' is not defined` (o `by_day`, `metrics`) | Una celda anterior no se ejecutó | 🖱️ *"There's a NameError in this cell, because an earlier cell didn't run. I'm opening the Runtime menu at the top and choosing Run before, to run all the cells above it."* |
-| `FileNotFoundError` en la celda 2 | No se ejecutó la celda 1 | 🖱️ *"The second code cell can't find the CSV, because the first cell didn't run. I'm scrolling up and clicking Run on the first code cell, then running this one again."* |
+| `FileNotFoundError` en la celda 2 | El CSV no se subió, o se borró al reiniciar el runtime | 🖱️ *"The second code cell can't find the CSV, because it isn't in the session storage. I'm opening the Files panel in the left sidebar, uploading fitness_data.csv again, and running this cell again."* |
 | Error de sintaxis (paréntesis o comilla de menos) | `SyntaxError` | 🖱️ *"There's a syntax error in this cell, a missing parenthesis on the line Colab underlines. I'm adding it and running the cell again."* |
 | Cualquier cosa fuera del guion | Un aviso, una ventana | 🖱️ *"I'm closing this notification at the bottom left, to keep working."* |
 
@@ -495,4 +467,4 @@ Siempre decí **qué** corregís y **en qué celda**:
 ## Después de grabar
 
 1. Ejecutá **Run full AutoQC**, no solo *Rerun failing*. Revisá que el porcentaje de acciones con What + Where pase el **70%**.
-2. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con el `.ipynb` descargado **y** `fitness_data.csv`) y **Metadata.rtf**.
+2. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** (con el `.ipynb` descargado **y** `fitness_data.csv` como archivo de entrada) y **Metadata.rtf**.
