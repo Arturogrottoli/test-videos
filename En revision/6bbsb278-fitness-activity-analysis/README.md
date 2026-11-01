@@ -1,16 +1,16 @@
 # 6bbsb278 — Fitness Activity Data Analysis
 
-Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **26 minutos**, epílogo incluido (la grabación anterior duró ~35).
+Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **25 minutos**, epílogo incluido (la grabación anterior duró ~35).
 
 ### Cambios en esta versión
 
 | Problema de la versión anterior | Qué cambió |
 | ------------------------------- | ---------- |
-| Solo 43,4% de acciones con What + Where (mínimo 70%) | Cada clic, scroll, celda nueva, ejecución y corrección tiene su frase 🖱️ con **qué** hacés y **dónde** está |
-| Se explicaba el código línea por línea | Una frase corta por **bloque** de código, que dice para qué sirve |
+| Solo 43,4% de acciones con What + Where (mínimo 70%) | **Todas** las interacciones tienen su frase 🖱️ con **qué** hacés y **dónde** está: cada clic, scroll, celda nueva, tipeo, ejecución, resultado señalado y corrección |
+| Se explicaba el código línea por línea | El código es **mínimo** (de 1 a 5 líneas por celda) y se explica con **una** frase por celda |
 | Consulta a la documentación de pandas y Matplotlib en Firefox | **Eliminada.** Todo pasa en Colab |
-| El dataset no seguía los pasos aprobados (`fitness_activity.csv`, sin `day_of_week`, `calories_burned` ni `exercise_minutes`) `fitness_data.csv` (6 columnas aprobadas) se **prepara antes de grabar**, como dice la idea aprobada, y en el paso 1 se sube a Colab |
-| Faltaba el análisis de outliers con IQR | Nueva sección 7, IQR sobre `steps` |
+| El dataset no seguía los pasos aprobados (`fitness_activity.csv`, sin `day_of_week`, `calories_burned` ni `exercise_minutes`) | `fitness_data.csv` (6 columnas aprobadas) se **prepara antes de grabar**, como dice la idea aprobada, y en el paso 1 se sube a Colab |
+| Faltaba el análisis de outliers con IQR | Nueva sección 7, IQR sobre `steps`, mostrando los registros |
 | El scatter era `active_minutes` vs `calories` | Ahora es exactamente `steps` vs `calories_burned` |
 
 ### Los 8 pasos aprobados y dónde están
@@ -23,15 +23,16 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 | 4. `groupby()` por `day_of_week` | Celda 5 |
 | 5. Correlación de Pearson con `corr()` y la matriz | Celda 6 |
 | 6. Bar chart de average steps by day + scatter `steps` vs `calories_burned` | Celdas 7 y 8 |
-| 7. Outliers en `steps` con IQR, imprimiendo los registros | Celda 9 |
+| 7. Outliers en `steps` con IQR, mostrando los registros | Celda 9 |
 | 8. Conclusiones: día más activo, fuerza de la correlación, outliers | Última celda de texto |
 
 **Cómo leer este guion:**
 
-- 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés y **dónde** está en la pantalla. Son las frases que cuenta AutoQC.
+- 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés y **dónde** está en la pantalla. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
 - 🟢 = explicación corta, entre una acción y otra.
 - El texto en castellano es lo que hacés en pantalla. No se lee.
-- **No expliques el código línea por línea.** Antes de escribir una celda decís para qué sirve. Si la celda es larga, decís la frase del bloque cuando llegás a ese bloque.
+- **No expliques el código línea por línea.** Cada celda tiene **una** frase 🟢 que dice para qué sirve, y la decís antes de escribirla.
+- Toda celda sigue el mismo ciclo, y cada paso tiene su frase: **scroll hasta el final → clic en + Text → escribir el título → clic en + Code → escribir el código → clic en Run → señalar el resultado → explicarlo.**
 
 > **Importante:** el Goal de Studio tiene prioridad sobre este guion. Si Studio trae un CSV propio en **Starting materials**, usalo y adaptá los nombres de las columnas.
 
@@ -70,12 +71,13 @@ Tres días tienen valores fuera de lo común **a propósito**, para que el IQR t
 ## Antes de grabar
 
 1. Leé el Goal y comparalo con este guion.
-2. Abrí **solo** Colab (https://colab.research.google.com), sin otras pestañas. Creá el notebook antes de grabar: **File → New notebook in Drive**, hacé clic en el nombre (arriba a la izquierda) y escribí `fitness_data_analysis`. Dejalo **vacío y abierto**, así arrancás la grabación directamente adentro. Tené `fitness_data.csv` a mano en una carpeta fácil de encontrar (por ejemplo, el Escritorio), porque lo subís durante la grabación.
-3. Maximizá el navegador y agrandá el zoom (`Ctrl + +`) para que el código se lea.
-4. Practicá una vez entera en voz alta con cronómetro.
-5. Ejecutá las celdas con el **botón Run** (mouse), no con el teclado, así cada ejecución tiene su frase.
-6. Nunca más de 45 segundos en silencio. Si Colab te sugiere código (Gemini), ignoralo y seguí escribiendo vos.
-7. No muestres Studio, Mercor, datos personales ni herramientas de IA.
+2. Abrí **solo** Colab (https://colab.research.google.com), sin otras pestañas. Creá el notebook antes de grabar: **File → New notebook in Drive**, hacé clic en el nombre (arriba a la izquierda) y escribí `fitness_data_analysis`. Dejalo **vacío y abierto**, así arrancás la grabación directamente adentro.
+3. Tené `fitness_data.csv` en el **Escritorio**, porque lo subís durante la grabación.
+4. Maximizá el navegador y agrandá el zoom (`Ctrl + +`) para que el código se lea.
+5. Practicá una vez entera en voz alta con cronómetro.
+6. Ejecutá las celdas con el **botón Run** (mouse), no con el teclado, así cada ejecución tiene su frase.
+7. Nunca más de 45 segundos en silencio. Si Colab te sugiere código (Gemini), ignoralo y seguí escribiendo vos.
+8. No muestres Studio, Mercor, datos personales ni herramientas de IA.
 
 ---
 
@@ -89,78 +91,85 @@ Empezás con el notebook `fitness_data_analysis` ya abierto y vacío. La introdu
 
 > 🖱️ I'm in Google Colab, with an empty notebook called fitness_data_analysis already open. The name is at the top left, next to the Colab logo.
 
-> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a title cell above the code.
-
-Escribís:
-
-```markdown
-# Fitness Activity Data Analysis
-Goal: analyze 200 days of synthetic fitness data: statistics, activity by day of week, the correlation between steps and calories, charts, and outliers in steps.
-```
-
-> 🟢 This text cell holds the title and the goal, so anyone who opens the notebook knows what it's about.
-
 Si Colab dejó una celda de código vacía arriba de todo:
 
 > 🖱️ I'm clicking the trash icon on the right side of the empty code cell at the top, to delete it, because I don't need it.
+
+> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a text cell for the title.
+
+> 🖱️ I'm typing the title in the new text cell, at the top of the notebook.
+
+```markdown
+# Fitness Activity Data Analysis
+```
 
 ---
 
 ## 1:00–3:00 — Paso 1: subir `fitness_data.csv` e importar las librerías
 
-> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add the heading for step one under the title.
+> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a text cell under the title, for step one.
 
-Escribís:
+> 🖱️ I'm typing the heading for step one in this text cell.
 
 ```markdown
 ## 1. Dataset
-I prepared `fitness_data.csv` before the analysis: 200 fictional daily activity records with six columns (`date`, `day_of_week`, `steps`, `calories_burned`, `exercise_minutes`, `active_hours`). It is uploaded to the Colab session.
+Synthetic dataset prepared before recording: 200 days, 6 columns.
 ```
 
 > 🟢 I prepared this synthetic dataset with 200 fictional daily activity records before starting the analysis. Now I'm uploading the CSV file into Google Colab to begin exploring the data.
 
 > 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to open the file panel.
 
-> 🖱️ I'm clicking the Upload to session storage button, the page with an up arrow at the top of the Files panel, to choose the CSV.
+> 🖱️ I'm clicking the Upload to session storage button, the page with an up arrow in the left panel, above the file list, to choose the CSV.
 
-> 🖱️ In the file window, I'm selecting fitness_data.csv on the Desktop and clicking Open, at the bottom right of the window.
+> 🖱️ In the file window, I'm clicking Desktop in the list on the left, then fitness_data.csv, and then the Open button at the bottom right of the window.
 
 Si aparece el aviso de que los archivos se borran al reiniciar el runtime:
 
 > 🖱️ I'm clicking OK on the warning in the center of the screen. It only says the uploaded files are deleted when the runtime restarts.
 
-> 🟢 Here it is: fitness_data.csv, in the session storage, ready to be read.
+> 🖱️ I'm pointing at fitness_data.csv in the left panel, in the file list, to show it's uploaded and ready to be read.
 
 > 🖱️ I'm clicking the Files icon in the left sidebar again, to close the panel and get the space back.
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the first code cell under the step one heading.
 
-> 🟢 In this first code cell I import the two libraries: pandas for the table and Matplotlib for the charts.
+> 🟢 This first code cell imports pandas, for the table, and Matplotlib, for the charts.
 
-Escribís la **celda 1**:
+> 🖱️ I'm typing the two imports in the first code cell, in the middle of the screen.
+
+**Celda 1:**
 
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
-> 🖱️ I'm clicking the Run cell button, the play icon on the left edge of this cell, to import the libraries.
+> 🖱️ I'm clicking the Run cell button, the play icon on the left edge of the first code cell, to import the libraries.
 
-> 🟢 The first run takes a few seconds, because Colab is connecting to a runtime. The status at the top right turns green when it's ready. No output means the imports worked.
+> 🖱️ I'm pointing at the status at the top right of Colab, which turns green when the runtime is connected.
+
+> 🟢 The first run takes a few seconds, because Colab is connecting to a runtime. There's no output under the cell, which means the imports worked.
 
 ---
 
 ## 3:00–6:30 — Paso 2: cargar e inspeccionar
 
-> 🖱️ I'm scrolling down to the bottom of the notebook, below the first code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step two.
+> 🖱️ I'm scrolling down to the end of the last cell, the first code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step two.
 
-Escribís `## 2. Load and inspect the data`.
+> 🖱️ I'm typing the heading for step two in the new text cell.
 
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add a code cell that loads the CSV.
+```markdown
+## 2. Load and inspect the data
+```
 
-> 🟢 In this second code cell I read the CSV with read_csv, like any analyst would with a file they received, and show the first rows with head.
+> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the second code cell, under the step two heading.
 
-Escribís la **celda 2**:
+> 🟢 This second code cell reads the CSV with read_csv and shows the first five rows with head.
+
+> 🖱️ I'm typing the code in the second code cell, in the middle of the screen.
+
+**Celda 2:**
 
 ```python
 df = pd.read_csv("fitness_data.csv")
@@ -169,30 +178,40 @@ df.head()
 
 > 🖱️ I'm clicking the Run cell button on the left of the second code cell, to load the data.
 
-Señalás las columnas con el mouse, de izquierda a derecha:
+> 🖱️ I'm moving the mouse across the column headers of the table, below the second code cell, from left to right, to show the six columns.
 
-> 🖱️ I'm moving the mouse across the column headers of the table, below the cell, to show the six columns.
+> 🟢 Each row is one day: the date, the day of the week, steps, calories burned, exercise minutes, and active hours.
 
-> 🟢 Each row is one day: the date, the day of the week, steps, calories burned, exercise minutes, and active hours. The first day, January 1st, was a Wednesday with 8,457 steps.
+> 🖱️ I'm pointing at the first row of the table, the one with index zero, on the left.
 
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add a third code cell for the structure of the table.
+> 🟢 The first day, January 1st, was a Wednesday with 8,457 steps.
 
-> 🟢 Now I check the structure: info lists the columns, the non-empty values, and the data types, and shape gives the number of rows and columns.
+> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the third code cell.
 
-Escribís la **celda 3**:
+> 🟢 This third code cell checks the structure of the table: info lists the columns, the non-empty values, and the data types, and shape gives the number of rows and columns.
+
+> 🖱️ I'm typing info and shape in the third code cell.
+
+**Celda 3:**
 
 ```python
 df.info()
-print("Shape:", df.shape)
+df.shape
 ```
-
-> 🟢 shape has no parentheses, because it's an attribute of the table, not a method.
 
 > 🖱️ I'm clicking the Run cell button on the left of the third code cell, to see the structure.
 
 > 🖱️ I'm pointing at the Non-Null Count column in the info output, in the middle of the screen.
 
-> 🟢 All six columns have 200 non-null values, so nothing is missing. steps, calories_burned, and exercise_minutes are whole numbers, active_hours has decimals, and date and day_of_week are text. The shape confirms 200 rows and 6 columns.
+> 🟢 All six columns have 200 non-null values, so nothing is missing.
+
+> 🖱️ I'm moving the mouse down the Dtype column, on the right of the info output.
+
+> 🟢 steps, calories_burned, and exercise_minutes are whole numbers, active_hours has decimals, and date and day_of_week are text.
+
+> 🖱️ I'm pointing at the last line of the output, at the bottom of the third code cell.
+
+> 🟢 The shape confirms 200 rows and 6 columns.
 
 Según la versión de pandas, el texto aparece como `object` o como `str`. Si dice `object`, decí *"object means text"*.
 
@@ -200,15 +219,21 @@ Según la versión de pandas, el texto aparece como `object` o como `str`. Si di
 
 ## 6:30–9:00 — Paso 3: estadísticas descriptivas
 
-> 🖱️ I'm scrolling down below the info output, and clicking the plus Text button in the toolbar at the top left, to add the heading for step three.
+> 🖱️ I'm scrolling down to the end of the third code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step three.
 
-Escribís `## 3. Descriptive statistics`.
+> 🖱️ I'm typing the heading for step three in the new text cell.
+
+```markdown
+## 3. Descriptive statistics
+```
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the fourth code cell.
 
-> 🟢 Here I calculate the five statistics the task asks for, mean, median, standard deviation, minimum, and maximum, for steps, calories, and exercise minutes. I save the three column names in a list, because I'll reuse it.
+> 🟢 This fourth code cell calculates the mean, median, standard deviation, minimum, and maximum of steps, calories, and exercise minutes. I keep the three column names in a list, because I'll use it again in step four.
 
-Escribís la **celda 4**:
+> 🖱️ I'm typing the code in the fourth code cell, in the middle of the screen.
+
+**Celda 4:**
 
 ```python
 metrics = ["steps", "calories_burned", "exercise_minutes"]
@@ -217,9 +242,13 @@ df[metrics].agg(["mean", "median", "std", "min", "max"]).round(1)
 
 > 🖱️ I'm clicking the Run cell button on the left of the fourth code cell, to calculate the statistics.
 
-> 🖱️ I'm moving the mouse down the steps column of the result table, below the cell.
+> 🖱️ I'm moving the mouse down the steps column of the result table, below the fourth code cell.
 
-> 🟢 An average day has about 7,755 steps, and the median is close, 7,570. The standard deviation is about 2,417, so steps vary a lot from day to day. The minimum, 600, and the maximum, 21,500, are far from the rest. I'll check them later with the IQR method.
+> 🟢 An average day has about 7,755 steps, and the median is close, 7,570. The standard deviation is about 2,417, so steps vary a lot from day to day.
+
+> 🖱️ I'm pointing at the min and max rows, at the bottom of the steps column.
+
+> 🟢 The minimum, 600, and the maximum, 21,500, are far from the rest. I'll check them later with the IQR method.
 
 > 🖱️ I'm moving the mouse to the calories_burned and exercise_minutes columns, on the right of the table.
 
@@ -237,78 +266,106 @@ df[metrics].agg(["mean", "median", "std", "min", "max"]).round(1)
 
 ## 9:00–11:30 — Paso 4: `groupby()` por día de la semana
 
-> 🖱️ I'm scrolling down below the statistics table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step four.
+> 🖱️ I'm scrolling down to the end of the statistics table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step four.
 
-Escribís `## 4. Average activity by day of week`.
+> 🖱️ I'm typing the heading for step four in the new text cell.
+
+```markdown
+## 4. Average activity by day of week
+```
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the fifth code cell.
 
-> 🟢 Now I group the days with groupby on day_of_week and calculate the average of the three metrics for each day. I add a list with the days in calendar order, because pandas would sort them alphabetically, starting with Friday.
+> 🟢 This fifth code cell groups the days with groupby on day_of_week and averages the three metrics. The list of days keeps them in calendar order, because pandas would sort them alphabetically.
 
-Escribís la **celda 5**:
+> 🖱️ I'm typing the code in the fifth code cell, in the middle of the screen.
+
+**Celda 5:**
 
 ```python
-day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-by_day = df.groupby("day_of_week")[metrics].mean().reindex(day_order).round(1)
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+by_day = df.groupby("day_of_week")[metrics].mean().reindex(days).round(1)
 by_day
 ```
 
 > 🖱️ I'm clicking the Run cell button on the left of the fifth code cell, to compare the days.
 
-> 🖱️ I'm moving the mouse down the steps column of the result, from Monday to Sunday.
+> 🖱️ I'm moving the mouse down the steps column of the result, from Monday at the top to Sunday at the bottom.
 
-> 🟢 Saturday is clearly the most active day: about 10,988 steps, 2,553 calories, and 56 exercise minutes on average. Sunday is the least active, with about 5,210 steps. From Monday to Friday, steps stay between about 6,755 and 8,032.
+> 🖱️ I'm pointing at the Saturday row, the second from the bottom.
+
+> 🟢 Saturday is clearly the most active day: about 10,988 steps, 2,553 calories, and 56 exercise minutes on average.
+
+> 🖱️ I'm pointing at the Sunday row, the last one at the bottom.
+
+> 🟢 Sunday is the least active, with about 5,210 steps. From Monday to Friday, steps stay between about 6,755 and 8,032.
 
 | Valores esperados (steps) | Mon 7837.0 · Tue 7727.2 · Wed 8031.8 · Thu 7648.4 · Fri 6755.4 · **Sat 10988.3** · **Sun 5210.4** |
 | --- | --- |
 
 ---
 
-## 11:30–14:00 — Paso 5: correlación de Pearson
+## 11:30–13:30 — Paso 5: correlación de Pearson
 
-> 🖱️ I'm scrolling down below the day table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step five.
+> 🖱️ I'm scrolling down to the end of the day table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step five.
 
-Escribís `## 5. Correlation`.
+> 🖱️ I'm typing the heading for step five in the new text cell.
+
+```markdown
+## 5. Correlation
+```
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the sixth code cell.
 
-> 🟢 This cell calculates the Pearson correlation between steps and calories_burned with corr, and then shows the full correlation matrix of the four number columns. Pearson is the default method of corr.
+> 🟢 This sixth code cell builds the Pearson correlation matrix with corr. Pearson is the default method, and numeric_only skips the two text columns.
 
-Escribís la **celda 6**:
+> 🖱️ I'm typing the code in the sixth code cell, in the middle of the screen.
+
+**Celda 6:**
 
 ```python
-pearson = df["steps"].corr(df["calories_burned"])
-print("Pearson correlation (steps vs calories_burned):", round(pearson, 2))
-df[["steps", "calories_burned", "exercise_minutes", "active_hours"]].corr().round(2)
+df.corr(numeric_only=True).round(2)
 ```
 
-> 🖱️ I'm clicking the Run cell button on the left of the sixth code cell, to calculate the correlation.
+> 🖱️ I'm clicking the Run cell button on the left of the sixth code cell, to calculate the correlations.
 
-> 🖱️ I'm pointing at the printed line above the matrix, under the cell.
+> 🖱️ I'm pointing at the steps row and the calories_burned column, the second value of the first row of the matrix.
 
 > 🟢 The Pearson correlation between steps and calories burned is 0.85. A correlation goes from minus one to one, and anything above 0.7 is strong, so this is a strong positive relationship: more steps, more calories.
 
-> 🖱️ I'm moving the mouse across the correlation matrix, below the printed line.
+> 🖱️ I'm moving the mouse along the diagonal of the matrix, from the top left to the bottom right.
 
-> 🟢 The diagonal is always one, because each column matches itself. All the other values are positive, from 0.66 to 0.85, so all four measures go up together.
+> 🟢 The diagonal is always one, because each column matches itself.
+
+> 🖱️ I'm moving the mouse over the rest of the values in the matrix.
+
+> 🟢 All the other values are positive, from 0.66 to 0.85, so all four measures go up together.
+
+| Valores esperados | steps–calories 0.85 · steps–exercise 0.82 · steps–active_hours 0.83 · calories–exercise 0.76 · calories–active_hours 0.72 · exercise–active_hours 0.66 |
+| --- | --- |
 
 ---
 
-## 14:00–18:00 — Paso 6: gráficos con Matplotlib
+## 13:30–17:00 — Paso 6: gráficos con Matplotlib
 
-> 🖱️ I'm scrolling down below the correlation matrix, and clicking the plus Text button in the toolbar at the top left, to add the heading for step six.
+> 🖱️ I'm scrolling down to the end of the correlation matrix, and clicking the plus Text button in the toolbar at the top left, to add the heading for step six.
 
-Escribís `## 6. Charts`.
+> 🖱️ I'm typing the heading for step six in the new text cell.
+
+```markdown
+## 6. Charts
+```
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the seventh code cell, for the bar chart.
 
-> 🟢 The first chart is a bar chart of average steps by day of week, with Matplotlib. It uses the by_day table from step four, with one bar per day, a title, and labels on both axes.
+> 🟢 This seventh code cell draws a Matplotlib bar chart of average steps by day of week, using the by_day table from step four, with a title and labels on both axes.
 
-Escribís la **celda 7**:
+> 🖱️ I'm typing the code for the bar chart in the seventh code cell.
+
+**Celda 7:**
 
 ```python
-plt.figure(figsize=(8, 4))
-plt.bar(by_day.index, by_day["steps"], color="steelblue")
+plt.bar(by_day.index, by_day["steps"])
 plt.title("Average Steps by Day of Week")
 plt.xlabel("Day of week")
 plt.ylabel("Average steps")
@@ -319,24 +376,27 @@ plt.show()
 
 > 🖱️ I'm pointing at the Saturday bar, the tallest one, near the right side of the chart.
 
-> 🟢 The Saturday bar stands out, about twice as tall as Sunday, the shortest bar right next to it. A bar chart fits here, because I'm comparing separate groups.
+> 🟢 The Saturday bar stands out.
 
-> 🖱️ I'm scrolling down below the bar chart, and clicking the plus Code button in the toolbar at the top left, to add the eighth code cell, for the scatter plot.
+> 🖱️ I'm moving the mouse to the Sunday bar, the shortest one, at the far right of the chart.
 
-> 🟢 The second chart is a scatter plot of steps against calories_burned, one dot per day, to see the correlation from step five.
+> 🟢 Sunday is the shortest bar, about half of Saturday. A bar chart fits here, because I'm comparing separate groups.
 
-Escribís la **celda 8**:
+> 🖱️ I'm scrolling down to the end of the bar chart, and clicking the plus Code button in the toolbar at the top left, to add the eighth code cell, for the scatter plot.
+
+> 🟢 This eighth code cell draws a scatter plot of steps against calories_burned, one dot per day, to see the correlation from step five.
+
+> 🖱️ I'm typing the code for the scatter plot in the eighth code cell.
+
+**Celda 8:**
 
 ```python
-plt.figure(figsize=(6, 4))
-plt.scatter(df["steps"], df["calories_burned"], alpha=0.6)
+plt.scatter(df["steps"], df["calories_burned"])
 plt.title("Steps vs Calories Burned")
 plt.xlabel("steps")
 plt.ylabel("calories_burned")
 plt.show()
 ```
-
-> 🟢 alpha makes the dots a bit transparent, so the overlapping ones are easier to see.
 
 > 🖱️ I'm clicking the Run cell button on the left of the eighth code cell, to draw the scatter plot.
 
@@ -344,85 +404,83 @@ plt.show()
 
 > 🟢 The dots rise from the bottom left to the top right: that's the 0.85 correlation. Steps are on the horizontal axis and calories burned on the vertical axis.
 
-> 🖱️ I'm pointing at the two dots on the far right, and the one alone on the far left.
+> 🖱️ I'm pointing at the two dots on the far right of the chart, and then at the one alone on the far left.
 
 > 🟢 Two dots sit far to the right, with about 20,000 steps, and one sits alone on the left, with only 600. They're the unusual days. Next, I'll check them with the IQR method.
 
 ---
 
-## 18:00–21:30 — Paso 7: outliers con el método IQR
+## 17:00–20:30 — Paso 7: outliers con el método IQR
 
-> 🖱️ I'm scrolling down below the scatter plot, and clicking the plus Text button in the toolbar at the top left, to add the heading for step seven.
+> 🖱️ I'm scrolling down to the end of the scatter plot, and clicking the plus Text button in the toolbar at the top left, to add the heading for step seven.
 
-Escribís `## 7. Outliers in steps (IQR method)`.
+> 🖱️ I'm typing the heading for step seven in the new text cell.
+
+```markdown
+## 7. Outliers in steps (IQR method)
+```
 
 > 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the ninth code cell.
 
-> 🟢 The IQR method finds outliers in steps. Q1 is the value below which a quarter of the days fall, and Q3 is the value below which three quarters fall. The IQR is the distance between them.
+> 🟢 This ninth code cell finds outliers in steps with the IQR method. Q1 and Q3 are the values that leave a quarter and three quarters of the days below them, and the IQR is the distance between them. Any day more than 1.5 IQRs below Q1 or above Q3 is an outlier, and the cell shows those rows.
 
-> 🟢 Any day below Q1 minus 1.5 times the IQR, or above Q3 plus 1.5 times the IQR, is an outlier. I use the IQR instead of the mean because the extreme days themselves don't move it much.
+> 🖱️ I'm typing the IQR code in the ninth code cell, in the middle of the screen.
 
-Escribís la **celda 9**:
+**Celda 9:**
 
 ```python
-q1 = df["steps"].quantile(0.25)
-q3 = df["steps"].quantile(0.75)
+q1, q3 = df["steps"].quantile([0.25, 0.75])
 iqr = q3 - q1
-lower = q1 - 1.5 * iqr
-upper = q3 + 1.5 * iqr
-print(f"Q1: {q1:,.0f} | Q3: {q3:,.0f} | IQR: {iqr:,.0f}")
-print(f"Normal range: {lower:,.0f} to {upper:,.0f} steps")
-
-outliers = df[(df["steps"] < lower) | (df["steps"] > upper)]
-print("Outliers found:", len(outliers))
-outliers
+lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+print(f"Q1: {q1:,.0f} | Q3: {q3:,.0f} | IQR: {iqr:,.0f} | Normal range: {lower:,.0f} to {upper:,.0f}")
+df[(df["steps"] < lower) | (df["steps"] > upper)]
 ```
-
-- Al llegar a la línea `outliers = ...`:
-
-  > 🟢 This filter keeps only the rows below the lower bound or above the upper bound. The vertical bar means "or".
 
 > 🖱️ I'm clicking the Run cell button on the left of the ninth code cell, to find the outliers.
 
-> 🖱️ I'm pointing at the printed lines under the cell.
+> 🖱️ I'm pointing at the printed line under the ninth code cell.
 
-> 🟢 Q1 is 6,163 steps and Q3 is 8,983, so the IQR is 2,820. The normal range goes from 1,933 to 13,213 steps.
+> 🟢 Q1 is 6,163 steps and Q3 is 8,983, so the IQR is 2,820. The normal range goes from 1,933 to 13,213 steps. I use the IQR instead of the mean because the extreme days themselves don't move it much.
 
-> 🖱️ I'm moving the mouse over the three rows of the outlier table, at the bottom of the output.
+> 🖱️ I'm moving the mouse over the three rows of the table, at the bottom of the output.
 
-> 🟢 The method found 3 outlier days. February 15th, a Saturday, with 21,500 steps, and April 29th with 19,800, both with almost 100 minutes of exercise. And June 10th with only 600 steps and 2 minutes of exercise, probably a day the tracker wasn't worn.
+> 🟢 The method found 3 outlier days. February 15th, a Saturday, with 21,500 steps, and April 29th with 19,800, both with almost 100 minutes of exercise.
 
-> 🟢 The two high days look like real long workouts, so I keep them. The 600-step day looks like a tracking problem, but it's only one day, so it barely changes the averages.
+> 🖱️ I'm pointing at the last row of the table, June 10th.
+
+> 🟢 And June 10th, with only 600 steps and 2 minutes of exercise, probably a day the tracker wasn't worn. The two high days look like real long workouts, so I keep them. The 600-step day looks like a tracking problem, but it's only one day, so it barely changes the averages.
 
 | Valores esperados | Q1 6,163 · Q3 8,983 · IQR 2,820 · rango 1,933 a 13,213 · **3 outliers**: fila 45 (2025-02-15, Saturday, 21500) · fila 118 (2025-04-29, Tuesday, 19800) · fila 160 (2025-06-10, Tuesday, 600) |
 | --- | --- |
 
 ---
 
-## 21:30–23:00 — Paso 8: conclusiones y guardar
+## 20:30–22:00 — Paso 8: conclusiones y guardar
 
-> 🖱️ I'm scrolling down to the bottom of the notebook, below the outlier table, and clicking the plus Text button in the toolbar at the top left, to add the conclusions cell.
+> 🖱️ I'm scrolling down to the end of the outlier table, and clicking the plus Text button in the toolbar at the top left, to add the conclusions cell.
 
-> 🟢 The last cell answers the three questions of the task: the most active day, the strength of the correlation, and the outliers.
+> 🟢 This last cell answers the three questions of the task: the most active day, the strength of the correlation, and the outliers.
 
-Escribís:
+> 🖱️ I'm typing the conclusions in the new text cell, at the bottom of the notebook.
 
 ```markdown
 ## 8. Conclusions
-- **Most active day:** Saturday, with about 10,988 steps on average. Sunday is the least active, with about 5,210.
-- **Correlation:** steps and calories_burned have a strong positive Pearson correlation of 0.85. More steps usually means more calories burned.
-- **Outliers:** the IQR method (normal range 1,933 to 13,213 steps) found 3 outlier days: 21,500 steps on 2025-02-15, 19,800 on 2025-04-29, and only 600 on 2025-06-10.
+- Most active day: Saturday (~10,988 steps). Least active: Sunday (~5,210).
+- Correlation: steps and calories_burned have a strong positive Pearson correlation of 0.85.
+- Outliers (IQR, normal range 1,933–13,213 steps): 3 days, with 21,500, 19,800, and 600 steps.
 ```
+
+> 🖱️ I'm clicking the empty area below the conclusions cell, to close the editor and show the formatted text.
 
 > 🖱️ I'm clicking the File menu at the top left of Colab and choosing Save, to save the notebook.
 
 > 🖱️ I'm opening the File menu at the top left again, choosing Download, then Download .ipynb, to keep the notebook for the deliverables.
 
-> 🟢 The CSV I uploaded stays as the input file of the deliverables, next to the notebook.
+> 🖱️ I'm pointing at the download at the top right of the browser, to show the notebook was downloaded.
 
 ---
 
-## 23:00–26:00 — Epílogo
+## 22:00–25:00 — Epílogo
 
 > 🖱️ I'm scrolling up to the top of the notebook with the mouse wheel, in the center of the screen, to go over the whole analysis.
 
@@ -432,7 +490,7 @@ Escribís:
 
 > 🟢 Then I loaded it with read_csv and checked it with head, info, and shape: 200 rows, 6 columns, no missing values. The statistics showed an average of about 7,755 steps, with a wide spread.
 
-> 🖱️ I'm scrolling down to sections 4 and 5.
+> 🖱️ I'm scrolling down to sections 4 and 5, the day table and the correlation matrix.
 
 > 🟢 groupby showed that Saturday is the most active day and Sunday the least. And the Pearson correlation between steps and calories burned is 0.85, a strong positive relationship.
 
@@ -440,13 +498,15 @@ Escribís:
 
 > 🟢 The bar chart shows the Saturday peak, and the scatter plot shows the rising pattern of steps and calories. The IQR method found 3 outlier days, two very active ones and one with almost no activity.
 
+> 🖱️ I'm scrolling down to the conclusions cell, at the bottom of the notebook.
+
 > 🟢 About my decisions: I used the median next to the mean because of the extreme days. And I chose IQR for outliers because it isn't pulled by the outliers themselves, the way the mean and standard deviation are.
 
 > 🟢 One limit: the data is synthetic and comes from one person, and a correlation doesn't prove that steps cause the calories. As a next step, the company could use real tracker data, compare months, or flag days like June 10th automatically as possible tracking problems.
 
 > 🟢 For the fitness company, the takeaway is simple: Saturday is the peak, Sunday is the low point, and steps are a good predictor of calories burned. Thanks for watching!
 
-Si el reloj todavía no pasó los 15:00 (no debería pasar), no cortes: recorré la matriz de correlación par por par.
+Si el reloj todavía no pasó los 15:00 (no debería pasar), no cortes: recorré la matriz de correlación par por par, señalando cada valor.
 
 ---
 
@@ -456,7 +516,7 @@ Siempre decí **qué** corregís y **en qué celda**:
 
 | Error | Qué pasa | Qué decís y hacés |
 | ----- | -------- | ----------------- |
-| Error de tipeo en el nombre de una columna (`KeyError`) | Escribiste mal `"calories_burned"` u otra | 🖱️ *"There's a KeyError in the sixth code cell, because I misspelled calories_burned. I'm clicking on that line, fixing the name, and clicking Run again."* |
+| Error de tipeo en el nombre de una columna (`KeyError`) | Escribiste mal `"calories_burned"` u otra | 🖱️ *"There's a KeyError in the eighth code cell, because I misspelled calories_burned. I'm clicking on that line, fixing the name, and clicking Run again."* |
 | `NameError: name 'pd' is not defined` (o `by_day`, `metrics`) | Una celda anterior no se ejecutó | 🖱️ *"There's a NameError in this cell, because an earlier cell didn't run. I'm opening the Runtime menu at the top and choosing Run before, to run all the cells above it."* |
 | `FileNotFoundError` en la celda 2 | El CSV no se subió, o se borró al reiniciar el runtime | 🖱️ *"The second code cell can't find the CSV, because it isn't in the session storage. I'm opening the Files panel in the left sidebar, uploading fitness_data.csv again, and running this cell again."* |
 | Error de sintaxis (paréntesis o comilla de menos) | `SyntaxError` | 🖱️ *"There's a syntax error in this cell, a missing parenthesis on the line Colab underlines. I'm adding it and running the cell again."* |
