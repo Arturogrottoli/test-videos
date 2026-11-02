@@ -1,6 +1,6 @@
 # 6bbsb278 — Fitness Activity Data Analysis
 
-Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **25 minutos**, epílogo incluido (la grabación anterior duró ~35).
+Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa ficticia de fitness, analizás en **Google Colab** un dataset sintético de 200 días de actividad física, con **pandas** y **Matplotlib**. Se graba en **Firefox**, en **una sola toma**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **24 minutos**, epílogo incluido (la grabación anterior duró ~35).
 
 ### Cambios en esta versión
 
@@ -12,6 +12,12 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 | El dataset no seguía los pasos aprobados (`fitness_activity.csv`, sin `day_of_week`, `calories_burned` ni `exercise_minutes`) | `fitness_data.csv` (6 columnas aprobadas) se **prepara antes de grabar**, como dice la idea aprobada, y en el paso 1 se sube a Colab |
 | Faltaba el análisis de outliers con IQR | Nueva sección 7, IQR sobre `steps`, mostrando los registros |
 | El scatter era `active_minutes` vs `calories` | Ahora es exactamente `steps` vs `calories_burned` |
+
+Además, según el prompt de grabación:
+
+- La **introducción** dura menos de 20 segundos y se dice con la **descripción de la tarea en pantalla**. Después minimizás esa ventana y, desde el Dock, abrís la ventana de Firefox con Colab y el notebook vacío ya creado.
+- Cada **atajo de teclado** se dice en voz alta (`Cmd + S`).
+- El **epílogo** (2 a 4 minutos) resume el enfoque, los **desafíos** y las reflexiones.
 
 ### Los 8 pasos aprobados y dónde están
 
@@ -31,8 +37,10 @@ Guion para grabar la tarea **6bbsb278**: como data analyst de una empresa fictic
 - 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés y **dónde** está en la pantalla. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
 - 🟢 = explicación corta, entre una acción y otra.
 - El texto en castellano es lo que hacés en pantalla. No se lee.
+- Si usás un **atajo de teclado**, decí la tecla en voz alta: *"I'm pressing Command + S"*.
 - **No expliques el código línea por línea.** Cada celda tiene **una** frase 🟢 que dice para qué sirve, y la decís antes de escribirla.
-- Toda celda sigue el mismo ciclo, y cada paso tiene su frase: **scroll hasta el final → clic en + Text → escribir el título → clic en + Code → escribir el código → clic en Run → señalar el resultado → explicarlo.**
+- **Todas las celdas son de código**, salvo la última (conclusiones), que es de texto. El título de cada paso **no se escribe**: lo decís en voz alta (*"Step two: load and inspect the data"*).
+- Toda celda sigue el mismo ciclo, y cada paso tiene su frase: **decir el título del paso → scroll hasta el final → clic en + Code → escribir el código → clic en Run → señalar el resultado → explicarlo.**
 
 > **Importante:** el Goal de Studio tiene prioridad sobre este guion. Si Studio trae un CSV propio en **Starting materials**, usalo y adaptá los nombres de las columnas.
 
@@ -71,52 +79,37 @@ Tres días tienen valores fuera de lo común **a propósito**, para que el IQR t
 ## Antes de grabar
 
 1. Leé el Goal y comparalo con este guion.
-2. Abrí **solo** Colab (https://colab.research.google.com), sin otras pestañas. Creá el notebook antes de grabar: **File → New notebook in Drive**, hacé clic en el nombre (arriba a la izquierda) y escribí `fitness_data_analysis`. Dejalo **vacío y abierto**, así arrancás la grabación directamente adentro.
+2. En **Firefox**, dejá **dos ventanas**: la primera con la **descripción de la tarea**, en pantalla, porque con ella arranca la grabación. La segunda con **Google Colab** (https://colab.research.google.com) y el notebook ya creado: **File → New notebook in Drive**, con el nombre `fitness_data_analysis` y la **celda de código vacía** que Colab crea sola. Revisá que, al hacer clic en el ícono de Firefox en el **Dock (a la derecha)**, Colab aparezca en la **segunda línea** de la lista.
 3. Tené `fitness_data.csv` en el **Escritorio**, porque lo subís durante la grabación.
-4. Maximizá el navegador y agrandá el zoom (`Ctrl + +`) para que el código se lea.
+4. Maximizá la ventana de Colab y agrandá el zoom (`Cmd + +`) para que el código se lea.
 5. Practicá una vez entera en voz alta con cronómetro.
 6. Ejecutá las celdas con el **botón Run** (mouse), no con el teclado, así cada ejecución tiene su frase.
 7. Nunca más de 45 segundos en silencio. Si Colab te sugiere código (Gemini), ignoralo y seguí escribiendo vos.
-8. No muestres Studio, Mercor, datos personales ni herramientas de IA.
+8. Salvo la descripción de la tarea del principio, no muestres Studio, Mercor, datos personales ni herramientas de IA.
 
 ---
 
-## 0:00–1:00 — Introducción
+## 0:00–1:00 — Introducción y abrir Colab en Firefox
 
-Empezás con el notebook `fitness_data_analysis` ya abierto y vacío. La introducción dura **menos de 20 segundos**:
+Empezás con la **descripción de la tarea** en pantalla. La introducción dura **menos de 20 segundos**:
 
-> 🟢 I will be beginning my task soon. As a data analyst for a fitness company, I'll analyze 200 days of synthetic activity data in Google Colab with pandas and Matplotlib.
+> 🟢 I will be beginning my task soon. As a data analyst for a fitness company, I'll analyze 200 days of synthetic activity data in Google Colab with pandas and Matplotlib: statistics, days of the week, correlation, two charts, outliers, and conclusions.
 
-> 🟢 The plan: upload the CSV I prepared, load and inspect it, calculate statistics, compare the days of the week, check the correlation between steps and calories, draw two charts, find outliers with the IQR method, and write my conclusions.
+> 🖱️ I'm clicking the yellow minimize button at the top left of this Firefox window, to put the task description away.
 
-> 🖱️ I'm in Google Colab, with an empty notebook called fitness_data_analysis already open. The name is at the top left, next to the Colab logo.
+> 🖱️ I'm clicking the Firefox icon in the Dock, on the right side of the screen, to see my open Firefox windows.
 
-Si Colab dejó una celda de código vacía arriba de todo:
+> 🖱️ I'm clicking the second line of the list, the Google Colab window, to open my notebook.
 
-> 🖱️ I'm clicking the trash icon on the right side of the empty code cell at the top, to delete it, because I don't need it.
+> 🖱️ I'm pointing at the notebook name, fitness_data_analysis, at the top left next to the Colab logo. I created this empty notebook before starting.
 
-> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a text cell for the title.
-
-> 🖱️ I'm typing the title in the new text cell, at the top of the notebook.
-
-```markdown
-# Fitness Activity Data Analysis
-```
+> 🖱️ I'm pointing at the empty code cell at the top of the notebook, where I'll type the imports.
 
 ---
 
-## 1:00–3:00 — Paso 1: subir `fitness_data.csv` e importar las librerías
+## 1:00–3:30 — Paso 1: subir `fitness_data.csv` e importar las librerías
 
-> 🖱️ I'm clicking the plus Text button in the toolbar at the top left, to add a text cell under the title, for step one.
-
-> 🖱️ I'm typing the heading for step one in this text cell.
-
-```markdown
-## 1. Dataset
-Synthetic dataset prepared before recording: 200 days, 6 columns.
-```
-
-> 🟢 I prepared this synthetic dataset with 200 fictional daily activity records before starting the analysis. Now I'm uploading the CSV file into Google Colab to begin exploring the data.
+> 🟢 Step one: the dataset. I prepared this synthetic dataset with 200 fictional daily activity records before starting the analysis. Now I'm uploading the CSV file into Google Colab to begin exploring the data.
 
 > 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to open the file panel.
 
@@ -132,7 +125,7 @@ Si aparece el aviso de que los archivos se borran al reiniciar el runtime:
 
 > 🖱️ I'm clicking the Files icon in the left sidebar again, to close the panel and get the space back.
 
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the first code cell under the step one heading.
+> 🖱️ I'm clicking inside the empty code cell at the top of the notebook, to start typing in it.
 
 > 🟢 This first code cell imports pandas, for the table, and Matplotlib, for the charts.
 
@@ -153,17 +146,11 @@ import matplotlib.pyplot as plt
 
 ---
 
-## 3:00–6:30 — Paso 2: cargar e inspeccionar
+## 3:30–6:30 — Paso 2: cargar e inspeccionar
 
-> 🖱️ I'm scrolling down to the end of the last cell, the first code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step two.
+> 🟢 Step two: load and inspect the data.
 
-> 🖱️ I'm typing the heading for step two in the new text cell.
-
-```markdown
-## 2. Load and inspect the data
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the second code cell, under the step two heading.
+> 🖱️ I'm scrolling down to the end of the first code cell, and clicking the plus Code button in the toolbar at the top left, to add the second code cell below it.
 
 > 🟢 This second code cell reads the CSV with read_csv and shows the first five rows with head.
 
@@ -217,17 +204,11 @@ Según la versión de pandas, el texto aparece como `object` o como `str`. Si di
 
 ---
 
-## 6:30–9:00 — Paso 3: estadísticas descriptivas
+## 6:30–8:30 — Paso 3: estadísticas descriptivas
 
-> 🖱️ I'm scrolling down to the end of the third code cell, and clicking the plus Text button in the toolbar at the top left, to add the heading for step three.
+> 🟢 Step three: descriptive statistics.
 
-> 🖱️ I'm typing the heading for step three in the new text cell.
-
-```markdown
-## 3. Descriptive statistics
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the fourth code cell.
+> 🖱️ I'm scrolling down to the end of the third code cell, and clicking the plus Code button in the toolbar at the top left, to add the fourth code cell.
 
 > 🟢 This fourth code cell calculates the mean, median, standard deviation, minimum, and maximum of steps, calories, and exercise minutes. I keep the three column names in a list, because I'll use it again in step four.
 
@@ -264,17 +245,11 @@ df[metrics].agg(["mean", "median", "std", "min", "max"]).round(1)
 
 ---
 
-## 9:00–11:30 — Paso 4: `groupby()` por día de la semana
+## 8:30–10:30 — Paso 4: `groupby()` por día de la semana
 
-> 🖱️ I'm scrolling down to the end of the statistics table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step four.
+> 🟢 Step four: average activity by day of week.
 
-> 🖱️ I'm typing the heading for step four in the new text cell.
-
-```markdown
-## 4. Average activity by day of week
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the fifth code cell.
+> 🖱️ I'm scrolling down to the end of the statistics table, and clicking the plus Code button in the toolbar at the top left, to add the fifth code cell.
 
 > 🟢 This fifth code cell groups the days with groupby on day_of_week and averages the three metrics. The list of days keeps them in calendar order, because pandas would sort them alphabetically.
 
@@ -305,17 +280,11 @@ by_day
 
 ---
 
-## 11:30–13:30 — Paso 5: correlación de Pearson
+## 10:30–12:30 — Paso 5: correlación de Pearson
 
-> 🖱️ I'm scrolling down to the end of the day table, and clicking the plus Text button in the toolbar at the top left, to add the heading for step five.
+> 🟢 Step five: correlation.
 
-> 🖱️ I'm typing the heading for step five in the new text cell.
-
-```markdown
-## 5. Correlation
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the sixth code cell.
+> 🖱️ I'm scrolling down to the end of the day table, and clicking the plus Code button in the toolbar at the top left, to add the sixth code cell.
 
 > 🟢 This sixth code cell builds the Pearson correlation matrix with corr. Pearson is the default method, and numeric_only skips the two text columns.
 
@@ -346,17 +315,11 @@ df.corr(numeric_only=True).round(2)
 
 ---
 
-## 13:30–17:00 — Paso 6: gráficos con Matplotlib
+## 12:30–16:00 — Paso 6: gráficos con Matplotlib
 
-> 🖱️ I'm scrolling down to the end of the correlation matrix, and clicking the plus Text button in the toolbar at the top left, to add the heading for step six.
+> 🟢 Step six: charts.
 
-> 🖱️ I'm typing the heading for step six in the new text cell.
-
-```markdown
-## 6. Charts
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the seventh code cell, for the bar chart.
+> 🖱️ I'm scrolling down to the end of the correlation matrix, and clicking the plus Code button in the toolbar at the top left, to add the seventh code cell, for the bar chart.
 
 > 🟢 This seventh code cell draws a Matplotlib bar chart of average steps by day of week, using the by_day table from step four, with a title and labels on both axes.
 
@@ -410,17 +373,11 @@ plt.show()
 
 ---
 
-## 17:00–20:30 — Paso 7: outliers con el método IQR
+## 16:00–19:30 — Paso 7: outliers con el método IQR
 
-> 🖱️ I'm scrolling down to the end of the scatter plot, and clicking the plus Text button in the toolbar at the top left, to add the heading for step seven.
+> 🟢 Step seven: outliers in steps, with the IQR method.
 
-> 🖱️ I'm typing the heading for step seven in the new text cell.
-
-```markdown
-## 7. Outliers in steps (IQR method)
-```
-
-> 🖱️ I'm clicking the plus Code button in the toolbar at the top left, to add the ninth code cell.
+> 🖱️ I'm scrolling down to the end of the scatter plot, and clicking the plus Code button in the toolbar at the top left, to add the ninth code cell.
 
 > 🟢 This ninth code cell finds outliers in steps with the IQR method. Q1 and Q3 are the values that leave a quarter and three quarters of the days below them, and the IQR is the distance between them. Any day more than 1.5 IQRs below Q1 or above Q3 is an outlier, and the cell shows those rows.
 
@@ -455,7 +412,7 @@ df[(df["steps"] < lower) | (df["steps"] > upper)]
 
 ---
 
-## 20:30–22:00 — Paso 8: conclusiones y guardar
+## 19:30–21:00 — Paso 8: conclusiones y guardar
 
 > 🖱️ I'm scrolling down to the end of the outlier table, and clicking the plus Text button in the toolbar at the top left, to add the conclusions cell.
 
@@ -472,7 +429,7 @@ df[(df["steps"] < lower) | (df["steps"] > upper)]
 
 > 🖱️ I'm clicking the empty area below the conclusions cell, to close the editor and show the formatted text.
 
-> 🖱️ I'm clicking the File menu at the top left of Colab and choosing Save, to save the notebook.
+> 🖱️ I'm pressing Command + S to save the notebook in Drive.
 
 > 🖱️ I'm opening the File menu at the top left again, choosing Download, then Download .ipynb, to keep the notebook for the deliverables.
 
@@ -480,27 +437,31 @@ df[(df["steps"] < lower) | (df["steps"] > upper)]
 
 ---
 
-## 22:00–25:00 — Epílogo
+## 21:00–24:00 — Epílogo
+
+Dura **de 2 a 4 minutos**: enfoque, desafíos y reflexiones.
 
 > 🖱️ I'm scrolling up to the top of the notebook with the mouse wheel, in the center of the screen, to go over the whole analysis.
 
 > 🟢 Let me summarize. In step one, I uploaded fitness_data.csv, the synthetic dataset of 200 days I prepared before the analysis, with the six columns the task asks for.
 
-> 🖱️ I'm scrolling down to sections 2 and 3, in the middle of the notebook.
+> 🖱️ I'm scrolling down to the second, third, and fourth code cells, in the middle of the notebook.
 
 > 🟢 Then I loaded it with read_csv and checked it with head, info, and shape: 200 rows, 6 columns, no missing values. The statistics showed an average of about 7,755 steps, with a wide spread.
 
-> 🖱️ I'm scrolling down to sections 4 and 5, the day table and the correlation matrix.
+> 🖱️ I'm scrolling down to the fifth and sixth code cells, the day table and the correlation matrix.
 
 > 🟢 groupby showed that Saturday is the most active day and Sunday the least. And the Pearson correlation between steps and calories burned is 0.85, a strong positive relationship.
 
-> 🖱️ I'm scrolling down to sections 6 and 7, the charts and the outliers.
+> 🖱️ I'm scrolling down to the seventh, eighth, and ninth code cells, the charts and the outliers.
 
 > 🟢 The bar chart shows the Saturday peak, and the scatter plot shows the rising pattern of steps and calories. The IQR method found 3 outlier days, two very active ones and one with almost no activity.
 
 > 🖱️ I'm scrolling down to the conclusions cell, at the bottom of the notebook.
 
 > 🟢 About my decisions: I used the median next to the mean because of the extreme days. And I chose IQR for outliers because it isn't pulled by the outliers themselves, the way the mean and standard deviation are.
+
+> 🟢 There were two challenges. groupby sorts the days alphabetically, so I added a list of days to keep them in calendar order. And I had to decide what to do with the outliers: the two very active days look real, so I kept them, and the 600-step day is only one record, so it barely moves the averages.
 
 > 🟢 One limit: the data is synthetic and comes from one person, and a correlation doesn't prove that steps cause the calories. As a next step, the company could use real tracker data, compare months, or flag days like June 10th automatically as possible tracking problems.
 
