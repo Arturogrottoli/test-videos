@@ -1,105 +1,137 @@
-# Formulario de registro — Guion de narración
+# 13eifd9b — Registration Form con extensiones de VS Code
 
-Un video corto de programación en vivo. Escribes un formulario de registro en tres archivos y, en cada uno, instalas y pruebas una extensión de VS Code:
+Guion para grabar la tarea **13eifd9b**: en **VS Code**, escribís un formulario de registro en tres archivos y, con cada uno, instalás y probás una extensión: **Live Server** (HTML), **Prettier** (CSS) y **ESLint** (JavaScript). La página se ve en **Firefox**. Se graba en **una sola toma**, en una **Mac**. La grabación tiene que durar **entre 15:00 y 50:59**. Este guion apunta a unos **25 minutos**, epílogo incluido.
 
-1. **HTML** (`index.html`) → **Live Server**
-2. **CSS** (`styles.css`) → **Prettier**
-3. **JavaScript** (`script.js`) → **ESLint**
+### Cambios en esta versión
 
-Al final muestras el proyecto funcionando.
+| Problema de la versión anterior | Qué cambió |
+| ------------------------------- | ---------- |
+| La mayor parte de lo que se hacía en pantalla no estaba narrado | **Todas** las interacciones tienen su frase 🖱️ con **qué** hacés y **dónde** está: cada clic, archivo nuevo, tipeo, guardado, comando, prueba y corrección |
+| Se explicaba el código línea por línea (24 líneas en `script.js` y 15 en `eslint.config.mjs`) | El código se escribe **por bloques** y cada bloque se explica con **una** frase 🟢 |
+| Referencia a la documentación oficial de ESLint | **Eliminada.** No se abre ninguna documentación: todo pasa en VS Code y en la página |
+| Atajos mezclados de Windows y Mac (`Ctrl`, `F12`, `F5`) | Solo atajos de **Mac** (`Cmd`, `Option`), dichos en voz alta |
+| Introducción larga, con VS Code ya en pantalla | Menos de 20 segundos, con la **descripción de la tarea** en pantalla. Después abrís VS Code desde el **Dock** |
+| El cierre era un saludo | **Epílogo** de 2 a 4 minutos con enfoque, **desafíos** y reflexiones |
 
-Cada paso tiene: **ACCIÓN** (lo que haces en pantalla), **DECIR** (lo que lees en voz alta, en inglés), **CÓDIGO** (lo que escribes) y **PRUEBA** (lo que deberías ver).
+### Las partes de la tarea y dónde están
 
-Los nombres de menús y botones están en inglés, tal como aparecen en VS Code en inglés.
+| Parte | Dónde |
+| ----- | ----- |
+| 1. HTML (`index.html`) + **Live Server** | Pasos 1 a 4 |
+| 2. CSS (`styles.css`) + **Prettier** | Pasos 5 a 7 |
+| 3. JavaScript (`script.js`) + **ESLint** | Pasos 8 a 11 |
+| 4. El proyecto funcionando (escritorio y celular) | Paso 12 |
 
-**En Mac:** donde dice `Ctrl` usa `Cmd`, donde dice `Alt` usa `Option`, y en el navegador las herramientas de desarrollo se abren con `Cmd + Option + I` en vez de `F12`.
+**Cómo leer este guion:**
 
-## Regla de oro: nada sin explicar
+- 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés y **dónde** está en la pantalla. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
+- 🟢 = explicación corta, entre una acción y otra.
+- El texto en castellano es lo que hacés en pantalla. No se lee.
+- Si usás un **atajo de teclado**, decí la tecla en voz alta: *"I'm pressing Command + S"*.
+- **No expliques el código línea por línea.** Cada bloque tiene **una** frase 🟢 que dice para qué sirve, y la decís antes de escribirlo.
+- Todo bloque de código sigue el mismo ciclo: **frase 🟢 → 🖱️ clic en el lugar del archivo donde va → 🖱️ escribir el bloque.** Al final de cada archivo: **🖱️ guardar con `Cmd + S` → señalar el resultado → explicarlo.**
+- El título de cada paso **no se escribe en ningún lado**: lo decís en voz alta (*"Step two: Live Server"*).
 
-En la revisión anterior, la mayor parte de lo que hacías en pantalla no estaba explicado. Por eso, en este guion **cada acción tiene su "para qué" dentro del DECIR**. Cada clic, cada comando y cada línea de código.
-
-- **Di la frase mientras haces la acción**, no antes ni mucho después. Si escribes una línea de código, la frase de esa línea va justo ahí.
-- **Si haces algo que no está en el guion** (corregir un error de tipeo, cerrar un aviso, mover una ventana), dilo en una frase corta: _"I made a typo, let me fix it."_ / _"I'll close this notification."_
-- **En `script.js` y en `eslint.config.mjs` hay una explicación por cada línea de código.** Escribe una línea y di su frase. No escribas varias líneas en silencio.
-- Si necesitas tiempo para escribir, puedes quedarte callado mientras tipeas, pero **antes de pasar a la siguiente línea** di la frase de la que acabas de escribir.
-
-## Antes de grabar (no sale en el video)
-
-1. **Node.js:** en VS Code, abre **Terminal → New Terminal** y escribe `node -v`. Tiene que mostrar una versión, por ejemplo `v22.14.0`. Si da error, instala la versión LTS desde https://nodejs.org y reinicia VS Code. Se necesita para instalar ESLint en el paso 11.
-2. **Extensiones:** si ya tienes instaladas Live Server, Prettier o ESLint, desinstálalas (engranaje → **Uninstall**) y reinicia VS Code, así en el video aparecen con el botón **Install**.
-3. **Carpeta:** no uses la copia de este proyecto que bajaste de GitHub, porque ya tiene los archivos terminados. En el video se crea una carpeta nueva y vacía.
-
----
-
-## Parte 1 — HTML y Live Server
-
-### Paso 1 — Introducción
-
-**ACCIÓN:** VS Code está abierto en la pestaña de bienvenida (Welcome).
-
-**DECIR:**
-
-> Hi everyone! Today we'll build a registration form from scratch with HTML, CSS, and JavaScript. It will have three fields: name, email, and password. If something is wrong, we'll show an error under the field. If everything is right, we'll show a success message.
->
-> We'll write three files: HTML for the structure, CSS for the design, and JavaScript for the functionality. We split them into three files so each one has a single job, and the code is easier to read and change.
->
-> And with each file, we'll add one VS Code extension that makes our work easier: Live Server, Prettier, and ESLint. I'll explain each one when we install it.
-
-**CÓDIGO:** Ninguno. **PRUEBA:** Ninguna.
+> **Importante:** el Goal de Studio tiene prioridad sobre este guion. Si pide otros campos, otras extensiones u otros nombres de archivo, adaptá el guion.
 
 ---
 
-### Paso 2 — Abrir la carpeta del proyecto
+## Archivos de la carpeta
 
-**ACCIÓN:** **File → Open Folder…** → en el Escritorio, haz clic en **New folder** → llámala `registration-form` → **Select Folder**. Si VS Code pregunta si confías en los autores, haz clic en **Yes, I trust the authors**.
+```
+13eifd9b-registration-form/
+├── README.md     ← este guion
+├── index.html    ← resultado final del paso 3
+├── styles.css    ← resultado final del paso 6
+└── script.js     ← resultado final del paso 8
+```
 
-**DECIR:**
-
-> First, I'll go to File, Open Folder, and create a new folder called "registration-form" on my Desktop. I open a whole folder, not a single file, because VS Code treats the folder as our project. That way the Explorer shows all our files together, and the extensions know which files belong to the project.
->
-> VS Code asks if I trust the authors. These are my own files, so I'll say yes. If I didn't, VS Code would open in Restricted Mode, and some extensions wouldn't work.
->
-> The Explorer on the left is empty, because we start from zero.
-
-**CÓDIGO:** Ninguno.
-
-**PRUEBA:** El Explorer muestra **REGISTRATION-FORM** sin archivos.
+Estos archivos son la **referencia** para comparar. En el video **no se usan**: se crea una carpeta nueva y vacía.
 
 ---
 
-### Paso 3 — Instalar Live Server
+## Antes de grabar
 
-**ACCIÓN:** Abre **Extensions** (`Ctrl + Shift + X`), busca `Live Server`, elige **Live Server** de **Ritwick Dey** y haz clic en **Install**.
-
-**DECIR:**
-
-> Our first extension is Live Server. I'll open the Extensions view with this icon on the left, or with Control, Shift, X, and search for "Live Server".
->
-> There are several extensions with similar names, so I'll check the author: Ritwick Dey. That's the original one, with millions of downloads.
->
-> Why do we need it? Without it, we would open the HTML file in the browser and press refresh every time we change something. Live Server runs a small web server on our computer, opens the page, and reloads it automatically every time we save a file. Install.
-
-**CÓDIGO:** Ninguno.
-
-**PRUEBA:** La extensión muestra un engranaje en vez de **Install**, y aparece un botón **Go Live** abajo a la derecha, en la barra de estado.
-
-**DECIR (al ver el botón):**
-
-> The extension is installed, and we have a new "Go Live" button at the bottom. We'll use it as soon as we have a page to show.
+1. Leé el Goal y comparalo con este guion.
+2. **Node.js:** en la Terminal de la Mac, escribí `node -v`. Tiene que mostrar una versión, por ejemplo `v22.14.0`. Si da error, instalá la versión LTS desde https://nodejs.org. Se necesita para ESLint (paso 10).
+3. **Extensiones:** si ya tenés instaladas Live Server, Prettier o ESLint, desinstalalas (engranaje → **Uninstall**) y reiniciá VS Code, así en el video aparecen con el botón **Install**.
+4. **Prettier:** en VS Code, `Cmd + ,` → buscá `prettier require config` y dejá la casilla **desmarcada**. Si no, Prettier no formatea en el paso 7.
+5. **Navegador:** **Firefox** tiene que ser el navegador predeterminado de la Mac (Live Server abre ese).
+6. **Ventanas:** dejá **Firefox** abierto con la **descripción de la tarea** en pantalla, porque con ella arranca la grabación. Dejá **VS Code** abierto en la pestaña **Welcome**, sin ninguna carpeta, y con su ícono en el **Dock**. Borrá del Escritorio cualquier carpeta `registration-form` vieja.
+7. Agrandá el zoom de VS Code (`Cmd + +`) para que el código se lea.
+8. Practicá una vez entera en voz alta con cronómetro.
+9. Nunca más de 45 segundos en silencio. Si Copilot u otra IA te sugiere código, ignoralo y seguí escribiendo vos.
+10. Salvo la descripción de la tarea del principio, no muestres Studio, Mercor, datos personales ni herramientas de IA.
 
 ---
 
-### Paso 4 — index.html: la estructura
+## 0:00–1:00 — Introducción y abrir VS Code
 
-**ACCIÓN:** En el Explorer, haz clic en **New File…** y crea `index.html`. Escribe cada bloque y lee el texto que está debajo. Al final, guarda con `Ctrl + S`.
+Empezás con la **descripción de la tarea** en Firefox. La introducción dura **menos de 20 segundos**:
 
-**DECIR (al crear el archivo):**
+> 🟢 I will be beginning my task soon. I'll build a registration form in VS Code with HTML, CSS, and JavaScript, and with each file I'll install and test one extension: Live Server, Prettier, and ESLint.
 
-> Let's create our first file, index.html. The name "index" is a convention: it's the page a web server shows by default.
+> 🖱️ I'm clicking the yellow minimize button at the top left of this Firefox window, to put the task description away.
 
-**CÓDIGO Y DECIR:**
+> 🖱️ I'm clicking the VS Code icon in the Dock, on the right side of the screen, to open the editor.
 
-**Bloque 1 de 6** — escribe `!` y pulsa **Tab**: VS Code (Emmet) crea el esqueleto. Después cambia el título y agrega la línea `<link>`. El esqueleto de Emmet puede verse un poco distinto (por ejemplo `<!DOCTYPE html>` en mayúsculas o 4 espacios de sangría); funciona igual.
+> 🖱️ I'm pointing at the Welcome tab in the middle of VS Code. There's no folder open yet, because I'm starting from zero.
+
+---
+
+## 1:00–2:00 — Paso 1: abrir la carpeta del proyecto
+
+> 🟢 Step one: the project folder. I open a whole folder, not a single file, so the Explorer shows all the files together and the extensions know which files belong to the project.
+
+> 🖱️ I'm clicking the File menu at the top left of the screen, and choosing Open Folder.
+
+> 🖱️ In the window, I'm clicking Desktop in the list on the left, and then the New Folder button at the bottom left, to create the project folder.
+
+> 🖱️ I'm typing registration-form as the folder name, clicking Create, and then the Open button at the bottom right.
+
+Si VS Code pregunta si confiás en los autores:
+
+> 🖱️ I'm clicking "Yes, I trust the authors" in the dialog in the center of the screen. These are my own files, and without trust some extensions wouldn't work.
+
+> 🖱️ I'm pointing at the Explorer on the left, under REGISTRATION-FORM. It's empty, because we start from zero.
+
+---
+
+## 2:00–3:30 — Paso 2: instalar Live Server
+
+> 🟢 Step two: Live Server. Without it, I'd have to refresh the browser after every change. Live Server runs a small local web server and reloads the page every time I save.
+
+> 🖱️ I'm clicking the Extensions icon, the four squares in the left sidebar, to open the Extensions view.
+
+> 🖱️ I'm clicking the search box at the top of the Extensions panel and typing Live Server.
+
+> 🖱️ I'm pointing at the author under the first result, Ritwick Dey. There are similar names, so I check it's the original one.
+
+> 🖱️ I'm clicking the blue Install button next to Live Server, in the panel on the left.
+
+> 🖱️ I'm pointing at the new Go Live button at the bottom right, in the blue status bar. We'll use it as soon as we have a page.
+
+> 🖱️ I'm clicking the Explorer icon, the two pages at the top of the left sidebar, to go back to my files.
+
+---
+
+## 3:30–7:00 — Paso 3: `index.html`, la estructura
+
+> 🟢 Step three: the HTML. index.html is the page a web server shows by default.
+
+> 🖱️ I'm moving the mouse over REGISTRATION-FORM in the Explorer, and clicking the New File icon, the page with a plus, on the right of the folder name.
+
+> 🖱️ I'm typing index.html as the file name and pressing Return. The file opens in the middle of the screen.
+
+**Bloque 1 de 4 — esqueleto.** Escribí `!` y pulsá **Tab**: VS Code (Emmet) crea el esqueleto. Cambiá el `<title>` y agregá la línea `<link>`. El esqueleto puede verse un poco distinto (`<!DOCTYPE html>` en mayúsculas, 4 espacios de sangría); funciona igual.
+
+> 🟢 Emmet, built into VS Code, writes the HTML skeleton when I type an exclamation mark and press Tab. I'll change the title and link the CSS file we'll create later.
+
+> 🖱️ I'm typing an exclamation mark on the first line of index.html, and pressing Tab.
+
+> 🖱️ I'm double-clicking the word Document inside the title tag, near the top of the file, and typing Registration Form.
+
+> 🖱️ I'm clicking at the end of the title line and pressing Return, to add the link to styles.css below it.
 
 ```html
 <!doctype html>
@@ -113,44 +145,31 @@ En la revisión anterior, la mayor parte de lo que hacías en pantalla no estaba
   <body>
 ```
 
-> A quick trick: I type an exclamation mark and press Tab. This is Emmet, a tool built into VS Code, and it writes the basic HTML skeleton for me, so I don't have to type it every time. Let me go through it.
->
-> "doctype html" tells the browser this is a modern HTML page. "lang en" says the page is in English, which helps screen readers and search engines. Inside the head, we put information about the page that isn't shown in it. "charset UTF-8" lets the page display any character correctly, like accents. The "viewport" line makes the page fit the width of a phone, instead of showing a tiny desktop version.
->
-> I'll change the title to "Registration Form". That's the text on the browser tab. And I'll add a "link" to styles.css, so the page uses our CSS. We'll create that file in a moment.
->
-> Everything visible goes inside the body.
+**Bloque 2 de 4 — el formulario y el campo Name.** Dentro del `<body>`:
 
-**Bloque 2 de 6** — dentro del `<body>`:
+> 🟢 This block opens the form and adds the first field. novalidate turns off the browser's own popups, because we'll show our own messages. Each field has a label, an input, and an empty small element for its error, named with the field id plus "-error".
+
+> 🖱️ I'm clicking inside the body tag, in the middle of the file, to type the form there.
+
+> 🖱️ I'm typing the form, the heading, and the name field.
 
 ```html
     <form id="form" novalidate>
       <h1>Create account</h1>
-```
 
-> Inside the body, we add a form. A form element groups the fields and the button, and lets us react when it's submitted. I give it the id "form", so JavaScript can find it later.
->
-> "novalidate" turns off the browser's own validation. Each browser shows its own popup messages, and they look different everywhere. We want our own messages, under each field, so our JavaScript will do the checking.
->
-> And a heading, "h1", so the user knows what this form is for: "Create account".
-
-**Bloque 3 de 6:**
-
-```html
       <label for="name">Name</label>
       <input id="name" type="text" />
       <small id="name-error"></small>
 ```
 
-> Each field has three parts. First, a label, the text the user sees. Its "for" attribute matches the input's id. That connects them: clicking the label puts the cursor in the field, and screen readers read the label aloud.
->
-> Then the input itself, type "text", where the user writes the name. Its id, "name", is how JavaScript will find it.
->
-> And an empty "small" element. It's empty on purpose: that's where we'll show the error message. Notice its id: "name-error", the field's id plus "-error". JavaScript will use that naming rule to find it.
+**Bloque 3 de 4 — Email y Password:**
 
-**Bloque 4 de 6:**
+> 🟢 The email and password fields follow exactly the same pattern, so one piece of JavaScript can check all three. The email type shows the at sign on phone keyboards, and the password type hides what you type.
+
+> 🖱️ I'm typing the email and password fields below the name field.
 
 ```html
+
       <label for="email">Email</label>
       <input id="email" type="email" />
       <small id="email-error"></small>
@@ -160,87 +179,72 @@ En la revisión anterior, la mayor parte de lo que hacías en pantalla no estaba
       <small id="password-error"></small>
 ```
 
-> The email and password fields follow exactly the same pattern: "email" and "email-error", "password" and "password-error". Keeping the same pattern is what lets one piece of JavaScript handle all three fields.
->
-> The type "email" shows the at sign key on phone keyboards. The type "password" hides what the user types with dots, so nobody can read it over their shoulder.
+**Bloque 4 de 4 — botón, mensaje y script.** Las etiquetas `</body>` y `</html>` ya las creó Emmet.
 
-**Bloque 5 de 6:**
+> 🟢 The submit button sends the form, the success message stays hidden until the data is valid, and the script goes at the end, so the whole form exists when JavaScript runs.
+
+> 🖱️ I'm typing the button, the success message, and the script tag at the bottom of the body.
 
 ```html
+
       <button type="submit">Sign up</button>
       <p id="success" hidden>Registration successful!</p>
     </form>
-```
 
-> Then the button. Type "submit" means that clicking it submits the form. That's the event our JavaScript will listen for.
->
-> And the success message, with the id "success" so JavaScript can find it. It has the "hidden" attribute, so it's invisible for now. We only want to show it after a valid registration.
->
-> Then we close the form.
-
-**Bloque 6 de 6** — antes de `</body>`. Las etiquetas `</body>` y `</html>` ya las creó Emmet en el bloque 1.
-
-```html
     <script src="script.js"></script>
   </body>
 </html>
 ```
 
-> Finally, before closing the body, we load script.js. We put it at the end on purpose. The browser reads the page from top to bottom, so by the time it reaches the script, the whole form already exists, and JavaScript can find every element.
->
-> I'll save with Control S. The white dot on the tab disappears, which means the file is saved.
+> 🖱️ I'm pressing Command + S to save index.html.
 
-**PRUEBA:** La pestaña `index.html` no muestra el punto blanco, o sea que está guardado.
+> 🖱️ I'm pointing at the index.html tab at the top. The white dot is gone, so the file is saved.
 
 ---
 
-### Paso 5 — Probar Live Server
+## 7:00–8:00 — Paso 4: probar Live Server
 
-**ACCIÓN:** Con `index.html` guardado, haz clic en **Go Live**, abajo a la derecha en la barra de estado.
+> 🖱️ I'm clicking the Go Live button at the bottom right of VS Code, in the status bar, to open the page.
 
-**DECIR:**
+> 🖱️ I'm pointing at the address bar at the top of Firefox: 127.0.0.1, port 5500.
 
-> Now let's try Live Server, to check our HTML. I'll click "Go Live" at the bottom of VS Code, and our page opens in the browser.
->
-> Look at the address: 127.0.0.1, port 5500. That's a local server running on my own computer. Nobody else can see it, it's just for development.
->
-> The page is very plain, because we don't have any CSS yet. But all the parts are there: the heading, three fields, and the button. The success message doesn't show, because it's hidden. From now on, every time I save a file, the browser will update by itself.
+> 🟢 That's a local server on my own computer, only for development.
 
-**CÓDIGO:** Ninguno.
+> 🖱️ I'm moving the mouse over the page, from the heading down to the button.
 
-**PRUEBA:** El navegador abre `http://127.0.0.1:5500/index.html` con la página sin estilos, y el botón de abajo ahora dice **Port : 5500**.
+> 🟢 There's no CSS yet, so the page is plain, but the heading, the three fields, and the button are there. The success message is hidden. From now on, every time I save, this page reloads by itself.
+
+> 🖱️ I'm clicking the VS Code icon in the Dock, on the right, to go back to the editor.
 
 ---
 
-## Parte 2 — CSS y Prettier
+## 8:00–9:00 — Paso 5: instalar Prettier
 
-### Paso 6 — Instalar Prettier
+> 🟢 Step five: Prettier, a code formatter. When we type fast, the code gets messy, and Prettier fixes spaces and indentation with one shortcut.
 
-**ACCIÓN:** Vuelve a VS Code. En **Extensions**, busca `Prettier`, elige **Prettier - Code formatter** de **Prettier** y haz clic en **Install**.
+> 🖱️ I'm clicking the Extensions icon, the four squares in the left sidebar.
 
-**DECIR:**
+> 🖱️ I'm clicking the search box at the top of the panel, deleting the old text, and typing Prettier.
 
-> Back in VS Code. Before we write the CSS, let's add our second extension: Prettier. I'll install it now, before writing the code, so I can use it on the CSS right away. I'll search for "Prettier" and choose "Prettier - Code formatter". The author is Prettier itself, the official one.
->
-> Prettier is a code formatter. When we write fast, the code gets messy: missing spaces, wrong indentation, everything on one line. Prettier fixes all of that with one shortcut, so our code always looks clean and consistent, and we don't waste time fixing spaces by hand. Install.
+> 🖱️ I'm pointing at the first result, Prettier - Code formatter, by Prettier, the official one.
 
-**CÓDIGO:** Ninguno.
+> 🖱️ I'm clicking the blue Install button next to it, in the panel on the left.
 
-**PRUEBA:** La extensión muestra un engranaje en vez de **Install**.
+> 🖱️ I'm clicking the Explorer icon at the top of the left sidebar, to go back to my files.
 
 ---
 
-### Paso 7 — styles.css: el diseño
+## 9:00–11:00 — Paso 6: `styles.css`, el diseño
 
-**ACCIÓN:** Crea `styles.css`. Escribe cada bloque y lee el texto que está debajo. Al final, guarda y mira el navegador.
+> 🟢 Step six: the CSS. The file name must match the link we wrote in the HTML.
 
-**DECIR (al crear el archivo):**
+> 🖱️ I'm clicking the New File icon, on the right of REGISTRATION-FORM in the Explorer, typing styles.css, and pressing Return.
 
-> Now I'll create styles.css. The name must match the "link" we wrote in the HTML head, or the page won't find it.
+**Bloque 1 de 2 — el formulario:**
 
-**CÓDIGO Y DECIR:**
+> 🟢 This first rule puts the fields in one column with a small gap, keeps the form narrow and centered, and changes the font. Because it uses max-width, it also fits on a phone.
 
-**Bloque 1 de 3:**
+> 🖱️ I'm typing the form rule at the top of styles.css.
 
 ```css
 form {
@@ -252,72 +256,58 @@ form {
 }
 ```
 
-> We only need three rules. The first one styles the form.
->
-> "display: grid" puts each label, field, and message one below the other, in a single column. "gap: 6px" adds a small space between them, so they don't touch.
->
-> "max-width: 300px" keeps the form narrow, because a very wide form is hard to read. "margin: 40px auto" adds 40 pixels of space on top and bottom, and "auto" on the sides centers the form on the page.
->
-> Because we use max-width instead of a fixed width, the form is also responsive: on a phone, it simply uses the available width.
->
-> Last, "font-family" changes the default font to Arial, which is cleaner. "sans-serif" is a backup, in case Arial isn't installed.
+**Bloque 2 de 2 — los errores:**
 
-**Bloque 2 de 3:**
+> 🟢 These two rules are for the errors: a red border on inputs with the class invalid, which JavaScript will add, and red text for the messages.
+
+> 🖱️ I'm typing the two error rules below the form rule.
 
 ```css
+
 input.invalid {
   border: 2px solid red;
 }
-```
 
-> The second rule is for inputs with the class "invalid". It gives them a red border, two pixels thick, so the user sees right away which field has a problem. No field has this class yet. JavaScript will add it when a field is wrong, and remove it when it's fixed.
-
-**Bloque 3 de 3:**
-
-```css
 small {
   color: red;
 }
 ```
 
-> The third rule makes the error messages red. They live in the "small" elements we created under each field, so the color matches the red border.
->
-> I'll save, and look at the browser: it updated by itself, without pressing refresh. That's Live Server working. Now the form is centered, narrow, and in Arial.
+> 🖱️ I'm pressing Command + S to save styles.css.
 
-**PRUEBA:** Sin recargar, el navegador muestra el formulario centrado, con cada campo debajo de su etiqueta y la letra Arial.
+> 🖱️ I'm clicking the Firefox icon in the Dock, on the right, and choosing the window with our page.
+
+> 🟢 The page updated by itself, without refreshing: that's Live Server. Now the form is centered, narrow, and in Arial.
+
+> 🖱️ I'm clicking the VS Code icon in the Dock, to go back to the editor.
 
 ---
 
-### Paso 8 — Probar Prettier
+## 11:00–12:30 — Paso 7: probar Prettier
 
-**ACCIÓN:**
+> 🟢 Step seven: testing Prettier. I need messy code, so I'll make some on purpose.
 
-1. En `styles.css`, selecciona la regla `input.invalid` (líneas 9 a 11) y escríbela de nuevo en una sola línea, así: `input.invalid{border:2px solid red}`.
-2. **Elige Prettier como formateador (solo la primera vez):** clic derecho dentro del código → **Format Document With…** → en la lista de arriba, **Configure Default Formatter…** → **Prettier - Code formatter**. Este paso solo elige Prettier: **todavía no formatea**.
-3. **Formatea:** pulsa `Shift + Option + F` (en Windows, `Shift + Alt + F`). Ahora sí la regla vuelve a ocupar 3 líneas.
-4. Guarda con `Cmd + S`.
+> 🖱️ I'm selecting the input.invalid rule, lines 9 to 11 of styles.css, by dragging the mouse.
 
-**Si no funciona (revísalo antes de grabar, en Mac):**
+> 🖱️ I'm typing the same rule on one line, with no spaces.
 
-- **Prettier está activado:** abajo a la derecha, en la barra de estado, tiene que aparecer **{ } Prettier** con una tilde (✓). Si tiene una ✗ o un aviso, haz clic ahí para ver el error.
-- **La extensión no está desactivada:** `Cmd + Shift + X` → **Prettier - Code formatter**. Si hay un botón **Enable**, haz clic en él.
-- **Formatear directo con Prettier:** clic derecho → **Format Document With…** → elige **Prettier - Code formatter**, no la opción "Configure…". Esto formatea aunque Prettier no esté elegido por defecto.
-- **Revisa los ajustes:** `Cmd + ,` para abrir **Settings**.
-  - Busca `default formatter` y elige **Prettier - Code formatter**.
-  - Busca `prettier require config`: la casilla tiene que estar **desmarcada**. Si está marcada, Prettier no formatea porque el proyecto no tiene archivo de configuración.
-- **Recarga VS Code:** `Cmd + Shift + P` → `Developer: Reload Window`.
+```css
+input.invalid{border:2px solid red}
+```
 
-**DECIR:**
+> 🖱️ I'm right-clicking inside the code, and choosing Format Document With, in the menu.
 
-> Now let's try Prettier. To test it, I need messy code, so I'll make some on purpose. I'll write this rule on one line, with no spaces. The browser still understands it, but it's hard for a person to read.
->
-> VS Code can have more than one formatter installed, so the first time, we have to tell it which one to use. Right-click, "Format Document With", "Configure Default Formatter", and Prettier. This only chooses Prettier. It doesn't format anything yet.
->
-> Now I'll press Shift, Option, and F, which is "Format Document". And there it is: Prettier puts the rule back on three clean lines, with the right spaces and indentation. From now on, I just use that shortcut. I'll save.
+> 🖱️ I'm choosing Configure Default Formatter, in the list at the top of the window, and then Prettier - Code formatter.
 
-**CÓDIGO:** Solo el cambio de la regla, que Prettier corrige.
+> 🟢 This only tells VS Code to use Prettier. It doesn't format anything yet.
 
-**PRUEBA:** La regla vuelve a ocupar tres líneas:
+> 🖱️ I'm pressing Shift + Option + F, the Format Document shortcut.
+
+> 🖱️ I'm pointing at lines 9 to 11. The rule is back on three clean lines.
+
+> 🖱️ I'm pressing Command + S to save the file.
+
+Resultado esperado:
 
 ```css
 input.invalid {
@@ -327,255 +317,131 @@ input.invalid {
 
 ---
 
-## Parte 3 — JavaScript y ESLint
+## 12:30–16:00 — Paso 8: `script.js`, la funcionalidad
 
-### Paso 9 — script.js: la funcionalidad, línea por línea
+> 🟢 Step eight: the JavaScript, which makes the form work.
 
-**ACCIÓN:** Crea `script.js`. **Escribe una línea, di su frase, y recién entonces pasa a la siguiente.** Las líneas vacías no se explican; solo pulsa Enter. Al final, guarda con `Ctrl + S`.
+> 🖱️ I'm clicking the New File icon, on the right of REGISTRATION-FORM in the Explorer, typing script.js, and pressing Return.
 
-**Ojo con el autocompletado:** cuando escribes `{`, `(` o `[`, VS Code agrega solo el cierre (`}`, `)`, `]`). No lo borres: sigue escribiendo adentro. Cuando llegues a una línea de cierre que VS Code ya escribió (por ejemplo, la línea 24), **no la escribas de nuevo**: pon el cursor ahí y di su frase.
+**Ojo con el autocompletado:** cuando escribís `{`, `(` o `[`, VS Code agrega solo el cierre. No lo borres: seguí escribiendo adentro, y no escribas de nuevo un cierre que ya está.
 
-**DECIR (al crear el archivo):**
+**Bloque 1 de 4 — encontrar los elementos:**
 
-> Finally, script.js, the same name we used in the script tag in the HTML. This file makes the form work. I'll explain every line as I write it.
+> 🟢 These two lines find the form and the success message by their ids, and keep them in constants.
 
-**CÓDIGO Y DECIR (una frase por línea):**
-
----
-
-**Línea 1**
+> 🖱️ I'm typing the two constants at the top of script.js.
 
 ```js
 const form = document.getElementById("form");
-```
-
-> First, we need to find the form on the page. "document" is the whole page, and "getElementById" finds the element with the id "form", the one we wrote in the HTML. We save it in a constant called "form", so we don't have to search for it again.
-
-**Línea 2**
-
-```js
 const success = document.getElementById("success");
 ```
 
-> Same thing for the success message: we find the element with the id "success" and save it, because we'll show or hide it later.
+**Bloque 2 de 4 — las reglas:**
 
-**Línea 3** — vacía. Solo pulsa Enter.
+> 🟢 This object keeps all the rules in one place. Each key is a field id, and each value has a test that returns true or false, and the error message.
 
-**Línea 4**
+> 🖱️ I'm typing the rules object below the constants.
 
 ```js
+
 const rules = {
-```
-
-> Now our validation rules. I'll put them all together in one object called "rules", so they're easy to find and change in one place.
-
-**Línea 5**
-
-```js
   name: [(v) => v.trim().length >= 2, "Min. 2 characters."],
-```
-
-> The first rule is for the name field. The key "name" matches the input's id. The value is a list with two things. First, a small function that receives the value, "v", and returns true if it's valid. Here, "trim" removes spaces at the start and the end, so a name made of only spaces doesn't count, and then we check it has at least 2 characters. Second, the error message to show if the test fails.
-
-**Línea 6**
-
-```js
   email: [(v) => v.includes("@"), "Invalid email"],
-```
-
-> The rule for email: the value must include an at sign. It's a simple check, just enough to catch obvious mistakes. A real app would also confirm the email by sending a message to it.
-
-**Línea 7**
-
-```js
   password: [(v) => v.length >= 8, "Min. 8 characters."],
-```
-
-> And the rule for the password: at least 8 characters. Here we don't use "trim", because spaces can be part of a password.
-
-**Línea 8**
-
-```js
 };
 ```
 
-> And we close the rules object. If we want a new field later, we just add one line inside it.
+**Bloque 3 de 4 — escuchar el envío:**
 
-**Línea 9** — vacía. Solo pulsa Enter.
+> 🟢 This listens for the submit event, and preventDefault stops the page from reloading, so we can check the data first.
 
-**Línea 10** — VS Code agrega solo `});` (será la línea 24). Sigue escribiendo adentro.
+> 🖱️ I'm typing the addEventListener call below the rules.
 
 ```js
+
 form.addEventListener("submit", (event) => {
-```
-
-> Now we tell the form what to do when it's submitted. "addEventListener" means: when this event happens, run this function. The event is "submit", which happens when the user clicks Sign up or presses Enter. The function receives an "event" object with information about what happened.
-
-**Línea 11**
-
-```js
   event.preventDefault();
 ```
 
-> By default, submitting a form sends the data and reloads the page. We don't want that, because we would lose our error messages. "preventDefault" stops it, so we can check the data first.
+**Bloque 4 de 4 — validar y mostrar el resultado.** Escribilo dentro de la función, antes del `});` que puso VS Code.
 
-**Línea 12** — vacía. Solo pulsa Enter.
+> 🟢 For each rule, this runs the test, adds or removes the red border, and writes or clears the error. map checks every field, so all the errors show at once, and every says if all of them passed. If they did, the success message appears and the form is cleared.
 
-**Línea 13**
+> 🖱️ I'm clicking the empty line inside the function, above the closing brace, and typing the validation.
 
 ```js
+
   const ok = Object.entries(rules)
-```
-
-> Now we check all the fields. The final result, true or false, will go in a constant called "ok". "Object.entries" turns our rules object into a list of pairs: the field id, and its test with its message. That way we can go through them one by one.
-
-**Línea 14**
-
-```js
     .map(([id, [test, message]]) => {
-```
-
-> "map" runs a function for each pair, and collects the results in a new list. In the parentheses, we unpack each pair into three names: the "id", the "test" function, and the error "message". That makes the next lines easier to read.
-
-**Línea 15**
-
-```js
       const valid = test(form.elements[id].value);
-```
-
-> "form.elements" lets us find any field of the form by its id. We take what the user typed, its "value", and run the test on it. The answer, true or false, goes in "valid".
-
-**Línea 16**
-
-```js
       form.elements[id].classList.toggle("invalid", !valid);
-```
-
-> Now we update the red border. "classList.toggle" adds or removes a CSS class. The second part decides which: "not valid". If the field is not valid, it adds the "invalid" class, and our CSS paints the border red. If it's valid, it removes the class, so the red border goes away after the user fixes it.
-
-**Línea 17**
-
-```js
       document.getElementById(id + "-error").textContent = valid ? "" : message;
-```
-
-> Next, the error message. We find the error element by adding "-error" to the id. That's the naming rule from our HTML, like "name-error". Then we set its text. The question mark is a short "if": if the field is valid, an empty text, so the old error disappears; if not, the error message.
-
-**Línea 18**
-
-```js
       return valid;
-```
-
-> We return true or false for this field, so "map" can add it to its list of results.
-
-**Línea 19**
-
-```js
     })
-```
-
-> And we close the function that checks one field. At this point, "map" gives us a list like true, false, true.
-
-**Línea 20**
-
-```js
     .every(Boolean);
-```
 
-> "every" checks if all the values in that list are true. If even one field failed, "ok" is false.
->
-> Why "map" first, and not "every" directly? Because "every" stops at the first false. With "map", every field gets checked and shows its own error, even when the first one is wrong.
-
-**Línea 21** — vacía. Solo pulsa Enter.
-
-**Línea 22**
-
-```js
   success.hidden = !ok;
-```
-
-> Now the success message. Its "hidden" property is the opposite of "ok". If everything is OK, hidden becomes false, so the message appears. If there are errors, it stays hidden.
-
-**Línea 23**
-
-```js
   if (ok) form.reset();
-```
-
-> And if everything is OK, "reset" empties all the fields, so the form is ready for the next person.
-
-**Línea 24** — ya la escribió VS Code. Pon el cursor ahí y di:
-
-```js
 });
 ```
 
-> This last line, which VS Code wrote for us, closes the submit function and the "addEventListener" call. I'll save the file.
+> 🖱️ I'm pressing Command + S to save script.js.
+
+> 🖱️ I'm pointing at the last line, 24, at the bottom of the file. The file is complete.
+
+> 🟢 Before testing the form, let's add the last extension, to check this code for mistakes.
 
 ---
 
-**PRUEBA:** El archivo está guardado y tiene 24 líneas. El formulario se prueba completo en el paso 13.
+## 16:00–17:00 — Paso 9: instalar la extensión de ESLint
 
-**DECIR (después de guardar):**
+> 🟢 Step nine: ESLint, a linter. It reads the JavaScript without running it and finds real mistakes, like a misspelled variable.
 
-> The JavaScript is done. Before testing the form, let's add our last extension, to check this code for mistakes.
+> 🖱️ I'm clicking the Extensions icon in the left sidebar, then the search box at the top, and typing ESLint.
 
----
+> 🖱️ I'm pointing at the first result, ESLint, by Microsoft.
 
-### Paso 10 — Instalar la extensión de ESLint
+> 🖱️ I'm clicking the blue Install button next to it, in the panel on the left.
 
-**ACCIÓN:** En **Extensions**, busca `ESLint`, elige **ESLint** de **Microsoft** y haz clic en **Install**.
+> 🟢 This extension only connects VS Code to ESLint. ESLint itself and its rules are installed inside the project, so everyone uses the same version.
 
-**DECIR:**
-
-> Our last extension is ESLint, by Microsoft. ESLint is a linter. It reads our JavaScript without running it and finds real mistakes, like a misspelled variable or a variable we created and never used. It's better to find those mistakes now, in the editor, than later, when a user finds them in the browser. Install.
->
-> ESLint works differently from Prettier. This extension only connects VS Code to ESLint. The ESLint program itself, and its rules, are installed inside our project. That way, everyone who works on the project uses the same version and the same rules. Let's do that now.
-
-**CÓDIGO:** Ninguno.
-
-**PRUEBA:** La extensión muestra un engranaje en vez de **Install**.
+> 🖱️ I'm clicking the Explorer icon at the top of the left sidebar.
 
 ---
 
-### Paso 11 — Instalar ESLint en el proyecto
+## 17:00–19:30 — Paso 10: instalar y configurar ESLint en el proyecto
 
-**ACCIÓN Y DECIR:**
+> 🖱️ I'm clicking the Terminal menu at the top of the screen, and choosing New Terminal. The terminal opens at the bottom of VS Code.
 
-**1.** Abre **Terminal → New Terminal** y escribe:
+> 🖱️ I'm typing pwd in the terminal and pressing Return, to check which folder I'm in.
 
-```
-pwd
-```
+> 🖱️ I'm pointing at the result in the terminal: it ends in registration-form, the right folder.
 
-> I'll open a terminal inside VS Code, with Terminal, New Terminal. The next command installs ESLint in the current folder, so first I'll check where I am with "pwd", which means "print working directory". It ends in registration-form, so we're in the right place.
+> 🟢 Now I'll install ESLint version 9 with npm. save-dev means it's a development tool, not part of the website.
 
-**2.** Instala ESLint en el proyecto. Se crean `package.json`, `package-lock.json` y la carpeta `node_modules`.
+> 🖱️ I'm typing the install command in the terminal and pressing Return.
 
 ```
 npm install --save-dev eslint@9
 ```
 
-> Now I'll install ESLint with npm, the package manager that comes with Node.js. "eslint@9" asks for version 9, because our configuration file uses the version 9 format. "save-dev" means it's a tool for development, not part of the website. Users never download it.
->
-> Three new things appear in the Explorer. "package.json" lists the tools our project uses. "package-lock.json" records the exact versions, so everyone gets the same ones. And "node_modules" holds the actual code of ESLint.
+> 🖱️ I'm pointing at the three new items in the Explorer, on the left: package.json, package-lock.json, and node_modules.
 
-**3.** Comprueba la versión:
+> 🟢 package.json lists the project's tools, package-lock.json saves the exact versions, and node_modules has ESLint's code.
 
-```
-npx eslint -v
-```
+> 🖱️ I'm typing npx eslint -v in the terminal and pressing Return, to check the installation.
 
-> Let me check that it works. "npx" runs the ESLint we just installed in this project, not a global one. It shows version [read the version on screen], so the installation worked.
+> 🖱️ I'm pointing at the version in the terminal. It starts with 9, so it works.
 
-**4.** En el Explorer, crea `eslint.config.mjs` junto a `package.json` (no dentro de `node_modules`). El formato es el de la documentación oficial de ESLint: https://eslint.org/docs/latest/use/configure/configuration-files
+> 🟢 ESLint still doesn't know which rules to use, so I'll create its configuration file, eslint.config.mjs, next to package.json.
 
-**Igual que en `script.js`: escribe una línea, di su frase, y recién entonces pasa a la siguiente.** Las líneas vacías no se explican; solo pulsa Enter.
+> 🖱️ I'm clicking the New File icon, on the right of REGISTRATION-FORM in the Explorer, typing eslint.config.mjs, and pressing Return.
 
-**Ojo con el autocompletado:** cuando escribes `{`, `(` o `[`, VS Code agrega solo el cierre. Al pulsar Enter, el cierre baja a la línea de abajo. Cuando llegues a una línea de cierre que ya está escrita (líneas 9, 13, 14 y 15), **no la escribas de nuevo**: pon el cursor al final, **agrega la coma si la línea la lleva** (VS Code no la pone) y di su frase.
+> 🟢 This file checks every .js file, says our script runs in the browser, where document already exists, and turns on two rules: an error for undefined variables, and a warning for unused ones.
 
-El archivo completo, para que lo compares al final:
+> 🖱️ I'm typing the configuration in eslint.config.mjs, in the middle of the screen.
+
+Ojo con el autocompletado: si VS Code ya cerró `}`, `]` o `)`, no los escribas de nuevo. Agregá a mano las comas y el `;` del final.
 
 ```js
 import { defineConfig } from "eslint/config";
@@ -595,215 +461,91 @@ export default defineConfig([
 ]);
 ```
 
-**DECIR (al crear el archivo):**
+> 🖱️ I'm pressing Command + S to save eslint.config.mjs.
 
-> Right now ESLint is installed, but it doesn't know which rules to use. So I'll create its configuration file, "eslint.config.mjs", next to package.json. This is the file name ESLint looks for. The "mjs" ending means this file is a JavaScript module, so we can use "import" and "export" in it. I'll follow the format from the official ESLint docs, and explain every line.
+> 🟢 The extension started before this file existed, so I have to restart it.
 
-**CÓDIGO Y DECIR (una frase por línea):**
+> 🖱️ I'm pressing Command + Shift + P to open the Command Palette, at the top of VS Code.
 
----
-
-**Línea 1**
-
-```js
-import { defineConfig } from "eslint/config";
-```
-
-> First, we import "defineConfig" from ESLint, the package we just installed. It's a helper that wraps our configuration. It doesn't change any rules, but it lets VS Code suggest the right options and catch typos while we write this file.
-
-**Línea 2** — vacía. Solo pulsa Enter.
-
-**Línea 3** — VS Code agrega solo `])`. Sigue escribiendo adentro.
-
-```js
-export default defineConfig([
-```
-
-> "export default" is how this file hands its configuration to ESLint. When ESLint starts, it reads whatever we export here. Inside defineConfig we open a list, with square brackets, because a configuration can have several blocks, for example different rules for different files. We only need one.
-
-**Línea 4** — VS Code agrega solo `}`.
-
-```js
-  {
-```
-
-> The curly brace opens our only configuration block. Everything inside applies to the same group of files.
-
-**Línea 5**
-
-```js
-    files: ["**/*.js"],
-```
-
-> "files" says which files this block checks. The two stars mean "any folder", and star dot js means "any file that ends in dot js". So it checks our script.js, and any JavaScript file we add later.
-
-**Línea 6** — VS Code agrega solo `}`.
-
-```js
-    languageOptions: {
-```
-
-> "languageOptions" describes how our JavaScript runs, so ESLint understands it correctly.
-
-**Línea 7**
-
-```js
-      sourceType: "script",
-```
-
-> "sourceType script" says our script.js is a normal browser script, because we load it with a plain script tag in the HTML, not as a module. This matters because scripts and modules follow slightly different rules.
-
-**Línea 8**
-
-```js
-      globals: { document: "readonly" },
-```
-
-> "globals" lists variables that exist without us creating them. In the browser, "document" always exists, but ESLint doesn't know that. Without this line, the "no-undef" rule would report "document" as a mistake. "readonly" means we only read it, we never replace it.
-
-**Línea 9** — ya está escrita. Agrega la coma al final y di:
-
-```js
-    },
-```
-
-> This closes the language options. The comma is there because another option comes next.
-
-**Línea 10** — VS Code agrega solo `}`.
-
-```js
-    rules: {
-```
-
-> Now the most important part: "rules", the list of problems we want ESLint to look for.
-
-**Línea 11**
-
-```js
-      "no-undef": "error",
-```
-
-> "no-undef" means "no undefined variables". It reports any variable that doesn't exist, which usually means a typo. We set it to "error", because that code would break in the browser.
-
-**Línea 12**
-
-```js
-      "no-unused-vars": "warn",
-```
-
-> "no-unused-vars" reports variables we create but never use. That's not a bug, just leftover code, so a warning is enough. Errors show up in red, warnings in yellow.
-
-**Línea 13** — ya está escrita. Agrega la coma al final y di:
-
-```js
-    },
-```
-
-> This closes the rules.
-
-**Línea 14** — ya está escrita. Agrega la coma al final y di:
-
-```js
-  },
-```
-
-> This closes our configuration block.
-
-**Línea 15** — ya está escrita. Agrega el punto y coma al final y di:
-
-```js
-]);
-```
-
-> And this closes the list and the defineConfig call. I'll save the file. If I want more rules later, I just add more lines inside "rules".
-
-**5.** `Ctrl + Shift + P` → `ESLint: Restart ESLint Server` → Enter.
-
-> The extension started before this file existed, so it doesn't know about it yet. I'll open the Command Palette with Control, Shift, P, and run "ESLint: Restart ESLint Server", so it reads the new configuration.
-
-**PRUEBA:**
-
-- `pwd` termina en `registration-form`.
-- `npx eslint -v` muestra una versión que empieza con `v9`, por ejemplo `v9.39.5`.
-- El Explorer muestra `eslint.config.mjs` junto a `package.json`.
-- Si el comando **ESLint: Restart ESLint Server** no aparece, la extensión no está instalada o está desactivada: vuelve al paso 10.
+> 🖱️ I'm typing ESLint: Restart ESLint Server in the Command Palette and pressing Return.
 
 ---
 
-### Paso 12 — Probar ESLint
+## 19:30–21:00 — Paso 11: probar ESLint
 
-**ACCIÓN:**
+> 🟢 Step eleven: testing ESLint. First, I'll check the real code.
 
-1. En la terminal, revisa el archivo:
+> 🖱️ I'm clicking inside the terminal, at the bottom, and typing npx eslint script.js, then Return.
 
-   ```
-   npx eslint script.js
-   ```
+> 🖱️ I'm pointing at the terminal: there's no output, so ESLint found no problems.
 
-2. En `script.js`, agrega esta línea al final del archivo (línea 25) y guarda:
+> 🟢 To see ESLint catch a mistake, I'll make a typical one on purpose.
 
-   ```js
-   nmae;
-   ```
+> 🖱️ I'm clicking the script.js tab at the top, and then at the end of the file, below line 24.
 
-3. Mira el subrayado rojo y pasa el mouse encima. Vuelve a ejecutar `npx eslint script.js`.
-4. Borra la línea `nmae;`, guarda y ejecuta `npx eslint script.js` una última vez.
+> 🖱️ I'm typing nmae, a misspelled name, on line 25, and pressing Command + S to save.
 
-**DECIR:**
+```js
+nmae;
+```
 
-> Let's try ESLint. First, I'll check our real code, to make sure it's clean before we break anything. In the terminal, I'll run "npx eslint script.js". No output, which means ESLint didn't find any problems. Silence is good news.
->
-> To see ESLint catch a problem, I need a mistake, so I'll make a typical one on purpose. At the end of the file, I'll write "nmae", a misspelled version of "name", and save. Right away, ESLint underlines it in red. When I hover over it, it says: "'nmae' is not defined". That variable doesn't exist, and this is the "no-undef" rule we configured.
->
-> I'll run ESLint in the terminal again. It shows the same thing: line 25, an error, the message, and the rule name, "no-undef". The editor and the terminal agree. ESLint found the bug without even running the code.
->
-> Notice that Prettier didn't complain. The line is well formatted, just wrong. That's the difference: Prettier checks how the code looks, and ESLint checks if it makes sense.
->
-> The test is done, so I'll delete the line, save, and run ESLint one last time, to confirm we left the code clean. No output, so our code is clean.
+> 🖱️ I'm moving the mouse over the red underline on line 25.
 
-**PRUEBA:**
+> 🟢 ESLint says "'nmae' is not defined": that's the no-undef rule we configured.
 
-- La primera vez, `npx eslint script.js` no muestra nada.
-- Con `nmae;`, aparece un subrayado **rojo** que dice `'nmae' is not defined.`, y la terminal muestra:
+> 🖱️ I'm clicking inside the terminal and running npx eslint script.js again.
 
-  ```
+> 🖱️ I'm pointing at the error in the terminal: line 25, the message, and the rule name, no-undef.
+
+> 🟢 Prettier didn't complain, because the line is well formatted, just wrong. Prettier checks how the code looks, and ESLint checks if it makes sense.
+
+> 🖱️ I'm selecting line 25 in script.js, deleting it, and pressing Command + S to save.
+
+> 🖱️ I'm running npx eslint script.js in the terminal one last time, and pointing at the empty output. The code is clean.
+
+Salida esperada con `nmae;`:
+
+```
   25:1  error  'nmae' is not defined  no-undef
 
-  ✖ 1 problem (1 error, 0 warnings)
-  ```
-
-- Después de borrar la línea, `npx eslint script.js` vuelve a no mostrar nada.
-- Si no aparece el subrayado en el editor, ejecuta otra vez **ESLint: Restart ESLint Server** y revisa **View → Output → ESLint**.
+✖ 1 problem (1 error, 0 warnings)
+```
 
 ---
 
-## Parte 4 — El proyecto funcionando
+## 21:00–22:30 — Paso 12: el formulario funcionando
 
-### Paso 13 — Probar el formulario
+> 🟢 Step twelve: the whole project working. I'll test empty fields, wrong values, valid values, and a phone screen.
 
-**ACCIÓN:**
+> 🖱️ I'm clicking the Firefox icon in the Dock, on the right, and choosing the window with our page.
 
-1. En el navegador, recarga la página con `F5`.
-2. Haz clic en **Sign up** con todos los campos vacíos.
-3. Escribe `J`, `jane` y `abc`, y haz clic en **Sign up**.
-4. Escribe `Jane`, `jane@example.com` y `secret123`, y haz clic en **Sign up**.
-5. Pulsa `F12`, luego `Ctrl + Shift + M`, y elige un tamaño de celular. Después cierra las herramientas de desarrollo.
+> 🖱️ I'm pressing Command + R to reload the page, so it has the latest JavaScript.
 
-**DECIR:**
+> 🖱️ I'm clicking the Sign up button, at the bottom of the form, with all the fields empty.
 
-> Now let's see the whole project working. I'll press F5 to reload the page once, so we start from a clean state with the latest JavaScript.
->
-> I'll test three cases: empty fields, wrong values, and valid values. That way we see every path in our code.
->
-> First, I'll click Sign up with everything empty. Three red borders and three error messages. The page didn't reload, thanks to "preventDefault", and every field shows its error, thanks to "map".
->
-> Now wrong values: one letter for the name, an email without an at sign, and a short password. Still three errors, because none of them follow the rules.
->
-> And now valid values: "Jane", "jane@example.com", and "secret123". The red borders and the errors disappear, the form is cleared by "reset", and we see "Registration successful!".
->
-> Last, many people will fill in this form on a phone, so I'll check that too. I'll open the developer tools with F12, and turn on the device toolbar with Control, Shift, M, to simulate a phone screen. The form fills the width and still looks good, thanks to "max-width" in our CSS. I'll close the developer tools.
+> 🟢 Three red borders and three error messages. The page didn't reload, thanks to preventDefault.
 
-**PRUEBA:**
+> 🖱️ I'm clicking the Name field and typing J, then the Email field and typing jane, then the Password field and typing abc.
+
+> 🖱️ I'm clicking the Sign up button again.
+
+> 🟢 Still three errors, because none of the values follow the rules.
+
+> 🖱️ I'm clearing each field and typing Jane, jane@example.com, and secret123.
+
+> 🖱️ I'm clicking the Sign up button.
+
+> 🖱️ I'm pointing at the message under the button: Registration successful!
+
+> 🟢 The red borders and the errors are gone, and reset cleared the form.
+
+> 🖱️ I'm pressing Command + Option + M to open Firefox's Responsive Design Mode, to simulate a phone.
+
+> 🖱️ I'm clicking the device menu at the top of the page, and choosing a phone.
+
+> 🟢 The form fits the phone width, thanks to max-width.
+
+> 🖱️ I'm pressing Command + Option + M again to close Responsive Design Mode.
 
 | Datos | Resultado |
 | ----- | --------- |
@@ -814,14 +556,56 @@ export default defineConfig([
 
 ---
 
-### Paso 14 — Cierre
+## 22:30–25:00 — Epílogo
 
-**DECIR:**
+Dura **de 2 a 4 minutos**: enfoque, desafíos y reflexiones.
 
-> And that's it! With three short files, we built a working registration form: HTML for the structure, CSS for the design, and JavaScript for the validation.
->
-> And with each file, we used one extension: Live Server to see our changes instantly, Prettier to keep the code clean, and ESLint to catch real mistakes before they reach the browser.
->
-> Thanks for watching!
+> 🖱️ I'm clicking the VS Code icon in the Dock, to go back to the editor.
 
-**ACCIÓN:** Detén la grabación.
+> 🖱️ I'm clicking index.html in the Explorer, on the left.
+
+> 🟢 Let me summarize. I split the form into three files, so each one has a single job: index.html for the structure, with the same id pattern for every field.
+
+> 🖱️ I'm clicking styles.css in the Explorer.
+
+> 🟢 styles.css for the design, with only three rules, and script.js for the validation.
+
+> 🖱️ I'm clicking script.js in the Explorer.
+
+> 🟢 About my decisions: I kept all the rules in one object, so adding a field means adding one line. And I used map before every, so every field shows its own error at the same time.
+
+> 🖱️ I'm pointing at the extensions in the left sidebar, then at eslint.config.mjs in the Explorer.
+
+> 🟢 And with each file, one extension: Live Server to see changes instantly, Prettier to keep the code clean, and ESLint to catch real mistakes before they reach the browser.
+
+> 🟢 There were two challenges. Prettier didn't format the first time, because VS Code needs to be told which formatter to use. And ESLint needed more setup than the other two: installing it in the project, writing its configuration, telling it that document exists in the browser, and restarting its server.
+
+> 🟢 One limit: the email check only looks for an at sign, and the validation runs only in the browser. As a next step, a real app would also validate on the server and confirm the email.
+
+> 🟢 The takeaway: three short files and three extensions give a cleaner and faster workflow. Thanks for watching!
+
+Si el reloj todavía no pasó los 15:00 (no debería pasar), no cortes: probá en la página otro caso inválido (por ejemplo, un nombre con solo espacios) y explicá por qué falla.
+
+---
+
+## Si algo sale mal (frases para corregir)
+
+Siempre decí **qué** corregís y **dónde**:
+
+| Error | Qué pasa | Qué decís y hacés |
+| ----- | -------- | ----------------- |
+| No aparece **Go Live** | La extensión no terminó de cargar | 🖱️ *"The Go Live button isn't in the status bar yet. I'm pressing Command + Shift + P and running Developer: Reload Window, to reload VS Code."* |
+| Prettier no formatea | No está elegido como formateador | 🖱️ *"Prettier didn't format the file. I'm right-clicking in the code, choosing Format Document With, and picking Prettier - Code formatter directly."* |
+| `npm: command not found` | Node.js no está instalado | Cortá la grabación: es un problema de preparación (punto 2 de "Antes de grabar"). |
+| No aparece el subrayado rojo | La extensión no leyó la configuración | 🖱️ *"The red underline didn't appear. I'm pressing Command + Shift + P and running ESLint: Restart ESLint Server again."* |
+| `TypeError: ... null` en la consola, o el formulario recarga la página | Un id mal escrito en `index.html` o en `script.js` | 🖱️ *"The form isn't working, because I misspelled the id in index.html, line 14. I'm fixing it, pressing Command + S, and testing again."* |
+| Error de tipeo | Un paréntesis o una comilla de menos | 🖱️ *"I made a typo in script.js, a missing parenthesis on the line ESLint underlines. I'm adding it and saving again."* |
+| Cualquier cosa fuera del guion | Un aviso, una ventana | 🖱️ *"I'm closing this notification at the bottom right of VS Code, to keep working."* |
+
+---
+
+## Después de grabar
+
+1. Ejecutá **Run full AutoQC**, no solo *Rerun failing*. Revisá que el porcentaje de acciones con What + Where pase el **70%**.
+2. Armá **Deliverables.zip** con la carpeta `registration-form` del video: `index.html`, `styles.css`, `script.js`, `eslint.config.mjs`, `package.json` y `package-lock.json`, **sin** `node_modules`.
+3. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** y **Metadata.rtf**.
