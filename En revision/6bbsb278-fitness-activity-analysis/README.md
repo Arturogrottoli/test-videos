@@ -432,7 +432,7 @@ plt.show()
 q1, q3 = df["steps"].quantile([0.25, 0.75])
 iqr = q3 - q1
 lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
-print(f"Q1: {q1:,.0f} | Q3: {q3:,.0f} | IQR: {iqr:,.0f} | Normal range: {lower:,.0f} to {upper:,.0f}")
+print("Q1:", round(q1), "| Q3:", round(q3), "| IQR:", round(iqr), "| Normal range:", round(lower), "to", round(upper))
 df[(df["steps"] < lower) | (df["steps"] > upper)]
 ```
 
