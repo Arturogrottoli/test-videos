@@ -1,0 +1,25 @@
+product_id,product_name,category,list_price,unit_cost
+P001,Chef Knife Set,Kitchen,89.0,48.4
+P002,Cast Iron Skillet,kitchen,45.0,26.31
+P003,Pour-Over Kettle,Kitchen,39.0,22.09
+P004,Bamboo Cutting Board,Kitchen,24.0,11.61
+P005,Linen Duvet Cover,Bedding,129.0,63.86
+P006,Cotton Sheet Set,Bedding,79.0,45.9
+P007,Wool Throw,Bedding,65.0,29.3
+P008,Memory Foam Pillow,Bedding,49.0,28.09
+P009,Brass Floor Lamp,Lighting,159.0,90.56
+P010,Ceramic Table Lamp, Lighting,75.0,39.01
+P011,LED Strip Kit,Lighting,29.0,14.37
+P012,Pendant Shade,Lighting,55.0,27.05
+P013,Wall Mirror,Decor,99.0,48.33
+P014,Woven Basket,Decor,32.0,16.54
+P015,Scented Candle Trio,decor ,28.0,14.72
+P016,Framed Print,Decor,45.0,23.99
+P017,Turkish Towel Set,Bath,59.0,35.36
+P018,Bath Mat,Bath,35.0,19.91
+P019,Soap Dispenser,Bath,19.0,10.32
+P020,Shower Caddy,Bath,27.0,16.16
+P021,Patio Lanterns,Outdoor,69.0,33.28
+P022,Garden Hose Reel,OUTDOOR,85.0,40.29
+P023,Outdoor Cushion,Outdoor,42.0,22.76
+P024,Planter Box,Outdoor,38.0,17.35
