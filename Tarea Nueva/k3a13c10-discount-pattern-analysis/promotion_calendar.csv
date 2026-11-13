@@ -1,0 +1,9 @@
+promotion_id,campaign_name,applicable_category,start_date,end_date,planned_discount,max_discount
+PRM-01,Winter Clearance,Clothing,2025-01-08,2025-01-31,0.3,0.4
+PRM-02,Spring Fashion,Clothing,2025-03-10,2025-03-31,0.2,0.25
+PRM-03,Home Refresh,Home & Kitchen,2025-04-14,2025-04-30,0.15,0.2
+PRM-04,Beauty Week,Beauty,2025-05-05,2025-05-18,0.25,0.3
+PRM-05,Summer Sports,Sports & Outdoors,2025-06-01,2025-06-30,0.2,0.25
+PRM-06,Back to School Tech,Electronics,2025-08-15,2025-09-07,0.1,0.15
+PRM-07,Black Friday Electronics,Electronics,2025-11-21,2025-12-01,0.25,0.3
+PRM-08,Holiday Toys,Toys,2025-12-01,2025-12-24,0.2,0.25
