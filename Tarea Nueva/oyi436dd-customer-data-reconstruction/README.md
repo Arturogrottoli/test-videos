@@ -248,20 +248,20 @@ items.describe().round(2)
 
 > 🖱️ I'm typing the date investigation in the third code cell.
 
-> ⌨️ The pattern backslash d four times plus a dash matches dates that start with a four-digit year. The tilde keeps the ones that don't.
+> ⌨️ contains with a slash finds the dates written with slashes, because the year-first dates use dashes.
 
 **Celda 3:**
 
 ```python
 # 4. Anomaly investigation
-other = orders.loc[~orders["order_date"].str.match(r"\d{4}-"), "order_date"]
+other = orders.loc[orders["order_date"].str.contains("/"), "order_date"]
 print(len(other), other.head(3).tolist(), "| day > 12:", (other.str[:2].astype(int) > 12).sum(), "| month > 12:", (other.str[3:5].astype(int) > 12).sum())
 ```
 
 📘 **What each line does** (para vos, no se lee):
 
 - `# 4. Anomaly investigation`: a section comment.
-- `other = orders.loc[~orders["order_date"].str.match(r"\d{4}-"), "order_date"]`: the dates that **don't** start with four digits and a dash, that is, the ones that aren't year-month-day.
+- `other = orders.loc[orders["order_date"].str.contains("/"), "order_date"]`: the dates written with slashes, like 02/01/2025, that is, the ones that aren't in the year-month-day format with dashes.
 - `print(len(other), other.head(3).tolist(), "| day > 12:", ..., "| month > 12:", ...)`: how many there are, three examples, how many have a first number (`str[:2]`) above 12, and how many have a second number (`str[3:5]`) above 12.
 
 > 🖱️ I'm clicking the Run cell button on the left of the third code cell, to check the dates.
@@ -746,7 +746,7 @@ clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().rou
 ```python
 # 9. Deliverables
 clean.to_csv("clean_sales.csv", index=False)
-report = clean[(clean["fix"] != "") | (clean["exception"] != "") | ~clean["in_revenue"]]
+report = clean[(clean["fix"] != "") | (clean["exception"] != "") | (clean["in_revenue"] == False)]
 report.to_csv("exceptions_report.csv", index=False)
 print(len(clean), "clean lines |", len(report), "lines in the exception report")
 ```
@@ -755,7 +755,7 @@ print(len(clean), "clean lines |", len(report), "lines in the exception report")
 
 - `# 9. Deliverables`: a section comment.
 - `clean.to_csv("clean_sales.csv", index=False)`: saves the clean dataset.
-- `report = clean[(clean["fix"] != "") | (clean["exception"] != "") | ~clean["in_revenue"]]`: the lines that were corrected, have an exception, or are out of revenue.
+- `report = clean[(clean["fix"] != "") | (clean["exception"] != "") | (clean["in_revenue"] == False)]`: the lines that were corrected, have an exception, or are out of revenue.
 - `report.to_csv("exceptions_report.csv", index=False)`: saves the report.
 - `print(len(clean), "clean lines |", len(report), "lines in the exception report")`: how many rows each file has.
 

@@ -446,7 +446,7 @@ v["dates_ok"] = v["date"].between(v["start_date"], v["end_date"])
 v["max_ok"] = v["disc"] <= v["max_discount"]
 v["tolerance_ok"] = (v["disc"] - v["planned_discount"]).abs().round(4) <= 0.05
 checks = ["id_ok", "category_ok", "dates_ok", "max_ok", "tolerance_ok"]
-issues = v[~v[checks].all(axis=1)]
+issues = v[v[checks].all(axis=1) == False]
 issues[["transaction_id", "category", "promotion_id", "disc", "iqr_flag"] + checks]
 ```
 
@@ -459,7 +459,7 @@ issues[["transaction_id", "category", "promotion_id", "disc", "iqr_flag"] + chec
 - `v["max_ok"] = v["disc"] <= v["max_discount"]`: the discount doesn't exceed the approved maximum.
 - `v["tolerance_ok"] = (v["disc"] - v["planned_discount"]).abs().round(4) <= 0.05`: the distance to the planned discount is 5 points or less. `round(4)` avoids decimal errors like 0.05000001.
 - `checks = [...]`: a list with the names of the five checks.
-- `issues = v[~v[checks].all(axis=1)]`: the sales that fail at least one check. `all(axis=1)` is True when all five are True, and `~` inverts it.
+- `issues = v[v[checks].all(axis=1) == False]`: the sales that fail at least one check. `all(axis=1)` is True when all five checks pass, so `== False` keeps the sales where at least one failed.
 - `issues[[...] + checks]`: shows the key columns and the five checks.
 
 > 🖱️ I'm clicking the Run cell button on the left of the eighth code cell, to validate the promotions.
@@ -517,7 +517,7 @@ issues[["transaction_id", "category", "promotion_id", "disc", "iqr_flag"] + chec
 ```python
 ok = v["id_ok"] & v["category_ok"] & v["dates_ok"]
 df["authorized"] = df["transaction_id"].isin(v.loc[ok, "transaction_id"])
-df["over_30"] = (df["disc"] > 0.30) & ~df["authorized"]
+df["over_30"] = (df["disc"] > 0.30) & (df["authorized"] == False)
 df.loc[df["over_30"], ["transaction_id", "category", "month", "promotion_id", "disc", "iqr_limit", "iqr_flag"]].round(2)
 ```
 
@@ -525,7 +525,7 @@ df.loc[df["over_30"], ["transaction_id", "category", "month", "promotion_id", "d
 
 - `ok = v["id_ok"] & v["category_ok"] & v["dates_ok"]`: a valid promotion: the ID exists, the category is right, and the date is inside the campaign.
 - `df["authorized"] = df["transaction_id"].isin(v.loc[ok, "transaction_id"])`: True if the sale is in that list of valid promotions.
-- `df["over_30"] = (df["disc"] > 0.30) & ~df["authorized"]`: a discount above 30% without an authorized promotion.
+- `df["over_30"] = (df["disc"] > 0.30) & (df["authorized"] == False)`: a discount above 30% without an authorized promotion.
 - `df.loc[df["over_30"], [...]].round(2)`: shows those sales, with their IQR limit and whether IQR had flagged them.
 
 > 🖱️ I'm clicking the Run cell button on the left of the ninth code cell, to apply the rule.
