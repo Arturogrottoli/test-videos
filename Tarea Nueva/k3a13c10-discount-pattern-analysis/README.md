@@ -7,6 +7,7 @@ Guion para grabar la tarea **k3a13c10** (Data Science & Analytics): en **Google 
 - 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés, **dónde** está en la pantalla y, si no es obvio, **por qué**. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
 - 🟢 = explicación corta, entre una acción y otra. La última 🟢 de cada sección es la **transición** a la siguiente.
 - ⌨️ = lo que vas diciendo **mientras tipeás** una celda larga, para no quedarte más de 5 segundos callado. Explica el bloque, no cada línea.
+- 📘 **Qué hace cada línea**: debajo de cada código, la explicación línea por línea, por si tenés dudas o te preguntan. Es solo para vos: **no se lee en la grabación**, porque ahí cada celda se explica con una sola frase 🟢.
 - Debajo de cada celda: **Resultado esperado** (lo que tiene que aparecer, con los números reales) y **Razonamiento profesional** (por qué importa y qué haría mal un analista sin experiencia). Esas dos partes son para vos: **no se leen**.
 - Si usás un **atajo de teclado**, decí la tecla en voz alta: *"I'm pressing Command + S"*.
 - **Todas las celdas son de código**, salvo la última (resumen y notas finales), que es de texto. El título de cada paso **no se escribe**: lo decís en voz alta (*"Step two: financial calculations"*).
@@ -147,6 +148,13 @@ promos = pd.read_csv("promotion_calendar.csv", parse_dates=["start_date", "end_d
 sales.info()
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `import pandas as pd`: importa pandas, la librería de tablas, con el nombre corto `pd`.
+- `sales = pd.read_csv(...)`: lee el CSV de ventas en una tabla llamada `sales`. `parse_dates=["date"]` convierte la columna `date` en fecha real, no en texto.
+- `promos = pd.read_csv(...)`: lee el calendario de promociones en `promos` y convierte `start_date` y `end_date` en fechas.
+- `sales.info()`: muestra la cantidad de filas, las columnas, los valores no vacíos y el tipo de dato de cada columna.
+
 > 🖱️ I'm clicking the Run cell button, the play icon on the left edge of the first code cell, to load the files.
 
 > 🖱️ I'm pointing at the status at the top right of Colab, which turns green when the runtime is connected.
@@ -166,6 +174,10 @@ sales.info()
 ```python
 promos
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `promos`: como es la última línea de la celda, Colab muestra la tabla completa (8 filas).
 
 > 🖱️ I'm clicking the Run cell button on the left of the second code cell, to show the calendar.
 
@@ -189,6 +201,13 @@ print(sales["category"].value_counts())
 print(sales["promotion_id"].value_counts(dropna=False))
 sales["discount_rate"].describe()
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `print(sales["date"].min(), "to", sales["date"].max())`: muestra la primera y la última fecha.
+- `print(sales["category"].value_counts())`: cuenta cuántas ventas hay por categoría.
+- `print(sales["promotion_id"].value_counts(dropna=False))`: cuenta las ventas por ID de promoción. `dropna=False` también cuenta las vacías (`NaN`), o sea, las ventas sin promoción.
+- `sales["discount_rate"].describe()`: estadísticas del descuento: cantidad, media, desvío, mínimo, cuartiles y máximo.
 
 > 🖱️ I'm clicking the Run cell button on the left of the third code cell, to run the checks.
 
@@ -238,6 +257,14 @@ odd["as_percent"] = gross * (1 - odd["discount_rate"] / 100)
 odd[["transaction_id", "discount_rate", "planned_discount", "net_revenue", "as_fraction", "as_percent"]].round(2)
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `odd = sales[sales["discount_rate"] > 1].merge(promos, on="promotion_id", how="left")`: se queda con las ventas que tienen un descuento mayor a 1 (imposible como fracción) y les agrega los datos de su campaña. `how="left"` conserva también la que no tiene promoción.
+- `gross = odd["quantity"] * odd["unit_price"]`: venta bruta (sin descuento) de cada fila.
+- `odd["as_fraction"] = ...`: ingreso neto si el descuento se leyera como fracción (26 = 2.600%).
+- `odd["as_percent"] = ...`: ingreso neto si se leyera como porcentaje (26 = 26%), dividiendo por 100.
+- `odd[[...]].round(2)`: muestra solo esas columnas, con 2 decimales.
+
 > 🖱️ I'm clicking the Run cell button on the left of the fourth code cell, to compare both readings.
 
 > 🖱️ I'm moving the mouse down the as_fraction column, in the middle of the table.
@@ -278,6 +305,19 @@ mismatch = df[df["diff"].abs() > 0.01]
 mismatch[["transaction_id", "disc", "gross", "net_revenue", "calc_net", "gross_margin", "calc_margin"]].round(2)
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `df = sales.copy()`: copia de trabajo. `sales`, el original, no se toca.
+- `df["disc"] = df["discount_rate"].where(df["discount_rate"] <= 1, df["discount_rate"] / 100)`: columna nueva con el descuento como fracción. Deja igual los valores de hasta 1 y divide por 100 los demás. `discount_rate` queda como estaba.
+- `df = df.eval("""...""")`: calcula varias columnas con fórmulas escritas como texto, una por línea:
+  - `gross`: cantidad × precio.
+  - `calc_net`: ingreso neto recalculado = bruto × (1 − descuento).
+  - `calc_margin`: margen bruto recalculado, en dólares = ingreso neto − cantidad × costo.
+  - `margin_pct`: margen como proporción del ingreso neto.
+  - `diff`: ingreso registrado − ingreso recalculado.
+- `mismatch = df[df["diff"].abs() > 0.01]`: filas donde la diferencia supera un centavo (`abs` ignora el signo).
+- `mismatch[[...]].round(2)`: muestra esas filas, con las columnas para comparar.
+
 > 🖱️ I'm clicking the Run cell button on the left of the fifth code cell, to recalculate the money.
 
 > 🖱️ I'm pointing at the number of rows in the result, six.
@@ -315,6 +355,11 @@ df["month"] = df["date"].dt.month
 df.pivot_table(index="category", columns="month", values="disc", aggfunc="mean").round(2)
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `df["month"] = df["date"].dt.month`: número de mes, de 1 a 12.
+- `df.pivot_table(index="category", columns="month", values="disc", aggfunc="mean").round(2)`: tabla con las categorías en filas, los meses en columnas y el descuento promedio en cada celda.
+
 > 🖱️ I'm clicking the Run cell button on the left of the sixth code cell, to see the pattern.
 
 > 🖱️ I'm moving the mouse across the table, row by row, from Beauty at the top to Toys at the bottom.
@@ -345,6 +390,15 @@ df["iqr_flag"] = (n >= 20) & (df["disc"] > df["iqr_limit"])
 print("Groups below 20:", (g.size() < 20).sum(), "| rows not screened:", (n < 20).sum())
 df[df["iqr_flag"]].groupby(["category", "month"]).size()
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `g = df.groupby(["category", "month"])["disc"]`: agrupa los descuentos por categoría y mes.
+- `q1, q3, n = g.transform(...)`: para cada fila, el Q1, el Q3 y el tamaño de **su** grupo. `transform` devuelve un valor por fila, no uno por grupo.
+- `df["iqr_limit"] = q3 + 1.5 * (q3 - q1)`: límite superior del IQR de cada grupo.
+- `df["iqr_flag"] = (n >= 20) & (df["disc"] > df["iqr_limit"])`: True si el grupo tiene al menos 20 ventas **y** el descuento supera el límite (`&` = "y").
+- `print("Groups below 20:", ...)`: cuántos grupos tienen menos de 20 ventas y cuántas filas quedan sin revisar con IQR.
+- `df[df["iqr_flag"]].groupby(["category", "month"]).size()`: cuántos outliers hay en cada grupo.
 
 > 🖱️ I'm clicking the Run cell button on the left of the seventh code cell, to run the IQR screen.
 
@@ -395,6 +449,18 @@ checks = ["id_ok", "category_ok", "dates_ok", "max_ok", "tolerance_ok"]
 issues = v[~v[checks].all(axis=1)]
 issues[["transaction_id", "category", "promotion_id", "disc", "iqr_flag"] + checks]
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `v = df[df["promotion_id"].notna()].merge(promos, on="promotion_id", how="left")`: ventas con ID de promoción, unidas al calendario. Si el ID no existe, los datos de la campaña quedan vacíos.
+- `v["id_ok"] = v["planned_discount"].notna()`: el ID existe si se encontró su descuento planificado.
+- `v["category_ok"] = v["category"] == v["applicable_category"]`: la categoría de la venta coincide con la de la campaña.
+- `v["dates_ok"] = v["date"].between(v["start_date"], v["end_date"])`: la fecha está dentro de la campaña, extremos incluidos.
+- `v["max_ok"] = v["disc"] <= v["max_discount"]`: el descuento no supera el máximo aprobado.
+- `v["tolerance_ok"] = (v["disc"] - v["planned_discount"]).abs().round(4) <= 0.05`: la distancia al descuento planificado es de 5 puntos o menos. `round(4)` evita errores de decimales, como 0,05000001.
+- `checks = [...]`: lista con los nombres de los cinco controles.
+- `issues = v[~v[checks].all(axis=1)]`: ventas que fallan al menos un control. `all(axis=1)` es True si los cinco son True, y `~` lo invierte.
+- `issues[[...] + checks]`: muestra las columnas clave y los cinco controles.
 
 > 🖱️ I'm clicking the Run cell button on the left of the eighth code cell, to validate the promotions.
 
@@ -455,6 +521,13 @@ df["over_30"] = (df["disc"] > 0.30) & ~df["authorized"]
 df.loc[df["over_30"], ["transaction_id", "category", "month", "promotion_id", "disc", "iqr_limit", "iqr_flag"]].round(2)
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `ok = v["id_ok"] & v["category_ok"] & v["dates_ok"]`: promoción válida: el ID existe, la categoría es la correcta y la fecha está dentro de la campaña.
+- `df["authorized"] = df["transaction_id"].isin(v.loc[ok, "transaction_id"])`: True si la venta está en esa lista de promociones válidas.
+- `df["over_30"] = (df["disc"] > 0.30) & ~df["authorized"]`: descuento mayor a 30% sin promoción autorizada.
+- `df.loc[df["over_30"], [...]].round(2)`: muestra esas ventas, con su límite IQR y si el IQR las había marcado.
+
 > 🖱️ I'm clicking the Run cell button on the left of the ninth code cell, to apply the rule.
 
 > 🖱️ I'm pointing at the number of rows of the result, 10.
@@ -477,6 +550,11 @@ df.loc[df["over_30"], ["transaction_id", "category", "month", "promotion_id", "d
 df["low_margin"] = df["margin_pct"] < 0.15
 pd.crosstab(df.loc[df["low_margin"], "category"], df["authorized"], margins=True)
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `df["low_margin"] = df["margin_pct"] < 0.15`: True si el margen está por debajo del 15%.
+- `pd.crosstab(df.loc[df["low_margin"], "category"], df["authorized"], margins=True)`: cuenta las ventas con margen bajo por categoría, separadas según si tenían promoción autorizada. `margins=True` agrega los totales (All).
 
 > 🖱️ I'm clicking the Run cell button on the left of the tenth code cell, to count the low margins.
 
@@ -507,6 +585,13 @@ perf = df.groupby(["category", "promo"]).agg(sales=("quantity", "size"), avg_uni
 perf["margin_pct"] = perf["profit"] / perf["revenue"]
 perf.round(2)
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `df["promo"] = df["promotion_id"].where(df["authorized"], "None")`: deja el ID si la promoción está autorizada. Si no, pone "None", la línea base sin promoción.
+- `perf = df.groupby(["category", "promo"]).agg(...)`: por categoría y campaña: cantidad de ventas, unidades promedio por venta, ingreso total y ganancia bruta total.
+- `perf["margin_pct"] = perf["profit"] / perf["revenue"]`: margen ponderado = ganancia total ÷ ingreso total.
+- `perf.round(2)`: muestra la tabla con 2 decimales.
 
 > 🖱️ I'm clicking the Run cell button on the left of the eleventh code cell, to compare the campaigns.
 
@@ -572,6 +657,12 @@ print("Mismatches:", mismatch["diff"].sum().round(2))
 print("Sum of categories:", df.groupby("category")["calc_net"].sum().sum().round(2))
 ```
 
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `print(df[["net_revenue", "calc_net", "diff"]].sum().round(2))`: suma el ingreso registrado, el recalculado y la diferencia.
+- `print("Mismatches:", mismatch["diff"].sum().round(2))`: cuánto de la diferencia viene de las 6 filas que no coinciden.
+- `print("Sum of categories:", ...)`: suma los totales de cada categoría, para compararlos con el total general.
+
 > 🖱️ I'm clicking the Run cell button on the left of the twelfth code cell, to reconcile.
 
 > 🖱️ I'm pointing at the first three lines of the output.
@@ -604,6 +695,15 @@ flagged = df[df[flags].any(axis=1)]
 flagged.to_csv("flagged_transactions.csv", index=False)
 flagged[flags].sum()
 ```
+
+📘 **Qué hace cada línea** (para vos, no se lee):
+
+- `df["promo_issue"] = df["transaction_id"].isin(issues["transaction_id"])`: True si la venta falló algún control de promoción.
+- `df["data_issue"] = (df["diff"].abs() > 0.01) | (df["discount_rate"] > 1)`: True si el ingreso no coincide o si el descuento estaba en porcentaje (`|` = "o").
+- `flags = [...]`: los cinco motivos de revisión.
+- `flagged = df[df[flags].any(axis=1)]`: ventas con al menos un motivo (`any` = alguno es True).
+- `flagged.to_csv("flagged_transactions.csv", index=False)`: guarda esas ventas en un CSV, sin la columna de índice.
+- `flagged[flags].sum()`: cuántas ventas tiene cada motivo (True cuenta como 1).
 
 > 🖱️ I'm clicking the Run cell button on the left of the thirteenth code cell, to export the file.
 
