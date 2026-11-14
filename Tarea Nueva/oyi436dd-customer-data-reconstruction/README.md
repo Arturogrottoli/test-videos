@@ -7,7 +7,7 @@ Guion para grabar la tarea **oyi436dd** (Data Science & Analytics). En **Google 
 - 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés, **dónde** está en la pantalla y, si no es obvio, **por qué**. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
 - 🟢 = explicación corta, entre una acción y otra. La última 🟢 de cada sección es la **transición** a la siguiente.
 - ⌨️ = lo que vas diciendo **mientras tipeás** una celda larga, para no quedarte callado. Explica el bloque, no cada línea.
-- 📘 **Qué hace cada línea**: debajo de cada código, la explicación línea por línea, por si tenés dudas o te preguntan. Es solo para vos: **no se lee en la grabación**, porque ahí cada celda se explica con una sola frase 🟢.
+- 📘 **Qué hace cada línea**: debajo de cada código, la explicación línea por línea, por si tenés dudas o te preguntan. Está en castellano y en inglés (🇬🇧 **In English**), por si tenés que explicar algo en voz alta. Es solo para vos: **no se lee en la grabación**, porque ahí cada celda se explica con una sola frase 🟢.
 - Debajo de cada celda: **Resultado esperado** (lo que tiene que aparecer, con los números reales) y **Razonamiento profesional** (qué se decide, por qué, qué alternativas había y qué haría mal un analista sin experiencia). Esas dos partes son para vos: **no se leen**.
 - Si usás un **atajo de teclado**, decí la tecla en voz alta: *"I'm pressing Command + S"*.
 - **Todas las celdas son de código**, salvo la última (conclusiones), que es de texto. Las 9 secciones del notebook aparecen como **comentarios** en la primera línea de cada celda (`# 3. Data quality assessment`). Así el notebook queda ordenado sin celdas de texto extra.
@@ -180,6 +180,14 @@ for t in [orders, items, products]:
 - `for t in [orders, items, products]:`: recorre las tres tablas.
 - `print(t.shape, t.isna().sum()[lambda s: s > 0].to_dict())`: muestra (filas, columnas) y, solo para las columnas con vacíos, cuántos tiene cada una.
 
+🇬🇧 **In English:**
+
+- `# 1-2. Business context and data loading`: a comment with the section name. It doesn't run.
+- `import pandas as pd, numpy as np, matplotlib.pyplot as plt, seaborn as sns`: imports the four libraries with their usual short names.
+- `orders, items, products = [pd.read_csv(f) for f in [...]]`: reads the three CSV files in one line and stores each table in its own variable, in that order.
+- `for t in [orders, items, products]:`: goes through the three tables.
+- `print(t.shape, t.isna().sum()[lambda s: s > 0].to_dict())`: shows (rows, columns) and, only for columns with empty values, how many each one has.
+
 > 🖱️ I'm clicking the Run cell button, the play icon on the left edge of the first code cell, to load the files.
 
 > 🖱️ I'm pointing at the status at the top right of Colab, which turns green when the runtime is connected.
@@ -211,6 +219,13 @@ items.describe().round(2)
 - `print("Duplicate order rows:", orders.duplicated().sum(), "| repeated IDs:", orders["order_id"].duplicated().sum())`: cuenta las filas idénticas a una anterior y los IDs de pedido repetidos.
 - `print(orders["channel"].unique(), products["category"].unique(), orders["status"].value_counts().to_dict())`: muestra las distintas formas en que están escritos el canal y la categoría, y cuántos pedidos hay en cada estado.
 - `items.describe().round(2)`: estadísticas de las columnas numéricas de las líneas (también aparece `line_no`).
+
+🇬🇧 **In English:**
+
+- `# 3. Data quality assessment`: a section comment.
+- `print("Duplicate order rows:", orders.duplicated().sum(), "| repeated IDs:", orders["order_id"].duplicated().sum())`: counts the rows identical to an earlier one, and the repeated order IDs.
+- `print(orders["channel"].unique(), products["category"].unique(), orders["status"].value_counts().to_dict())`: shows the different ways the channel and the category are written, and how many orders there are in each status.
+- `items.describe().round(2)`: summary statistics of the numeric columns of the order lines (`line_no` also appears).
 
 > 🖱️ I'm clicking the Run cell button on the left of the second code cell, to run the checks.
 
@@ -264,6 +279,12 @@ print(len(other), other.head(3).tolist(), "| day > 12:", (other.str[:2].astype(i
 - `other = orders.loc[~orders["order_date"].str.match(r"\d{4}-"), "order_date"]`: fechas que **no** empiezan con cuatro dígitos y un guion, o sea, que no son año-mes-día.
 - `print(len(other), other.head(3).tolist(), "| day > 12:", ..., "| month > 12:", ...)`: cuántas son, tres ejemplos, en cuántas el primer número (`str[:2]`) es mayor que 12 y en cuántas lo es el segundo (`str[3:5]`).
 
+🇬🇧 **In English:**
+
+- `# 4. Anomaly investigation`: a section comment.
+- `other = orders.loc[~orders["order_date"].str.match(r"\d{4}-"), "order_date"]`: the dates that **don't** start with four digits and a dash, that is, the ones that aren't year-month-day.
+- `print(len(other), other.head(3).tolist(), "| day > 12:", ..., "| month > 12:", ...)`: how many there are, three examples, how many have a first number (`str[:2]`) above 12, and how many have a second number (`str[3:5]`) above 12.
+
 > 🖱️ I'm clicking the Run cell button on the left of the third code cell, to check the dates.
 
 > 🖱️ I'm pointing at the output under the third code cell.
@@ -297,6 +318,13 @@ li[(li["price_ratio"] > 2) | (li["quantity"] >= 50) | li["unit_price"].isna()]
 - `li["price_ratio"] = li["unit_price"] / li["list_price"]`: precio cobrado ÷ precio de lista (1 = precio lleno, 0,8 = 20% de descuento, 100 = centavos).
 - `li["implied_qty"] = li["line_total"] / li["unit_price"]`: la cantidad que se deduce del total.
 - `li[(li["price_ratio"] > 2) | (li["quantity"] >= 50) | li["unit_price"].isna()]`: muestra las líneas con un precio de más del doble, una cantidad de 50 o más, o un precio vacío (`|` = "o").
+
+🇬🇧 **In English:**
+
+- `li = items.merge(products[["product_id", "list_price"]], on="product_id", how="left")`: adds the catalog list price to every line. `how="left"` keeps the lines whose product isn't in the catalog.
+- `li["price_ratio"] = li["unit_price"] / li["list_price"]`: charged price ÷ list price (1 = full price, 0.8 = 20% off, 100 = cents).
+- `li["implied_qty"] = li["line_total"] / li["unit_price"]`: the quantity that the line total implies.
+- `li[(li["price_ratio"] > 2) | (li["quantity"] >= 50) | li["unit_price"].isna()]`: shows the lines with a price more than double, a quantity of 50 or more, or an empty price (`|` means "or").
 
 > 🖱️ I'm clicking the Run cell button on the left of the fourth code cell, to compare with the catalog.
 
@@ -364,6 +392,17 @@ print(o["order_date"].isna().sum(), o["channel"].unique(), p["category"].unique(
 - `p = products.assign(category=...)`: copia del catálogo, con la categoría normalizada igual que el canal.
 - `print(o["order_date"].isna().sum(), o["channel"].unique(), p["category"].unique())`: comprueba que no quedó ninguna fecha sin leer y muestra los valores ya limpios.
 
+🇬🇧 **In English:**
+
+- `# 5. Transformation and reconciliation`: a section comment.
+- `o = orders.drop_duplicates().copy()`: a copy of the orders without the exact duplicate rows.
+- `d = o["order_date"]`: stores the original date column (text) under a short name.
+- `o["order_date"] = pd.to_datetime(d, format="ISO8601", errors="coerce").fillna(pd.to_datetime(d, format="%d/%m/%Y", errors="coerce"))`: first reads the year-month-day dates. The ones that fail become empty (`errors="coerce"`), and `fillna` fills them by reading them as day/month/year.
+- `o["channel"] = o["channel"].str.strip().str.title()`: removes spaces and capitalizes the first letter (`web` and `WEB` → `Web`, `b2b` → `B2B`).
+- `o["customer_id"] = o["customer_id"].fillna("GUEST")`: fills the empty customers with `GUEST`.
+- `p = products.assign(category=...)`: a copy of the catalog, with the category normalized the same way as the channel.
+- `print(o["order_date"].isna().sum(), o["channel"].unique(), p["category"].unique())`: checks that no date was left unread, and shows the clean values.
+
 > 🖱️ I'm clicking the Run cell button on the left of the fifth code cell, to clean the orders.
 
 > 🖱️ I'm pointing at the output under the fifth code cell.
@@ -400,6 +439,15 @@ li["fix"].value_counts()
 - `li["unit_price"] = li["unit_price"].fillna(li["line_total"] / li["quantity"])`: completa los precios vacíos con total ÷ cantidad.
 - `li.loc[li["fix"] == "placeholder quantity", "quantity"] = li["implied_qty"]`: reemplaza el 999 por la cantidad que da el total (1).
 - `li["fix"].value_counts()`: cuántas líneas tuvo cada corrección.
+
+🇬🇧 **In English:**
+
+- `li["unit_price_raw"], li["quantity_raw"] = li["unit_price"], li["quantity"]`: keeps the original price and quantity in new columns.
+- `li["fix"] = np.select([...], [...], "")`: writes the label of the first condition that matches: price more than 50 times the list price → `price in cents`; empty price → `price from line total`; quantity 999 → `placeholder quantity`. If none matches, an empty text.
+- `li.loc[li["fix"] == "price in cents", "unit_price"] /= 100`: divides the price of those lines by 100.
+- `li["unit_price"] = li["unit_price"].fillna(li["line_total"] / li["quantity"])`: fills the empty prices with total ÷ quantity.
+- `li.loc[li["fix"] == "placeholder quantity", "quantity"] = li["implied_qty"]`: replaces 999 with the quantity the total implies (1).
+- `li["fix"].value_counts()`: how many lines each correction affected.
 
 > 🖱️ I'm clicking the Run cell button on the left of the sixth code cell, to apply the rules.
 
@@ -441,6 +489,16 @@ clean["exception"].value_counts()
 - `clean["in_revenue"] = clean["status"] == "completed"`: solo los pedidos completados cuentan como ingreso. Los cancelados y las líneas sin pedido, no.
 - `clean["exception"].value_counts()`: cuántas líneas hay de cada excepción.
 
+🇬🇧 **In English:**
+
+- `clean = (li.drop(columns=[...])`: removes the helper columns from the investigation.
+- `.merge(o, on="order_id", how="left", validate="m:1")`: adds the order data. `validate="m:1"` stops with an error if an order appears twice in `o`: it's the protection against double counting.
+- `.merge(p[[...]], on="product_id", how="left", validate="m:1"))`: adds the product name and category, with the same protection.
+- `clean["category"] = clean["category"].fillna("Unknown")`: products that aren't in the catalog become `Unknown`.
+- `clean["exception"] = np.select([...], [...], "")`: labels the exception. No status → the order doesn't exist. Category `Unknown` → product not in the catalog. Quantity × price different from the total by more than one cent → line total mismatch.
+- `clean["in_revenue"] = clean["status"] == "completed"`: only completed orders count as revenue. Cancelled orders and lines without an order don't.
+- `clean["exception"].value_counts()`: how many lines have each exception.
+
 > 🖱️ I'm clicking the Run cell button on the left of the seventh code cell, to build the table.
 
 > 🟢 The join ran without an error, so validate confirmed that every order and every product appears only once.
@@ -464,6 +522,10 @@ clean[clean["exception"] == "line total mismatch"].iloc[:, :6]
 📘 **Qué hace cada línea** (para vos, no se lee):
 
 - `clean[clean["exception"] == "line total mismatch"].iloc[:, :6]`: muestra las líneas cuyo total no coincide, solo con las 6 primeras columnas (pedido, línea, producto, cantidad, precio y total).
+
+🇬🇧 **In English:**
+
+- `clean[clean["exception"] == "line total mismatch"].iloc[:, :6]`: shows the lines whose total doesn't match, with only the first 6 columns (order, line, product, quantity, price, and total).
 
 > 🖱️ I'm clicking the Run cell button on the left of the eighth code cell, to show the mismatches.
 
@@ -509,6 +571,14 @@ rev.groupby("category").agg(revenue=("line_total", "sum"), units=("quantity", "s
 - `print("Revenue:", ..., "| Orders:", len(order_val), "| AOV:", order_val["line_total"].mean().round(2))`: ingreso total, cantidad de pedidos y ticket promedio (el promedio por pedido).
 - `rev.groupby("category").agg(revenue=..., units=...).sort_values("revenue", ascending=False)`: ingreso y unidades por categoría, de mayor a menor ingreso.
 
+🇬🇧 **In English:**
+
+- `# 6. Business analysis`: a section comment.
+- `rev = clean[clean["in_revenue"]]`: only the lines that count as revenue.
+- `order_val = rev.groupby(["order_id", "channel"], as_index=False)["line_total"].sum()`: adds up the lines of each order, leaving one row per order, with its channel and its value.
+- `print("Revenue:", ..., "| Orders:", len(order_val), "| AOV:", order_val["line_total"].mean().round(2))`: total revenue, number of orders, and average order value (the average per order).
+- `rev.groupby("category").agg(revenue=..., units=...).sort_values("revenue", ascending=False)`: revenue and units by category, from highest to lowest revenue.
+
 > 🖱️ I'm clicking the Run cell button on the left of the ninth code cell, to calculate the metrics.
 
 > 🖱️ I'm pointing at the printed line under the ninth code cell.
@@ -535,6 +605,10 @@ rev.groupby("product_name")["line_total"].sum().nlargest(5)
 
 - `rev.groupby("product_name")["line_total"].sum().nlargest(5)`: ingreso por producto, y los 5 más altos.
 
+🇬🇧 **In English:**
+
+- `rev.groupby("product_name")["line_total"].sum().nlargest(5)`: revenue by product, and the top 5.
+
 > 🖱️ I'm clicking the Run cell button on the left of the tenth code cell, to rank the products.
 
 > 🖱️ I'm moving the mouse down the five products.
@@ -558,6 +632,11 @@ pd.DataFrame({"revenue": monthly, "change": monthly.pct_change()}).round(2)
 
 - `monthly = rev.groupby(rev["order_date"].dt.to_period("M"))["line_total"].sum()`: ingreso por mes. `to_period("M")` convierte cada fecha en su mes, por ejemplo `2025-06`.
 - `pd.DataFrame({"revenue": monthly, "change": monthly.pct_change()}).round(2)`: tabla con el ingreso de cada mes y su variación contra el mes anterior (0,50 = +50%).
+
+🇬🇧 **In English:**
+
+- `monthly = rev.groupby(rev["order_date"].dt.to_period("M"))["line_total"].sum()`: revenue by month. `to_period("M")` turns each date into its month, for example `2025-06`.
+- `pd.DataFrame({"revenue": monthly, "change": monthly.pct_change()}).round(2)`: a table with each month's revenue and its change from the previous month (0.50 = +50%).
 
 > 🖱️ I'm clicking the Run cell button on the left of the eleventh code cell, to see the trend.
 
@@ -584,6 +663,10 @@ rev[rev["order_date"].dt.month == 6].groupby("channel")["line_total"].agg(["sum"
 📘 **Qué hace cada línea** (para vos, no se lee):
 
 - `rev[rev["order_date"].dt.month == 6].groupby("channel")["line_total"].agg(["sum", "count"])`: solo junio, por canal: ingreso total y cantidad de líneas.
+
+🇬🇧 **In English:**
+
+- `rev[rev["order_date"].dt.month == 6].groupby("channel")["line_total"].agg(["sum", "count"])`: June only, by channel: total revenue and number of lines.
 
 > 🖱️ I'm clicking the Run cell button on the left of the twelfth code cell, to break down June.
 
@@ -616,6 +699,14 @@ order_val.groupby("channel")["outlier"].agg(["sum", "count"])
 - `order_val["outlier"] = log_value > q3 + 1.5 * (q3 - q1)`: True si el pedido supera el límite superior del IQR.
 - `print("Upper limit:", round(10 ** (q3 + 1.5 * (q3 - q1)), 2))`: el límite, vuelto a dólares (`10 **` deshace el logaritmo).
 - `order_val.groupby("channel")["outlier"].agg(["sum", "count"])`: por canal, cuántos outliers hay (`sum`) sobre cuántos pedidos (`count`).
+
+🇬🇧 **In English:**
+
+- `log_value = np.log10(order_val["line_total"])`: the base-10 logarithm of each order value (100 → 2, 1,000 → 3).
+- `q1, q3 = log_value.quantile([0.25, 0.75])`: the first and third quartiles, on the log scale.
+- `order_val["outlier"] = log_value > q3 + 1.5 * (q3 - q1)`: True if the order is above the upper IQR limit.
+- `print("Upper limit:", round(10 ** (q3 + 1.5 * (q3 - q1)), 2))`: the limit, converted back to dollars (`10 **` undoes the logarithm).
+- `order_val.groupby("channel")["outlier"].agg(["sum", "count"])`: by channel, how many outliers there are (`sum`) out of how many orders (`count`).
 
 > 🖱️ I'm clicking the Run cell button on the left of the thirteenth code cell, to find the outliers.
 
@@ -665,6 +756,14 @@ plt.show()
 - `sns.boxplot(data=order_val, x="channel", y="line_total", log_scale=True, ax=ax[1]).set_title(...)`: boxplot de Seaborn del valor de pedido por canal, en escala logarítmica, en el segundo espacio y con su título.
 - `plt.show()`: muestra la figura.
 
+🇬🇧 **In English:**
+
+- `# 7. Visualizations`: a section comment.
+- `fig, ax = plt.subplots(1, 2, figsize=(13, 4))`: creates a figure with two charts side by side (1 row, 2 columns), 13 × 4 inches.
+- `monthly.plot(ax=ax[0], marker="o", title="Monthly revenue ($)")`: a line chart of monthly revenue in the first space, with a dot for each month.
+- `sns.boxplot(data=order_val, x="channel", y="line_total", log_scale=True, ax=ax[1]).set_title(...)`: a Seaborn box plot of order value by channel, on a log scale, in the second space, with its title.
+- `plt.show()`: displays the figure.
+
 > 🖱️ I'm clicking the Run cell button on the left of the fourteenth code cell, to draw the charts.
 
 > 🖱️ I'm pointing at the June peak on the line chart, on the left.
@@ -708,6 +807,13 @@ clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().rou
 - `print("Naive join:", items.merge(orders, on="order_id")["line_total"].sum().round(2), "| raw lines:", items["line_total"].sum().round(2))`: el total de un join directo entre los archivos originales (con los duplicados), contra la suma de las líneas originales.
 - `print("Rows in:", len(items), "| rows out:", len(clean), "| category total:", ...)`: filas de entrada y de salida, y la suma de los ingresos por categoría.
 - `clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().round(2)`: divide el total original por estado: completado, cancelado y sin pedido.
+
+🇬🇧 **In English:**
+
+- `# 8. Validation`: a section comment.
+- `print("Naive join:", items.merge(orders, on="order_id")["line_total"].sum().round(2), "| raw lines:", items["line_total"].sum().round(2))`: the total of a direct join of the original files (with the duplicates), against the sum of the original lines.
+- `print("Rows in:", len(items), "| rows out:", len(clean), "| category total:", ...)`: input and output rows, and the sum of revenue across categories.
+- `clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().round(2)`: splits the original total by status: completed, cancelled, and without an order.
 
 > 🖱️ I'm clicking the Run cell button on the left of the fifteenth code cell, to validate.
 
@@ -758,6 +864,14 @@ print(len(clean), "clean lines |", len(report), "lines in the exception report")
 - `report = clean[(clean["fix"] != "") | (clean["exception"] != "") | ~clean["in_revenue"]]`: líneas corregidas, con excepción o fuera del ingreso.
 - `report.to_csv("exceptions_report.csv", index=False)`: guarda el reporte.
 - `print(len(clean), "clean lines |", len(report), "lines in the exception report")`: cuántas filas tiene cada archivo.
+
+🇬🇧 **In English:**
+
+- `# 9. Deliverables`: a section comment.
+- `clean.to_csv("clean_sales.csv", index=False)`: saves the clean dataset.
+- `report = clean[(clean["fix"] != "") | (clean["exception"] != "") | ~clean["in_revenue"]]`: the lines that were corrected, have an exception, or are out of revenue.
+- `report.to_csv("exceptions_report.csv", index=False)`: saves the report.
+- `print(len(clean), "clean lines |", len(report), "lines in the exception report")`: how many rows each file has.
 
 > 🖱️ I'm clicking the Run cell button on the left of the sixteenth code cell, to export the files.
 
