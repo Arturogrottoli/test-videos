@@ -1,17 +1,32 @@
 # oyi436dd — Customer Data Reconstruction & Analytics
 
-Guion para grabar la tarea **oyi436dd** (Data Science & Analytics). En **Google Colab**, con **pandas, NumPy, Matplotlib y Seaborn**, tomás tres CSV sintéticos e imperfectos de una tienda online ficticia. Con ellos perfilás los datos, investigás las anomalías antes de tocar nada, corregís solo lo que tiene evidencia y armás un dataset analítico confiable. Después analizás el negocio, validás los totales y entregás el dataset limpio, el reporte de excepciones, los gráficos y las conclusiones. Se graba en **Firefox**, en **una sola toma**, y el prompt pide **entre 15 y 30 minutos**. Este guion apunta a unos **30 minutos**, epílogo incluido.
+Guion **optimizado** para grabar la tarea **oyi436dd** (Data Science & Analytics). En **Google Colab**, con **pandas, NumPy, Matplotlib y Seaborn**, trabajás con tres CSV sintéticos e imperfectos de una tienda online ficticia:
+
+- perfilás los datos;
+- investigás las anomalías antes de tocar nada;
+- corregís solo lo que tiene evidencia;
+- armás un dataset analítico confiable;
+- analizás el negocio y validás los totales;
+- entregás el dataset limpio, el reporte de excepciones, los gráficos y las conclusiones.
+
+Se graba en **Firefox**, en **una sola toma**. El código y las conclusiones se **tipean y se explican en vivo**, y los CSV se suben **antes** de grabar.
+
+| | Guion anterior | Ahora |
+| - | -------------- | ----- |
+| Celdas de código | 16 | **9** |
+| Caracteres de código | ~4.720 | **~3.310** |
+| Caracteres de las conclusiones | ~930 | **~530** |
+| Palabras de narración | ~4.300 | **~2.300** (unas 780 se dicen mientras tipeás) |
+| Duración estimada | **~85 min** | **~40–46 min** |
 
 **Cómo leer este guion:**
 
-- 🖱️ = lo decís **mientras hacés** la acción. Siempre dice **qué** hacés, **dónde** está en la pantalla y, si no es obvio, **por qué**. Son las frases que cuenta AutoQC: **no te saltees ninguna**.
-- 🟢 = explicación corta, entre una acción y otra. La última 🟢 de cada sección es la **transición** a la siguiente.
-- ⌨️ = lo que vas diciendo **mientras tipeás** una celda larga, para no quedarte callado. Explica el bloque, no cada línea.
-- 📘 **What each line does**: debajo de cada código, la explicación línea por línea en inglés, por si tenés dudas o tenés que explicar algo en voz alta. Es solo para vos: **no se lee en la grabación**, porque ahí cada celda se explica con una sola frase 🟢.
-- Debajo de cada celda: **Resultado esperado** (lo que tiene que aparecer, con los números reales) y **Razonamiento profesional** (qué se decide, por qué, qué alternativas había y qué haría mal un analista sin experiencia). Esas dos partes son para vos: **no se leen**.
-- Si usás un **atajo de teclado**, decí la tecla en voz alta: *"I'm pressing Command + S"*.
-- **Todas las celdas son de código**, salvo la última (conclusiones), que es de texto. Las 9 secciones del notebook aparecen como **comentarios** en la primera línea de cada celda (`# 3. Data quality assessment`). Así el notebook queda ordenado sin celdas de texto extra.
-- Toda celda sigue el mismo ciclo: **scroll hasta el final → clic en + Code → frase 🟢 de para qué sirve → tipear (con ⌨️) → clic en Run → señalar el resultado → explicarlo.**
+- 🖱️ = lo decís **mientras hacés** la acción: **qué** hacés, **dónde** está y **por qué**. AutoQC cuenta estas frases: **no te saltees ninguna**.
+- ⌨️ = lo decís **mientras tipeás** la línea indicada entre paréntesis. Tiene dos partes y se dicen las dos: **qué tipeás y dónde** (*"I'm typing … at the top of the third cell."*), que es lo que cuenta AutoQC, y **para qué sirve**.
+- 🟢 = la interpretación de un resultado, o la transición.
+- 📘 **What each line does** (sección 4): la explicación de cada línea, en inglés, por si tenés dudas. **No se lee**.
+- **Resultado esperado**: los números reales que tienen que aparecer. Son para vos.
+- Si usás un atajo de teclado, decí la tecla en voz alta: *"I'm pressing Command + S"*.
 
 ---
 
@@ -19,13 +34,688 @@ Guion para grabar la tarea **oyi436dd** (Data Science & Analytics). En **Google 
 
 | Tema | Situación | Qué hacer |
 | ---- | --------- | --------- |
-| **Origen de los CSV** | El prompt pide que los archivos **los genere Gemini antes de grabar**, y la nota final del notebook dice eso. Los tres CSV de esta carpeta **los generé yo con un script de Python**. | Igual que en k3a13c10: **(a)** los generás con Gemini (abajo hay un prompt) y me los pasás: vuelvo a correr todo y actualizo los números. **(b)** Usás estos y la nota final dice cómo se generaron de verdad. **No digas "Gemini" si no es cierto.** |
-| **Tipeo** | El código suma unos **4.700 caracteres**, más **930** de las conclusiones. A 300 caracteres por minuto son unos **19 minutos de tipeo** en una grabación de 30. Muy por encima del 25–30% que acepta AutoQC. | El prompt pide 9 secciones, 5 entregables y dos librerías de gráficos: no entra en mucho menos código. Practicá el tipeo y alargá las explicaciones (la grabación puede pasar de 30 minutos si las reglas de Odin lo permiten: el máximo general es 50:59). Si querés, saco secciones (por ejemplo, el top 5 de productos o el análisis de junio). |
-| **Versión de pandas** | Lo probé con pandas 3.1. Colab suele traer pandas 2.x. | Si ves `object` en vez de `str`, o `1433.0` en vez de `1433`, es lo mismo: decí el número que veas. |
+| **Duración: el prompt pide 15–30 minutos** | Con todo tipeado en vivo, la estimación da **40–46 minutos**. Solo el tipeo son 3.850 caracteres, unos 26 minutos a 150 caracteres por minuto. Así no se llega a 30 sin sacar contenido. El máximo general de la plataforma es 50:59, así que sigue siendo una grabación válida en ese sentido. | Confirmá si el tope de 30 minutos del prompt es **obligatorio**. Si lo es, avisame y saco lo que el prompt no exija. Candidatos: el top 5 de productos, el desglose de junio por canal y la línea de categorías y canales del Step 1. Eso ahorra unos 2–3 minutos. Para llegar a 30 hay que recortar más, y para eso necesito saber qué es obligatorio. |
+| **Porcentaje de tipeo** | Cerca del **60%** de la grabación. Bajar al 25–30% es imposible tipeando todo en vivo. | Igual que en k3a13c10: confirmá el límite en las guías. Usá el **autocompletado con Tab** para los nombres largos. |
+| **Origen de los CSV** | Los tres CSV los generé yo, Claude, con un script de Python. "Generated with AI" es **cierto**; "Gemini" **no**. | Las conclusiones dicen *"generated with AI before recording"*. Marcá en Studio la opción de archivos generados con IA. |
+| **Versión de pandas** | Lo probé con pandas 3.1. Colab suele traer la 2.x. | Si ves `object` en vez de `str`, o los arreglos de `unique()` se ven distintos, es lo mismo: decí lo que veas. |
 
-**Prompt sugerido para Gemini (opción a):**
+---
 
-> Create three synthetic CSV files for a fictional online home-goods retailer, "Brightside Home", for 2025, with no real people. 1) products.csv (24 rows): product_id (P001–P024), product_name, category (Kitchen, Bedding, Lighting, Decor, Bath, Outdoor; write 4 of them with inconsistent case or spaces), list_price, unit_cost. 2) orders.csv (about 1,400 orders): order_id, order_date (YYYY-MM-DD, but about 10% as DD/MM/YYYY), customer_id (about 18 missing), channel (Web, App, B2B, with some inconsistent spellings like "web", "APP ", "b2b"), status (completed or cancelled, about 6% cancelled); include 20 exact duplicate rows. 3) order_items.csv (about 3,000 lines): order_id, line_no, product_id, quantity, unit_price, line_total = quantity × unit_price. Include: 12 unit prices written in cents, 10 missing unit prices, 4 quantities of 999 where line_total equals one unit, 6 line totals that don't match, 8 lines for a product P025 that isn't in the catalog, 5 lines whose order doesn't exist, B2B orders of 10–40 units at 85% of list price, three very large B2B orders in June, and a November peak.
+## La regla del mouse (leela antes de practicar)
+
+Para el revisor, y para AutoQC, **cada movimiento del mouse es una acción**, y una acción sin frase cuenta como no explicada.
+
+1. **El mouse solo se mueve cuando decís una frase 🖱️.** Si no estás diciendo una, la mano no toca el mouse.
+2. **Mientras tipeás, soltá el mouse.** Las dos manos en el teclado.
+3. **Al terminar una acción, dejá el cursor quieto en el margen derecho de Colab**, en la zona blanca. Nunca encima de botones.
+4. **Primero decís la frase y después movés el mouse**, en un solo movimiento, directo.
+5. **Si leés el guion, leelo con el mouse quieto.**
+6. **Si hacés algo que no está en el guion**, usá una frase comodín de la tabla siguiente. Nunca lo hagas en silencio.
+
+| Acción | Frase comodín |
+| ------ | ------------- |
+| Mover el mouse hacia el botón Run | *"I'm moving the mouse to the Run button, on the left of the cell."* |
+| Scroll de más | *"I'm scrolling down a bit, to see the end of the output."* / *"I'm scrolling back up to the cell I'm working on."* |
+| Scroll horizontal en una tabla | *"I'm scrolling right inside the table, to see the last columns."* |
+| Clic para corregir | *"I'm clicking at the end of the line in the third cell, to fix a typo."* |
+| Autocompletar | *"I'm pressing Tab to autocomplete the column name."* |
+| Cerrar sugerencias de Colab | *"I'm pressing Escape to close the suggestion box."* |
+| Esperar a que termine una celda | *"I'm waiting for the cell to finish; the spinner on the left shows it's running."* |
+| Cerrar un aviso | *"I'm clicking Close on the notice at the bottom of the screen."* |
+| Volver a una celda anterior | *"I'm scrolling up to the second cell, to check the anomaly table again."* |
+
+---
+
+## 1. Diagnóstico: por qué el guion anterior lleva unos 85 minutos
+
+**Estos tiempos son estimaciones mías, no mediciones.** Los calculé con el mismo método que en k3a13c10, que para esa tarea coincidió con tus 75 minutos reales: **130 palabras por minuto** de narración y **120 caracteres por minuto** de tipeo.
+
+| Origen del tiempo | Cantidad en el guion anterior | Tiempo estimado |
+| ----------------- | ----------------------------- | --------------- |
+| Tipear el código (16 celdas) | ~4.720 caracteres | **~39 min** |
+| Tipear las conclusiones | ~930 caracteres | **~8 min** |
+| Narración | ~4.100 palabras | **~32 min** |
+| Navegación (17 ciclos de celda, subir archivos, 3 descargas, visor) | — | **~6–7 min** |
+| **Total** | | **~85 min** |
+
+Las causas son las mismas que en k3a13c10:
+
+1. **El tipeo.** Nombres largos (`orders`, `items`, `products`, `clean`, `order_val`) repetidos decenas de veces, columnas escritas entre corchetes y comillas, y celdas de una sola línea que igual llevan su ciclo completo.
+2. **Cada celda se explicaba tres veces:** antes, mientras se tipeaba y después.
+3. **16 ciclos de celda**, cuando varias son pasos chicos (las celdas 3, 8, 10 y 12).
+4. **Navegación que puede ir antes o después de grabar:** subir los tres CSV, las tres descargas y el visor de archivos.
+
+---
+
+## 2. Qué se reduce, se agrupa o se elimina
+
+En la columna "Tiempo real probable" van mis **estimaciones** (no son mediciones), con las velocidades de la sección 1.
+
+| Paso actual | En el guion | Real probable | Problema | Optimización |
+| ----------- | ----------- | ------------- | -------- | ------------ |
+| A. Apertura y subida | 2:00 | ~4 min | 386 palabras y la subida de 3 archivos | Los CSV se suben **antes**. ~170 palabras. |
+| B. Celdas 1–2: carga y calidad | 3:30 | ~9 min | 586 caracteres y dos ciclos | **Step 1**: una celda de 380 caracteres, con nombres `o`, `i`, `p`. |
+| C. Celdas 3–4: anomalías | 4:00 | ~9 min | 525 caracteres, dos ciclos y una explicación larga de `format="mixed"` | **Step 2**: una celda de 345 caracteres. Lo de `mixed` queda en una frase. |
+| D. Celdas 5–8: transformación y join | 5:30 | **~20 min** | 1.726 caracteres, la parte más larga. La celda 8 solo mostraba los *mismatches*. | **Step 3** (771) y **Step 4** (490). Sale la celda 8: los 6 *mismatches* quedan en el reporte de excepciones. |
+| E. Celdas 9–13: negocio y outliers | 6:00 | ~15 min | 960 caracteres en cinco ciclos | **Step 5** (494), que junta métricas, categorías, top 5, meses y junio, y **Step 6** (207), con los outliers. |
+| F. Celda 14: gráficos | 1:30 | ~4 min | — | **Step 7**: 202 caracteres. |
+| G. Celda 15: validación | 2:00 | ~5 min | 374 caracteres | **Step 8**: 233 caracteres. |
+| H. Celda 16, conclusiones, descargas y visor | 3:00 | ~13 min | 930 caracteres de conclusiones, 3 descargas y el visor | **Step 9** (183) y conclusiones de 534 caracteres. Las descargas van **después** de grabar. |
+| I. Epílogo | 3:00 | ~2,5 min | Largo | ~2 min. |
+
+---
+
+## 3. Notebook compacto
+
+`sales_analysis.ipynb` es el **notebook de referencia** para practicar. **No se usa en la grabación**: ahí empezás con el notebook vacío y tipeás todo. Cada celda empieza con un comentario corto con la sección del prompt.
+
+| Celda | Sección | Qué hace | Caracteres |
+| ----- | ------- | -------- | ---------- |
+| Step 1 | 1–3. Context, loading, quality | Lee los 3 CSV. Muestra tamaños, faltantes, duplicados, estados, canales, categorías y `describe`. | 380 |
+| Step 2 | 4. Anomalies | Revisa el formato de las fechas y compara precios y cantidades contra el catálogo. | 345 |
+| Step 3 | 5. Transformation | Saca duplicados, convierte fechas, normaliza canales y categorías, completa GUEST y hace 3 correcciones con su valor original y su etiqueta. | 771 |
+| Step 4 | 5. Reconciliation | Une las tablas con `validate="m:1"`, marca 3 tipos de excepción y define `in_revenue`. | 490 |
+| Step 5 | 6. Business analysis | Calcula ingreso, pedidos y ticket promedio. Muestra categorías, top 5 de productos, meses con variación y junio por canal. | 494 |
+| Step 6 | 6. Outliers | Aplica IQR sobre log10 del valor de pedido, por canal. | 207 |
+| Step 7 | 7. Visualizations | Dibuja la línea mensual (Matplotlib) y el box plot por canal (Seaborn). | 202 |
+| Step 8 | 8. Validation | Compara el join ingenuo con las líneas, las filas de entrada con las de salida, las categorías con el ingreso y el total por estado. | 233 |
+| Step 9 | 9. Deliverables | Exporta `clean_sales.csv` y `exceptions_report.csv`. | 183 |
+| Texto | 9. Conclusions | Conclusiones y notas finales. | 534 |
+
+---
+
+## 4. Código completo, por celda
+
+Probado con los tres CSV. Los nombres son cortos a propósito: `o` = orders, `i` = items, `p` = products, `oc` = clean orders, `c` = clean table, `r` = revenue lines, `ov` = order values.
+
+### Step 1
+
+```python
+# 1-3. Context, loading, quality
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, seaborn as sns
+o = pd.read_csv("orders.csv")
+i = pd.read_csv("order_items.csv")
+p = pd.read_csv("products.csv")
+for t in [o, i, p]: print(t.shape, t.isna().sum().to_dict())
+print(o.duplicated().sum(), o.status.value_counts().to_dict())
+print(o.channel.unique(), p.category.unique())
+i.describe()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `# 1-3. ...`: a section comment. It doesn't run.
+- `import ...`: the four libraries with their usual short names.
+- The three `read_csv` lines: orders, order lines and catalog.
+- `for t in [o, i, p]: print(...)`: for each table, (rows, columns) and the missing values per column.
+- `print(o.duplicated().sum(), o.status.value_counts().to_dict())`: exact duplicate order rows, and orders per status.
+- `print(o.channel.unique(), p.category.unique())`: every way the channel and the category are written.
+- `i.describe()`: the statistics of the order lines (count, mean, min, quartiles, max).
+
+### Step 2
+
+```python
+# 4. Anomalies
+d = o.order_date[o.order_date.str.contains("/")]
+print(len(d), (d.str[:2].astype(int) > 12).sum(), (d.str[3:5].astype(int) > 12).sum())
+i = i.merge(p[["product_id", "list_price"]], how="left")
+i["ratio"] = i.unit_price / i.list_price
+i["implied"] = i.line_total / i.unit_price
+i[(i.ratio > 2) | (i.quantity >= 50) | i.unit_price.isna()]
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `d = o.order_date[o.order_date.str.contains("/")]`: the dates written with slashes.
+- `print(len(d), ...)`: how many there are, how many have a first number above 12, and how many have a second number above 12.
+- `i = i.merge(p[["product_id", "list_price"]], how="left")`: adds the list price to each line. It joins on `product_id`, the only shared column. `left` keeps the products that aren't in the catalog.
+- `i["ratio"]`: charged price ÷ list price (1 = full price, 0.85 = B2B, 100 = cents).
+- `i["implied"]`: the quantity implied by the line total.
+- The last line shows the suspicious lines: a price more than double, a quantity of 50 or more, or a missing price.
+
+### Step 3
+
+```python
+# 5. Transformation
+oc = o.drop_duplicates().copy()
+oc["order_date"] = pd.to_datetime(oc.order_date, format="ISO8601", errors="coerce").fillna(pd.to_datetime(oc.order_date, format="%d/%m/%Y", errors="coerce"))
+oc["channel"] = oc.channel.str.strip().str.title()
+oc["customer_id"] = oc.customer_id.fillna("GUEST")
+p["category"] = p.category.str.strip().str.title()
+i["price_raw"], i["qty_raw"] = i.unit_price, i.quantity
+i["fix"] = np.select([i.ratio > 50, i.unit_price.isna(), i.quantity == 999], ["cents", "no price", "999 qty"], "")
+i.loc[i.fix == "cents", "unit_price"] /= 100
+i["unit_price"] = i.unit_price.fillna(i.line_total / i.quantity)
+i.loc[i.fix == "999 qty", "quantity"] = i.implied
+print(oc.order_date.isna().sum(), oc.channel.unique(), p.category.unique())
+i.fix.value_counts()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `oc = o.drop_duplicates().copy()`: the orders without the exact duplicates. `o` stays raw for the validation.
+- `oc["order_date"] = ...`: reads year-first dates first. The ones that fail become empty and are filled by reading them as day/month/year. This avoids `format="mixed", dayfirst=True`, which also flips the correct dates.
+- `oc["channel"] = ...strip().str.title()`: removes spaces and unifies capitalization (`web`, `WEB ` → `Web`; `b2b` → `B2B`).
+- `oc["customer_id"] = ...fillna("GUEST")`: a missing customer is a guest checkout.
+- `p["category"] = ...`: the same normalization for the categories.
+- `i["price_raw"], i["qty_raw"] = ...`: keeps the original values.
+- `i["fix"] = np.select([...], [...], "")`: the label of the rule that applies, decided **before** changing anything.
+- `i.loc[i.fix == "cents", "unit_price"] /= 100`: cents → dollars.
+- `i["unit_price"] = ...fillna(line_total / quantity)`: a missing price, recovered from the total.
+- `i.loc[i.fix == "999 qty", "quantity"] = i.implied`: 999 → the quantity confirmed by the total (1).
+- `print(...)`: 0 unread dates, and the clean channels and categories.
+- `i.fix.value_counts()`: how many lines each rule fixed.
+
+### Step 4
+
+```python
+# 5. Reconciliation
+c = i.drop(columns=["list_price", "ratio", "implied"]).merge(oc, how="left", validate="m:1")
+c = c.merge(p[["product_id", "product_name", "category"]], how="left", validate="m:1")
+c["category"] = c.category.fillna("Unknown")
+c["exception"] = np.select([c.status.isna(), c.category == "Unknown", (c.quantity * c.unit_price - c.line_total).abs() > 0.01], ["no order", "unknown product", "total mismatch"], "")
+c["in_revenue"] = c.status == "completed"
+c.exception.value_counts()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- First line: removes the helper columns and joins the clean orders on `order_id`. `validate="m:1"` stops with an error if an order appears twice: the protection against double counting.
+- Second line: adds the product name and category, with the same protection.
+- `c["category"] = ...fillna("Unknown")`: products that aren't in the catalog.
+- `c["exception"] = np.select(...)`: no status → the order doesn't exist; Unknown → product not in the catalog; quantity × price ≠ total → mismatch.
+- `c["in_revenue"]`: only completed orders count as revenue.
+- `c.exception.value_counts()`: lines per exception.
+
+### Step 5
+
+```python
+# 6. Business analysis
+r = c[c.in_revenue]
+ov = r.groupby(["order_id", "channel"], as_index=False).line_total.sum()
+print(r.line_total.sum().round(2), len(ov), ov.line_total.mean().round(2))
+display(r.groupby("category").line_total.sum().sort_values())
+display(r.groupby("product_name").line_total.sum().nlargest(5))
+m = r.groupby(r.order_date.dt.to_period("M")).line_total.sum()
+display(pd.concat([m, m.pct_change()], axis=1).round(2))
+r[r.order_date.dt.month == 6].groupby("channel").line_total.sum()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `r = c[c.in_revenue]`: only the revenue lines.
+- `ov = ...`: one row per order, with its channel and its value.
+- `print(...)`: total revenue, number of orders and average order value (per order, not per line).
+- `display(... category ...)`: revenue by category, from lowest to highest.
+- `display(... nlargest(5))`: the top 5 products.
+- `m = ...to_period("M")...`: revenue by month.
+- `display(pd.concat([m, m.pct_change()], axis=1))`: each month and its change from the previous one (0.50 = +50%).
+- The last line: June revenue by channel.
+
+### Step 6
+
+```python
+# 6. Outliers (IQR on log10)
+lg = np.log10(ov.line_total)
+q1, q3 = lg.quantile([0.25, 0.75])
+lim = q3 + 1.5 * (q3 - q1)
+ov["outlier"] = lg > lim
+print(10 ** lim)
+ov.groupby("channel").outlier.agg(["sum", "count"])
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `lg = np.log10(...)`: the logarithm of each order value, because the values are skewed to the right.
+- `q1, q3 = ...`: quartiles on the log scale.
+- `lim = q3 + 1.5 * (q3 - q1)`: the upper IQR limit.
+- `ov["outlier"] = lg > lim`: True above the limit.
+- `print(10 ** lim)`: the limit back in dollars.
+- The last line: outliers (`sum`) out of total orders (`count`) per channel.
+
+### Step 7
+
+```python
+# 7. Visualizations
+fig, ax = plt.subplots(1, 2, figsize=(12, 4))
+m.plot(ax=ax[0], marker="o", title="Monthly revenue")
+sns.boxplot(data=ov, x="channel", y="line_total", log_scale=True, ax=ax[1])
+plt.show()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `plt.subplots(1, 2, ...)`: two charts side by side.
+- `m.plot(...)`: the monthly revenue line, drawn with Matplotlib.
+- `sns.boxplot(...)`: the Seaborn box plot of order value by channel, on a log scale.
+- `plt.show()`: shows the figure without the `Axes(...)` text above it.
+
+### Step 8
+
+```python
+# 8. Validation
+print(i.merge(o, on="order_id").line_total.sum().round(2), i.line_total.sum().round(2))
+print(len(i), len(c), r.groupby("category").line_total.sum().sum().round(2))
+c.groupby(c.status.fillna("no order")).line_total.sum()
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- First line: the total of a naive join with the raw orders (with duplicates) vs the sum of the raw line totals. The fixes never changed `line_total`.
+- Second line: lines in vs lines out, and the sum of the categories (it must equal the revenue).
+- Third line: the raw total split into completed, cancelled and without an order.
+
+### Step 9
+
+```python
+# 9. Deliverables
+c.to_csv("clean_sales.csv", index=False)
+rep = c[(c.fix != "") | (c.exception != "") | (c.in_revenue == False)]
+rep.to_csv("exceptions_report.csv", index=False)
+len(rep)
+```
+
+📘 **What each line does** (para vos, no se lee):
+
+- `c.to_csv(...)`: the clean dataset, with the original values, the `fix` label and the exceptions.
+- `rep = ...`: the lines that were corrected, have an exception or are out of revenue.
+- `rep.to_csv(...)`: the exception report.
+- `len(rep)`: how many lines are in the report.
+
+### Celda de texto (se tipea en vivo)
+
+```markdown
+## 9. Conclusions
+- Data: removed 20 duplicate orders (a naive join adds $4,911.90), fixed 127 day-first dates and 26 lines with evidence. Unresolved: 6 total mismatches, 8 P025 lines, 5 lines without an order.
+- Business: revenue $433,779.55 from 1,328 orders, AOV $326.64. Bedding leads. June +50% came from 3 B2B orders; November is the peak.
+- Outliers: 36 orders, all B2B: a segment, not errors.
+- Next: one date format, prices in dollars, add P025, report B2B apart.
+- Final notes: synthetic files generated with AI before recording.
+```
+
+---
+
+## 5. Verificación de requisitos
+
+| Requisito | Dónde | Qué se ve |
+| --------- | ----- | --------- |
+| Contexto del negocio | Apertura y comentario del Step 1 | Brightside Home, 3 canales, el problema de Finanzas y la pregunta sobre junio |
+| Carga e inspección | Step 1 | `(1420, 5)`, `(3061, 6)`, `(24, 5)` y los faltantes |
+| Evaluación de calidad | Step 1 | 20 duplicados, 9 formas de escribir el canal, 10 de la categoría y los máximos sospechosos |
+| Investigación antes de corregir | Step 2 | Fechas `127 83 0` y una tabla de 29 líneas |
+| Transformación con evidencia y trazabilidad | Step 3 | `price_raw`, `qty_raw`, `fix` (12 / 10 / 4) |
+| Conciliación sin doble conteo | Step 4 | `validate="m:1"` y las excepciones 8 / 6 / 5 |
+| Análisis de negocio | Step 5 | Ingreso, pedidos, ticket promedio, categorías, top 5, meses y junio |
+| Outliers con un método justificado | Step 6 | IQR sobre log10: 36 de 61 pedidos B2B |
+| Matplotlib + Seaborn | Step 7 | La línea mensual y el box plot |
+| Validación de totales | Step 8 | 465.624,75 vs 460.712,85; 3.061 = 3.061; desglose por estado |
+| Dataset limpio | Step 9 | `clean_sales.csv` |
+| Reporte de excepciones | Step 9 | `exceptions_report.csv` (211) |
+| Conclusiones | Celda de texto | Tipeadas en vivo |
+| Declaración de IA | Celda de texto + Studio | "generated with AI before recording" |
+
+---
+
+## 6. Guion de grabación
+
+**Ciclo de cada celda:** **+ Code** → tipear con ⌨️ → **Run** → señalar → 🟢. Entre una frase 🖱️ y la siguiente, el mouse **no se mueve**.
+
+### A. 0:00–1:30 — Apertura
+
+Con la **descripción de la tarea** en pantalla, en menos de 20 segundos:
+
+> 🟢 I will be beginning my task soon. I'll take an imperfect sales export from a fictional home-goods retailer, investigate its anomalies, rebuild a reliable dataset in Google Colab, and use it to answer business questions about revenue, products, and channels.
+
+> 🖱️ I'm clicking the yellow minimize button at the top left of this Firefox window, to put the task description away.
+
+> 🖱️ I'm clicking the Firefox icon in the Dock, on the right side of the screen, and choosing the second window in the list, my empty Colab notebook.
+
+> 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to show the input files.
+
+> 🟢 I uploaded the three CSV files before recording: orders, order items, and the product catalog of Brightside Home, which sells through Web, App, and B2B. They're synthetic, generated with AI. Finance can't match the 2025 revenue from this export, and management wants to know what drives revenue and what happened in June.
+
+> 🖱️ I'm clicking the Files icon again to close the panel, and clicking inside the empty code cell at the top.
+
+### B. 1:30–5:00 — Step 1: carga y calidad (380 caracteres)
+
+> ⌨️ *(comment and import)* I'm typing the section comment and the imports at the top of the first cell: pandas, NumPy, Matplotlib, and Seaborn.
+
+> ⌨️ *(three read_csv)* I'm typing the three read_csv lines below them, with short names: o for orders, i for items, p for products.
+
+> ⌨️ *(for loop)* I'm typing the loop in the middle of the cell. It prints the size and the missing values of each table.
+
+> ⌨️ *(two prints)* I'm typing two prints below it: duplicate orders and statuses, and the channel and category labels.
+
+> ⌨️ *(describe)* I'm typing describe on the last line, to see the ranges of the order lines.
+
+> 🖱️ I'm clicking the Run cell button, the play icon on the left of the first cell, to load and profile the data.
+
+> 🖱️ I'm pointing at the first three lines of the output.
+
+> 🟢 1,420 orders, 3,061 order lines, and 24 products. 18 orders have no customer, and 10 lines have no price. I won't fill or delete them until I know what they mean.
+
+> 🖱️ I'm pointing at the next line: 20 and the statuses.
+
+> 🟢 20 exact duplicate orders. If I join the lines to them, their revenue counts twice. And 72 cancelled orders, which aren't revenue but I'll keep.
+
+> 🖱️ I'm moving the mouse along the channel and category labels.
+
+> 🟢 Three channels written nine ways, and six categories written ten ways. Same meaning, different text.
+
+> 🖱️ I'm pointing at the max row of the describe table, at the bottom.
+
+> 🟢 A quantity of 999, a price of 15,900 dollars, and a line total of 6,579. Some may be errors, some real large orders. I'll investigate before changing anything.
+
+**Resultado esperado:** `(1420, 5)` con `customer_id 18`, `(3061, 6)` con `unit_price 10`, `(24, 5)` sin faltantes. `20 {'completed': 1348, 'cancelled': 72}`. 9 canales y 10 categorías. Máximos: quantity 999, unit_price 15.900, line_total 6.579.
+
+### C. 5:00–9:00 — Step 2: anomalías (345 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the second cell.
+
+> ⌨️ *(comment, d)* I'm typing the section comment and the d line at the top of the second cell. It keeps the dates written with slashes.
+
+> ⌨️ *(print)* I'm typing the print below it: how many there are, and whether the first or the second number is ever above 12, because a number above 12 can only be a day.
+
+> ⌨️ *(merge)* I'm typing the merge in the middle of the cell. It adds the catalog list price to every line, and left keeps the products that aren't in the catalog.
+
+> ⌨️ *(ratio, implied)* I'm typing ratio and implied: the charged price over the list price, and the quantity implied by the line total.
+
+> ⌨️ *(filter)* I'm typing the filter on the last line: prices above double, quantities of 50 or more, or missing prices.
+
+> 🖱️ I'm clicking the Run cell button on the left of the second cell.
+
+> 🖱️ I'm pointing at the first output line, 127, 83, and 0.
+
+> 🟢 127 dates use slashes. In 83 the first number is above 12, and the second never is, so the format is day, month, year. A shortcut like dayfirst True would also flip the correct dates, so I'll parse each format separately.
+
+> 🖱️ I'm pointing at the rows with a ratio of 100 or 80.
+
+> 🟢 Twelve prices are 100 times the list price, and their line total is in dollars: 3,200 against a total of 32. Two sources agree, so it's a unit error, cents.
+
+> 🖱️ I'm pointing at the four rows with quantity 999.
+
+> 🟢 999 units, but the total implies one unit: a system placeholder.
+
+> 🖱️ I'm pointing at the three rows with 60, 80, and 100 units.
+
+> 🟢 These are different: a ratio of 0.85, the B2B price, and the implied quantity matches. Real hotel orders. Same filter, opposite conclusion.
+
+> 🖱️ I'm pointing at the rows with NaN in unit_price.
+
+> 🟢 Ten missing prices, but every one has a quantity and a total, so the price can be recovered.
+
+**Resultado esperado:** `127 83 0`. 29 filas: 12 con ratio 100 u 80, 4 con quantity 999 (implied 1,0), 3 B2B con ratio 0,85 (`O10492` 60, `O10493` 80, `O10494` 100) y 10 con unit_price NaN.
+
+### D. 9:00–15:00 — Step 3: transformación (771 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the third cell.
+
+> ⌨️ *(comment, oc)* I'm typing the section comment and oc at the top of the third cell: a copy of the orders without the exact duplicates.
+
+> ⌨️ *(the long date line)* I'm typing the date line. It reads the year-first dates first, and fillna reads the ones that failed as day, month, year.
+
+> ⌨️ *(channel, customer_id, category)* I'm typing three cleaning lines: strip and title unify the channel labels, a missing customer becomes GUEST because it's a guest checkout, and the categories get the same cleaning.
+
+> ⌨️ *(price_raw, qty_raw)* I'm typing the line that keeps the original price and quantity, so every change can be audited.
+
+> ⌨️ *(np.select)* I'm typing the fix column with np.select. It labels each rule before any value changes: cents, no price, or the 999 placeholder.
+
+> ⌨️ *(the three fixes)* I'm typing the three fixes: divide by 100, fill the missing price with total over quantity, and replace 999 with the implied quantity.
+
+> ⌨️ *(print, value_counts)* I'm typing the checks on the last two lines.
+
+> 🖱️ I'm clicking the Run cell button on the left of the third cell.
+
+> 🖱️ I'm pointing at the printed line.
+
+> 🟢 Zero dates left unread, three clean channels, and six clean categories.
+
+> 🖱️ I'm moving the mouse down the fix counts.
+
+> 🟢 12 prices in cents, 10 recovered prices, and 4 placeholder quantities: 26 corrections, each one labeled and with its original value kept.
+
+**Resultado esperado:** `0 ['App' 'Web' 'B2B'] ['Kitchen' 'Bedding' 'Lighting' 'Decor' 'Bath' 'Outdoor']`. `fix`: vacío 3035, cents 12, no price 10, 999 qty 4.
+
+### E. 15:00–19:30 — Step 4: conciliación (490 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the fourth cell.
+
+> ⌨️ *(comment, first merge)* I'm typing the first join at the top of the fourth cell. It drops the helper columns and joins the clean orders. validate m to 1 stops with an error if an order appears twice: that's my protection against double counting.
+
+> ⌨️ *(second merge)* I'm typing the second join below it, the product name and category, with the same protection.
+
+> ⌨️ *(Unknown)* I'm typing the Unknown line, for products that aren't in the catalog.
+
+> ⌨️ *(exception)* I'm typing the exception column: no order, unknown product, or a total that doesn't match quantity times price.
+
+> ⌨️ *(in_revenue, value_counts)* I'm typing in_revenue, only completed orders, and the counts on the last line.
+
+> 🖱️ I'm clicking the Run cell button on the left of the fourth cell.
+
+> 🟢 No error, so validate confirmed that every order and product appears only once.
+
+> 🖱️ I'm moving the mouse down the exception counts.
+
+> 🟢 Eight lines for P025, a product not in the catalog. The sale is real, so it stays in revenue as Unknown. Six totals don't match quantity times price: maybe a double charge or a refund. I can't tell which value is right, so I keep them and report them. And five lines belong to orders that don't exist, so they stay out of revenue.
+
+**Resultado esperado:** vacío 3042, unknown product 8, total mismatch 6, no order 5.
+
+### F. 19:30–25:00 — Step 5: análisis de negocio (494 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the fifth cell.
+
+> ⌨️ *(comment, r, ov)* I'm typing r and ov at the top of the fifth cell: the revenue lines, and one row per order, because the average order value must be per order, not per line.
+
+> ⌨️ *(print)* I'm typing the print: total revenue, orders, and average order value.
+
+> ⌨️ *(two displays)* I'm typing two displays: revenue by category, and the top five products.
+
+> ⌨️ *(m and its display)* I'm typing the monthly revenue and its change from the previous month.
+
+> ⌨️ *(June line)* I'm typing the last line: June revenue by channel.
+
+> 🖱️ I'm clicking the Run cell button on the left of the fifth cell.
+
+> 🖱️ I'm pointing at the first output line.
+
+> 🟢 433,779 dollars of completed revenue, 1,328 orders, and an average order value of about 327 dollars.
+
+> 🖱️ I'm pointing at the bottom of the category list, Bedding.
+
+> 🟢 Bedding leads with about 112,000 dollars, followed by Lighting. 731 dollars are Unknown, the P025 sales.
+
+> 🖱️ I'm moving the mouse down the top five products.
+
+> 🟢 The Linen Duvet Cover leads with about 50,000 dollars, then the Brass Floor Lamp.
+
+> 🖱️ I'm scrolling down to the monthly table and pointing at June and November.
+
+> 🟢 June jumps 50% and then falls 25% in July. November rises 45%, the best month, which looks seasonal. June has no obvious season.
+
+> 🖱️ I'm pointing at the B2B row of the last output.
+
+> 🟢 B2B brought 21,000 dollars in June, more than Web and App together. That's the three hotel orders, so June wasn't general demand. It may not repeat, which matters for forecasting.
+
+**Resultado esperado:** `433779.55 1328 326.64`. Bedding 112.125,95 · Lighting 81.683,65 · Unknown 731,00. Top: Linen Duvet Cover 50.161,65 · Brass Floor Lamp 41.467,20. Junio 40.937,45 (0,50), julio −0,25, noviembre 69.483,90 (0,45). Junio: B2B 21.312,05 · Web 11.431,60 · App 8.193,80.
+
+### G. 25:00–28:00 — Step 6: outliers (207 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the sixth cell.
+
+> ⌨️ *(comment, lg)* I'm typing lg at the top of the sixth cell, the logarithm of each order value, because the values are skewed: many small orders and a few huge ones.
+
+> ⌨️ *(q1, q3, lim, outlier)* I'm typing the quartiles, the IQR limit, and the outlier flag.
+
+> ⌨️ *(print, groupby)* I'm typing the limit back in dollars, and the outliers by channel.
+
+> 🖱️ I'm clicking the Run cell button on the left of the sixth cell.
+
+> 🖱️ I'm pointing at the limit and then at the B2B row.
+
+> 🟢 The limit is about 2,165 dollars. 36 orders are above it, all B2B, out of 61. These aren't errors: B2B is a separate segment. Deleting them would remove real revenue, so I'll report B2B separately. A z-score would fail here, because the large orders inflate the standard deviation.
+
+**Resultado esperado:** `2165.16...`. App 0 de 451, B2B 36 de 61, Web 0 de 816.
+
+### H. 28:00–30:30 — Step 7: gráficos (202 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the seventh cell.
+
+> ⌨️ *(comment, subplots)* I'm typing subplots at the top of the seventh cell, for two charts side by side.
+
+> ⌨️ *(m.plot)* I'm typing the monthly line with Matplotlib, a line because it's a trend over time.
+
+> ⌨️ *(boxplot, show)* I'm typing the Seaborn box plot by channel, on a log scale so small and large orders fit, and plt show.
+
+> 🖱️ I'm clicking the Run cell button on the left of the seventh cell.
+
+> 🖱️ I'm pointing at the June spike and the November peak on the left chart.
+
+> 🟢 The June spike from the hotel orders, and the November peak.
+
+> 🖱️ I'm moving the mouse across the three boxes on the right chart.
+
+> 🟢 Web and App look alike. B2B sits far above, with a median more than ten times larger.
+
+### I. 30:30–33:00 — Step 8: validación (233 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the eighth cell.
+
+> ⌨️ *(first print)* I'm typing the first print at the top of the eighth cell: a naive join of the raw files, against the raw line totals.
+
+> ⌨️ *(second print)* I'm typing the second print: lines in, lines out, and the sum of the categories.
+
+> ⌨️ *(groupby)* I'm typing the last line: the raw total split by status.
+
+> 🖱️ I'm clicking the Run cell button on the left of the eighth cell.
+
+> 🖱️ I'm pointing at the first line.
+
+> 🟢 The naive join gives 465,624 dollars against 460,712 in the raw lines: almost 4,900 dollars too much, only because of the duplicates. That could explain part of finance's mismatch.
+
+> 🖱️ I'm pointing at the second line.
+
+> 🟢 3,061 lines in and out, and the categories add up exactly to the revenue.
+
+> 🖱️ I'm moving the mouse down the three totals.
+
+> 🟢 Completed, plus cancelled, plus 395 dollars without an order, adds up to the raw total. Nothing was forced to match.
+
+**Resultado esperado:** `465624.75 460712.85`. `3061 3061 433779.55`. cancelled 26.538,30 · completed 433.779,55 · no order 395,00.
+
+### J. 33:00–34:30 — Step 9: entregables (183 caracteres)
+
+> 🖱️ I'm scrolling down and clicking the plus Code button at the top left, to add the ninth cell.
+
+> ⌨️ *(comment, to_csv)* I'm typing the export of the clean dataset at the top of the ninth cell.
+
+> ⌨️ *(rep, to_csv, len)* I'm typing the exception report: every line that was corrected, has an exception, or is out of revenue.
+
+> 🖱️ I'm clicking the Run cell button on the left of the ninth cell.
+
+> 🖱️ I'm pointing at the output, 211.
+
+> 🟢 211 lines in the report: 26 corrected, 19 with an exception, and the rest are lines of cancelled orders.
+
+> 🖱️ I'm clicking the Files icon in the left sidebar, and pointing at clean_sales and exceptions_report.
+
+Si no aparecen: 🖱️ *"I'm clicking the refresh icon at the top of the Files panel, to update the list."*
+
+> 🖱️ I'm clicking the Files icon again to close the panel.
+
+### K. 34:30–38:00 — Conclusiones (534 caracteres)
+
+> 🖱️ I'm clicking the plus Text button at the top left, next to plus Code, to add the conclusions cell.
+
+> ⌨️ *(title, Data)* I'm typing the title and the data line in the text cell: the duplicates, the dates, the 26 corrections, and what remains unresolved.
+
+> ⌨️ *(Business)* I'm typing the business line: revenue, orders, average order value, Bedding, June, and November.
+
+> ⌨️ *(Outliers, Next)* I'm typing the outliers and the recommendations.
+
+> ⌨️ *(Final notes)* I'm typing the final note at the bottom: the files are synthetic, generated with AI.
+
+> 🖱️ I'm clicking the empty area below the text cell, to close the editor and show the formatted conclusions.
+
+> 🖱️ I'm pressing Command + S to save the notebook in Drive.
+
+### L. 38:00–40:00 — Epílogo
+
+> 🖱️ I'm scrolling up slowly through the notebook, in the center of the screen.
+
+> 🟢 My approach was to treat every anomaly as a question first. The same filter showed prices in cents, which were errors, and hotel orders of 100 units, which were real. The evidence decided, not the size of the number.
+
+> 🟢 The main challenge was the duplicates: a simple join would have overstated revenue by almost 5,000 dollars, and nobody would see it in a chart. Another challenge was the dates: the convenient one-line parse would have silently flipped correct dates.
+
+> 🟢 For the business, Bedding leads revenue, June's jump was three hotel orders, and B2B should be reported separately. The limits: one year of synthetic data, no costs per line, and six mismatches I can't resolve without the source system. Next, I'd send the exception report to sales operations and fix the export at the source. Thanks for watching!
+
+---
+
+## 7. Cronograma
+
+Estimado, con dos velocidades: **150 caracteres por minuto** de tipeo y **130 palabras por minuto** de narración. Las frases ⌨️ se dicen mientras tipeás.
+
+| Sección | Tiempo | Tipeo |
+| ------- | ------ | ----- |
+| A. Apertura | 0:00–1:30 | — |
+| B. Step 1 | 1:30–5:00 | 380 (~2:30) |
+| C. Step 2 | 5:00–9:00 | 345 (~2:20) |
+| D. Step 3 | 9:00–15:00 | 771 (~5:10) |
+| E. Step 4 | 15:00–19:30 | 490 (~3:15) |
+| F. Step 5 | 19:30–25:00 | 494 (~3:20) |
+| G. Step 6 | 25:00–28:00 | 207 (~1:25) |
+| H. Step 7 | 28:00–30:30 | 202 (~1:20) |
+| I. Step 8 | 30:30–33:00 | 233 (~1:35) |
+| J. Step 9 | 33:00–34:30 | 183 (~1:15) |
+| K. Conclusiones | 34:30–38:00 | 534 (~3:35) |
+| L. Epílogo | 38:00–40:00 | — |
+| **Total** | **~40 min** | ~3.840 (~26 min) |
+
+Si tipeás a 120 caracteres por minuto, el total sube a unos **46 minutos**. Sigue por debajo de 50:59, pero **por encima de los 30 del prompt**: ver "Pendientes".
+
+---
+
+## 8. Checklist final
+
+### Preparación (sin grabar)
+
+- [ ] Practicá **tipeando las 9 celdas y las conclusiones** en un notebook de prueba, con cronómetro, al menos dos veces. Practicá sobre todo el Step 3 (la línea de fechas) y el Step 4 (`np.select`).
+- [ ] Practicá el **autocompletado con Tab** (`o.order_d` + Tab → `order_date`) y decí la frase cuando lo uses.
+- [ ] Creá el notebook vacío **sales_analysis** (**File → New notebook in Drive**).
+- [ ] En el panel **Files**, subí `orders.csv`, `order_items.csv` y `products.csv` desde el Escritorio. Que estén solo esos tres.
+- [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA, incluidas las sugerencias de código.
+- [ ] Zoom (`Cmd + +`). Ventana maximizada.
+- [ ] En Firefox, ventana 1 con la descripción de la tarea y ventana 2 con Colab, en la **segunda línea** del Dock.
+- [ ] Grabá **enseguida** después de subir los CSV.
+
+### Durante la grabación
+
+- [ ] Las celdas se ejecutan **en orden** y **una sola vez** cada una. El Step 3 divide por 100: si lo corrés dos veces, divide de nuevo.
+- [ ] La regla del mouse: se mueve solo con una frase 🖱️.
+- [ ] No termines antes de: Step 9 ejecutado, los 2 archivos en Files, las conclusiones tipeadas, **Cmd + S** y el epílogo.
+
+### Después de grabar
+
+- [ ] Detené TaskRecorder.
+- [ ] Descargá el `.ipynb` (**File → Download → Download .ipynb**) y los 2 CSV exportados.
+- [ ] **Run full AutoQC**: What + Where tiene que pasar el **70%**.
+- [ ] **Deliverables.zip** con el `.ipynb`, `clean_sales.csv`, `exceptions_report.csv` y los **tres CSV originales**.
+- [ ] En Studio, marcá la opción de archivos generados con IA.
+- [ ] Subí por separado el **MP4**, el **ZIP de TaskRecorder**, **Deliverables.zip** y **Metadata.rtf**.
+
+---
+
+## Si algo sale mal
+
+Siempre decí **qué** corregís y **en qué celda**.
+
+| Error | Qué pasa | Qué decís y hacés |
+| ----- | -------- | ----------------- |
+| `MergeError` en el Step 4 | `validate` encontró duplicados: el Step 3 no se ejecutó | 🖱️ *"The validate check stopped the join because the orders still have duplicates. That's the protection working. I'm running the third cell, and then this one again."* |
+| El Step 3 corrido dos veces | Los precios en centavos se dividen otra vez | 🖱️ *"I ran the third cell twice, so the prices were divided again. I'm opening the Runtime menu and choosing Restart and run all."* |
+| `AttributeError` o `KeyError` | Un nombre mal escrito | 🖱️ *"There's a typo in the column name in this cell. I'm fixing it and running it again."* |
+| `NameError` | Una celda anterior no se ejecutó | 🖱️ *"An earlier cell didn't run. I'm opening the Runtime menu and choosing Run before."* |
+| `FileNotFoundError` | El runtime se reinició | 🖱️ *"The files were deleted when the runtime restarted. I'm uploading the three CSV files again in the Files panel and running the first cell."* |
+| Error en `log_scale` | Seaborn antiguo | 🖱️ *"This Seaborn version doesn't support log_scale. I'm removing it and adding a line with ax 1 set y scale log."* |
 
 ---
 
@@ -34,837 +724,8 @@ Guion para grabar la tarea **oyi436dd** (Data Science & Analytics). En **Google 
 ```
 oyi436dd-customer-data-reconstruction/
 ├── README.md              ← este guion
-├── orders.csv             ← archivo de entrada 1: cabecera de pedidos (no se modifica)
-├── order_items.csv        ← archivo de entrada 2: líneas de pedido (no se modifica)
-├── products.csv           ← archivo de entrada 3: catálogo (no se modifica)
-└── sales_analysis.ipynb   ← notebook de referencia, completo y en orden
+├── orders.csv             ← entrada 1 (no se modifica)
+├── order_items.csv        ← entrada 2 (no se modifica)
+├── products.csv           ← entrada 3 (no se modifica)
+└── sales_analysis.ipynb   ← notebook de referencia para practicar (no se usa en la grabación)
 ```
-
-Para probar el notebook de referencia: en Colab, **File → Upload notebook → Browse**, elegís `sales_analysis.ipynb`, subís los tres CSV en el panel **Files** y ejecutás **Runtime → Run all**. Crea `clean_sales.csv` y `exceptions_report.csv`.
-
----
-
-## 1. El escenario de negocio
-
-**Brightside Home** es una tienda online ficticia de artículos para el hogar. Vende por tres canales: **Web**, **App** y **B2B** (hoteles y oficinas, con precio mayorista). Finanzas no logra que el ingreso de 2025 calculado con la exportación de ventas coincida con sus números. Además, la dirección quiere saber qué categorías y productos generan el ingreso y qué pasó en junio. El trabajo es reconstruir un dataset confiable y, recién con él, responder esas preguntas.
-
-## 2. Los archivos de entrada
-
-| Archivo | Filas | Columnas |
-| ------- | ----- | -------- |
-| `orders.csv` | 1.420 | `order_id`, `order_date`, `customer_id`, `channel`, `status` |
-| `order_items.csv` | 3.061 | `order_id`, `line_no`, `product_id`, `quantity`, `unit_price`, `line_total` |
-| `products.csv` | 24 | `product_id`, `product_name`, `category`, `list_price`, `unit_cost` |
-
-## 3. Los problemas de calidad que contienen
-
-Son para vos. En el video se **descubren** con el código, no se anticipan.
-
-| Problema | Dónde | Cuántos | Qué se hace |
-| -------- | ----- | ------- | ----------- |
-| Filas de pedido duplicadas exactas | orders | 20 | Se eliminan (duplicarían el ingreso en el join) |
-| Fechas en formato DD/MM/YYYY | orders | 127 | Se convierten, con evidencia de que el día va primero |
-| Canal escrito de varias formas | orders | 9 variantes | Se normaliza a Web, App, B2B |
-| Cliente vacío | orders | 18 | Se completa con `GUEST`: es compra como invitado, no un error |
-| Pedidos cancelados | orders | 72 | Se conservan, pero quedan fuera del ingreso |
-| Categoría escrita de varias formas | products | 4 | Se normaliza |
-| Precio en centavos | items | 12 | Se divide por 100, con evidencia del catálogo y del total |
-| Precio vacío | items | 10 | Se calcula como total ÷ cantidad |
-| Cantidad 999 (valor de relleno) | items | 4 | Se reemplaza por la cantidad que confirma el total (1) |
-| Total de línea que no coincide | items | 6 | **No se corrige**: queda como excepción sin resolver |
-| Producto que no está en el catálogo (P025) | items | 8 líneas | Se mantiene en el ingreso como `Unknown` y se reporta |
-| Línea sin pedido | items | 5 líneas | Queda fuera del ingreso y se reporta |
-| Pedidos B2B grandes (legítimos) | items | 3 en junio | **No** son errores: se explican |
-
-## 4. Las decisiones profesionales
-
-1. Investigar antes de corregir: cada corrección necesita evidencia (catálogo, total de línea o patrón de fechas).
-2. Guardar los valores originales (`unit_price_raw`, `quantity_raw`) y una columna `fix` que dice qué se corrigió.
-3. No borrar faltantes ni outliers sin entender qué significan para el negocio.
-4. No corregir lo que no tiene evidencia (los 6 totales que no coinciden).
-5. Evitar el doble conteo: sacar los duplicados antes del join y usar `validate="m:1"`.
-6. Medir los outliers del valor de pedido con IQR sobre el **logaritmo**, porque los importes tienen sesgo a la derecha.
-7. Separar lo que es un error de datos de lo que es un comportamiento legítimo del negocio (B2B, descuentos, cancelaciones).
-
-## 5. Los entregables
-
-1. `clean_sales.csv`: dataset analítico limpio y validado, una fila por línea de pedido, con valores originales, correcciones y excepciones.
-2. `exceptions_report.csv`: cada línea corregida, con excepción o fuera del ingreso.
-3. Resumen del negocio: ingreso, ticket promedio, categorías, productos, meses.
-4. Dos gráficos: ingreso mensual (Matplotlib) y valor de pedido por canal (Seaborn).
-5. El notebook reproducible, con las conclusiones.
-
----
-
-## Antes de grabar
-
-1. Leé el Goal y comparalo con este guion.
-2. En **Firefox**, dejá **dos ventanas**: la primera con la **descripción de la tarea**, en pantalla, porque con ella arranca la grabación. La segunda con **Google Colab** y el notebook ya creado: **File → New notebook in Drive**, con el nombre `sales_analysis` y la **celda de código vacía** que Colab crea sola. Revisá que, al hacer clic en el ícono de Firefox en el **Dock (a la derecha)**, Colab aparezca en la **segunda línea** de la lista.
-3. Tené `orders.csv`, `order_items.csv` y `products.csv` en el **Escritorio**. Son los originales: no se tocan.
-4. En Colab, **Tools → Settings → AI assistance**: ocultá las funciones de IA, si está la opción. No uses ninguna IA durante la grabación.
-5. Maximizá la ventana de Colab y agrandá el zoom (`Cmd + +`) para que el código se lea.
-6. Practicá una vez entera en voz alta, con cronómetro. Practicá sobre todo el tipeo de las celdas 5, 6 y 7.
-7. Ejecutá las celdas con el **botón Run** (mouse), así cada ejecución tiene su frase.
-8. No te quedes callado más de unos segundos: mientras tipeás, decí las frases ⌨️.
-9. Salvo la descripción de la tarea del principio, no muestres Studio, Slack, Metadata.rtf, Insightful ni datos personales.
-
----
-
-## A. 0:00–2:00 — Apertura
-
-Empezás con la **descripción de la tarea** en pantalla. Esta primera parte dura **menos de 20 segundos**:
-
-> 🟢 I will be beginning my task soon. I'll take an imperfect sales export from a fictional home-goods retailer, investigate its anomalies, rebuild a reliable analytical dataset in Google Colab, and use it to answer business questions about revenue, products, and channels.
-
-> 🖱️ I'm clicking the yellow minimize button at the top left of this Firefox window, to put the task description away.
-
-> 🖱️ I'm clicking the Firefox icon in the Dock, on the right side of the screen, to see my open Firefox windows.
-
-> 🖱️ I'm clicking the second line of the list, the Google Colab window, to open my notebook.
-
-> 🖱️ I'm pointing at the notebook name, sales_analysis, at the top left next to the Colab logo. I created this empty notebook before starting.
-
-> 🖱️ I'm clicking the Files icon, the folder in the left sidebar, to open the file panel.
-
-> 🖱️ I'm clicking the Upload to session storage button, the page with an up arrow at the top of the left panel, to choose the input files.
-
-> 🖱️ In the file window, I'm clicking Desktop on the left, selecting orders.csv, order_items.csv, and products.csv with Command held down, and clicking Open at the bottom right.
-
-Si aparece el aviso de que los archivos se borran al reiniciar el runtime:
-
-> 🖱️ I'm clicking OK on the warning in the center of the screen. It only says uploaded files are deleted when the runtime restarts.
-
-> 🖱️ I'm pointing at the three files in the left panel, in the file list.
-
-> 🟢 Here's the business problem. Brightside Home sells home goods through three channels: the website, the app, and B2B sales to hotels and offices. Finance can't make the 2025 revenue from this export match their own numbers, and management wants to know which categories and products drive revenue, and what happened in June.
-
-> 🟢 I have three synthetic files, created before recording: orders, with one row per order; order items, with one row per product in an order; and the product catalog. The originals stay unchanged. I'll work on copies and keep the original values next to every correction.
-
-> 🟢 The plan: profile the data, investigate every anomaly before changing anything, correct only what has evidence, and build one clean table. Then analyze revenue, products, channels, and months, check outliers, validate every total against the original, and export the clean dataset and an exception report.
-
-> 🖱️ I'm clicking the Files icon in the left sidebar again, to close the panel.
-
-> 🟢 Let's load the data.
-
-**Razonamiento profesional:** decir el problema de negocio antes que el código fija qué significa "confiable": que los totales cierren y que cada cambio se pueda rastrear. Un analista sin experiencia empieza a limpiar sin saber qué pregunta responde, y termina borrando datos que el negocio necesitaba.
-
----
-
-## B. 2:00–5:30 — Carga y perfil de los datos
-
-> 🟢 Section two: loading and initial inspection.
-
-> 🖱️ I'm clicking inside the empty code cell at the top of the notebook, to start typing in it.
-
-> 🟢 This first code cell imports the four libraries, reads the three files, and prints the size and the missing values of each one.
-
-> 🖱️ I'm typing the code in the first code cell, in the middle of the screen.
-
-> ⌨️ The comment at the top marks the section, so the notebook reads like a report. The list comprehension reads the three files in one line.
-
-**Celda 1:**
-
-```python
-# 1-2. Business context and data loading
-import pandas as pd, numpy as np, matplotlib.pyplot as plt, seaborn as sns
-orders, items, products = [pd.read_csv(f) for f in ["orders.csv", "order_items.csv", "products.csv"]]
-for t in [orders, items, products]:
-    print(t.shape, t.isna().sum()[lambda s: s > 0].to_dict())
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 1-2. Business context and data loading`: a comment with the section name. It doesn't run.
-- `import pandas as pd, numpy as np, matplotlib.pyplot as plt, seaborn as sns`: imports the four libraries with their usual short names.
-- `orders, items, products = [pd.read_csv(f) for f in [...]]`: reads the three CSV files in one line and stores each table in its own variable, in that order.
-- `for t in [orders, items, products]:`: goes through the three tables.
-- `print(t.shape, t.isna().sum()[lambda s: s > 0].to_dict())`: shows (rows, columns) and, only for columns with empty values, how many each one has.
-
-> 🖱️ I'm clicking the Run cell button, the play icon on the left edge of the first code cell, to load the files.
-
-> 🖱️ I'm pointing at the status at the top right of Colab, which turns green when the runtime is connected.
-
-> 🖱️ I'm moving the mouse down the three lines of the output, under the first code cell.
-
-> 🟢 1,420 orders, 3,061 order lines, and 24 products. Only two columns have missing values: 18 orders without a customer ID, and 10 order lines without a unit price. I won't fill or delete them yet. First, I need to know what they mean.
-
-> 🖱️ I'm scrolling down to the end of the output, and clicking the plus Code button in the toolbar at the top left, to add the second code cell.
-
-> 🟢 This second code cell assesses quality: duplicate orders, the labels used for channels and categories, the order statuses, and the distribution of the order lines.
-
-> 🖱️ I'm typing the quality checks in the second code cell.
-
-> ⌨️ duplicated counts rows that are identical to an earlier one. And I also count repeated order IDs, to see if a duplicate could be a different order with the same ID.
-
-**Celda 2:**
-
-```python
-# 3. Data quality assessment
-print("Duplicate order rows:", orders.duplicated().sum(), "| repeated IDs:", orders["order_id"].duplicated().sum())
-print(orders["channel"].unique(), products["category"].unique(), orders["status"].value_counts().to_dict())
-items.describe().round(2)
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 3. Data quality assessment`: a section comment.
-- `print("Duplicate order rows:", orders.duplicated().sum(), "| repeated IDs:", orders["order_id"].duplicated().sum())`: counts the rows identical to an earlier one, and the repeated order IDs.
-- `print(orders["channel"].unique(), products["category"].unique(), orders["status"].value_counts().to_dict())`: shows the different ways the channel and the category are written, and how many orders there are in each status.
-- `items.describe().round(2)`: summary statistics of the numeric columns of the order lines (`line_no` also appears).
-
-> 🖱️ I'm clicking the Run cell button on the left of the second code cell, to run the checks.
-
-> 🖱️ I'm pointing at the first line of the output.
-
-> 🟢 20 duplicate order rows, and exactly 20 repeated IDs. So every repeated ID is a full copy of the same order, probably exported twice. That matters a lot: if I join the order lines to these orders, each of those orders would count its revenue twice.
-
-> 🖱️ I'm moving the mouse along the channel and category labels, on the second line.
-
-> 🟢 Three channels written nine different ways: Web, web, WEB, Web with a space, and so on. And six categories written ten ways. Same meaning, different text, so any group by would split them.
-
-> 🖱️ I'm pointing at the statuses at the end of the line.
-
-> 🟢 1,348 completed and 72 cancelled. Cancelled orders aren't revenue, but I won't delete them: they're still part of the business.
-
-> 🖱️ I'm moving the mouse down the max row of the description table, at the bottom.
-
-> 🟢 And the order lines have three suspicious maximums: a quantity of 999, a unit price of 15,900 dollars for home goods, and a line total of 6,579 dollars. Some of these may be errors and some may be real large orders. That's what I'll investigate next.
-
-**Resultado esperado:** celda 1: `(1420, 5) {'customer_id': 18}`, `(3061, 6) {'unit_price': 10}`, `(24, 5) {}`. Celda 2: `Duplicate order rows: 20 | repeated IDs: 20`; canales `App, Web, B2B, WEB, web, Web , app, b2b, APP`; categorías `Kitchen, kitchen, Bedding, Lighting, ' Lighting', Decor, 'decor ', Bath, Outdoor, OUTDOOR`; `{'completed': 1348, 'cancelled': 72}`; máximos: quantity **999**, unit_price **15.900**, line_total **6.579**.
-
-**Razonamiento profesional:** comparar duplicados de fila completa con IDs repetidos dice **qué tipo** de duplicado es. Si los IDs repetidos fueran más que las filas duplicadas, habría pedidos distintos con el mismo ID, y borrarlos perdería ventas reales. Error típico: llamar a `drop_duplicates(subset="order_id")` sin mirar, o ver los máximos y borrar "los outliers" sin preguntar qué son.
-
-> 🟢 Let's investigate those values one by one, starting with the dates.
-
----
-
-## C. 5:30–9:30 — Investigación de anomalías
-
-> 🟢 Section four: anomaly investigation.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the third code cell.
-
-> 🟢 This third code cell finds the dates that aren't in the year-first format, and tests which part is the day: if the first number is ever above 12, it can't be a month.
-
-> 🖱️ I'm typing the date investigation in the third code cell.
-
-> ⌨️ contains with a slash finds the dates written with slashes, because the year-first dates use dashes.
-
-**Celda 3:**
-
-```python
-# 4. Anomaly investigation
-other = orders.loc[orders["order_date"].str.contains("/"), "order_date"]
-print(len(other), other.head(3).tolist(), "| day > 12:", (other.str[:2].astype(int) > 12).sum(), "| month > 12:", (other.str[3:5].astype(int) > 12).sum())
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 4. Anomaly investigation`: a section comment.
-- `other = orders.loc[orders["order_date"].str.contains("/"), "order_date"]`: the dates written with slashes, like 02/01/2025, that is, the ones that aren't in the year-month-day format with dashes.
-- `print(len(other), other.head(3).tolist(), "| day > 12:", ..., "| month > 12:", ...)`: how many there are, three examples, how many have a first number (`str[:2]`) above 12, and how many have a second number (`str[3:5]`) above 12.
-
-> 🖱️ I'm clicking the Run cell button on the left of the third code cell, to check the dates.
-
-> 🖱️ I'm pointing at the output under the third code cell.
-
-> 🟢 127 dates use another format, like 02/01/2025. That could be February 1st or January 2nd. The evidence settles it: in 83 of them, the first number is above 12, so it must be the day. And the second number is never above 12. So the format is day, month, year.
-
-> 🟢 This is where an inexperienced analyst often goes wrong. A one-line fix like to_datetime with format mixed and dayfirst True looks convenient, but I tested it: it also reads the correct year-first dates with the day first, so January 2nd silently becomes February 1st. I'll parse each format explicitly instead.
-
-> 🖱️ I'm scrolling down below the output, and clicking the plus Code button in the toolbar at the top left, to add the fourth code cell.
-
-> 🟢 This fourth code cell compares every order line with the catalog. The price ratio is the unit price over the list price, and the implied quantity is the line total over the unit price. Then it shows the suspicious lines: prices more than twice the list price, quantities of 50 or more, and missing prices.
-
-> 🖱️ I'm typing the price and quantity investigation in the fourth code cell.
-
-> ⌨️ The left merge keeps every line, even if its product isn't in the catalog.
-
-> ⌨️ A normal discount gives a ratio between 0.8 and 1, so anything above 2 isn't a discount.
-
-**Celda 4:**
-
-```python
-li = items.merge(products[["product_id", "list_price"]], on="product_id", how="left")
-li["price_ratio"] = li["unit_price"] / li["list_price"]
-li["implied_qty"] = li["line_total"] / li["unit_price"]
-li[(li["price_ratio"] > 2) | (li["quantity"] >= 50) | li["unit_price"].isna()]
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `li = items.merge(products[["product_id", "list_price"]], on="product_id", how="left")`: adds the catalog list price to every line. `how="left"` keeps the lines whose product isn't in the catalog.
-- `li["price_ratio"] = li["unit_price"] / li["list_price"]`: charged price ÷ list price (1 = full price, 0.8 = 20% off, 100 = cents).
-- `li["implied_qty"] = li["line_total"] / li["unit_price"]`: the quantity that the line total implies.
-- `li[(li["price_ratio"] > 2) | (li["quantity"] >= 50) | li["unit_price"].isna()]`: shows the lines with a price more than double, a quantity of 50 or more, or an empty price (`|` means "or").
-
-> 🖱️ I'm clicking the Run cell button on the left of the fourth code cell, to compare with the catalog.
-
-> 🖱️ I'm pointing at the rows where price_ratio is 100 or 80, in the table.
-
-> 🟢 Twelve lines have a price ratio of 100 or 80: exactly 100 times the list price, or 100 times a 20% discount. And look at the line total: 32 dollars for a price of 3,200. The line total is in dollars and the price is in cents. Two independent sources agree, so this is a unit error.
-
-> 🖱️ I'm pointing at the four rows with a quantity of 999.
-
-> 🟢 Four lines have a quantity of 999, but the implied quantity is exactly 1: the line total equals one unit. 999 is a typical placeholder value from a system, not a real order of 999 items.
-
-> 🖱️ I'm pointing at the three rows with quantities of 60, 80, and 100.
-
-> 🟢 And these three are different. 60, 80, and 100 units, at 85% of the list price, and the implied quantity matches the recorded one. That's the B2B wholesale price, so these are real bulk orders. Same filter, opposite conclusion: they stay as they are.
-
-> 🖱️ I'm pointing at the rows with NaN in unit_price.
-
-> 🟢 Ten lines have no price, but they all have a quantity and a line total, so the price can be recovered as total divided by quantity, and it's traceable.
-
-**Resultado esperado:** celda 3: `127 ['02/01/2025', '03/01/2025', '04/01/2025'] | day > 12: 83 | month > 12: 0`. Celda 4: **29 filas**: 12 con `price_ratio` 100 u 80 (por ejemplo, `O10386` P014: 3.200,00 con total 32,0), 4 con `quantity` 999 e `implied_qty` 1,0, 3 pedidos B2B (`O10492` 60 × 109,65 = 6.579,0, `O10493` 80 × 67,15, `O10494` 100 × 50,15, ratio 0,85) y 10 con `unit_price` NaN.
-
-**Razonamiento profesional:** la misma tabla mezcla errores y ventas reales a propósito, para mostrar que un filtro no es un veredicto. La evidencia (ratio contra el catálogo y cantidad implícita por el total) decide en cada caso. Alternativa descartada: marcar outliers con z-score sobre `unit_price` o `quantity`. Habría señalado igual los pedidos de hotel y los errores de centavos, sin distinguirlos.
-
-> 🟢 I've investigated the anomalies. Now I'll apply the rules, keeping every original value.
-
----
-
-## D. 9:30–15:00 — Transformación y conciliación
-
-> 🟢 Section five: transformation and reconciliation.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the fifth code cell.
-
-> 🟢 This fifth code cell cleans a copy of the orders: it removes the exact duplicates, parses each date format explicitly, normalizes the channel labels, and fills missing customers with GUEST. It also normalizes the catalog categories. The last line checks that nothing was left unparsed.
-
-> 🖱️ I'm typing the order transformations in the fifth code cell.
-
-> ⌨️ The first parse reads the year-first dates, and fillna uses the day-first parse only where the first one failed.
-
-> ⌨️ strip removes the spaces, and title gives every label the same capitalization.
-
-> ⌨️ A missing customer here means a guest checkout, so I label it instead of deleting the order.
-
-**Celda 5:**
-
-```python
-# 5. Transformation and reconciliation
-o = orders.drop_duplicates().copy()
-d = o["order_date"]
-o["order_date"] = pd.to_datetime(d, format="ISO8601", errors="coerce").fillna(pd.to_datetime(d, format="%d/%m/%Y", errors="coerce"))
-o["channel"] = o["channel"].str.strip().str.title()
-o["customer_id"] = o["customer_id"].fillna("GUEST")
-p = products.assign(category=products["category"].str.strip().str.title())
-print(o["order_date"].isna().sum(), o["channel"].unique(), p["category"].unique())
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 5. Transformation and reconciliation`: a section comment.
-- `o = orders.drop_duplicates().copy()`: a copy of the orders without the exact duplicate rows.
-- `d = o["order_date"]`: stores the original date column (text) under a short name.
-- `o["order_date"] = pd.to_datetime(d, format="ISO8601", errors="coerce").fillna(pd.to_datetime(d, format="%d/%m/%Y", errors="coerce"))`: first reads the year-month-day dates. The ones that fail become empty (`errors="coerce"`), and `fillna` fills them by reading them as day/month/year.
-- `o["channel"] = o["channel"].str.strip().str.title()`: removes spaces and capitalizes the first letter (`web` and `WEB` → `Web`, `b2b` → `B2B`).
-- `o["customer_id"] = o["customer_id"].fillna("GUEST")`: fills the empty customers with `GUEST`.
-- `p = products.assign(category=...)`: a copy of the catalog, with the category normalized the same way as the channel.
-- `print(o["order_date"].isna().sum(), o["channel"].unique(), p["category"].unique())`: checks that no date was left unread, and shows the clean values.
-
-> 🖱️ I'm clicking the Run cell button on the left of the fifth code cell, to clean the orders.
-
-> 🖱️ I'm pointing at the output under the fifth code cell.
-
-> 🟢 Zero dates left unparsed, three channels, Web, App, and B2B, and six clean categories.
-
-> 🖱️ I'm scrolling down below the output, and clicking the plus Code button in the toolbar at the top left, to add the sixth code cell.
-
-> 🟢 This sixth code cell fixes the order lines. First, it keeps the original price and quantity in new columns. Then it writes in a fix column which rule applies to each line, and applies the three rules: cents divided by 100, missing prices from the line total, and the 999 placeholder replaced by the implied quantity.
-
-> 🖱️ I'm typing the line corrections in the sixth code cell.
-
-> ⌨️ np.select checks the conditions in order and writes the matching label, or an empty text if none applies.
-
-> ⌨️ The labels are decided before any value changes, so they describe the original data.
-
-**Celda 6:**
-
-```python
-li["unit_price_raw"], li["quantity_raw"] = li["unit_price"], li["quantity"]
-li["fix"] = np.select([li["price_ratio"] > 50, li["unit_price"].isna(), li["quantity"] == 999],
-                      ["price in cents", "price from line total", "placeholder quantity"], "")
-li.loc[li["fix"] == "price in cents", "unit_price"] /= 100
-li["unit_price"] = li["unit_price"].fillna(li["line_total"] / li["quantity"])
-li.loc[li["fix"] == "placeholder quantity", "quantity"] = li["implied_qty"]
-li["fix"].value_counts()
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `li["unit_price_raw"], li["quantity_raw"] = li["unit_price"], li["quantity"]`: keeps the original price and quantity in new columns.
-- `li["fix"] = np.select([...], [...], "")`: writes the label of the first condition that matches: price more than 50 times the list price → `price in cents`; empty price → `price from line total`; quantity 999 → `placeholder quantity`. If none matches, an empty text.
-- `li.loc[li["fix"] == "price in cents", "unit_price"] /= 100`: divides the price of those lines by 100.
-- `li["unit_price"] = li["unit_price"].fillna(li["line_total"] / li["quantity"])`: fills the empty prices with total ÷ quantity.
-- `li.loc[li["fix"] == "placeholder quantity", "quantity"] = li["implied_qty"]`: replaces 999 with the quantity the total implies (1).
-- `li["fix"].value_counts()`: how many lines each correction affected.
-
-> 🖱️ I'm clicking the Run cell button on the left of the sixth code cell, to apply the rules.
-
-> 🖱️ I'm moving the mouse down the counts.
-
-> 🟢 Twelve prices in cents, ten prices from the line total, and four placeholder quantities. 26 corrections, each one labeled and with its original value kept. Every other line is untouched.
-
-> 🖱️ I'm scrolling down below the counts, and clicking the plus Code button in the toolbar at the top left, to add the seventh code cell.
-
-> 🟢 This seventh code cell builds the analytical table: it joins the lines with the clean orders and the catalog, and marks three exceptions: lines whose order doesn't exist, products missing from the catalog, and lines where quantity times price doesn't match the total. Only completed orders count as revenue.
-
-> 🖱️ I'm typing the join in the seventh code cell.
-
-> ⌨️ validate m to 1 makes pandas stop with an error if an order or a product appears twice on the right side. That's my protection against double counting.
-
-> ⌨️ The left joins keep every order line, even the ones with problems, so nothing disappears silently.
-
-**Celda 7:**
-
-```python
-clean = (li.drop(columns=["list_price", "price_ratio", "implied_qty"])
-           .merge(o, on="order_id", how="left", validate="m:1")
-           .merge(p[["product_id", "product_name", "category"]], on="product_id", how="left", validate="m:1"))
-clean["category"] = clean["category"].fillna("Unknown")
-clean["exception"] = np.select([clean["status"].isna(), clean["category"] == "Unknown",
-                                (clean["quantity"] * clean["unit_price"] - clean["line_total"]).abs() > 0.01],
-                               ["order not found", "product not in catalog", "line total mismatch"], "")
-clean["in_revenue"] = clean["status"] == "completed"
-clean["exception"].value_counts()
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `clean = (li.drop(columns=[...])`: removes the helper columns from the investigation.
-- `.merge(o, on="order_id", how="left", validate="m:1")`: adds the order data. `validate="m:1"` stops with an error if an order appears twice in `o`: it's the protection against double counting.
-- `.merge(p[[...]], on="product_id", how="left", validate="m:1"))`: adds the product name and category, with the same protection.
-- `clean["category"] = clean["category"].fillna("Unknown")`: products that aren't in the catalog become `Unknown`.
-- `clean["exception"] = np.select([...], [...], "")`: labels the exception. No status → the order doesn't exist. Category `Unknown` → product not in the catalog. Quantity × price different from the total by more than one cent → line total mismatch.
-- `clean["in_revenue"] = clean["status"] == "completed"`: only completed orders count as revenue. Cancelled orders and lines without an order don't.
-- `clean["exception"].value_counts()`: how many lines have each exception.
-
-> 🖱️ I'm clicking the Run cell button on the left of the seventh code cell, to build the table.
-
-> 🟢 The join ran without an error, so validate confirmed that every order and every product appears only once.
-
-> 🖱️ I'm moving the mouse down the exception counts.
-
-> 🟢 Five lines belong to orders that don't exist, so I can't date them or know their status. They stay out of revenue. Eight lines are for product P025, which isn't in the catalog. The sale is real, so it stays in revenue, but under the category Unknown. And six lines have a total that doesn't match.
-
-> 🖱️ I'm scrolling down below the counts, and clicking the plus Code button in the toolbar at the top left, to add the eighth code cell.
-
-> 🟢 This eighth code cell shows those six mismatches, with the first six columns of the table.
-
-> 🖱️ I'm typing the filter in the eighth code cell.
-
-**Celda 8:**
-
-```python
-clean[clean["exception"] == "line total mismatch"].iloc[:, :6]
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `clean[clean["exception"] == "line total mismatch"].iloc[:, :6]`: shows the lines whose total doesn't match, with only the first 6 columns (order, line, product, quantity, price, and total).
-
-> 🖱️ I'm clicking the Run cell button on the left of the eighth code cell, to show the mismatches.
-
-> 🖱️ I'm moving the mouse across the six rows, between the quantity, unit_price, and line_total columns.
-
-> 🟢 Two totals are double the expected value, two are one and a half times, and two are half. Maybe a line was charged twice, or a partial refund was recorded in the same line. I can't tell which value is right: the total may be what the customer actually paid. So I keep the recorded total and report these six as unresolved.
-
-**Resultado esperado:** celda 5: `0 ['App' 'Web' 'B2B'] ['Kitchen' 'Bedding' 'Lighting' 'Decor' 'Bath' 'Outdoor']`. Celda 6: price in cents 12, price from line total 10, placeholder quantity 4. Celda 7: product not in catalog 8, line total mismatch 6, order not found 5. Celda 8: `O10348` 2 × 75,0 = 300,0 · `O10564` 2 × 99,0 = 99,0 · `O10644` 3 × 30,4 = 136,8 · `O10943` 1 × 99,0 = 198,0 · `O10988` 2 × 39,0 = 117,0 · `O11321` 1 × 24,0 = 12,0.
-
-**Razonamiento profesional:** cada corrección queda rastreable (valor original + etiqueta en `fix`), y las tres reglas se deciden antes de cambiar valores. `validate="m:1"` convierte el riesgo de doble conteo en un error visible. Alternativas descartadas: borrar las líneas con problemas (se pierde ingreso real, como el de P025) o "arreglar" los 6 totales con cantidad × precio (se borraría la evidencia de un posible cobro doble).
-
-> 🟢 The dataset is reconstructed. Now I can trust it to answer the business questions.
-
----
-
-## E. 15:00–21:00 — Análisis de negocio
-
-> 🟢 Section six: business analysis.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the ninth code cell.
-
-> 🟢 This ninth code cell keeps only the revenue lines, adds them up by order to get each order's value, and prints total revenue, the number of orders, and the average order value. Then it compares revenue and units by category.
-
-> 🖱️ I'm typing the analysis in the ninth code cell.
-
-> ⌨️ The average order value has to be calculated per order, not per line, because one order can have several lines.
-
-**Celda 9:**
-
-```python
-# 6. Business analysis
-rev = clean[clean["in_revenue"]]
-order_val = rev.groupby(["order_id", "channel"], as_index=False)["line_total"].sum()
-print("Revenue:", rev["line_total"].sum().round(2), "| Orders:", len(order_val), "| AOV:", order_val["line_total"].mean().round(2))
-rev.groupby("category").agg(revenue=("line_total", "sum"), units=("quantity", "sum")).sort_values("revenue", ascending=False)
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 6. Business analysis`: a section comment.
-- `rev = clean[clean["in_revenue"]]`: only the lines that count as revenue.
-- `order_val = rev.groupby(["order_id", "channel"], as_index=False)["line_total"].sum()`: adds up the lines of each order, leaving one row per order, with its channel and its value.
-- `print("Revenue:", ..., "| Orders:", len(order_val), "| AOV:", order_val["line_total"].mean().round(2))`: total revenue, number of orders, and average order value (the average per order).
-- `rev.groupby("category").agg(revenue=..., units=...).sort_values("revenue", ascending=False)`: revenue and units by category, from highest to lowest revenue.
-
-> 🖱️ I'm clicking the Run cell button on the left of the ninth code cell, to calculate the metrics.
-
-> 🖱️ I'm pointing at the printed line under the ninth code cell.
-
-> 🟢 Completed revenue is 433,779 dollars from 1,328 orders, an average order value of about 327 dollars.
-
-> 🖱️ I'm moving the mouse down the category table.
-
-> 🟢 Bedding leads with about 112,000 dollars, followed by Lighting with almost 82,000. Bath sells the most units, 1,516, but ranks last in revenue among the real categories, because its products are cheap. So volume and revenue tell different stories.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the tenth code cell.
-
-> 🟢 This tenth code cell lists the five products with the most revenue.
-
-> 🖱️ I'm typing the top products in the tenth code cell.
-
-**Celda 10:**
-
-```python
-rev.groupby("product_name")["line_total"].sum().nlargest(5)
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `rev.groupby("product_name")["line_total"].sum().nlargest(5)`: revenue by product, and the top 5.
-
-> 🖱️ I'm clicking the Run cell button on the left of the tenth code cell, to rank the products.
-
-> 🖱️ I'm moving the mouse down the five products.
-
-> 🟢 The Linen Duvet Cover is the top product, with about 50,000 dollars, followed by the Brass Floor Lamp. Both are among the most expensive items in the catalog.
-
-> 🖱️ I'm scrolling down below the list, and clicking the plus Code button in the toolbar at the top left, to add the eleventh code cell.
-
-> 🟢 This eleventh code cell adds up revenue by month and shows the change from the previous month, to find unusual movements.
-
-> 🖱️ I'm typing the monthly table in the eleventh code cell.
-
-**Celda 11:**
-
-```python
-monthly = rev.groupby(rev["order_date"].dt.to_period("M"))["line_total"].sum()
-pd.DataFrame({"revenue": monthly, "change": monthly.pct_change()}).round(2)
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `monthly = rev.groupby(rev["order_date"].dt.to_period("M"))["line_total"].sum()`: revenue by month. `to_period("M")` turns each date into its month, for example `2025-06`.
-- `pd.DataFrame({"revenue": monthly, "change": monthly.pct_change()}).round(2)`: a table with each month's revenue and its change from the previous month (0.50 = +50%).
-
-> 🖱️ I'm clicking the Run cell button on the left of the eleventh code cell, to see the trend.
-
-> 🖱️ I'm pointing at the June row, in the middle of the table.
-
-> 🟢 Two months stand out. June jumps 50%, to almost 41,000 dollars, and then falls 25% in July.
-
-> 🖱️ I'm pointing at the November row, near the bottom.
-
-> 🟢 And November rises 45%, to about 69,000 dollars, the best month of the year. November looks seasonal, the holiday and Black Friday period. But June has no obvious season, so I'll check it.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the twelfth code cell.
-
-> 🟢 This twelfth code cell splits June's revenue by channel.
-
-> 🖱️ I'm typing the June breakdown in the twelfth code cell.
-
-**Celda 12:**
-
-```python
-rev[rev["order_date"].dt.month == 6].groupby("channel")["line_total"].agg(["sum", "count"])
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `rev[rev["order_date"].dt.month == 6].groupby("channel")["line_total"].agg(["sum", "count"])`: June only, by channel: total revenue and number of lines.
-
-> 🖱️ I'm clicking the Run cell button on the left of the twelfth code cell, to break down June.
-
-> 🖱️ I'm pointing at the B2B row.
-
-> 🟢 B2B brought about 21,000 dollars in June, with only 8 lines, more than Web and App together. That's the three hotel orders we saw earlier, about 17,000 dollars together. So June wasn't a general increase in demand: it was three large customers. For forecasting, that's very different, because it may not repeat.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the thirteenth code cell.
-
-> 🟢 This thirteenth code cell looks for outlier orders with the IQR method. Order values are skewed to the right: many small orders and a few very large ones. So I apply IQR to the logarithm of the value, which makes the distribution more symmetric. Then I count the outliers by channel.
-
-> 🖱️ I'm typing the outlier check in the thirteenth code cell.
-
-> ⌨️ The upper limit is converted back from the logarithm, so I can read it in dollars.
-
-**Celda 13:**
-
-```python
-log_value = np.log10(order_val["line_total"])
-q1, q3 = log_value.quantile([0.25, 0.75])
-order_val["outlier"] = log_value > q3 + 1.5 * (q3 - q1)
-print("Upper limit:", round(10 ** (q3 + 1.5 * (q3 - q1)), 2))
-order_val.groupby("channel")["outlier"].agg(["sum", "count"])
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `log_value = np.log10(order_val["line_total"])`: the base-10 logarithm of each order value (100 → 2, 1,000 → 3).
-- `q1, q3 = log_value.quantile([0.25, 0.75])`: the first and third quartiles, on the log scale.
-- `order_val["outlier"] = log_value > q3 + 1.5 * (q3 - q1)`: True if the order is above the upper IQR limit.
-- `print("Upper limit:", round(10 ** (q3 + 1.5 * (q3 - q1)), 2))`: the limit, converted back to dollars (`10 **` undoes the logarithm).
-- `order_val.groupby("channel")["outlier"].agg(["sum", "count"])`: by channel, how many outliers there are (`sum`) out of how many orders (`count`).
-
-> 🖱️ I'm clicking the Run cell button on the left of the thirteenth code cell, to find the outliers.
-
-> 🖱️ I'm pointing at the upper limit, and then at the B2B row.
-
-> 🟢 The upper limit is about 2,165 dollars per order. 36 orders are above it, and all 36 are B2B, out of 61 B2B orders. Web and App have none.
-
-> 🟢 So these aren't errors. B2B is a different customer segment, with much larger orders. Deleting them would remove real revenue, and averaging them with consumer orders would distort the average order value. The professional answer is to report B2B separately.
-
-> 🟢 Why not the mean and standard deviation, the z-score? Because it assumes a symmetric distribution, and the large orders themselves inflate the standard deviation, hiding the outliers. IQR on the log scale is robust to that.
-
-**Resultado esperado:** celda 9: `Revenue: 433779.55 | Orders: 1328 | AOV: 326.64`; Bedding 112.125,95 · Lighting 81.683,65 · Outdoor 71.573,65 · Kitchen 58.372,80 · Decor 58.125,30 · Bath 51.167,20 (1.516 unidades) · Unknown 731,00. Celda 10: Linen Duvet Cover 50.161,65 · Brass Floor Lamp 41.467,20 · Cotton Sheet Set 29.719,80 · Garden Hose Reel 28.785,25 · Wall Mirror 25.759,80. Celda 11: junio 40.937,45 (+0,50), julio −0,25, noviembre 69.483,90 (+0,45), diciembre −0,35. Celda 12: B2B 21.312,05 (8 líneas), Web 11.431,60, App 8.193,80. Celda 13: `Upper limit: 2165.16`; B2B 36 de 61, App 0 de 451, Web 0 de 816.
-
-**Razonamiento profesional:** el ticket promedio se calcula por pedido y no por línea. El IQR va sobre el logaritmo porque los importes tienen sesgo a la derecha. Cada pico se explica antes de concluir nada. Error típico: celebrar junio como "crecimiento" sin ver que son tres clientes, o borrar los 36 outliers y perder casi todo el negocio B2B.
-
-> 🟢 Let's see these patterns in charts.
-
----
-
-## F. 21:00–22:30 — Visualizaciones
-
-> 🟢 Section seven: visualizations.
-
-> 🖱️ I'm scrolling down below the table, and clicking the plus Code button in the toolbar at the top left, to add the fourteenth code cell.
-
-> 🟢 This fourteenth code cell draws two charts side by side: monthly revenue as a line with Matplotlib, and the order value by channel as a Seaborn box plot on a log scale.
-
-> 🖱️ I'm typing the charts in the fourteenth code cell.
-
-> ⌨️ A line chart fits a trend over time. A box plot fits a comparison of distributions, and the log scale lets small and large orders share the same chart.
-
-**Celda 14:**
-
-```python
-# 7. Visualizations
-fig, ax = plt.subplots(1, 2, figsize=(13, 4))
-monthly.plot(ax=ax[0], marker="o", title="Monthly revenue ($)")
-sns.boxplot(data=order_val, x="channel", y="line_total", log_scale=True, ax=ax[1]).set_title("Order value by channel ($)")
-plt.show()
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 7. Visualizations`: a section comment.
-- `fig, ax = plt.subplots(1, 2, figsize=(13, 4))`: creates a figure with two charts side by side (1 row, 2 columns), 13 × 4 inches.
-- `monthly.plot(ax=ax[0], marker="o", title="Monthly revenue ($)")`: a line chart of monthly revenue in the first space, with a dot for each month.
-- `sns.boxplot(data=order_val, x="channel", y="line_total", log_scale=True, ax=ax[1]).set_title(...)`: a Seaborn box plot of order value by channel, on a log scale, in the second space, with its title.
-- `plt.show()`: displays the figure.
-
-> 🖱️ I'm clicking the Run cell button on the left of the fourteenth code cell, to draw the charts.
-
-> 🖱️ I'm pointing at the June peak on the line chart, on the left.
-
-> 🟢 The June spike from the hotel orders, the dip in July, and the November peak.
-
-> 🖱️ I'm moving the mouse across the three boxes of the box plot, on the right.
-
-> 🟢 Web and App have similar boxes, mostly between about 90 and 300 dollars. B2B sits much higher: its median order is more than ten times larger. That's the visual reason to treat it as a separate segment.
-
-**Resultado esperado:** dos gráficos. Izquierda: línea con pico en junio (unos 41 mil), bajada en julio y máximo en noviembre (unos 69 mil). Derecha: tres cajas en escala logarítmica, con B2B muy por encima de Web y App.
-
-> 🟢 Before I export anything, let's validate the totals.
-
----
-
-## G. 22:30–24:30 — Validación
-
-> 🟢 Section eight: validation.
-
-> 🖱️ I'm scrolling down below the charts, and clicking the plus Code button in the toolbar at the top left, to add the fifteenth code cell.
-
-> 🟢 This fifteenth code cell compares a naive join of the raw files with the raw line totals, checks that no line was lost or duplicated, checks that the categories add up to total revenue, and breaks the raw total into completed, cancelled, and lines without an order.
-
-> 🖱️ I'm typing the validation in the fifteenth code cell.
-
-> ⌨️ The naive join is what someone would get by joining the original files directly, with the duplicates.
-
-**Celda 15:**
-
-```python
-# 8. Validation
-print("Naive join:", items.merge(orders, on="order_id")["line_total"].sum().round(2), "| raw lines:", items["line_total"].sum().round(2))
-print("Rows in:", len(items), "| rows out:", len(clean), "| category total:", rev.groupby("category")["line_total"].sum().sum().round(2))
-clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().round(2)
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 8. Validation`: a section comment.
-- `print("Naive join:", items.merge(orders, on="order_id")["line_total"].sum().round(2), "| raw lines:", items["line_total"].sum().round(2))`: the total of a direct join of the original files (with the duplicates), against the sum of the original lines.
-- `print("Rows in:", len(items), "| rows out:", len(clean), "| category total:", ...)`: input and output rows, and the sum of revenue across categories.
-- `clean.groupby(clean["status"].fillna("order not found"))["line_total"].sum().round(2)`: splits the original total by status: completed, cancelled, and without an order.
-
-> 🖱️ I'm clicking the Run cell button on the left of the fifteenth code cell, to validate.
-
-> 🖱️ I'm pointing at the first line of the output.
-
-> 🟢 The naive join gives 465,624.75 dollars, but the raw line totals are only 460,712.85. The naive join is about 4,900 dollars too high, only because of the 20 duplicate orders. That alone could explain part of finance's mismatch.
-
-> 🖱️ I'm pointing at the second line.
-
-> 🟢 3,061 lines in and 3,061 lines out: no line lost or duplicated. And the category total, 433,779.55, equals the revenue, so the grouping is consistent.
-
-> 🖱️ I'm moving the mouse down the three totals at the bottom.
-
-> 🟢 And the raw total reconciles exactly: 433,779.55 completed, plus 26,538.30 cancelled, plus 395 dollars in lines without an order, adds up to 460,712.85. My corrections didn't change any line total, so nothing was forced to match. The only unresolved items are the six mismatches, the eight P025 lines, and the five lines without an order.
-
-**Resultado esperado:** `Naive join: 465624.75 | raw lines: 460712.85`; `Rows in: 3061 | rows out: 3061 | category total: 433779.55`; cancelled 26.538,30 · completed 433.779,55 · order not found 395,00.
-
-**Razonamiento profesional:** la validación muestra **dónde** está cada dólar del total original, no solo que "da bien". La diferencia del join ingenuo cuantifica el costo de no sacar los duplicados. Error típico: validar solo que el código no tire error, o comparar el total final con el original y "ajustar" hasta que coincidan.
-
-> 🟢 Everything is validated. Let's export the deliverables.
-
----
-
-## H. 24:30–27:30 — Entregables y conclusiones
-
-> 🟢 Section nine: deliverables and conclusions.
-
-> 🖱️ I'm scrolling down below the output, and clicking the plus Code button in the toolbar at the top left, to add the sixteenth code cell.
-
-> 🟢 This sixteenth code cell exports the clean dataset, and an exception report with every line that was corrected, has an exception, or is out of revenue.
-
-> 🖱️ I'm typing the export in the sixteenth code cell.
-
-**Celda 16:**
-
-```python
-# 9. Deliverables
-clean.to_csv("clean_sales.csv", index=False)
-report = clean[(clean["fix"] != "") | (clean["exception"] != "") | (clean["in_revenue"] == False)]
-report.to_csv("exceptions_report.csv", index=False)
-print(len(clean), "clean lines |", len(report), "lines in the exception report")
-```
-
-📘 **What each line does** (para vos, no se lee):
-
-- `# 9. Deliverables`: a section comment.
-- `clean.to_csv("clean_sales.csv", index=False)`: saves the clean dataset.
-- `report = clean[(clean["fix"] != "") | (clean["exception"] != "") | (clean["in_revenue"] == False)]`: the lines that were corrected, have an exception, or are out of revenue.
-- `report.to_csv("exceptions_report.csv", index=False)`: saves the report.
-- `print(len(clean), "clean lines |", len(report), "lines in the exception report")`: how many rows each file has.
-
-> 🖱️ I'm clicking the Run cell button on the left of the sixteenth code cell, to export the files.
-
-> 🖱️ I'm pointing at the output line.
-
-> 🟢 3,061 clean lines, and 211 lines in the exception report: the 26 corrected lines, the 19 lines with an exception, and the other 166 lines of cancelled orders.
-
-> 🖱️ I'm scrolling down to the end of the notebook, and clicking the plus Text button in the toolbar at the top left, to add the conclusions cell.
-
-> 🟢 This last cell summarizes the data work, the business findings, and the recommendations.
-
-> 🖱️ I'm typing the conclusions in the new text cell, at the bottom of the notebook.
-
-```markdown
-## 9. Conclusions and recommendations
-- **Data:** 20 duplicate orders removed (a join would have added $4,911.90), 127 day-first dates converted, and 26 order lines corrected with evidence (12 prices in cents, 10 missing prices, 4 placeholder quantities). Unresolved: 6 line-total mismatches, 8 lines for the unknown product P025, and 5 lines without an order ($395).
-- **Business:** completed revenue is $433,779.55 from 1,328 orders (AOV $326.64). Bedding leads with $112,125.95. June rose 50% because of three large B2B orders, and November is the seasonal peak (+45%).
-- **Outliers:** 36 high-value orders, all B2B. They are a different customer segment, not errors.
-- **Recommendations:** enforce one date format and prices in dollars in the export, block the 999 quantity, add P025 to the catalog, and report B2B separately.
-- **Final notes:** the three input files are synthetic and were generated by Gemini before recording.
-```
-
-Ver "Pendientes": la nota final tiene que ser **cierta**.
-
-> 🖱️ I'm clicking the empty area below the conclusions cell, to close the editor and show the formatted text.
-
-> 🖱️ I'm pressing Command + S to save the notebook in Drive.
-
-> 🖱️ I'm opening the File menu at the top left, choosing Download, then Download .ipynb, to keep the notebook for the deliverables.
-
-> 🖱️ I'm clicking the Files icon in the left sidebar, then the three dots next to clean_sales.csv, and choosing Download.
-
-> 🖱️ I'm clicking the three dots next to exceptions_report.csv, in the same panel, and choosing Download.
-
-> 🖱️ I'm double-clicking exceptions_report.csv in the Files panel, to open it in Colab's file viewer.
-
-Si Colab no abre un visor, agregá una celda con `report.head()` y mostrá la tabla.
-
-> 🖱️ I'm scrolling right across the columns of the report, to the fix, exception, and in_revenue columns at the end.
-
-> 🟢 Each line says why it's in the report, with its original price and quantity next to the corrected ones, so anyone can audit every change.
-
-> 🖱️ I'm closing the file viewer tab at the top, and clicking the Downloads arrow at the top right of Firefox, to show the notebook and the two CSV files.
-
-> 🖱️ I'm clicking an empty area of the page, to close the Downloads panel.
-
-**Resultado esperado:** `3061 clean lines | 211 lines in the exception report`. En Descargas: `sales_analysis.ipynb`, `clean_sales.csv` y `exceptions_report.csv`.
-
----
-
-## I. 27:30–30:30 — Epílogo
-
-Dura **menos de 4 minutos**. No repitas los pasos: reflexioná.
-
-> 🖱️ I'm scrolling up slowly through the notebook with the mouse wheel, in the center of the screen.
-
-> 🟢 Let me reflect on this work. The most important finding is about the data itself: the export had 20 duplicate orders, and a simple join would have overstated revenue by almost 5,000 dollars. That's the kind of error that makes finance and sales disagree, and nobody sees it in a chart.
-
-> 🟢 The key decision was to treat every anomaly as a question first. The same filter showed prices in cents, which were errors, and hotel orders of 100 units, which were real. The evidence decided, not the size of the number. And when there was no evidence, like the six totals that don't match, I didn't correct anything. I documented them.
-
-> 🟢 For the business, the clean data changes the story. Bedding leads revenue, but Bath sells the most units. June's jump wasn't demand, it was three hotel orders. And B2B is a different segment, with orders more than ten times larger, so it should be reported and forecast separately.
-
-> 🟢 There are limits. The data is synthetic and covers only one year, so I can't confirm that November is a repeating season. I can't resolve the six mismatches or identify product P025 without the source systems. And I don't have costs by line, so this is a revenue analysis, not a profit analysis.
-
-> 🟢 The deliverables are the clean dataset, with original values and a label for every correction, the exception report, the two charts, and this reproducible notebook. As next steps, I'd send the exception report to the sales operations team, fix the export at the source, and add margin analysis using the catalog costs. Thanks for watching!
-
-Si el reloj todavía no pasó los 15:00 (no debería pasar), no cortes: volvé a la celda 9 y compará categoría por categoría.
-
----
-
-## Si algo sale mal (frases para corregir)
-
-Siempre decí **qué** corregís y **en qué celda**:
-
-| Error | Qué pasa | Qué decís y hacés |
-| ----- | -------- | ----------------- |
-| `MergeError` en la celda 7 | El `validate="m:1"` encontró duplicados: la celda 5 no se ejecutó | 🖱️ *"The validate check stopped the join, because the orders still have duplicates. That's the protection working. I'm running the fifth code cell again, and then this one."* |
-| `KeyError` con una columna | Nombre mal escrito (por ejemplo `price_ration`) | 🖱️ *"There's a KeyError in this cell, because I misspelled price_ratio. I'm fixing the name and clicking Run again."* |
-| `NameError` (`li`, `o`, `clean`, `rev`) | Una celda anterior no se ejecutó | 🖱️ *"There's a NameError, because an earlier cell didn't run. I'm opening the Runtime menu at the top and choosing Run before."* |
-| `FileNotFoundError` en la celda 1 | Los CSV no se subieron o se borraron al reiniciar | 🖱️ *"The first code cell can't find the files. I'm opening the Files panel on the left, uploading the three CSV files again, and running the cell again."* |
-| Error en `log_scale` (celda 14) | Seaborn antiguo | 🖱️ *"This Seaborn version doesn't support log_scale. I'm removing it and adding ax[1].set_yscale("log") on the next line."* |
-| La celda 6 se ejecutó dos veces | Los precios en centavos se dividen otra vez por 100 | 🖱️ *"I ran the sixth code cell twice, so the cents prices were divided again. I'm opening the Runtime menu and choosing Run before, and then running this cell once."* |
-| Un número distinto del guion | Otra versión de pandas o una celda corrida dos veces | Decí el número que ves. No digas números que no estén en pantalla. |
-
----
-
-## Línea de tiempo estimada
-
-| Sección | Tiempo | Duración |
-| ------- | ------ | -------- |
-| A. Apertura (intro de menos de 20 s + subir archivos + plan) | 0:00–2:00 | 2:00 |
-| B. Carga y perfil (celdas 1–2) | 2:00–5:30 | 3:30 |
-| C. Investigación de anomalías (celdas 3–4) | 5:30–9:30 | 4:00 |
-| D. Transformación y conciliación (celdas 5–8) | 9:30–15:00 | 5:30 |
-| E. Análisis de negocio y outliers (celdas 9–13) | 15:00–21:00 | 6:00 |
-| F. Visualizaciones (celda 14) | 21:00–22:30 | 1:30 |
-| G. Validación (celda 15) | 22:30–24:30 | 2:00 |
-| H. Entregables y conclusiones (celda 16 + texto) | 24:30–27:30 | 3:00 |
-| I. Epílogo | 27:30–30:30 | 3:00 |
-
-Con mucho tipeo, la grabación probablemente pase de 30 minutos. Ver "Pendientes".
-
----
-
-## Después de grabar
-
-1. Abrí TaskRecorder **solo cuando terminó el epílogo**.
-2. Ejecutá **Run full AutoQC**, no solo *Rerun failing*. Revisá que el porcentaje de acciones con What + Where pase el **70%** y mirá el porcentaje de tipeo.
-3. Armá **Deliverables.zip** con el `.ipynb` descargado al final, `clean_sales.csv`, `exceptions_report.csv` y los **tres CSV originales** (sin modificar).
-4. Subí los **cuatro archivos por separado**: el **MP4**, el **ZIP original de TaskRecorder**, **Deliverables.zip** y **Metadata.rtf**.
