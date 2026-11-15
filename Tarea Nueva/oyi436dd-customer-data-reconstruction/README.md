@@ -35,7 +35,7 @@ Se graba en **Firefox**, en **una sola toma**. El código y las conclusiones se 
 | Tema | Situación | Qué hacer |
 | ---- | --------- | --------- |
 | **Duración: el prompt pide 15–30 minutos** | Con todo tipeado en vivo, la estimación da **40–46 minutos**. Solo el tipeo son 3.850 caracteres, unos 26 minutos a 150 caracteres por minuto. Así no se llega a 30 sin sacar contenido. El máximo general de la plataforma es 50:59, así que sigue siendo una grabación válida en ese sentido. | Confirmá si el tope de 30 minutos del prompt es **obligatorio**. Si lo es, avisame y saco lo que el prompt no exija. Candidatos: el top 5 de productos, el desglose de junio por canal y la línea de categorías y canales del Step 1. Eso ahorra unos 2–3 minutos. Para llegar a 30 hay que recortar más, y para eso necesito saber qué es obligatorio. |
-| **Porcentaje de tipeo** | Cerca del **60%** de la grabación. Bajar al 25–30% es imposible tipeando todo en vivo. | Igual que en k3a13c10: confirmá el límite en las guías. Usá el **autocompletado con Tab** para los nombres largos. |
+| **Porcentaje de tipeo** | Cerca del **60%** de la grabación. Bajar al 25–30% es imposible tipeando todo en vivo. | Igual que en k3a13c10: confirmá el límite en las guías. |
 | **Origen de los CSV** | Los tres CSV los generé yo, Claude, con un script de Python. "Generated with AI" es **cierto**; "Gemini" **no**. | Las conclusiones dicen *"generated with AI before recording"*. Marcá en Studio la opción de archivos generados con IA. |
 | **Versión de pandas** | Lo probé con pandas 3.1. Colab suele traer la 2.x. | Si ves `object` en vez de `str`, o los arreglos de `unique()` se ven distintos, es lo mismo: decí lo que veas. |
 
@@ -58,7 +58,6 @@ Para el revisor, y para AutoQC, **cada movimiento del mouse es una acción**, y 
 | Scroll de más | *"I'm scrolling down a bit, to see the end of the output."* / *"I'm scrolling back up to the cell I'm working on."* |
 | Scroll horizontal en una tabla | *"I'm scrolling right inside the table, to see the last columns."* |
 | Clic para corregir | *"I'm clicking at the end of the line in the third cell, to fix a typo."* |
-| Autocompletar | *"I'm pressing Tab to autocomplete the column name."* |
 | Cerrar sugerencias de Colab | *"I'm pressing Escape to close the suggestion box."* |
 | Esperar a que termine una celda | *"I'm waiting for the cell to finish; the spinner on the left shows it's running."* |
 | Cerrar un aviso | *"I'm clicking Close on the notice at the bottom of the screen."* |
@@ -679,10 +678,10 @@ Si tipeás a 120 caracteres por minuto, el total sube a unos **46 minutos**. Sig
 ### Preparación (sin grabar)
 
 - [ ] Practicá **tipeando las 9 celdas y las conclusiones** en un notebook de prueba, con cronómetro, al menos dos veces. Practicá sobre todo el Step 3 (la línea de fechas) y el Step 4 (`np.select`).
-- [ ] Practicá el **autocompletado con Tab** (`o.order_d` + Tab → `order_date`) y decí la frase cuando lo uses.
 - [ ] Creá el notebook vacío **sales_analysis** (**File → New notebook in Drive**).
 - [ ] En el panel **Files**, subí `orders.csv`, `order_items.csv` y `products.csv` desde el Escritorio. Que estén solo esos tres.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA, incluidas las sugerencias de código.
+- [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas (*Automatically trigger code completions*). Todo se tipea a mano: **no se usa autocompletado**.
 - [ ] Zoom (`Cmd + +`). Ventana maximizada.
 - [ ] En Firefox, ventana 1 con la descripción de la tarea y ventana 2 con Colab, en la **segunda línea** del Dock.
 - [ ] Grabá **enseguida** después de subir los CSV.

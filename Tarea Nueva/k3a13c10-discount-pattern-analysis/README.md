@@ -10,7 +10,7 @@ Guion para grabar la tarea **k3a13c10**. En **Google Colab**, con **pandas**, tr
 
 Todo se **tipea y se explica en vivo**, intercalado, en **una sola toma**, en **Firefox**.
 
-**Duración estimada: ~40 minutos**, con el método que acertó tu medición real de 75 minutos (ver "Cronograma"). Quedan unos 11 minutos de margen hasta el máximo de 50:59.
+**Duración estimada: ~45 minutos**, con el método que acertó tu medición real de 75 minutos (ver "Cronograma"). Quedan unos 6 minutos de margen hasta el máximo de 50:59.
 
 **Cómo leer este guion:**
 
@@ -35,7 +35,7 @@ Todo se **tipea y se explica en vivo**, intercalado, en **una sola toma**, en **
 | Tema | Qué hacer |
 | ---- | --------- |
 | **Origen de los CSV** | Los generé yo, Claude, con un script de Python: "generated with AI" es cierto, "Gemini" no. Marcá en Studio la opción de archivos generados con IA. |
-| **Porcentaje de tipeo** | Cerca del 65%. Con todo en vivo no baja al 25–30%. Confirmá el límite en las guías y usá **Tab** para autocompletar. |
+| **Porcentaje de tipeo** | Cerca del 65%. Con todo en vivo no baja al 25–30%. Confirmá el límite en las guías. |
 | **Versión de pandas** | Lo probé con pandas 3.1. Si `info()` dice `object` en vez de `str`, es lo mismo. |
 
 ---
@@ -64,10 +64,9 @@ Todo se **tipea y se explica en vivo**, intercalado, en **una sola toma**, en **
 2. Al terminar una acción, el cursor queda **quieto en el margen derecho**, lejos de los botones.
 3. **Primero la frase, después el movimiento.** Leé el guion con el mouse quieto.
 4. Si hacés algo fuera del guion, usá una frase comodín:
-   - *"I'm pressing Tab to autocomplete the column name."*
    - *"I'm scrolling right inside the table, to see the last columns."*
    - *"I'm clicking at the end of the line, to fix a typo."*
-   - *"I'm pressing Escape to close the suggestion box."*
+   - *"I'm pressing Escape to close the suggestion box."* Si Colab muestra una caja de sugerencias, **no la aceptes**: con la caja abierta, Enter inserta la sugerencia. Apretá Escape y seguí tipeando.
 
 ---
 
@@ -114,17 +113,36 @@ s.describe()
 
 > 🖱️ I'm clicking the Run button on the left of the cell.
 
-> 🖱️ I'm pointing at the Non-Null Count column of the first output.
+> 🖱️ I'm pointing at the top of the first output: RangeIndex, 2,200 entries, and 10 columns.
 
-> 🟢 Only promotion_id has gaps, meaning no promotion.
+> 🟢 2,200 sales, one row per transaction, and the date is already a real datetime.
 
-> 🖱️ I'm scrolling down to describe and pointing at the max discount, 26.
+> 🖱️ I'm moving the mouse down the Non-Null Count column, to promotion_id.
 
-> 🟢 26 is impossible as a fraction, so some values look like percentages. I'll test that against the revenue.
+> 🟢 Every column has 2,200 values except promotion_id, with 188. An empty ID means the sale had no promotion, so I keep it empty. Below, the calendar has 8 campaigns and no gaps.
 
-📘 Reads both files with real dates. `info()` shows rows, columns, types and non-null counts (missing values). `describe()` shows the ranges, including the impossible max discount of 26.
+> 🖱️ I'm scrolling down to the describe table, and pointing at the max row of discount_rate.
 
-**Resultado esperado:** `2200 entries`, `promotion_id 188 non-null`. Calendario `8 entries`. `discount_rate` max 26,0.
+> 🟢 The 75th percentile is 0.10, but the maximum is 26. As a fraction that's 2,600%, so some values look like percentages. I'll test that against the revenue before changing anything.
+
+> 🖱️ I'm pointing at the min of gross_margin, in the same row of minimums.
+
+> 🟢 The minimum gross margin is negative, minus 62 dollars: some sales lost money. The 15% rule will catch them.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `import pandas as pd`: loads pandas with the short name `pd`.
+- `s = pd.read_csv("sales_transactions.csv", parse_dates=["date"])`: reads the sales into `s`. `parse_dates` turns `date` into a real date.
+- `p = pd.read_csv("promotion_calendar.csv", parse_dates=["start_date", "end_date"])`: reads the calendar into `p`, with both dates as real dates.
+- `s.info()`: the rows, columns, non-null count (so, missing values) and type of each sales column.
+- `p.info()`: the same for the calendar.
+- `s.describe()`: count, mean, min, quartiles and max of the numeric and date columns.
+
+**Resultado esperado (dónde mirar):**
+
+- **Primer `info()`, arriba:** `RangeIndex: 2200 entries`, `10 columns`. En **Non-Null Count**, todo dice 2200 salvo `promotion_id` (188 non-null). `date` es `datetime64`.
+- **Segundo `info()`:** `8 entries`, 7 columnas, todo con 8 non-null.
+- **`describe()`:** en `discount_rate`, la fila `75%` dice 0,10 y la fila `max` dice **26,0**. En `gross_margin`, `min` = **−62,45**.
 
 ---
 
@@ -175,21 +193,35 @@ s[s["diff"].abs() > 0.01]
 
 > 🖱️ I'm clicking Run on the left of the second cell.
 
-> 🖱️ I'm pointing at the six rows of the result.
+> 🖱️ I'm pointing at the row count under the table: six rows.
 
-> 🟢 Only six sales don't reconcile, so the eight converted values were really percentages.
+> 🟢 Only six of 2,200 sales don't reconcile. That also proves the conversion: the eight values I divided by 100 now match the recorded revenue, so they really were percentages.
 
-> 🟢 These six ignore the discount, with no evidence of which side is wrong, so I won't overwrite them.
+> 🖱️ I'm pointing at the first row, T00722, between net_revenue and net.
 
-📘
-- `disc`: the discount as a fraction.
-- `gross`, `net`, `profit`: gross sales, recalculated net revenue and gross profit.
-- `diff`: recorded minus recalculated revenue.
-- `cost`: the margin given away by the discount.
-- `gap15`: the profit dollars missing to reach a 15% margin. `clip(lower=0)` turns negatives into 0.
-- The last line: the sales that don't reconcile. `s["diff"]` needs brackets because `s.diff` is a pandas method.
+> 🟢 Recorded 90.42, mine 84.99. And 90.42 is exactly the gross column: the 6% discount was never subtracted.
 
-**Resultado esperado:** 6 filas: `T00722`, `T01588`, `T01684`, `T01737`, `T01929`, `T02155`.
+> 🖱️ I'm moving the mouse down the disc column of the six rows.
+
+> 🟢 Discounts from 5 to 14%, all ignored. I can't tell whether the revenue or the discount is wrong, so I keep them as recorded, as a data issue.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `s["disc"] = s.discount_rate.where(s.discount_rate <= 1, s.discount_rate / 100)`: the discount as a fraction. It keeps values up to 1 and divides the others by 100. `discount_rate` doesn't change.
+- `s["month"] = s.date.dt.month`: the month number (1–12).
+- `s["gross"] = s.quantity * s.unit_price`: gross sales, before the discount.
+- `s["net"] = s.gross * (1 - s.disc)`: recalculated net revenue.
+- `s["profit"] = s.net - s.quantity * s.unit_cost`: recalculated gross profit.
+- `s["diff"] = s.net_revenue - s.net`: recorded minus recalculated revenue.
+- `s["cost"] = s.gross * s.disc`: the margin given away by the discount, in dollars.
+- `s["gap15"] = (0.15 * s.net - s.profit).clip(lower=0)`: the profit dollars missing to reach a 15% margin. `clip(lower=0)` turns negatives into 0.
+- `s[s["diff"].abs() > 0.01]`: the sales whose difference is more than one cent. `s["diff"]` uses brackets because `s.diff` is a pandas method.
+
+**Resultado esperado (dónde mirar):**
+
+- **Tabla de 6 filas** debajo de la celda: `T00722`, `T01588`, `T01684`, `T01737`, `T01929`, `T02155`.
+- **Primera fila:** `gross` 90,42 = `net_revenue` 90,42; `net` 84,99; `diff` 5,43; `disc` 0,06.
+- **Columna `disc`:** valores entre 0,05 y 0,14.
 
 ---
 
@@ -226,22 +258,37 @@ s[s.iqr]
 
 > 🖱️ I'm clicking Run on the left of the third cell.
 
-> 🖱️ I'm pointing at the printed line, 135 and 0.56.
+> 🖱️ I'm pointing at the printed line above the table: 135 and 0.56.
 
-> 🟢 135 small-group sales are left to the business rules. 56% of discounts are zero, so the limit is 2.5 times Q3; using only discounted sales leaves 8 groups, so I keep this.
+> 🟢 135 sales are in groups with fewer than 20 sales, all Toys months, so IQR doesn't screen them; the business rules will. And 56% of all sales have no discount, so Q1 is zero and the limit is about 2.5 times Q3. Using only discounted sales would leave just 8 groups, so I keep this version.
 
-> 🖱️ I'm scrolling right in the outlier table to the promotion_id column.
+> 🖱️ I'm pointing at the row count under the table: 15 rows.
 
-> 🟢 15 outliers, some of them authorized Black Friday sales: a screen, not a verdict.
+> 🟢 15 outliers out of 2,200.
 
-📘
-- `g`: the discounts grouped by category × month.
-- `q1, q3, n`: the quartiles and size of each sale's own group.
-- `iqr`: an outlier only in groups of 20 or more.
-- The print shows the sales not screened (135) and the share of zero discounts (0.56).
+> 🖱️ I'm scrolling right to the promotion_id column, and pointing at the PRM-99 rows and the December PRM-07 rows.
+
+> 🟢 Three are PRM-99, an ID I'll check in the next step. Three are Black Friday sales on December 1st, an authorized campaign. So IQR shows what's unusual, not what's wrong.
+
+> 🖱️ I'm pointing at the three Electronics rows from May, in the disc column.
+
+> 🟢 And these are only 13 to 15%: normal discounts, flagged because most Electronics sales that month had none.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `g = s.groupby(["category", "month"]).disc`: the discounts grouped by category and month.
+- `q1, q3, n = g.transform("quantile", 0.25), g.transform("quantile", 0.75), g.transform("size")`: for every sale, the Q1, the Q3 and the size of **its own** group. `transform` returns one value per row.
+- `s["iqr"] = (n >= 20) & (s.disc > q3 + 1.5 * (q3 - q1))`: True only if the group has 20 sales or more **and** the discount is above Q3 + 1.5 × IQR.
+- `print((n < 20).sum(), (s.disc == 0).mean().round(2))`: the sales in groups under 20, and the share of sales with no discount.
 - `s[s.iqr]`: the outliers.
 
-**Resultado esperado:** `135 0.56`. 15 filas.
+**Resultado esperado (dónde mirar):**
+
+- **Línea impresa:** `135 0.56`.
+- **Tabla de 15 filas.** En la columna `promotion_id`:
+  - `T01134`, `T01169` y `T01210` con **PRM-99** (Home & Kitchen, mes 7, 0,35);
+  - `T02013`, `T02014` y `T02015` con **PRM-07** (Electronics, mes 12).
+- **Electronics, mes 5:** `T00763`, `T00825` y `T00880`, con `disc` de 0,13 a 0,15.
 
 ---
 
@@ -287,16 +334,42 @@ bad[["promotion_id"] + c]
 
 > 🖱️ I'm clicking Run on the left of the fourth cell.
 
-> 🖱️ I'm moving the mouse across the five check columns.
+> 🖱️ I'm pointing at the row count under the table: 17 rows.
 
-> 🟢 17 of 188 promotion sales fail, and each column shows the reason.
+> 🟢 17 of 188 promotion sales fail at least one check.
 
-📘
-- `v`: the 188 promotion sales with their calendar data.
-- The five `_ok` columns: the ID exists, the category matches, the date is inside the campaign, the discount is within the maximum, and it's within 5 points of the plan.
-- `bad`: the sales that fail at least one check.
+> 🖱️ I'm pointing at the first four rows, PRM-01, where only plan_ok is False.
 
-**Resultado esperado:** 17 filas: PRM-01 (4), PRM-02 (4), PRM-05 (3), PRM-99 (3) y PRM-07 (3).
+> 🟢 PRM-01 plans 30%, and these got 37, 38, and 22%. They're inside the 40% maximum, so they're deviations to explain, not violations.
+
+> 🖱️ I'm pointing at the three PRM-99 rows in the middle, where every check is False.
+
+> 🟢 PRM-99 isn't in the calendar, so nothing can be validated: a clear violation.
+
+> 🖱️ I'm moving the mouse over the other groups: PRM-02 with date_ok False, PRM-05 with max_ok False, and PRM-07 with cat_ok False.
+
+> 🟢 PRM-02 used after its end date, PRM-05 above its 25% maximum, and the Electronics Black Friday code used in other categories.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `v = s[s.promotion_id.notna()].merge(p, how="left")`: the 188 sales with a promotion ID, joined with the calendar on `promotion_id`. `left` keeps the IDs that don't exist.
+- `v["id_ok"] = v.max_discount.notna()`: the ID exists (calendar data was found).
+- `v["cat_ok"] = v.category == v.applicable_category`: the category matches the campaign's.
+- `v["date_ok"] = v.date.between(v.start_date, v.end_date)`: the date is inside the campaign, both ends included.
+- `v["max_ok"] = v.disc <= v.max_discount`: the discount is at or below the approved maximum.
+- `v["plan_ok"] = (v.disc - v.planned_discount).abs().round(4) <= 0.05`: within 5 points of the planned discount. `round(4)` avoids decimal noise.
+- `c = [...]`: the five check names.
+- `bad = v[v[c].all(axis=1) == False]`: the sales where at least one check fails.
+- `bad[["promotion_id"] + c]`: shows the promotion ID and the five checks.
+
+**Resultado esperado (dónde mirar):**
+
+- **Tabla de 17 filas**, en este orden:
+  - **PRM-01 (4):** 0,37, 0,38, 0,37 y 0,22. Solo `plan_ok` False.
+  - **PRM-02 (4):** `date_ok` False.
+  - **PRM-05 (3):** 0,32 y 0,33. `max_ok` y `plan_ok` False.
+  - **PRM-99 (3):** todo False.
+  - **PRM-07 (3):** `cat_ok` False.
 
 ---
 
@@ -324,17 +397,32 @@ s[s.over30]
 
 > 🖱️ I'm clicking Run on the left of the fifth cell.
 
-> 🖱️ I'm scrolling right in the table to the iqr column.
+> 🖱️ I'm pointing at the row count under the table: 10 rows.
 
-> 🟢 Ten discounts above 30%, and IQR missed three, so this rule stays independent.
+> 🟢 Ten discounts above 30% without a valid promotion.
 
-📘
-- `valid`: a promotion that exists, matches the category and is inside its dates.
-- `promo_issue`: the sale failed a check.
-- `over30`: above 30% without a valid promotion.
-- `low`: below the 15% margin.
+> 🖱️ I'm scrolling right to the disc and promotion_id columns.
 
-**Resultado esperado:** 10 filas. `iqr` False en `T00123`, `T00649` y `T01356`.
+> 🟢 Seven have no promotion at all, from 35 up to 55%. The other three are the PRM-99 sales.
+
+> 🖱️ I'm scrolling right to the iqr column, and pointing at the three False values.
+
+> 🟢 IQR missed three of them: T00123, 36% in Clothing in January, where the campaign raised the limit, and two Toys sales, 40 and 55%, in groups IQR doesn't screen. That's why this rule is independent.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `ok = v[v.id_ok & v.cat_ok & v.date_ok].transaction_id`: the IDs of the sales with a valid promotion.
+- `s["valid"] = s.transaction_id.isin(ok)`: True if the sale has a valid promotion.
+- `s["promo_issue"] = s.transaction_id.isin(bad.transaction_id)`: True if the sale failed any calendar check.
+- `s["over30"] = (s.disc > 0.3) & (s.valid == False)`: above 30% without a valid promotion.
+- `s["low"] = s.gap15 > 0`: below the 15% margin (it has a gap to the floor).
+- `s[s.over30]`: shows the over-30% sales.
+
+**Resultado esperado (dónde mirar):**
+
+- **Tabla de 10 filas.**
+- **Columna `promotion_id`:** 7 sin promoción (NaN) y 3 con PRM-99.
+- **Columna `iqr`:** False en `T00123` (Clothing, mes 1, 0,36), `T00649` (Toys, mes 4, 0,40) y `T01356` (Toys, mes 8, 0,55).
 
 ---
 
@@ -344,17 +432,18 @@ s[s.over30]
 
 > 🟢 Step six: the impact on margin. I'll write one function so every table uses the same definitions.
 
-> ⌨️ impact adds up transactions, sales, profit, discount cost, and the gap to the floor.
+> ⌨️ impact adds up net sales, profit, discount cost, and the gap to the floor, and counts the transactions.
 
 ```python
 def impact(by):
-    t = s.groupby(by).agg(n=("net", "size"), sales=("net", "sum"), profit=("profit", "sum"), cost=("cost", "sum"), gap15=("gap15", "sum"))
+    t = s.groupby(by)[["net", "profit", "cost", "gap15"]].sum()
+    t["n"] = s.groupby(by).size()
 ```
 
 > ⌨️ The margin is total profit over total sales, so big sales weigh more.
 
 ```python
-    t["margin"] = t.profit / t.sales
+    t["margin"] = t.profit / t.net
     return t.round(2)
 ```
 
@@ -367,7 +456,7 @@ cat = impact(["category", "valid"])
 > ⌨️ Most promotions are Electronics, a thin-margin category, so I compute the no-promotion margin at the same category mix.
 
 ```python
-w = cat.xs(True, level=1).sales
+w = cat.xs(True, level=1).net
 print(round((cat.xs(False, level=1).margin * w).sum() / w.sum(), 3))
 ```
 
@@ -381,22 +470,42 @@ pr
 
 > 🖱️ I'm clicking Run on the left of the sixth cell.
 
-> 🖱️ I'm pointing at 0.309 and the first table below it.
+> 🖱️ I'm pointing at the printed number at the top: 0.309.
 
-> 🟢 17% against 33%, but at the same mix the baseline is 31%, so most of the gap is the discount.
+> 🟢 Without promotions, but with the same category mix as the promotions, the margin would be 31%.
 
-> 🖱️ I'm scrolling down to the PRM-07 row of the last table.
+> 🖱️ I'm pointing at the margin column of the first table: 0.33 for False and 0.17 for True.
 
-> 🟢 PRM-07, Black Friday Electronics, keeps only a 3% margin. No other campaign comes close.
+> 🟢 Promotional sales keep 17% against 33%. Against the 31% baseline, about 14 of the 16 points are the discount, and about 2 are the category mix.
 
-📘
-- `impact()`: transactions, sales, gross profit, discount cost, gap to the floor and weighted margin, for any grouping.
-- `cat`: the same values by category and validity.
-- `w`: the promotional sales of each category (the mix).
-- The print: the margin without promotion, with the promotions' mix (0.309).
-- `pr`: one row per valid promotion.
+> 🖱️ I'm scrolling down to the two Electronics rows of the category table.
 
-**Resultado esperado:** `0.309`. False 0,33 / True 0,17. PRM-07: 33 · 27.874,68 · 732,29 · 9.227,69 · 3.448,92 · 0,03.
+> 🟢 Electronics drops from 24% to 10% with promotions, and it's almost all of the gap15 column.
+
+> 🖱️ I'm scrolling down to the last table, and pointing at the PRM-07 row.
+
+> 🟢 PRM-07: 9,228 dollars of discounts, a 3% margin, and 3,449 dollars below the floor. PRM-06, the other Electronics campaign, keeps 19%.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `def impact(by):`: defines a reusable function that receives the grouping.
+- `t = s.groupby(by)[["net", "profit", "cost", "gap15"]].sum()`: for each group, the net sales, gross profit, discount cost and gap to the floor.
+- `t["n"] = s.groupby(by).size()`: the number of transactions of each group.
+- `t["margin"] = t.profit / t.net`: the weighted margin, total profit ÷ total net sales.
+- `return t.round(2)`: returns the table with 2 decimals.
+- `cat = impact(["category", "valid"])`: the table by category, with and without a valid promotion.
+- `w = cat.xs(True, level=1).net`: the promotional net sales of each category (the mix).
+- `print(round((cat.xs(False, level=1).margin * w).sum() / w.sum(), 3))`: the margin without promotion, weighted with the promotions' mix.
+- `display(impact("valid"), cat)`: shows valid vs not, and the category table.
+- `pr = impact(s.promotion_id.where(s.valid))`: one row per valid promotion. Invalid IDs are left out.
+- `pr`: shows it.
+
+**Resultado esperado (dónde mirar):**
+
+- **Número impreso:** `0.309`.
+- **Primera tabla:** False: 2022 ventas, margin **0,33**. True: 178 ventas, margin **0,17**, gap15 3.468,17.
+- **Tabla por categoría:** Electronics False 0,24 / True **0,10**.
+- **Última tabla:** PRM-07: n 33, margin **0,03**, cost **9.227,69**, gap15 **3.448,92**. PRM-06: margin 0,19.
 
 ---
 
@@ -428,19 +537,27 @@ money
 
 > 🖱️ I'm clicking Run on the left of the seventh cell.
 
-> 🖱️ I'm moving the mouse down the four figures.
+> 🖱️ I'm pointing at the first line, cost: 35,094.64.
 
-> 🟢 Discounts cost 35,095 dollars. The unusual ones only 1,073 above normal, and PRM-07 explains 3,449 of the 3,870 below the floor.
+> 🟢 Discounts gave away 35,095 dollars of margin, 6.7% of gross sales.
 
-> 🟢 So the priority is PRM-07, not the violations.
+> 🖱️ I'm pointing at the second line, unusual: 1,072.70.
 
-📘
-- `plan`: the planned discount of each sale's promotion.
-- `excess`: the discount dollars above the reference (the planned rate if valid, otherwise the group median).
-- `u`: the 30 unusual sales.
-- `money`: the total cost, the unusual excess, the total gap to the floor and PRM-07's gap.
+> 🟢 The 30 unusual sales cost only 1,073 dollars above normal.
 
-**Resultado esperado:** cost 35.094,64 · unusual 1.072,70 · gap15 3.869,71 · prm07 3.448,92.
+> 🖱️ I'm pointing at the last two lines, gap15 and prm07.
+
+> 🟢 Sales are 3,870 dollars below the 15% floor, and PRM-07 alone explains 3,449 of them, about 89%. So the priority is the PRM-07 rate; the violations are many but cheap, and need controls.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `plan = s.promotion_id.map(p.set_index("promotion_id").planned_discount)`: the planned discount of each sale's promotion.
+- `s["excess"] = (s.gross * (s.disc - plan.where(s.valid, g.transform("median")))).clip(lower=0)`: the discount dollars above a reference. The reference is the planned rate if the promotion is valid, and otherwise the median of its category and month. Negatives become 0.
+- `u = s.iqr | s.over30 | s.promo_issue`: the unusual sales: an IQR outlier, over 30%, or a promotion issue (`|` means "or").
+- `money = pd.Series({...}).round(2)`: the four figures: total discount cost, the excess of the unusual sales, the total gap to the floor and PRM-07's gap.
+- `money`: shows it.
+
+**Resultado esperado (dónde mirar):** cuatro líneas, de arriba hacia abajo: `cost` **35094.64**, `unusual` **1072.70**, `gap15` **3869.71** y `prm07` **3448.92**.
 
 ---
 
@@ -465,13 +582,28 @@ r.loc["Total"] = s[k].sum()
 r.round(2)
 ```
 
-> 🖱️ I'm clicking Run, and pointing at the Sum and Total rows.
+> 🖱️ I'm clicking Run on the left of the eighth cell.
 
-> 🟢 Both match; the 58 dollars are the six mismatches.
+> 🖱️ I'm pointing at the Sum and Total rows at the bottom of the table.
 
-📘 The totals by category, plus the sum of the categories and the overall total. Both rows must be equal.
+> 🟢 Both rows are 489,707.18 recorded and 489,648.79 recalculated, so no sale was lost or counted twice.
 
-**Resultado esperado:** `Sum` = `Total`: 489.707,18 · 489.648,79 · 58,39.
+> 🖱️ I'm moving the mouse down the diff column.
+
+> 🟢 The total difference is 58.39 dollars: 58.35 from the six mismatches, plus a few cents of rounding, like the 0.04 in Electronics.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `k = ["net_revenue", "net", "diff"]`: recorded revenue, recalculated revenue and the difference.
+- `r = s.groupby("category")[k].sum()`: the totals of each category.
+- `r.loc["Sum"] = r.sum()`: a row with the sum of the six categories.
+- `r.loc["Total"] = s[k].sum()`: a row with the total over all sales.
+- `r.round(2)`: shows the table. "Sum" and "Total" must be equal.
+
+**Resultado esperado (dónde mirar):**
+
+- **Filas `Sum` y `Total`, abajo:** iguales, con 489.707,18 · 489.648,79 · 58,39.
+- **Columna `diff`:** Electronics 0,04 y Sports & Outdoors −0,02 (redondeo). El resto es entre 11 y 17 dólares.
 
 ---
 
@@ -514,19 +646,35 @@ res.to_csv("summary_results.csv")
 res
 ```
 
-> 🖱️ I'm clicking Run, then opening the Files panel on the left and pointing at the four files.
+> 🖱️ I'm clicking Run on the left of the ninth cell.
 
-> 🟢 Both input files are rewritten with the same names, and 104 sales are flagged for review.
+> 🖱️ I'm moving the mouse down the summary under the cell.
 
-> 🖱️ I'm closing the Files panel.
+> 🟢 15 IQR outliers, 14 data issues, 17 promotion issues, 10 over 30%, and 72 below the margin floor, followed by the four money figures.
 
-📘
-- `flagged_transactions.csv`: the 104 sales with at least one reason.
-- **`sales_transactions.csv` is rewritten:** the corrected discount, the original in `discount_raw`, the calculations and the flags. `net_revenue` is not touched.
-- **`promotion_calendar.csv` is rewritten** with each valid promotion's results.
-- `summary_results.csv`: the counts by reason plus the money figures.
+> 🖱️ I'm opening the Files panel on the left and pointing at sales_transactions and promotion_calendar.
 
-**Resultado esperado:** iqr 15, data_issue 14, promo_issue 17, over30 10, low 72, más las 4 cifras en dólares.
+> 🟢 The two input files keep their names, but now hold the corrected discount, the original value, the calculations, the flags, and each promotion's results.
+
+> 🖱️ I'm pointing at flagged_transactions and summary_results, and closing the Files panel.
+
+> 🟢 And the two new files: the sales to review, and the summary.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `s["data_issue"] = (s["diff"].abs() > 0.01) | (s.discount_rate > 1)`: a revenue mismatch, or a discount stored as a percentage.
+- `f = [...]`: the five review reasons.
+- `s[s[f].any(axis=1)].to_csv("flagged_transactions.csv", index=False)`: exports the sales with at least one reason.
+- `s.assign(discount_raw=s.discount_rate, discount_rate=s.disc).drop(columns="disc").to_csv("sales_transactions.csv", index=False)`: **rewrites the sales file**. `discount_rate` gets the corrected value, the original goes to `discount_raw`, and it adds the calculations and the flags.
+- `p.merge(pr.reset_index(), how="left").to_csv("promotion_calendar.csv", index=False)`: **rewrites the calendar** with each valid promotion's results.
+- `res = pd.concat([s[f].sum(), money])`: the counts by reason plus the money figures.
+- `res.to_csv("summary_results.csv")`: exports the summary.
+- `res`: shows it.
+
+**Resultado esperado (dónde mirar):**
+
+- **Resumen debajo de la celda:** iqr 15, data_issue 14, promo_issue 17, over30 10, low 72, cost 35094,64, unusual 1072,70, gap15 3869,71, prm07 3448,92.
+- **Panel Files:** cuatro archivos: `flagged_transactions.csv`, `promotion_calendar.csv`, `sales_transactions.csv` y `summary_results.csv`. Si no aparecen, tocá el ícono de refresh arriba del panel y decí la frase.
 
 ---
 
@@ -575,27 +723,27 @@ res
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo (código + conclusiones) | ~3.035 caracteres | ~25 min |
-| Narración | ~1.360 palabras | ~10,5 min |
+| Tipeo (código + conclusiones) | ~2.990 caracteres | ~25 min |
+| Narración | ~2.040 palabras | ~15,5 min |
 | Navegación | — | ~4 min |
-| **Total** | | **~40 min** |
+| **Total** | | **~45 min** |
 
 | Sección | Aprox. |
 | ------- | ------ |
 | A. Apertura | 0:00–1:00 |
 | B. Step 1 | 1:00–3:30 |
-| C. Step 2 | 3:30–8:30 |
-| D. Step 3 | 8:30–12:30 |
-| E. Step 4 | 12:30–17:30 |
-| F. Step 5 | 17:30–20:30 |
-| G. Step 6 | 20:30–26:30 |
-| H. Step 7 | 26:30–30:30 |
-| I. Step 8 | 30:30–32:00 |
-| J. Step 9 | 32:00–37:00 |
-| K. Conclusiones | 37:00–39:00 |
-| L. Epílogo | 39:00–40:00 |
+| C. Step 2 | 3:30–9:00 |
+| D. Step 3 | 9:00–14:00 |
+| E. Step 4 | 14:00–19:30 |
+| F. Step 5 | 19:30–23:00 |
+| G. Step 6 | 23:00–30:00 |
+| H. Step 7 | 30:00–34:30 |
+| I. Step 8 | 34:30–36:30 |
+| J. Step 9 | 36:30–42:00 |
+| K. Conclusiones | 42:00–44:00 |
+| L. Epílogo | 44:00–45:00 |
 
-**Margen:** unos 11 minutos hasta 50:59. Si con práctica tipeás a 150 caracteres por minuto, baja a unos **35 minutos**. **Medilo:** hacé una práctica completa con cronómetro, y si pasa de 44 minutos, decime en qué step.
+**Margen:** unos 6 minutos hasta 50:59. Si con práctica tipeás a 150 caracteres por minuto, baja a unos **40 minutos**. **Medilo:** hacé una práctica completa con cronómetro. Si pasa de 46 minutos, el primer recorte es la segunda frase 🖱️ + 🟢 de los resultados de los Steps 1, 3 y 6, que son los más largos.
 
 ---
 
@@ -607,6 +755,7 @@ res
 - [ ] Creá el notebook vacío **discount_analysis** en Colab.
 - [ ] En **Files**, subí los dos CSV del Escritorio. Los del Escritorio son los originales: no los toques.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
+- [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas de código (*Automatically trigger code completions*). Todo se tipea a mano: **no se usa autocompletado**.
 - [ ] Zoom (`Cmd + +`). Firefox con la ventana 1 en la descripción de la tarea y la ventana 2 en Colab (segunda línea del Dock).
 - [ ] Grabá enseguida después de subir los CSV.
 
