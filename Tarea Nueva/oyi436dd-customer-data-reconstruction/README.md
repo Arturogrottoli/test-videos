@@ -675,7 +675,7 @@ plt.show()
 
 > 🟢 Web and App have similar boxes, mostly between about 90 and 300 dollars. B2B sits much higher: its median order is more than ten times larger. That's the visual reason to treat it as a separate segment.
 
-**Resultado esperado:** dos gráficos. Izquierda: línea con pico en junio (≈ 41 mil), bajada en julio y máximo en noviembre (≈ 69 mil). Derecha: tres cajas en escala logarítmica, con B2B muy por encima de Web y App.
+**Resultado esperado:** dos gráficos. Izquierda: línea con pico en junio (unos 41 mil), bajada en julio y máximo en noviembre (unos 69 mil). Derecha: tres cajas en escala logarítmica, con B2B muy por encima de Web y App.
 
 > 🟢 Before I export anything, let's validate the totals.
 
