@@ -6,12 +6,12 @@ Guion **corregido según el feedback del reviewer** para volver a grabar la tare
 
 | Problema del reviewer | Medido | Mínimo o máximo | Cómo lo corrige este guion |
 | --------------------- | ------ | --------------- | -------------------------- |
-| Tipeo | 42,91% | **≤ 35%** | La celda 1 (carga + `info` + `describe`) ya está armada. Hablás **con las manos quietas** y después tipeás **en silencio**, en tramos de menos de 45 s. Más tiempo de inspección de resultados. |
+| Tipeo | 42,91% | **≤ 35%** | Las celdas 1 (carga + `info` + `describe`) y 2 (recálculo del dinero) ya están armadas. Hablás **con las manos quietas** y después tipeás **en silencio**, en tramos de menos de 45 s. Más tiempo de inspección de resultados. |
 | WHAT + WHERE | 52,6% | **≥ 70%** | Cada frase dice **qué** hacés, **dónde** (número de celda, línea, columna, botón) y **por qué**. Cada tramo de tipeo tiene su propia frase. |
 
 **El análisis, el código y los resultados no cambian.** Solo cambia cómo se narra y en qué orden hablás y tipeás.
 
-**Duración estimada: ~48 minutos** (máximo 50:59). Ver "Cronograma".
+**Duración estimada: ~46 minutos** (máximo 50:59). Ver "Cronograma".
 
 ---
 
@@ -39,7 +39,7 @@ Guion **corregido según el feedback del reviewer** para volver a grabar la tare
 
 | | Antes | Ahora |
 | - | ----- | ----- |
-| Caracteres tipeados | ~2.990 | **2.821** (la celda 1 ya está armada) |
+| Caracteres tipeados | ~2.990 | **2.456** (las celdas 1 y 2 ya están armadas) |
 | Narración | mientras tipeabas | **antes de tipear, con las manos quietas** |
 | Inspección de resultados | corta | **2 o 3 pares 🖱️ + 🟢 por salida** |
 
@@ -47,13 +47,13 @@ Guion **corregido según el feedback del reviewer** para volver a grabar la tare
 
 1. **Hablar y tipear nunca al mismo tiempo.** Al hablar mientras tipeás, tipeás más lento y todo ese tiempo cuenta como tipeo. Primero la frase 🗣️⌨️, después el bloque, rápido y en silencio.
 2. **Ningún tramo de tipeo pasa de 45 segundos.** Cada bloque del guion tiene como máximo 93 caracteres (~32 s a 175 caracteres por minuto, ~37 s a 150). Las tres líneas más largas están partidas en dos, con una frase en el medio.
-3. **La celda 1 no se tipea:** tiene el import, los dos `read_csv`, los `info()` y el `describe()`. Se explica señalando cada línea y se ejecuta.
+3. **Las celdas 1 y 2 no se tipean.** La 1 tiene el import, los dos `read_csv`, los `info()` y el `describe()`. La 2 tiene el recálculo del dinero (`disc`, `net`, `profit`, `diff`, `cost`, `gap15`). Se explican señalando cada línea y se ejecutan. En la celda 2 decís que está armada para reducir el tipeo, que no modifica nada porque es el primer estudio (solo agrega columnas nuevas) y que así hay más tiempo para explicar el código.
 4. **El tiempo ahorrado va a explicar:** decisiones (🟢 *why*) e inspección de resultados (🖱️ señalar + 🟢 datos).
 5. **Nada de tipeo extra:** ni comentarios `#`, ni `print` de prueba, ni celdas que no estén en el guion.
 
-**Lo que tenés que medir en la práctica:** el tipeo en silencio de todos los bloques tiene que entrar en **~16 minutos** (unos **175 caracteres por minuto**). Con eso, sobre ~48 minutos, el tipeo da **~34%**.
+**Lo que tenés que medir en la práctica:** el tipeo en silencio de todos los bloques tiene que entrar en **~14 minutos** (unos **175 caracteres por minuto**). Con eso, sobre ~46 minutos, el tipeo da **~31%**. A 150 caracteres por minuto da ~16,5 minutos y ~34%: también entra.
 
-> ⚠️ Si en la práctica el tipeo total pasa de **17 minutos**, avisame **antes de grabar**. Con el código sin cambios, la única palanca que queda es la velocidad: habría que decidir entre acortar algo del código o tener más celdas preparadas.
+> ⚠️ Si en la práctica el tipeo total pasa de **16,5 minutos**, avisame **antes de grabar**. Con el código sin cambios, la única palanca que queda es la velocidad: habría que decidir entre acortar algo del código o tener más celdas preparadas.
 
 ---
 
@@ -61,7 +61,7 @@ Guion **corregido según el feedback del reviewer** para volver a grabar la tare
 
 | Tema | Qué hacer |
 | ---- | --------- |
-| **Celda 1 armada** | Tiene que contener exactamente las 6 líneas del bloque del Step 1: `import`, los dos `read_csv`, los dos `info()` y el `describe()`. |
+| **Celdas 1 y 2 armadas** | La celda 1 tiene exactamente las 6 líneas del bloque del Step 1, y la celda 2 las 9 líneas del bloque del Step 2. |
 | **Origen de los CSV** | Los generé yo, Claude, con un script de Python: "generated with AI" es cierto, "Gemini" no. Marcá en Studio la opción de archivos generados con IA. |
 | **Versión de pandas** | Lo probé con pandas 3.1. Si `info()` dice `object` en vez de `str`, es lo mismo. |
 
@@ -72,7 +72,7 @@ Guion **corregido según el feedback del reviewer** para volver a grabar la tare
 | Etapa aprobada | Dónde |
 | -------------- | ----- |
 | 1–2. Carga, columnas, tipos, fechas y faltantes | Celda 1 (armada) |
-| 3. Recalcular net revenue, descuento y gross margin | Celda 2 |
+| 3. Recalcular net revenue, descuento y gross margin | Celda 2 (armada) |
 | 4. IQR por categoría y mes, mínimo 20 por grupo | Celda 3 |
 | 5. Calendario: ID, categoría, fechas, máximo y tolerancia de 5 puntos | Celda 4 |
 | 6. Más del 30% sin promoción autorizada | Celda 5 |
@@ -189,50 +189,37 @@ s.describe()
 
 ---
 
-### C. Step 2: recalcular el dinero (5:30–11:00) · celda 2
+### C. Step 2: recalcular el dinero (5:30–10:00) · celda 2 (armada)
 
-> 🖱️ I'm clicking plus Code at the top left, to add cell two, below cell one.
-
-> 🟢 Step two: fix the discount units and recalculate revenue and margin myself, in new columns, so the original values stay untouched.
-
-> 🗣️⌨️ On the first line of cell two, I'll create disc, the discount as a fraction: values up to 1 stay, larger ones are divided by 100.
+**Celda 2 (armada antes de grabar, no se tipea ni se modifica):**
 
 ```python
 s["disc"] = s.discount_rate.where(s.discount_rate <= 1, s.discount_rate / 100)
-```
-*(78 caracteres · ~27 s)*
-
-> 🗣️⌨️ Below it, in the same cell, the month, for the IQR groups, and gross sales, quantity times unit price.
-
-```python
 s["month"] = s.date.dt.month
 s["gross"] = s.quantity * s.unit_price
-```
-*(67 caracteres · ~23 s)*
-
-> 🗣️⌨️ Next, still in cell two: net revenue after the discount, and gross profit after the unit cost.
-
-```python
 s["net"] = s.gross * (1 - s.disc)
 s["profit"] = s.net - s.quantity * s.unit_cost
-```
-*(80 caracteres · ~27 s)*
-
-> 🗣️⌨️ Now diff, the recorded revenue minus mine, to test the conversion. And cost, the margin dollars each discount gives away.
-
-```python
 s["diff"] = s.net_revenue - s.net
 s["cost"] = s.gross * s.disc
-```
-*(62 caracteres · ~21 s)*
-
-> 🗣️⌨️ Last two lines of cell two: gap15, the profit dollars missing to reach a 15% margin, with negatives set to zero. And the sales where my revenue differs by more than one cent.
-
-```python
 s["gap15"] = (0.15 * s.net - s.profit).clip(lower=0)
 s[s["diff"].abs() > 0.01]
 ```
-*(78 caracteres · ~27 s)*
+
+> 🟢 Step two: fix the discount units and recalculate revenue and margin myself.
+
+> 🖱️ I'm pointing at cell two, right below cell one. I also prepared this cell before recording, to reduce typing time. It doesn't modify anything: it's the first study of the data, and it only adds new columns next to the original ones, which stay untouched. That way I can spend more time explaining the code and the decisions.
+
+> 🖱️ I'm pointing at the first line of cell two: disc, the discount as a fraction. Values up to 1 stay, and larger ones are divided by 100. It's a new column, so discount_rate keeps the recorded value.
+
+> 🖱️ I'm moving the mouse down to the month and gross lines of cell two: the month, for the IQR groups later, and gross sales, quantity times unit price.
+
+> 🖱️ I'm pointing at the net and profit lines: net revenue after the discount, and gross profit after the unit cost. I recalculate them instead of trusting the recorded values, because the recorded ones are what I want to test.
+
+> 🖱️ I'm pointing at the diff line: the recorded revenue minus mine. If the conversion is right, it should be close to zero almost everywhere.
+
+> 🖱️ I'm pointing at the cost and gap15 lines: cost is the margin dollars each discount gives away, and gap15 is the profit dollars missing to reach a 15% margin, with negatives set to zero.
+
+> 🖱️ I'm pointing at the last line of cell two: it shows only the sales where my revenue differs by more than one cent.
 
 > 🖱️ I'm clicking the Run button on the left of cell two. The mismatches appear as a table below it.
 
@@ -268,7 +255,7 @@ s[s["diff"].abs() > 0.01]
 
 ---
 
-### D. Step 3: descuentos inusuales con IQR (11:00–16:00) · celda 3
+### D. Step 3: descuentos inusuales con IQR (10:00–14:30) · celda 3
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell three, below the money columns.
 
@@ -339,7 +326,7 @@ s[s.iqr]
 
 ---
 
-### E. Step 4: validación de promociones (16:00–22:00) · celda 4
+### E. Step 4: validación de promociones (14:30–20:30) · celda 4
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell four.
 
@@ -431,7 +418,7 @@ bad[["promotion_id"] + c]
 
 ---
 
-### F. Step 5: reglas del 30% y del 15% (22:00–26:00) · celda 5
+### F. Step 5: reglas del 30% y del 15% (20:30–24:30) · celda 5
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell five.
 
@@ -498,7 +485,7 @@ s[s.over30]
 
 ---
 
-### G. Step 6: con y sin promoción, impacto en el margen (26:00–33:00) · celda 6
+### G. Step 6: con y sin promoción, impacto en el margen (24:30–31:00) · celda 6
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell six.
 
@@ -592,7 +579,7 @@ pr
 
 ---
 
-### H. Step 7: cuánto cuestan los descuentos inusuales (33:00–37:30) · celda 7
+### H. Step 7: cuánto cuestan los descuentos inusuales (31:00–35:30) · celda 7
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell seven.
 
@@ -660,7 +647,7 @@ money
 
 ---
 
-### I. Step 8: conciliación por categoría (37:30–40:00) · celda 8
+### I. Step 8: conciliación por categoría (35:30–38:00) · celda 8
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell eight.
 
@@ -708,7 +695,7 @@ r.round(2)
 
 ---
 
-### J. Step 9: reescribir las entradas y exportar (40:00–45:00) · celda 9
+### J. Step 9: reescribir las entradas y exportar (38:00–43:00) · celda 9
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell nine, the last code cell.
 
@@ -805,7 +792,7 @@ res
 
 ---
 
-### K. Conclusiones (45:00–46:30) · celda de texto 10
+### K. Conclusiones (43:00–44:30) · celda de texto 10
 
 > 🖱️ I'm clicking plus Text at the top left, to add a text cell at the end of the notebook, for the conclusions.
 
@@ -844,7 +831,7 @@ res
 
 ---
 
-### L. Epílogo (46:30–48:30)
+### L. Epílogo (44:30–46:30)
 
 Sin tipear nada. Recién **después** del epílogo abrís TaskRecorder para detener la grabación.
 
@@ -877,29 +864,29 @@ Sin tipear nada. Recién **después** del epílogo abrís TaskRecorder para dete
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo (código + conclusiones) | 2.821 caracteres | **~16 min** a 175 car./min (~19 min a 150) |
-| Narración | ~3.460 palabras | ~26,5 min |
+| Tipeo (código + conclusiones) | 2.456 caracteres | **~14 min** a 175 car./min (~16,5 min a 150) |
+| Narración | ~3.530 palabras | ~27 min |
 | Navegación (10 celdas + Files) | — | ~5 min |
-| **Total** | | **~48 min** (~50,5 min a 150 car./min) |
+| **Total** | | **~46 min** (~48 min a 150 car./min) |
 
 | Sección | Aprox. |
 | ------- | ------ |
 | A. Apertura | 0:00–2:00 |
 | B. Step 1 (celda 1) | 2:00–5:30 |
-| C. Step 2 (celda 2) | 5:30–11:00 |
-| D. Step 3 (celda 3) | 11:00–16:00 |
-| E. Step 4 (celda 4) | 16:00–22:00 |
-| F. Step 5 (celda 5) | 22:00–26:00 |
-| G. Step 6 (celda 6) | 26:00–33:00 |
-| H. Step 7 (celda 7) | 33:00–37:30 |
-| I. Step 8 (celda 8) | 37:30–40:00 |
-| J. Step 9 (celda 9) | 40:00–45:00 |
-| K. Conclusiones (celda 10) | 45:00–46:30 |
-| L. Epílogo | 46:30–48:30 |
+| C. Step 2 (celda 2, armada) | 5:30–10:00 |
+| D. Step 3 (celda 3) | 10:00–14:30 |
+| E. Step 4 (celda 4) | 14:30–20:30 |
+| F. Step 5 (celda 5) | 20:30–24:30 |
+| G. Step 6 (celda 6) | 24:30–31:00 |
+| H. Step 7 (celda 7) | 31:00–35:30 |
+| I. Step 8 (celda 8) | 35:30–38:00 |
+| J. Step 9 (celda 9) | 38:00–43:00 |
+| K. Conclusiones (celda 10) | 43:00–44:30 |
+| L. Epílogo | 44:30–46:30 |
 
-**Porcentaje de tipeo esperado:** 16 ÷ 48 ≈ **34%** a 175 caracteres por minuto. A 150 caracteres por minuto da ~38% y el video roza el máximo: **no alcanza**. Por eso la velocidad de tipeo en silencio es lo que tenés que practicar.
+**Porcentaje de tipeo esperado:** 14 ÷ 46 ≈ **31%** a 175 caracteres por minuto, y ~34% a 150. Con la celda 2 armada entra en las dos velocidades.
 
-**Margen:** unos 3 minutos hasta 50:59. Si en la práctica te pasás de 49 minutos, recortá **palabras** de las 🟢 (nunca las 🖱️ ni las 🗣️⌨️, que son las que cuentan para What + Where).
+**Margen:** unos 5 minutos hasta 50:59. Si en la práctica te pasás de 49 minutos, recortá **palabras** de las 🟢 (nunca las 🖱️ ni las 🗣️⌨️, que son las que cuentan para What + Where).
 
 ---
 
@@ -907,8 +894,8 @@ Sin tipear nada. Recién **después** del epílogo abrís TaskRecorder para dete
 
 **Antes de grabar**
 
-- [ ] Practicá dos veces con cronómetro. En una de las prácticas, medí **solo el tipeo** (pausá el cronómetro mientras hablás): tiene que dar **≤ 16 min**.
-- [ ] Creá el notebook **discount_analysis** en Colab, con la **celda 1 ya armada** (import, dos `read_csv`, dos `info()` y `describe()`) y **sin ejecutar**.
+- [ ] Practicá dos veces con cronómetro. En una de las prácticas, medí **solo el tipeo** (pausá el cronómetro mientras hablás): tiene que dar **≤ 16 min**, mejor si da 14.
+- [ ] Creá el notebook **discount_analysis** en Colab, con las **celdas 1 y 2 ya armadas** (celda 1: import, dos `read_csv`, dos `info()` y `describe()`; celda 2: el bloque del Step 2) y **sin ejecutar**.
 - [ ] En **Files**, subí los dos CSV del Escritorio. Los del Escritorio son los originales: no los toques.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
 - [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas de código (*Automatically trigger code completions*). Todo se tipea a mano: **no se usa autocompletado**.
@@ -922,7 +909,7 @@ Sin tipear nada. Recién **después** del epílogo abrís TaskRecorder para dete
 - [ ] **Cada acción con qué + dónde** (número de celda, línea, columna, botón) y, cuando no es obvio, **por qué**.
 - [ ] **El número de celda se repite al menos una vez por minuto.**
 - [ ] Respetá la regla del mouse. Si hacés algo fuera del guion, usá una frase comodín.
-- [ ] Ejecutá cada celda una vez, en orden. **No repitas la celda 1 después de la celda 9.**
+- [ ] Ejecutá cada celda una vez, en orden. **No repitas las celdas 1 y 2 después de la celda 9.**
 - [ ] No termines antes de las conclusiones, **Cmd + S** y el epílogo. **TaskRecorder se abre recién después del epílogo.**
 
 **Después**
