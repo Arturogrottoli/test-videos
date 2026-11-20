@@ -1,0 +1,59 @@
+week,week_start,category,customer,amount,discretionary
+1,2026-11-23,other_opex,,-14000.0,N
+1,2026-11-23,payroll,,-110000.0,N
+2,2026-11-30,marketing,,-9000.0,Y
+2,2026-11-30,other_opex,,-14000.0,N
+2,2026-11-30,rent,,-45000.0,N
+3,2026-12-07,other_opex,,-14000.0,N
+3,2026-12-07,payroll,,-110000.0,N
+4,2026-12-14,marketing,,-9000.0,Y
+4,2026-12-14,other_opex,,-14000.0,N
+5,2026-12-21,collections_new_sales,Other customers,209800.0,N
+5,2026-12-21,other_opex,,-14000.0,N
+5,2026-12-21,payroll,,-110000.0,N
+5,2026-12-21,supplier_payments_new_purchases,,-182700.0,N
+6,2026-12-28,capex_warehouse_racking,,-85000.0,Y
+6,2026-12-28,collections_new_sales,Other customers,202700.0,N
+6,2026-12-28,marketing,,-9000.0,Y
+6,2026-12-28,other_opex,,-14000.0,N
+6,2026-12-28,rent,,-45000.0,N
+6,2026-12-28,supplier_payments_new_purchases,,-184900.0,N
+6,2026-12-28,year_end_bonus,,-65000.0,N
+7,2027-01-04,collections_new_sales,Other customers,199400.0,N
+7,2027-01-04,collections_new_sales,Northwind Retail,95000.0,N
+7,2027-01-04,insurance_premium,,-92000.0,N
+7,2027-01-04,other_opex,,-14000.0,N
+7,2027-01-04,payroll,,-110000.0,N
+7,2027-01-04,supplier_payments_new_purchases,,-180600.0,N
+8,2027-01-11,collections_new_sales,Other customers,199100.0,N
+8,2027-01-11,collections_new_sales,Northwind Retail,98100.0,N
+8,2027-01-11,marketing,,-9000.0,Y
+8,2027-01-11,other_opex,,-14000.0,N
+8,2027-01-11,supplier_payments_new_purchases,,-185000.0,N
+9,2027-01-18,capex_forklift,,-40000.0,Y
+9,2027-01-18,collections_new_sales,Other customers,202300.0,N
+9,2027-01-18,collections_new_sales,Northwind Retail,95500.0,N
+9,2027-01-18,other_opex,,-14000.0,N
+9,2027-01-18,payroll,,-110000.0,N
+9,2027-01-18,supplier_payments_new_purchases,,-183200.0,N
+10,2027-01-25,collections_new_sales,Other customers,205600.0,N
+10,2027-01-25,collections_new_sales,Northwind Retail,98500.0,N
+10,2027-01-25,marketing,,-9000.0,Y
+10,2027-01-25,other_opex,,-14000.0,N
+10,2027-01-25,supplier_payments_new_purchases,,-188800.0,N
+11,2027-02-01,collections_new_sales,Other customers,202700.0,N
+11,2027-02-01,collections_new_sales,Northwind Retail,95000.0,N
+11,2027-02-01,other_opex,,-14000.0,N
+11,2027-02-01,payroll,,-110000.0,N
+11,2027-02-01,rent,,-45000.0,N
+11,2027-02-01,supplier_payments_new_purchases,,-183500.0,N
+12,2027-02-08,collections_new_sales,Other customers,204800.0,N
+12,2027-02-08,collections_new_sales,Northwind Retail,95800.0,N
+12,2027-02-08,marketing,,-9000.0,Y
+12,2027-02-08,other_opex,,-14000.0,N
+12,2027-02-08,supplier_payments_new_purchases,,-185800.0,N
+13,2027-02-15,collections_new_sales,Other customers,204700.0,N
+13,2027-02-15,collections_new_sales,Northwind Retail,95000.0,N
+13,2027-02-15,other_opex,,-14000.0,N
+13,2027-02-15,payroll,,-110000.0,N
+13,2027-02-15,supplier_payments_new_purchases,,-182300.0,N
