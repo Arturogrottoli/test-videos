@@ -4,7 +4,9 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 > **Goal:** *Reconstruct and stress-test the 13-week liquidity position of a simulated mid-sized company facing tightening cash availability, customer payment delays, and upcoming debt obligations. (…) Deliver an auditable weekly liquidity model, scenario comparisons, and a justified financing action plan that maintains minimum cash requirements while respecting contractual borrowing limits.*
 
-**Duración estimada: ~23:40** (máximo 25).
+**Duración estimada: ~24:00** (máximo 25).
+
+**Punto de partida al grabar:** la celda 1 ya está escrita y los cinco CSV ya están cargados en el panel **Files** de Colab. No se sube nada ni se tipea la carga: ese tiempo se usa para explicar.
 
 ---
 
@@ -12,22 +14,22 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 | # | Bloque | Fase de Dawn | Celda | TIME | Duración |
 | - | ------ | ------------ | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:25 | 1:25 |
-| 1 | Carga y contratos | Phase 1 | 1 (armada) | 1:25–2:50 | 1:25 |
-| 2 | Posición de caja real | Phase 1 | 2 (se tipea) | 2:50–5:45 | 2:55 |
-| 3 | Confiabilidad de los flujos | Phase 2 | 3 (armada) | 5:45–8:00 | 2:15 |
-| 4 | Proyección de 13 semanas | Phase 3 | 4 (armada) | 8:00–9:50 | 1:50 |
-| 5 | Capacidad real de endeudamiento | Phase 4 | 5 (se tipea) | 9:50–13:20 | 3:30 |
-| 6 | Comparación de alternativas | Phase 4 | 6 (armada) | 13:20–15:15 | 1:55 |
-| 7 | Plan elegido y estrés | Phase 5 | 7 (se tipea) | 15:15–18:50 | 3:35 |
-| 8 | Exportación y registro de decisiones | Phase 5 | 8 (armada) | 18:50–20:25 | 1:35 |
-| 9 | Conclusiones | Phase 5 | texto (se tipea) | 20:25–22:45 | 2:20 |
-| 10 | Epilogue | — | — | 22:45–23:40 | 0:55 |
-| | **Total** | | | | **~23:40** |
+| 0 | Opening | — | — | 0:00–1:10 | 1:10 |
+| 1 | Carga y contratos | Phase 1 | 1 (ya escrita) | 1:10–3:10 | 2:00 |
+| 2 | Posición de caja real | Phase 1 | 2 (se tipea) | 3:10–6:05 | 2:55 |
+| 3 | Confiabilidad de los flujos | Phase 2 | 3 (armada) | 6:05–8:20 | 2:15 |
+| 4 | Proyección de 13 semanas | Phase 3 | 4 (armada) | 8:20–10:10 | 1:50 |
+| 5 | Capacidad real de endeudamiento | Phase 4 | 5 (se tipea) | 10:10–13:40 | 3:30 |
+| 6 | Comparación de alternativas | Phase 4 | 6 (armada) | 13:40–15:35 | 1:55 |
+| 7 | Plan elegido y estrés | Phase 5 | 7 (se tipea) | 15:35–19:10 | 3:35 |
+| 8 | Exportación y registro de decisiones | Phase 5 | 8 (armada) | 19:10–20:45 | 1:35 |
+| 9 | Conclusiones | Phase 5 | texto (se tipea) | 20:45–23:05 | 2:20 |
+| 10 | Epilogue | — | — | 23:05–24:00 | 0:55 |
+| | **Total** | | | | **~24:00** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
-**Margen:** 1:20 hasta 25:00. Si en la práctica pasás de 24:30, recortá **palabras de las 🟢** (nunca las 🖱️ ni las 🗣️⌨️).
+**Margen:** 1:00 hasta 25:00. Si en la práctica pasás de 24:30, recortá **palabras de las 🟢** (nunca las 🖱️ ni las 🗣️⌨️).
 
 ---
 
@@ -96,17 +98,17 @@ Cada bloque tiene:
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
 | Tipeo en vivo (celdas 2, 5 y 7 + conclusiones) | 911 caracteres | ~6,7 min a 135 car./min (~6 a 150; ~7,6 a 120) |
-| Narración | ~1.710 palabras | ~13 min |
-| Navegación, ejecución y Files | 11 bloques | ~3,7 min |
-| **Total** | | **~23:40** (~24:40 si tipeás a 120 car./min) |
+| Narración | ~1.800 palabras | ~13,9 min |
+| Navegación, ejecución y Files | 11 bloques | ~3,5 min |
+| **Total** | | **~24:00** (~25:00 si tipeás a 120 car./min) |
 
-**Tipeo: ~28% del video** (~31% a 120 car./min; máximo 35%).
+**Tipeo: ~28% del video** (~30% a 120 car./min; máximo 35%). La celda 1 y la carga de archivos no suman tipeo: ya están hechas antes de grabar.
 
 **Qué celdas van armadas y por qué:**
 
 | Celda | Estado | Por qué |
 | ----- | ------ | ------- |
-| 1. Carga y contratos | **Armada** | Es mecánica: leer y perfilar. |
+| 1. Carga y contratos | **Ya escrita** | Es mecánica: leer y perfilar. Se explica línea por línea en lugar de tipearla. |
 | 2. Posición de caja | Se tipea | Decisión: qué cuenta como caja disponible. |
 | 3. Confiabilidad | **Armada** | Son muchas reglas cortas; se explican señalando cada grupo de líneas. |
 | 4. Motor de proyección | **Armada** | Es el armado mecánico de la tabla semanal. |
@@ -142,11 +144,11 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:25 (1:25)
+**TIME:** 0:00–1:10 (1:10)
 
-**WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir y cerrar el panel Files.
+**WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock.
 
-**WHERE:** Firefox ventana 1 (descripción). Botón amarillo arriba a la izquierda. Ícono de Firefox en el Dock, a la derecha (Mac); segunda ventana de la lista. En Colab, ícono de carpeta en la barra lateral izquierda.
+**WHERE:** Firefox ventana 1 (descripción). Botón amarillo arriba a la izquierda. Ícono de Firefox en el Dock, a la derecha (Mac); segunda ventana de la lista.
 
 **SAY:**
 
@@ -158,27 +160,23 @@ Cada bloque tiene:
 
 > 🖱️ I'm clicking the Firefox icon in the Dock and choosing the second window: my Colab notebook.
 
-> 🖱️ I'm clicking the folder icon in Colab's left sidebar, to open the Files panel.
-
-> 🖱️ I'm pointing at the five input CSVs, synthetic and generated with AI. The notebook rewrites them; the originals stay on my Desktop.
-
-> 🖱️ I'm clicking the same folder icon to close the panel.
+> 🟢 The five input CSVs are already uploaded to this notebook's Files panel. They're synthetic, generated with AI; the notebook rewrites them, and the originals stay on my Desktop.
 
 **WHY:** el revisor tiene que saber desde el minuto uno qué es "éxito": $500,000 libres todas las semanas, sin pasar ningún límite del contrato.
 
-**EXPECTED RESULT:** el notebook con las celdas 1, 3, 4, 6 y 8 llenas y las 2, 5 y 7 vacías. En Files, los cinco CSV.
+**EXPECTED RESULT:** el notebook con las celdas 1, 3, 4, 6 y 8 llenas y las 2, 5 y 7 vacías. El panel Files queda cerrado: se abre recién en el bloque 8, cuando ya están los ocho CSV.
 
 ---
 
 ### Bloque 1. Phase 1 — Carga y contratos
 
-**TIME:** 1:25–2:50 (1:25)
+**TIME:** 1:10–3:10 (2:00)
 
-**WHAT I DO:** señalar las líneas de la celda 1 → Run → señalar la salida.
+**WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → señalar la salida.
 
 **WHERE:** celda 1, arriba de todo. Botón Run (triángulo) a la izquierda de la celda.
 
-**Celda 1 (armada antes de grabar):**
+**Celda 1 (ya escrita antes de grabar):**
 
 ```python
 import pandas as pd
@@ -198,9 +196,17 @@ debt.set_index("facility_id").T
 
 > 🟢 Phase one: reconstructing the real financial position.
 
-> 🖱️ I'm pointing at cell one, prepared before recording, because loading files is routine.
+> 🖱️ I'm pointing at cell one, which I wrote before recording, because loading files is routine. I'll use the time to explain it instead.
 
-> 🖱️ I'm pointing at the read_csv lines in cell one; dates are parsed because the model runs on due dates.
+> 🖱️ I'm pointing at the first two read_csv lines in cell one: the bank movements and the customer invoices. Dates are parsed because every collection depends on a due date.
+
+> 🖱️ I'm pointing at the next three lines: supplier bills, the three debt facilities with the revolver's terms, and management's weekly forecast.
+
+> 🖱️ I'm pointing at the loop in cell one: for each file, its size and its fully duplicated rows. That's my first data-quality check.
+
+> 🖱️ I'm pointing at the next print line: the bank balance by account and status, before any cleaning, so I can compare it with the cleaned one in cell two.
+
+> 🖱️ I'm pointing at the last line of cell one: the debt table turned sideways, one column per facility, to read the contract terms.
 
 > 🖱️ I'm clicking the Run button on the left of cell one.
 
@@ -918,7 +924,8 @@ En Files: los cinco CSV reescritos, más `liquidity_forecast_13w.csv` (39 filas)
 
 - [ ] Practicá dos veces con cronómetro. [liquidity_forecast.ipynb](liquidity_forecast.ipynb) tiene el código completo para comparar.
 - [ ] En Colab, creá el notebook **liquidity_forecast** con **8 celdas de código**:
-  - celdas **1, 3, 4, 6 y 8**: pegá el código de cada bloque;
+  - celda **1**: ya escrita (carga y contratos);
+  - celdas **3, 4, 6 y 8**: pegá el código de cada bloque;
   - celdas **2, 5 y 7**: vacías;
   - **no ejecutes nada.**
 - [ ] En **Files**, subí los cinco CSV de esta carpeta: `bank_transactions`, `accounts_receivable`, `accounts_payable`, `debt_facilities` y `operating_forecast`. Los de la carpeta son los originales: no los toques.
