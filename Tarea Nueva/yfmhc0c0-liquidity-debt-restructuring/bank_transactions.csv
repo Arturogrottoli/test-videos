@@ -1,6 +1,6 @@
 txn_id,date,account_id,account_type,description,reference,amount,status
 T00001,2026-09-30,DSR-03,restricted,Opening balance - debt service reserve,OPEN,380000.0,cleared
-T00002,2026-09-30,OPR-01,operating,Opening balance,OPEN,620000.0,cleared
+T00002,2026-09-30,OPR-01,operating,Opening balance,OPEN,420000.0,cleared
 T00003,2026-09-30,OPR-01,operating,Revolver RCF-01 interest,RCF-01,-5938.0,cleared
 T00004,2026-09-30,PAY-02,operating,Opening balance,OPEN,25000.0,cleared
 T00005,2026-10-01,DSR-03,restricted,Interest credit,INT,950.0,cleared
@@ -42,124 +42,123 @@ T00040,2026-10-13,OPR-01,operating,Customer payment - Cedar Home Supply,INV-1032
 T00041,2026-10-13,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10328,12768.62,cleared
 T00042,2026-10-14,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10302,8504.98,cleared
 T00043,2026-10-14,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10337,10348.44,cleared
-T00044,2026-10-14,OPR-01,operating,Returned item NSF - Harbor Cafe Group,INV-10300,-9682.38,cleared
-T00045,2026-10-15,OPR-01,operating,Customer payment - Keystone Office,INV-10305,11518.81,cleared
-T00046,2026-10-15,OPR-01,operating,Customer payment - Delta Foods,INV-10338,20376.16,cleared
-T00047,2026-10-15,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10339,14585.83,cleared
-T00048,2026-10-15,OPR-01,operating,Term loan TL-01 quarterly payment,TL-01,-168000.0,cleared
-T00049,2026-10-16,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0011,-92937.27,cleared
-T00050,2026-10-16,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0012,-21443.2,cleared
-T00051,2026-10-16,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0013,-12775.5,cleared
-T00052,2026-10-16,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0014,-6046.73,cleared
-T00053,2026-10-16,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0015,-4255.36,cleared
-T00054,2026-10-17,OPR-01,operating,Customer payment - Granite Hardware,INV-10336,17904.17,cleared
-T00055,2026-10-17,OPR-01,operating,Customer payment - Evergreen Markets,INV-10344,21859.37,cleared
-T00056,2026-10-18,OPR-01,operating,Customer payment - Keystone Office,INV-10314,12222.55,cleared
-T00057,2026-10-18,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10342,15663.71,cleared
-T00058,2026-10-19,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10319,8503.7,cleared
-T00059,2026-10-19,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10333,16113.63,cleared
-T00060,2026-10-19,OPR-01,operating,Operating expenses - card settlement,OPEX,-13218.23,cleared
-T00061,2026-10-21,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10324,17642.41,cleared
-T00062,2026-10-21,OPR-01,operating,Customer payment - Granite Hardware,INV-10355,15662.06,cleared
-T00063,2026-10-22,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10340,15541.11,cleared
-T00064,2026-10-22,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10343,39561.73,cleared
-T00065,2026-10-22,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
-T00066,2026-10-22,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
-T00067,2026-10-23,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0016,-91855.12,cleared
-T00068,2026-10-23,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0017,-19577.93,cleared
-T00069,2026-10-23,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0018,-12570.71,cleared
-T00070,2026-10-23,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0019,-5708.94,cleared
-T00071,2026-10-23,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0020,-4201.86,cleared
-T00072,2026-10-23,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared
-T00073,2026-10-24,OPR-01,operating,Customer payment - Keystone Office,INV-10332,12032.16,cleared
-T00074,2026-10-24,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10334,9968.51,cleared
-T00075,2026-10-24,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10349,13011.07,cleared
-T00076,2026-10-24,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10356,16753.45,cleared
-T00077,2026-10-25,OPR-01,operating,Customer payment - Northwind Retail,INV-10291,95167.57,cleared
-T00078,2026-10-26,OPR-01,operating,Customer payment - Granite Hardware,INV-10346,19017.74,cleared
-T00079,2026-10-26,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10359,7907.04,cleared
-T00080,2026-10-26,OPR-01,operating,Operating expenses - card settlement,OPEX,-14437.01,cleared
-T00081,2026-10-27,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10348,32662.44,cleared
-T00082,2026-10-27,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10362,13422.18,cleared
-T00083,2026-10-28,OPR-01,operating,Customer payment - Northwind Retail,INV-10284,85626.15,cleared
-T00084,2026-10-28,OPR-01,operating,Customer payment - Keystone Office,INV-10341,12529.46,cleared
-T00085,2026-10-28,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10352,34025.1,cleared
-T00086,2026-10-28,OPR-01,operating,Customer payment - Evergreen Markets,INV-10357,18764.32,cleared
-T00087,2026-10-29,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10350,27127.06,cleared
-T00088,2026-10-30,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0021,-100083.57,cleared
-T00089,2026-10-30,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0022,-21001.06,cleared
-T00090,2026-10-30,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0023,-11915.23,cleared
-T00091,2026-10-30,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0024,-5841.49,cleared
-T00092,2026-10-30,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0025,-3775.35,cleared
-T00093,2026-10-31,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10345,10841.74,cleared
-T00094,2026-10-31,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10361,8509.48,cleared
-T00095,2026-11-01,OPR-01,operating,Customer payment - Delta Foods,INV-10358,20155.19,cleared
-T00096,2026-11-01,OPR-01,operating,Revolver RCF-01 interest,RCF-01,-5938.0,cleared
-T00097,2026-11-02,DSR-03,restricted,Interest credit,INT,950.0,cleared
-T00098,2026-11-02,OPR-01,operating,Customer payment - Evergreen Markets,INV-10364,21491.51,cleared
-T00099,2026-11-02,OPR-01,operating,Warehouse rent,RENT,-45000.0,cleared
-T00100,2026-11-02,OPR-01,operating,Equipment loan EQ-01 payment,EQ-01,-15500.0,cleared
-T00101,2026-11-02,OPR-01,operating,Operating expenses - card settlement,OPEX,-13409.43,cleared
-T00102,2026-11-03,OPR-01,operating,Customer payment - Granite Hardware,INV-10367,18802.06,cleared
-T00103,2026-11-03,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10369,36162.62,cleared
-T00104,2026-11-04,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10360,16877.12,cleared
-T00105,2026-11-05,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
-T00106,2026-11-05,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
-T00107,2026-11-06,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10365,24833.99,cleared
-T00108,2026-11-06,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0026,-94167.59,cleared
-T00109,2026-11-06,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0027,-21005.96,cleared
-T00110,2026-11-06,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0028,-11085.38,cleared
-T00111,2026-11-06,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0029,-5503.18,cleared
-T00112,2026-11-06,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0030,-3741.03,cleared
-T00113,2026-11-06,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared
-T00114,2026-11-07,OPR-01,operating,Customer payment - Northwind Retail,INV-10306,103631.97,cleared
-T00115,2026-11-08,OPR-01,operating,Customer payment - Delta Foods,INV-10368,24892.82,cleared
-T00116,2026-11-08,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10370,13636.99,cleared
-T00117,2026-11-08,OPR-01,operating,Customer payment - Evergreen Markets,INV-10378,21940.17,cleared
-T00118,2026-11-09,OPR-01,operating,Customer payment - Keystone Office,INV-10354,11669.36,cleared
-T00119,2026-11-09,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10376,40709.27,cleared
-T00120,2026-11-09,OPR-01,operating,Customer payment - Granite Hardware,INV-10377,17460.63,cleared
-T00121,2026-11-09,OPR-01,operating,Operating expenses - card settlement,OPEX,-14657.23,cleared
-T00122,2026-11-10,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10374,26169.38,cleared
-T00123,2026-11-10,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10384,8796.9,cleared
-T00124,2026-11-11,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10371,17963.77,cleared
-T00125,2026-11-12,OPR-01,operating,Customer payment - Evergreen Markets,INV-10386,21052.62,cleared
-T00126,2026-11-12,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10392,35299.05,cleared
-T00126,2026-11-12,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10392,35299.05,cleared
-T00127,2026-11-13,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10353,9281.05,cleared
-T00128,2026-11-13,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10375,12930.09,cleared
-T00129,2026-11-13,OPR-01,operating,Customer payment - Delta Foods,INV-10381,21852.1,cleared
-T00130,2026-11-13,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10383,13552.99,cleared
-T00131,2026-11-13,OPR-01,operating,Customer payment - Granite Hardware,INV-10387,18971.44,cleared
-T00132,2026-11-13,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0031,-93506.93,cleared
-T00133,2026-11-13,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0032,-21292.43,cleared
-T00134,2026-11-13,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0033,-11756.42,cleared
-T00135,2026-11-13,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0034,-6588.47,cleared
-T00135,2026-11-13,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0034,-6588.47,cleared
-T00136,2026-11-13,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0035,-3709.77,cleared
-T00137,2026-11-14,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10366,9939.59,cleared
-T00138,2026-11-14,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10385,15573.22,cleared
-T00139,2026-11-14,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10389,8604.01,cleared
-T00140,2026-11-14,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10395,16856.62,cleared
-T00141,2026-11-15,OPR-01,operating,Customer payment - Northwind Retail,INV-10317,97705.17,cleared
-T00141,2026-11-15,OPR-01,operating,Customer payment - Northwind Retail,INV-10317,97705.17,cleared
-T00142,2026-11-15,OPR-01,operating,Customer payment - Keystone Office,INV-10363,10530.21,cleared
-T00143,2026-11-16,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10382,16615.8,cleared
-T00144,2026-11-16,OPR-01,operating,Operating expenses - card settlement,OPEX,-14185.98,cleared
-T00145,2026-11-17,OPR-01,operating,Check 40118 - County property tax,CHK-40118,-28400.0,pending
-T00146,2026-11-18,OPR-01,operating,Customer payment - Delta Foods,INV-10396,21416.69,cleared
-T00147,2026-11-18,OPR-01,operating,Check 40119 - Lark & Co audit fees,CHK-40119,-19500.0,pending
-T00148,2026-11-19,OPR-01,operating,Customer payment - Northwind Retail,INV-10330,82487.55,cleared
-T00148,2026-11-19,OPR-01,operating,Customer payment - Northwind Retail,INV-10330,82487.55,cleared
-T00149,2026-11-19,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10405,9896.72,cleared
-T00150,2026-11-19,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10407,14864.1,cleared
-T00151,2026-11-19,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
-T00152,2026-11-19,OPR-01,operating,Check 40120 - State sales tax,CHK-40120,-16250.0,pending
-T00153,2026-11-19,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
-T00154,2026-11-20,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0036,-103070.8,cleared
-T00155,2026-11-20,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0037,-19794.92,cleared
-T00156,2026-11-20,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0038,-11743.0,cleared
-T00157,2026-11-20,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0039,-6450.1,cleared
-T00157,2026-11-20,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0039,-6450.1,cleared
-T00158,2026-11-20,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0040,-4380.48,cleared
-T00159,2026-11-20,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared
+T00044,2026-10-15,OPR-01,operating,Customer payment - Keystone Office,INV-10305,11518.81,cleared
+T00045,2026-10-15,OPR-01,operating,Customer payment - Delta Foods,INV-10338,20376.16,cleared
+T00046,2026-10-15,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10339,14585.83,cleared
+T00047,2026-10-15,OPR-01,operating,Term loan TL-01 quarterly payment,TL-01,-168000.0,cleared
+T00048,2026-10-16,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0011,-92937.27,cleared
+T00049,2026-10-16,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0012,-21443.2,cleared
+T00050,2026-10-16,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0013,-12775.5,cleared
+T00051,2026-10-16,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0014,-6046.73,cleared
+T00052,2026-10-16,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0015,-4255.36,cleared
+T00053,2026-10-17,OPR-01,operating,Customer payment - Granite Hardware,INV-10336,17904.17,cleared
+T00054,2026-10-17,OPR-01,operating,Customer payment - Evergreen Markets,INV-10344,21859.37,cleared
+T00055,2026-10-18,OPR-01,operating,Customer payment - Keystone Office,INV-10314,12222.55,cleared
+T00056,2026-10-18,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10342,15663.71,cleared
+T00057,2026-10-19,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10319,8503.7,cleared
+T00058,2026-10-19,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10333,16113.63,cleared
+T00059,2026-10-19,OPR-01,operating,Operating expenses - card settlement,OPEX,-13218.23,cleared
+T00060,2026-10-21,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10324,17642.41,cleared
+T00061,2026-10-21,OPR-01,operating,Customer payment - Granite Hardware,INV-10355,15662.06,cleared
+T00062,2026-10-22,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10340,15541.11,cleared
+T00063,2026-10-22,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10343,39561.73,cleared
+T00064,2026-10-22,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
+T00065,2026-10-22,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
+T00066,2026-10-23,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0016,-91855.12,cleared
+T00067,2026-10-23,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0017,-19577.93,cleared
+T00068,2026-10-23,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0018,-12570.71,cleared
+T00069,2026-10-23,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0019,-5708.94,cleared
+T00070,2026-10-23,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0020,-4201.86,cleared
+T00071,2026-10-23,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared
+T00072,2026-10-24,OPR-01,operating,Customer payment - Keystone Office,INV-10332,12032.16,cleared
+T00073,2026-10-24,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10334,9968.51,cleared
+T00074,2026-10-24,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10349,13011.07,cleared
+T00075,2026-10-24,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10356,16753.45,cleared
+T00076,2026-10-25,OPR-01,operating,Customer payment - Northwind Retail,INV-10291,95167.57,cleared
+T00077,2026-10-26,OPR-01,operating,Customer payment - Granite Hardware,INV-10346,19017.74,cleared
+T00078,2026-10-26,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10359,7907.04,cleared
+T00079,2026-10-26,OPR-01,operating,Operating expenses - card settlement,OPEX,-14437.01,cleared
+T00080,2026-10-27,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10348,32662.44,cleared
+T00081,2026-10-27,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10362,13422.18,cleared
+T00082,2026-10-28,OPR-01,operating,Customer payment - Northwind Retail,INV-10284,85626.15,cleared
+T00083,2026-10-28,OPR-01,operating,Customer payment - Keystone Office,INV-10341,12529.46,cleared
+T00084,2026-10-28,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10352,34025.1,cleared
+T00085,2026-10-28,OPR-01,operating,Customer payment - Evergreen Markets,INV-10357,18764.32,cleared
+T00086,2026-10-29,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10350,27127.06,cleared
+T00087,2026-10-30,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0021,-100083.57,cleared
+T00088,2026-10-30,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0022,-21001.06,cleared
+T00089,2026-10-30,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0023,-11915.23,cleared
+T00090,2026-10-30,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0024,-5841.49,cleared
+T00091,2026-10-30,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0025,-3775.35,cleared
+T00092,2026-10-31,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10345,10841.74,cleared
+T00093,2026-10-31,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10361,8509.48,cleared
+T00094,2026-11-01,OPR-01,operating,Customer payment - Delta Foods,INV-10358,20155.19,cleared
+T00095,2026-11-01,OPR-01,operating,Revolver RCF-01 interest,RCF-01,-5938.0,cleared
+T00096,2026-11-02,DSR-03,restricted,Interest credit,INT,950.0,cleared
+T00097,2026-11-02,OPR-01,operating,Customer payment - Evergreen Markets,INV-10364,21491.51,cleared
+T00098,2026-11-02,OPR-01,operating,Warehouse rent,RENT,-45000.0,cleared
+T00099,2026-11-02,OPR-01,operating,Equipment loan EQ-01 payment,EQ-01,-15500.0,cleared
+T00100,2026-11-02,OPR-01,operating,Operating expenses - card settlement,OPEX,-13409.43,cleared
+T00101,2026-11-03,OPR-01,operating,Customer payment - Granite Hardware,INV-10367,18802.06,cleared
+T00102,2026-11-03,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10369,36162.62,cleared
+T00103,2026-11-04,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10360,16877.12,cleared
+T00104,2026-11-05,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
+T00105,2026-11-05,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
+T00106,2026-11-06,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10365,24833.99,cleared
+T00107,2026-11-06,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0026,-94167.59,cleared
+T00108,2026-11-06,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0027,-21005.96,cleared
+T00109,2026-11-06,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0028,-11085.38,cleared
+T00110,2026-11-06,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0029,-5503.18,cleared
+T00111,2026-11-06,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0030,-3741.03,cleared
+T00112,2026-11-06,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared
+T00113,2026-11-07,OPR-01,operating,Customer payment - Northwind Retail,INV-10306,103631.97,cleared
+T00114,2026-11-08,OPR-01,operating,Customer payment - Delta Foods,INV-10368,24892.82,cleared
+T00115,2026-11-08,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10370,13636.99,cleared
+T00116,2026-11-08,OPR-01,operating,Customer payment - Evergreen Markets,INV-10378,21940.17,cleared
+T00117,2026-11-09,OPR-01,operating,Customer payment - Keystone Office,INV-10354,11669.36,cleared
+T00118,2026-11-09,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10376,40709.27,cleared
+T00119,2026-11-09,OPR-01,operating,Customer payment - Granite Hardware,INV-10377,17460.63,cleared
+T00120,2026-11-09,OPR-01,operating,Operating expenses - card settlement,OPEX,-14657.23,cleared
+T00121,2026-11-10,OPR-01,operating,Customer payment - Cedar Home Supply,INV-10374,26169.38,cleared
+T00122,2026-11-10,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10384,8796.9,cleared
+T00123,2026-11-11,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10371,17963.77,cleared
+T00124,2026-11-12,OPR-01,operating,Customer payment - Evergreen Markets,INV-10386,21052.62,cleared
+T00125,2026-11-12,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10392,35299.05,cleared
+T00125,2026-11-12,OPR-01,operating,Customer payment - Bluefield Grocers,INV-10392,35299.05,cleared
+T00126,2026-11-13,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10353,9281.05,cleared
+T00127,2026-11-13,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10375,12930.09,cleared
+T00128,2026-11-13,OPR-01,operating,Customer payment - Delta Foods,INV-10381,21852.1,cleared
+T00129,2026-11-13,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10383,13552.99,cleared
+T00130,2026-11-13,OPR-01,operating,Customer payment - Granite Hardware,INV-10387,18971.44,cleared
+T00131,2026-11-13,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0031,-93506.93,cleared
+T00132,2026-11-13,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0032,-21292.43,cleared
+T00133,2026-11-13,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0033,-11756.42,cleared
+T00134,2026-11-13,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0034,-6588.47,cleared
+T00134,2026-11-13,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0034,-6588.47,cleared
+T00135,2026-11-13,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0035,-3709.77,cleared
+T00136,2026-11-14,OPR-01,operating,Customer payment - Harbor Cafe Group,INV-10366,9939.59,cleared
+T00137,2026-11-14,OPR-01,operating,Customer payment - Juniper Pet Co,INV-10385,15573.22,cleared
+T00138,2026-11-14,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10389,8604.01,cleared
+T00139,2026-11-14,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10395,16856.62,cleared
+T00140,2026-11-15,OPR-01,operating,Customer payment - Northwind Retail,INV-10317,97705.17,cleared
+T00140,2026-11-15,OPR-01,operating,Customer payment - Northwind Retail,INV-10317,97705.17,cleared
+T00141,2026-11-15,OPR-01,operating,Customer payment - Keystone Office,INV-10363,10530.21,cleared
+T00142,2026-11-16,OPR-01,operating,Customer payment - Foxglove Pharmacy,INV-10382,16615.8,cleared
+T00143,2026-11-16,OPR-01,operating,Operating expenses - card settlement,OPEX,-14185.98,cleared
+T00144,2026-11-17,OPR-01,operating,Check 40118 - County property tax,CHK-40118,-28400.0,pending
+T00145,2026-11-18,OPR-01,operating,Customer payment - Delta Foods,INV-10396,21416.69,cleared
+T00146,2026-11-18,OPR-01,operating,Check 40119 - Lark & Co audit fees,CHK-40119,-19500.0,pending
+T00147,2026-11-19,OPR-01,operating,Customer payment - Northwind Retail,INV-10330,82487.55,cleared
+T00147,2026-11-19,OPR-01,operating,Customer payment - Northwind Retail,INV-10330,82487.55,cleared
+T00148,2026-11-19,OPR-01,operating,Customer payment - Lakeside Clinics,INV-10405,9896.72,cleared
+T00149,2026-11-19,OPR-01,operating,Customer payment - Ironwood Outfitters,INV-10407,14864.1,cleared
+T00150,2026-11-19,OPR-01,operating,Transfer to payroll account,XFER,-110000.0,cleared
+T00151,2026-11-19,OPR-01,operating,Check 40120 - State sales tax,CHK-40120,-16250.0,pending
+T00152,2026-11-19,PAY-02,operating,Transfer from operating account,XFER,110000.0,cleared
+T00153,2026-11-20,OPR-01,operating,Vendor payment - Summit Foods Supply,BILL-P0036,-103070.8,cleared
+T00154,2026-11-20,OPR-01,operating,Vendor payment - Rapid Freight,BILL-P0037,-19794.92,cleared
+T00155,2026-11-20,OPR-01,operating,Vendor payment - PackRight Packaging,BILL-P0038,-11743.0,cleared
+T00156,2026-11-20,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0039,-6450.1,cleared
+T00156,2026-11-20,OPR-01,operating,Vendor payment - Metro Utilities,BILL-P0039,-6450.1,cleared
+T00157,2026-11-20,OPR-01,operating,Vendor payment - Cloudline IT,BILL-P0040,-4380.48,cleared
+T00158,2026-11-20,PAY-02,operating,Payroll run,PAYROLL,-110000.0,cleared

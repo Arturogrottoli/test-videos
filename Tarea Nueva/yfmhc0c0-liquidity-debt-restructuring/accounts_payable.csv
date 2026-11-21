@@ -1,47 +1,47 @@
 bill_id,vendor,category,bill_date,due_date,amount,critical,max_extension_days
 BILL-20001,Metro Utilities,utilities,2026-10-18,2026-11-17,5518.99,N,0
-BILL-20002,Keller Maintenance,maintenance,2026-10-03,2026-11-17,4599.83,N,30
+BILL-20002,Keller Maintenance,maintenance,2026-10-03,2026-11-17,4599.83,N,28
 BILL-20003,Orchard Produce Co,inventory,2026-10-18,2026-11-17,30384.57,N,21
-BILL-20004,Brightline Marketing,marketing,2026-10-04,2026-11-18,6361.85,N,30
+BILL-20004,Brightline Marketing,marketing,2026-10-04,2026-11-18,6361.85,N,28
 BILL-20005,Rapid Freight,freight,2026-10-19,2026-11-18,19674.62,Y,0
-BILL-20006,Cloudline IT,it_services,2026-10-20,2026-11-19,3888.61,N,30
-BILL-20007,PackRight Packaging,packaging,2026-10-05,2026-11-19,11212.7,N,30
+BILL-20006,Cloudline IT,it_services,2026-10-20,2026-11-19,3888.61,N,28
+BILL-20007,PackRight Packaging,packaging,2026-10-05,2026-11-19,11212.7,N,28
 BILL-20008,Summit Foods Supply,inventory,2026-10-20,2026-11-19,106570.94,Y,0
-BILL-20009,Cloudline IT,it_services,2026-10-25,2026-11-24,3885.9,N,30
+BILL-20009,Cloudline IT,it_services,2026-10-25,2026-11-24,3885.9,N,28
 BILL-20010,Rapid Freight,freight,2026-10-25,2026-11-24,21306.45,Y,0
 BILL-20011,Orchard Produce Co,inventory,2026-10-25,2026-11-24,31059.91,N,21
 BILL-20012,Metro Utilities,utilities,2026-10-25,2026-11-24,5648.38,N,0
-BILL-20013,Brightline Marketing,marketing,2026-10-10,2026-11-24,6753.51,N,30
+BILL-20013,Brightline Marketing,marketing,2026-10-10,2026-11-24,6753.51,N,28
 BILL-20014,Summit Foods Supply,inventory,2026-10-26,2026-11-25,104210.66,Y,0
-BILL-20015,PackRight Packaging,packaging,2026-10-12,2026-11-26,11927.89,N,30
-BILL-20016,Keller Maintenance,maintenance,2026-10-12,2026-11-26,4607.4,N,30
+BILL-20015,PackRight Packaging,packaging,2026-10-12,2026-11-26,11927.89,N,28
+BILL-20016,Keller Maintenance,maintenance,2026-10-12,2026-11-26,4607.4,N,28
 BILL-20017,Metro Utilities,utilities,2026-11-01,2026-12-01,5611.37,N,0
-BILL-20018,Keller Maintenance,maintenance,2026-10-17,2026-12-01,5119.57,N,30
-BILL-20019,Cloudline IT,it_services,2026-11-01,2026-12-01,3811.85,N,30
+BILL-20018,Keller Maintenance,maintenance,2026-10-17,2026-12-01,5119.57,N,28
+BILL-20019,Cloudline IT,it_services,2026-11-01,2026-12-01,3811.85,N,28
 BILL-20020,Summit Foods Supply,inventory,2026-11-02,2026-12-02,90989.18,Y,0
-BILL-20021,Brightline Marketing,marketing,2026-10-18,2026-12-02,7628.1,N,30
-BILL-20022,PackRight Packaging,packaging,2026-10-19,2026-12-03,11942.62,N,30
+BILL-20021,Brightline Marketing,marketing,2026-10-18,2026-12-02,7628.1,N,28
+BILL-20022,PackRight Packaging,packaging,2026-10-19,2026-12-03,11942.62,N,28
 BILL-20023,Rapid Freight,freight,2026-11-03,2026-12-03,20244.89,Y,0
 BILL-20024,Orchard Produce Co,inventory,2026-11-03,2026-12-03,27006.4,N,21
 BILL-20025,Summit Foods Supply,inventory,2026-11-08,2026-12-08,102031.17,Y,0
-BILL-20026,Brightline Marketing,marketing,2026-10-24,2026-12-08,7428.67,N,30
-BILL-20027,Keller Maintenance,maintenance,2026-10-24,2026-12-08,4621.97,N,30
+BILL-20026,Brightline Marketing,marketing,2026-10-24,2026-12-08,7428.67,N,28
+BILL-20027,Keller Maintenance,maintenance,2026-10-24,2026-12-08,4621.97,N,28
 BILL-20028,Orchard Produce Co,inventory,2026-11-08,2026-12-08,28273.66,N,21
 BILL-20029,Rapid Freight,freight,2026-11-08,2026-12-08,19082.79,Y,0
 BILL-20030,Metro Utilities,utilities,2026-11-09,2026-12-09,5561.63,N,0
-BILL-20031,Cloudline IT,it_services,2026-11-10,2026-12-10,3764.31,N,30
-BILL-20032,PackRight Packaging,packaging,2026-10-26,2026-12-10,10942.77,N,30
-BILL-20033,Keller Maintenance,maintenance,2026-10-31,2026-12-15,5254.27,N,30
-BILL-20034,Brightline Marketing,marketing,2026-11-01,2026-12-16,6538.48,N,30
+BILL-20031,Cloudline IT,it_services,2026-11-10,2026-12-10,3764.31,N,28
+BILL-20032,PackRight Packaging,packaging,2026-10-26,2026-12-10,10942.77,N,28
+BILL-20033,Keller Maintenance,maintenance,2026-10-31,2026-12-15,5254.27,N,28
+BILL-20034,Brightline Marketing,marketing,2026-11-01,2026-12-16,6538.48,N,28
 BILL-20035,Metro Utilities,utilities,2026-11-16,2026-12-16,5784.48,N,0
 BILL-20036,Summit Foods Supply,inventory,2026-11-16,2026-12-16,95203.69,Y,0
 BILL-20037,Orchard Produce Co,inventory,2026-11-16,2026-12-16,30877.74,N,21
 BILL-20038,Rapid Freight,freight,2026-11-16,2026-12-16,20087.67,Y,0
-BILL-20039,Cloudline IT,it_services,2026-11-16,2026-12-16,4310.69,N,30
-BILL-20040,PackRight Packaging,packaging,2026-11-02,2026-12-17,11316.43,N,30
-BILL-20041,PackRight Packaging,packaging,2026-11-08,2026-12-23,11269.17,N,30
-BILL-20042,Brightline Marketing,marketing,2026-11-09,2026-12-24,6998.1,N,30
-BILL-20043,Keller Maintenance,maintenance,2026-11-09,2026-12-24,5319.81,N,30
-BILL-20044,PackRight Packaging,packaging,2026-11-15,2026-12-30,12430.86,N,30
-BILL-20045,Keller Maintenance,maintenance,2026-11-16,2026-12-31,5496.68,N,30
-BILL-20046,Brightline Marketing,marketing,2026-11-16,2026-12-31,6991.14,N,30
+BILL-20039,Cloudline IT,it_services,2026-11-16,2026-12-16,4310.69,N,28
+BILL-20040,PackRight Packaging,packaging,2026-11-02,2026-12-17,11316.43,N,28
+BILL-20041,PackRight Packaging,packaging,2026-11-08,2026-12-23,11269.17,N,28
+BILL-20042,Brightline Marketing,marketing,2026-11-09,2026-12-24,6998.1,N,28
+BILL-20043,Keller Maintenance,maintenance,2026-11-09,2026-12-24,5319.81,N,28
+BILL-20044,PackRight Packaging,packaging,2026-11-15,2026-12-30,12430.86,N,28
+BILL-20045,Keller Maintenance,maintenance,2026-11-16,2026-12-31,5496.68,N,28
+BILL-20046,Brightline Marketing,marketing,2026-11-16,2026-12-31,6991.14,N,28

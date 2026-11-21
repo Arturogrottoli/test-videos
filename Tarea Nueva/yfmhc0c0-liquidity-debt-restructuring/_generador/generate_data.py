@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "."
-OPEN_OPR = float(sys.argv[2]) if len(sys.argv) > 2 else 620000.0
+OPEN_OPR = float(sys.argv[2]) if len(sys.argv) > 2 else 420000.0
 RESERVE = float(sys.argv[3]) if len(sys.argv) > 3 else 150000.0
 rng = np.random.default_rng(42)
 ASOF = pd.Timestamp("2026-11-20")
@@ -54,12 +54,6 @@ ar.loc[ar.status == "open", "paid_date"] = pd.NaT
 # Delta Foods: two invoices in dispute (quality claim), never paid
 dlt = ar[(ar.customer == "Delta Foods") & (ar.invoice_date.between("2026-09-01", "2026-09-20"))].index[:2]
 ar.loc[dlt, ["status", "paid_date"]] = ["disputed", pd.NaT]
-# Keystone Office: two old invoices never paid (>90 days past due)
-ks = ar[(ar.customer == "Keystone Office") & (ar.invoice_date.between("2026-06-01", "2026-06-20"))].index[:2]
-ar.loc[ks, ["status", "paid_date"]] = ["open", pd.NaT]
-# Harbor Cafe: one invoice paid in October, later returned NSF by the bank (AR still says paid)
-hb = ar[(ar.customer == "Harbor Cafe Group") & (ar.paid_date.between("2026-10-05", "2026-10-20"))].index[0]
-nsf_id = ar.loc[hb, "invoice_id"]
 
 # ---------------------------------------------------------------- BANK
 b = []
@@ -73,8 +67,6 @@ add("2026-09-30", "DSR-03", "restricted", "Opening balance - debt service reserv
 paid_win = ar[(ar.status == "paid") & (ar.paid_date >= "2026-10-01")]
 for r in paid_win.itertuples():
     add(r.paid_date, "OPR-01", "operating", f"Customer payment - {r.customer}", r.invoice_id, r.amount)
-nsf = ar.loc[hb]
-add(nsf.paid_date + pd.Timedelta(days=4), "OPR-01", "operating", f"Returned item NSF - {nsf.customer}", nsf_id, -nsf.amount)
 
 vendors_paid = ["Summit Foods Supply", "Rapid Freight", "PackRight Packaging", "Metro Utilities", "Cloudline IT"]
 k = 1
@@ -113,11 +105,11 @@ vend = {  # vendor: (category, critical, max_extension_days, weekly amount, term
     "Summit Foods Supply": ("inventory", "Y", 0, 100000, 30),
     "Rapid Freight": ("freight", "Y", 0, 20000, 30),
     "Orchard Produce Co": ("inventory", "N", 21, 30000, 30),
-    "PackRight Packaging": ("packaging", "N", 30, 12000, 45),
+    "PackRight Packaging": ("packaging", "N", 28, 12000, 45),
     "Metro Utilities": ("utilities", "N", 0, 6000, 30),
-    "Cloudline IT": ("it_services", "N", 30, 4000, 30),
-    "Keller Maintenance": ("maintenance", "N", 30, 5000, 45),
-    "Brightline Marketing": ("marketing", "N", 30, 7000, 45),
+    "Cloudline IT": ("it_services", "N", 28, 4000, 30),
+    "Keller Maintenance": ("maintenance", "N", 28, 5000, 45),
+    "Brightline Marketing": ("marketing", "N", 28, 7000, 45),
 }
 ap_rows = []
 j = 1
@@ -132,12 +124,11 @@ ap["bill_id"] = [f"BILL-{i:05d}" for i in range(20001, 20001 + len(ap))]
 
 # ---------------------------------------------------------------- DEBT
 debt = pd.DataFrame([
-    ["RCF-01", "revolver", "First Harbor Bank", 1200000, 750000, 0.095, "2028-06-30", "2026-11-30", 1, 5938, 0.80, 90, 0.25, RESERVE, 500000, 3.5, 1070000],
-    ["TL-01", "term_loan", "First Harbor Bank", 3000000, 2400000, 0.080, "2029-01-15", "2027-01-15", 3, 168000, None, None, None, None, None, None, None],
-    ["EQ-01", "equipment_loan", "Copperline Leasing", 500000, 360000, 0.070, "2029-06-01", "2026-12-01", 1, 15500, None, None, None, None, None, None, None],
+    ["RCF-01", "revolver", "First Harbor Bank", 1200000, 750000, 0.095, "2028-06-30", "2026-11-30", 1, 5938, 0.80, RESERVE, 500000, 3.5, 1070000],
+    ["TL-01", "term_loan", "First Harbor Bank", 3000000, 2400000, 0.080, "2029-01-15", "2027-01-15", 3, 168000, None, None, None, None, None],
+    ["EQ-01", "equipment_loan", "Copperline Leasing", 500000, 360000, 0.070, "2029-06-01", "2026-12-01", 1, 15500, None, None, None, None, None],
 ], columns=["facility_id", "facility_type", "lender", "commitment", "drawn", "interest_rate", "maturity_date",
-            "next_payment_date", "payment_months", "scheduled_payment", "advance_rate", "eligibility_days",
-            "concentration_limit", "reserve", "min_unrestricted_cash", "max_leverage", "ltm_ebitda"])
+            "next_payment_date", "payment_months", "scheduled_payment", "advance_rate", "reserve", "min_unrestricted_cash", "max_leverage", "ltm_ebitda"])
 
 # ---------------------------------------------------------------- OPERATING FORECAST
 of = []
@@ -163,6 +154,9 @@ of.append([6, W1 + pd.Timedelta(weeks=5), "year_end_bonus", None, -65000, "N"])
 of.append([7, W1 + pd.Timedelta(weeks=6), "insurance_premium", None, -92000, "N"])
 of.append([6, W1 + pd.Timedelta(weeks=5), "capex_warehouse_racking", None, -85000, "Y"])
 of.append([9, W1 + pd.Timedelta(weeks=8), "capex_forklift", None, -40000, "Y"])
+for r in debt.itertuples():
+    for d in pd.date_range(r.next_payment_date, "2027-02-21", freq=pd.DateOffset(months=r.payment_months)):
+        of.append([wk_of(d), W1 + pd.Timedelta(weeks=wk_of(d) - 1), f"debt_service_{r.facility_id}", None, -r.scheduled_payment, "N"])
 op = pd.DataFrame(of, columns=["week", "week_start", "category", "customer", "amount", "discretionary"]).sort_values(["week", "category"])
 
 # ---------------------------------------------------------------- WRITE
