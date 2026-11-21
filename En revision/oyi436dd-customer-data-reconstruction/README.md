@@ -80,7 +80,7 @@ Cada bloque tiene:
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo en vivo (celdas 2 a 7 + conclusiones) | 1.281 caracteres | ~9,5 min a 135 car./min (~10,7 a 120) |
+| Tipeo en vivo (celdas 2 a 7 + conclusiones) | 1.295 caracteres | ~9,5 min a 135 car./min (~10,7 a 120) |
 | Narración | ~1.562 palabras | ~12,0 min |
 | Navegación y ejecución | 10 bloques | ~3,3 min |
 | **Total** | | **~24:50** (~26:00 si tipeás a 120 car./min) |
@@ -378,17 +378,17 @@ m = c.set_index("customer_id").master_id
 > 🗣️⌨️ Next line of cell four: each order gets its master ID. I use map, not merge: the lookup has one row per customer ID, so it can't multiply orders.
 
 ```python
-o["master_id"] = o.customer_id.map(m)
+o = o.assign(master_id=o.customer_id.map(m))
 ```
-*(37 caracteres · ~16 s)*
+*(44 caracteres · ~20 s)*
 
 > 🗣️⌨️ Last lines of cell four: drop the duplicate events, and link each event to its master ID the same way.
 
 ```python
 a = a.drop_duplicates()
-a["master_id"] = a.customer_id.map(m)
+a = a.assign(master_id=a.customer_id.map(m))
 ```
-*(61 caracteres · ~27 s)*
+*(68 caracteres · ~30 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell four.
 
@@ -405,9 +405,9 @@ a["master_id"] = a.customer_id.map(m)
 📘 **What each line does** (para vos, no se lee):
 
 - `m = c.set_index("customer_id").master_id`: Series from customer ID to master ID (unique index).
-- `o["master_id"] = o.customer_id.map(m)`: master ID on each order; empty for unknown customers.
+- `o = o.assign(master_id=o.customer_id.map(m))`: master ID on each order, as a new table (no copy warning); empty for unknown customers.
 - `a = a.drop_duplicates()`: removes the 114 exact duplicate events.
-- `a["master_id"] = a.customer_id.map(m)`: master ID on each event; empty for unknown customers.
+- `a = a.assign(master_id=a.customer_id.map(m))`: master ID on each event, as a new table; empty for unknown customers.
 
 ---
 
@@ -694,6 +694,7 @@ x.issue.value_counts()
 | Un nombre mal escrito | 🖱️ *"There's a typo in cell N. I'm clicking on that line to fix it, and running the cell again."* |
 | `NameError` | 🖱️ *"An earlier cell didn't run. I'm opening the Runtime menu at the top and choosing Run before."* |
 | Los totales de la celda 6 no coinciden | Revisá que en la celda 5 diga `o.status.eq("completed")` y en la celda 6 `'completed'` entre comillas simples. |
+| Aparece `SettingWithCopyWarning` | Es solo una advertencia. Revisá que en la celda 4 diga `o = o.assign(...)` y `a = a.assign(...)`, no `o["master_id"] = ...`. |
 | Hay que volver a correr la celda 1 después de la celda 7 | `customers.csv` ya está reescrito. 🖱️ *"The customers file was already rewritten, so I'm uploading the original from my Desktop again in the Files panel."* |
 
 ---
