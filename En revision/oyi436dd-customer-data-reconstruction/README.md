@@ -1,30 +1,38 @@
-# oyi436dd — Customer Data Reconstruction
+# oyi436dd — E-commerce Financial Reconstruction
 
-Guion para grabar la tarea **oyi436dd** en **Google Colab** (app principal), con **Firefox** como app de apoyo, en una sola toma.
+Guion para volver a grabar la tarea **oyi436dd** respetando la idea aprobada. Se graba en **Google Colab** (app principal), con **Firefox** como app de apoyo, en una sola toma.
 
-> **Goal:** *Reconstruct and validate customer-level data by resolving identity inconsistencies, reconciling duplicate transactions, engineering historical behavioral features, and producing an auditable consolidated dataset with clearly documented exceptions.*
+> **Goal:** *Reconstruct the financial position of a simulated e-commerce business by reconciling customer orders, payment transactions, processor settlements, refunds, and product costs. Deliver an auditable transaction-level ledger that explains revenue differences, settlement discrepancies, and unresolved financial movements.*
 
-**Duración estimada: ~24:50** (objetivo 25, máximo 30).
+**Duración estimada: ~38:45** (tipeo ≤35%). Es más que el objetivo de 25 min, pero vos elegiste priorizar el límite de tipeo; Odin acepta hasta 50:59.
 
-**Punto de partida al grabar:** la **celda 1 ya está escrita** y los tres CSV ya están cargados en el panel **Files** de Colab. **Todo lo demás se tipea en vivo** (celdas 2 a 7 y la celda de conclusiones).
+**Punto de partida al grabar:** el notebook está **vacío** (una celda de código sin nada) y los cinco CSV ya están subidos en el panel **Files** de Colab. **Todo el código se tipea en vivo**, incluida la celda 1.
+
+**Por qué se rechazó la grabación anterior y qué cambia:** la versión anterior deduplicaba identidades de clientes y armaba perfiles de comportamiento: eso no estaba en la idea aprobada. Esta versión hace solamente reconstrucción financiera:
+
+- No se deduplican clientes ni se normalizan teléfonos. `customer_id` se deja tal como viene.
+- No hay perfiles, ni segmentación, ni marketing.
+- **No se sobrescribe ningún CSV de entrada.** Los tres archivos que se generan tienen nombres nuevos.
 
 ---
 
 ## Cronograma
 
-| # | Bloque | Parte del Goal | Celda | TIME | Duración |
-| - | ------ | -------------- | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:10 | 1:10 |
-| 1 | Perfil de los tres archivos | Inspección | 1 (ya escrita) | 1:10–3:00 | 1:50 |
-| 2 | Identidades | Identity inconsistencies | 2 (se tipea) | 3:00–7:00 | 4:00 |
-| 3 | Pedidos duplicados | Duplicate transactions | 3 (se tipea) | 7:00–9:40 | 2:40 |
-| 4 | Vincular pedidos y actividad | Duplicate transactions | 4 (se tipea) | 9:40–12:05 | 2:25 |
-| 5 | Variables de comportamiento | Behavioral features | 5 (se tipea) | 12:05–16:00 | 3:55 |
-| 6 | Validación | Validate | 6 (se tipea) | 16:00–17:55 | 1:55 |
-| 7 | Excepciones y exportación | Auditable dataset + exceptions | 7 (se tipea) | 17:55–21:55 | 4:00 |
-| 8 | Conclusiones | — | texto (se tipea) | 21:55–23:35 | 1:40 |
-| 9 | Epilogue | — | — | 23:35–24:50 | 1:15 |
-| | **Total** | | | | **~24:50** |
+| # | Bloque | Fase | Celda | TIME | Duración |
+| - | ------ | ---- | ----- | ---- | -------- |
+| 0 | Opening | — | — | 0:00–1:42 | 1:42 |
+| 1 | Carga e inspección de los cinco archivos | 1. Input inspection | 1 | 1:42–5:54 | 4:12 |
+| 2 | Validación de datos | 2. Data validation | 2 | 5:54–8:30 | 2:36 |
+| 3 | Conciliación de pagos | 3. Payment reconciliation | 3 | 8:30–12:22 | 3:53 |
+| 4 | Conciliación con las liquidaciones del procesador | 4. Processor settlement | 4 | 12:22–15:22 | 3:00 |
+| 5 | Conciliación de reembolsos | 5. Refund reconciliation | 5 | 15:22–18:01 | 2:38 |
+| 6 | Costos de productos y margen | 6. Product cost | 6 | 18:01–20:38 | 2:38 |
+| 7 | Registro de excepciones | 7. Exception register | 7 | 20:38–26:44 | 6:06 |
+| 8 | Entregables y resumen de control | 7. Deliverables | 8 | 26:44–31:57 | 5:13 |
+| 9 | Validación contra las fuentes y revisión de los archivos | 7. Validation | 9 | 31:57–35:40 | 3:43 |
+| 10 | Conclusiones | — | texto | 35:40–37:01 | 1:22 |
+| 11 | Epilogue | — | — | 37:01–38:45 | 1:44 |
+| | **Total** | | | | **~38:45** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -32,29 +40,49 @@ Guion para grabar la tarea **oyi436dd** en **Google Colab** (app principal), con
 
 ## Archivos de entrada
 
-Sintéticos, generados con IA. Fecha de corte de los datos: 2025-12-31.
+Sintéticos, generados con IA antes de grabar. Período: Q4 2025 (del 2025-10-01 al 2025-12-31).
 
-| Archivo | Filas | Columnas | Problemas que tiene |
-| ------- | ----- | -------- | ------------------- |
-| `customers.csv` | 542 | `customer_id, first_name, last_name, email, phone, city, signup_date` | 42 registros duplicados de 500 personas; teléfonos en 4 formatos; 30 emails vacíos y 32 con mayúsculas o espacios; 11 personas con ciudades en conflicto |
-| `orders.csv` | 2.419 | `order_id, customer_id, order_date, amount, status, updated_at` | 57 filas exactamente duplicadas; 48 pedidos con una versión vieja y una nueva; 14 pedidos de clientes que no existen ($1,315.58) |
-| `customer_activity.csv` | 5.400 | `customer_id, event_date, event_type` | 114 eventos duplicados; 31 de clientes que no existen |
+| Archivo | Filas | Columnas | Qué es |
+| ------- | ----- | -------- | ------ |
+| `orders.csv` | 1.180 | `order_id, customer_id, order_date, product_id, quantity, order_total` | Un pedido por fila |
+| `payments.csv` | 1.243 | `payment_id, order_id, method, amount, status, created_at, payout_id, settled` | Cada intento de cobro (`captured` o `failed`). Si el procesador ya lo liquidó, trae el lote (`payout_id`) y el neto recibido (`settled`) |
+| `refunds.csv` | 76 | `refund_id, payment_id, amount, refund_date` | Reembolsos parciales y totales, ligados al pago |
+| `products.csv` | 25 | `product_id, product_name, category, unit_price, unit_cost` | Precio y costo unitario |
+| `processor_terms.csv` | 3 | `method, fee_pct, fee_fixed, payout_days` | Comisión del procesador por medio de pago y días hasta la liquidación |
 
-**Cómo cubre cada parte del Goal:**
+**Claves de relación:** `orders.order_id` ↔ `payments.order_id`; `payments.payment_id` ↔ `refunds.payment_id`; `orders.product_id` ↔ `products.product_id`; `payments.method` ↔ `processor_terms.method`.
 
-| Parte del Goal | Celda | Qué produce |
-| -------------- | ----- | ----------- |
-| Identity inconsistencies | 2 | `master_id` por teléfono normalizado: 542 registros → 500 personas; `conf`, 11 personas con ciudades en conflicto |
-| Reconciling duplicate transactions | 3, 4 | 2.314 pedidos únicos ($11,580.09 menos); actividad sin duplicados; todo vinculado al `master_id` |
-| Historical behavioral features | 5 | `d`: una fila por persona con pedidos, gasto, último pedido y eventos |
-| Validate | 6 | El gasto de `d` cierra al centavo con los pedidos completados ($227,115.94) |
-| Auditable dataset + documented exceptions | 7 | `customers_consolidated.csv`, `exceptions_report.csv` (67 filas) y `customers.csv` reescrito |
+**Problemas que tienen los datos** (los encuentra el código; no hace falta saberlos antes):
 
-**Criterios de Slack que cubre:**
+| Problema | Cantidad | Dólares | Dónde se detecta |
+| -------- | -------- | ------- | ---------------- |
+| Filas de pedidos duplicadas por la exportación | 30 | $3,235.00 | Celda 2 |
+| Intentos de cobro fallidos (no son ingreso) | 104 | $12,501.00 | Celda 3 |
+| Pedidos sin cobro capturado (10 solo con intentos fallidos, 6 sin ningún intento) | 16 | $2,300.00 | Celda 3 |
+| Cobros de pedidos que no existen | 5 | $411.00 | Celda 3 |
+| Cobros por un monto distinto al del pedido | 8 | $865.00 facturados, $883.00 cobrados | Celda 7 |
+| Liquidaciones con menos plata que el neto esperado | 6 | $108.70 | Celda 4 |
+| Cobros todavía no liquidados al cierre (29 al 31 de diciembre) | 26 | $1,966.00 | Celda 7 |
+| Reembolsos sin un cobro válido (2 a intentos fallidos, 2 a IDs inexistentes) | 4 | $488.00 | Celda 5 |
+| Pagos reembolsados dos veces | 2 | $217.00 de más | Celda 7 |
+| Productos sin costo (P017, P022): no se puede calcular el margen | 90 líneas | $8,162.00 de ventas | Celda 6 |
 
-- `customers.csv` se reescribe con el mismo nombre: conserva todas las columnas originales y suma `phone_n` y `master_id`. El original queda en el Escritorio.
-- El impacto está en dólares: $11,580.09 inflados por duplicados y $1,315.58 en pedidos sin cliente.
-- Cada decisión se justifica contra la alternativa incorrecta.
+**Cómo cubre cada fase del prompt:**
+
+| Fase | Celda | Qué produce |
+| ---- | ----- | ----------- |
+| 1. Input inspection | 1 | Carga de los cinco archivos; filas, columnas, tipos y vacíos de cada uno |
+| 2. Data validation | 2 | 30 filas duplicadas ($3,235) fuera; IDs de pedidos y pagos únicos |
+| 3. Payment reconciliation | 3 | Solo cuentan los cobros capturados; pedidos sin cobro y cobros sin pedido |
+| 4. Processor settlement | 4 | Comisión según `processor_terms.csv`; diferencia entre el neto esperado y el liquidado |
+| 5. Refund reconciliation | 5 | Reembolsos ligados al cobro; $488 sin cobro válido |
+| 6. Product cost | 6 | Costo y margen por transacción; 2 productos sin costo |
+| 7. Final deliverables | 7, 8, 9 | `exception_register.csv` (187 filas), `transaction_reconciliation_ledger.csv` (1.155 filas), `financial_control_summary.csv` y la validación contra las fuentes |
+
+**Los puentes que cierran** (para el epílogo y por si te preguntan):
+
+- **Ingresos:** facturado $114,484.00 − pedidos sin cobro $2,300.00 + diferencia de montos $18.00 + cobros sin pedido $411.00 = **capturado $112,613.00**.
+- **Liquidaciones:** capturado $112,613.00 − comisiones $3,488.53 − liquidado $107,100.21 − faltante $108.70 = **$1,915.56**, que es el neto pendiente de los 26 cobros de fin de año ($1,966.00 − $50.44 de comisión).
 
 ---
 
@@ -71,7 +99,7 @@ Cada bloque tiene:
   - 🟢 = lo decís con el mouse quieto: qué muestra el resultado y qué decidís.
 - **WHY:** el criterio técnico, para vos. **Ya está dentro de lo que decís**; no se lee aparte.
 - **EXPECTED RESULT:** qué tiene que aparecer.
-- **DECISION:** las alternativas y cómo se elige con el resultado.
+- **VERIFY BEFORE CONTINUING:** qué controlar antes de pasar al bloque siguiente. Si no da, mirá "Si algo sale mal".
 - 📘 = qué hace cada línea, en inglés. Es para vos: **no se lee**.
 
 ---
@@ -80,27 +108,28 @@ Cada bloque tiene:
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo en vivo (celdas 2 a 7 + conclusiones) | 1.295 caracteres | ~9,5 min a 135 car./min (~10,7 a 120) |
-| Narración | ~1.562 palabras | ~12,0 min |
-| Navegación y ejecución | 10 bloques | ~3,3 min |
-| **Total** | | **~24:50** (~26:00 si tipeás a 120 car./min) |
+| Tipeo en vivo (celdas 1 a 9 + conclusiones) | 1.826 caracteres | ~13,5 min a 135 car./min (~15,2 a 120) |
+| Narración | ~2.759 palabras | ~21,2 min |
+| Navegación y ejecución | 12 bloques | ~4,0 min |
+| **Total** | | **~38:45** (~40:26 si tipeás a 120 car./min) |
 
-**Tipeo: ~38% del video a 135 car./min** (~41% a 120). Es lo mínimo con todo tipeado salvo la celda 1: el código ya está reducido a lo indispensable.
+**Tipeo: ~35% del video a 135 car./min** (~38% a 120).
 
-**Qué se simplificó para que todo entre tipeado:**
+**Qué se hizo para que todo entre tipeado:**
 
-- Los duplicados exactos y las versiones viejas de pedidos se resuelven en **una sola línea** (ordenar por `updated_at` y quedarse con la última).
-- Los pedidos y la actividad se vinculan con `map` sobre una serie de clave única: no puede multiplicar filas, así que no hace falta un control de cardinalidad aparte.
-- Una sola tabla `d` con la ficha del cliente y sus variables.
-- Saqué del CSV de actividad 20 eventos anteriores a la fecha de alta, que el código simple ya no trata.
+- Nombres cortos: `o` pedidos, `p` pagos, `r` reembolsos, `k` productos, `t` condiciones del procesador, `c` cobros capturados, `L` ledger, `x` excepciones, `s` resumen.
+- Los cinco archivos se cargan con una sola línea.
+- Un único ledger `L` al que cada fase le agrega columnas. Las excepciones salen de una sola regla por tipo.
 
 **Reglas de tipeo:**
 
 1. **Nunca hablar y tipear al mismo tiempo.** Frase 🗣️⌨️ con las manos quietas → bloque en silencio.
-2. **Ningún tramo pasa de 45 segundos.** El más largo tiene 85 caracteres (~38 s a 135 car./min). Las líneas largas de las celdas 5, 6 y 7 se tipean en varios tramos, **sin Enter** entre ellos.
+2. **Ningún tramo pasa de 45 segundos.** Las líneas largas de las celdas 7, 8 y 9 se tipean en dos tramos, **sin Enter** entre ellos.
 3. **Nada de tipeo extra:** ni comentarios ni `print` de prueba.
 4. **Sin autocompletado.** Si aparece una caja de sugerencias, Escape.
-5. **`\` en Mac** (celda 2): **Option + ?** (la tecla de `?` y `¿`, a la derecha del 0). Probado en tu Mac.
+5. **`~` en Mac** (celda 7): **Option + ñ** y después **espacio**.
+6. **Celda 7, líneas 2 y 3:** van dentro de las llaves del diccionario. Si Colab ya pone la sangría solo, no agregues espacios: dentro de `{ }` la sangría no cambia nada.
+7. **Comillas y corchetes:** si Colab cierra solo `"`, `(` o `[`, seguí tipeando igual: al escribir el de cierre, Colab lo salta.
 
 ---
 
@@ -110,7 +139,8 @@ Cada bloque tiene:
 2. Al terminar una acción, el cursor queda **quieto en el margen derecho**.
 3. **Primero la frase, después el movimiento o el tipeo.**
 4. **Repetí el número de celda al menos una vez por minuto.** Las frases ya lo hacen.
-5. Frases comodín:
+5. Para agregar una celda: **+ Code**, arriba a la izquierda de la barra de Colab, debajo del menú. Agrega la celda debajo de la seleccionada.
+6. Frases comodín:
    - *"I'm scrolling down inside the output of cell N, to see the last rows."*
    - *"I'm clicking at the end of line N in cell N, to fix a typo."*
    - *"I'm pressing Escape to close the suggestion box, because I type everything by hand."*
@@ -122,511 +152,689 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:10 (1:10)
+**TIME:** 0:00–1:42 (1:42)
 
-**WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock.
+**WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir el panel Files.
 
-**WHERE:** Firefox ventana 1 (descripción). Botón amarillo arriba a la izquierda. Ícono de Firefox en el Dock, a la derecha (Mac); segunda ventana de la lista.
+**WHERE:** Firefox ventana 1 (descripción). Botón amarillo arriba a la izquierda. Ícono de Firefox en el Dock, a la derecha (Mac); segunda ventana de la lista. Ícono de carpeta en la barra lateral izquierda de Colab.
 
 **SAY:**
 
-> 🟢 I will be beginning my task soon. A company's customer data is messy: the same person appears more than once, orders are duplicated, and some records point to customers that don't exist.
+> 🟢 I will be beginning my task soon. The task is to rebuild the financial position of an online store for the last quarter of 2025.
 
-> 🟢 I'll resolve identities, remove duplicate orders, build one behavioral profile per customer, check the totals, and document every exception.
+> 🟢 I have five sources: orders, payment attempts, refunds, product costs, and the payment processor's fee terms. They don't agree with each other, and my job is to explain every difference.
+
+> 🟢 By the end I'll have three files: a transaction-level ledger, an exception register, and a financial control summary that ties back to the sources.
 
 > 🖱️ I'm clicking the yellow minimize button at the top left, to hide the task description.
 
-> 🖱️ I'm clicking the Firefox icon in the Dock and choosing the second window: my Colab notebook.
+> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my empty Colab notebook.
 
-> 🟢 The three input CSVs are already uploaded to the Files panel. They're synthetic, generated with AI; the originals stay on my Desktop.
+> 🖱️ I'm clicking the folder icon in the left sidebar of Colab, to open the Files panel.
 
-**WHY:** el revisor tiene que saber desde el principio qué es "éxito": una fila por persona, sin importes duplicados, con totales que cierran y excepciones documentadas.
+> 🖱️ I'm pointing at the five CSV files in the Files panel: orders, payments, refunds, products and processor terms. I uploaded them before recording. They're synthetic, generated with AI.
 
-**EXPECTED RESULT:** el notebook con la celda 1 escrita y la celda 2 vacía debajo.
+> 🟢 One rule for the whole session: I never overwrite these five files. Everything I produce gets a new file name.
+
+**WHY:** el revisor tiene que ver desde el principio el objetivo, los cinco archivos de la idea aprobada y los tres entregables. Así puede comparar cada paso con la descripción.
+
+**EXPECTED RESULT:** el notebook vacío con una celda de código, y el panel Files abierto con los cinco CSV.
+
+**VERIFY BEFORE CONTINUING:** están los cinco archivos y no hay ningún otro CSV en Files.
 
 ---
 
-### Bloque 1. Perfil de los tres archivos
+### Bloque 1. Carga e inspección de los cinco archivos
 
-**TIME:** 1:10–3:00 (1:50)
+**TIME:** 1:42–5:54 (4:12)
 
-**WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → señalar la salida.
+**WHAT I DO:** clic en la celda 1 → tipear 4 tramos → Run → recorrer la salida con scroll.
 
-**WHERE:** celda 1, arriba de todo. Botón Run (triángulo) a la izquierda de la celda.
-
-**Celda 1 (ya escrita antes de grabar):**
-
-```python
-import pandas as pd
-c = pd.read_csv("customers.csv", parse_dates=["signup_date"])
-o = pd.read_csv("orders.csv", parse_dates=["order_date", "updated_at"])
-a = pd.read_csv("customer_activity.csv", parse_dates=["event_date"])
-for name, d in {"customers": c, "orders": o, "activity": a}.items():
-    print(name, d.shape, "duplicate rows:", d.duplicated().sum(), "nulls:", d.isna().sum().sum())
-print("unique order_id:", o.order_id.nunique(), "| orders without customer:", (~o.customer_id.isin(c.customer_id)).sum())
-c.head()
-```
+**WHERE:** celda 1, la única del notebook, a la derecha del panel Files.
 
 **SAY:**
 
-> 🖱️ I'm pointing at cell one, which I wrote before recording, because loading files is routine. Everything after it I'll type live.
+> 🖱️ I'm clicking inside cell one, the empty code cell at the top of the notebook.
 
-> 🖱️ I'm pointing at the three read_csv lines: customers, orders and activity. Dates are parsed because I'll sort and compare them.
+> 🗣️⌨️ First two lines of cell one: pandas for the tables, and numpy for one labeling step later.
 
-> 🖱️ I'm pointing at the loop: for each file, its size, exact duplicate rows and missing values.
+```python
+import pandas as pd
+import numpy as np
+```
+*(38 caracteres · ~17 s)*
 
-> 🖱️ I'm pointing at the last print: unique order IDs, and orders whose customer doesn't exist.
+> 🗣️⌨️ Next line of cell one: the five file names, in one string that I split into a list.
+
+```python
+n = "orders payments refunds products processor_terms".split()
+```
+*(62 caracteres · ~28 s)*
+
+> 🗣️⌨️ Next line: read the five files, in that order, into five short names: o for orders, p for payments, r for refunds, k for products, and t for terms.
+
+```python
+o, p, r, k, t = [pd.read_csv(f + ".csv") for f in n]
+```
+*(52 caracteres · ~23 s)*
+
+> 🗣️⌨️ Last lines of cell one: info for each table, which shows rows, columns, types and missing values. Then the terms table itself, because it's only three rows.
+
+```python
+for d in [o, p, r, k, t]: d.info()
+t
+```
+*(36 caracteres · ~16 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell one.
 
-> 🖱️ I'm pointing at the customers line under cell one: 542 rows and 30 missing values, all in email.
+> 🖱️ I'm pointing at the first block under cell one, orders: 1,180 rows and six columns, with no missing values.
 
-> 🟢 So email can't be my identity key: it's missing for some people.
+> 🟢 order_id links to payments, product_id links to products, and order_total is what the customer was billed.
 
-> 🖱️ I'm pointing at the orders line: 57 exact duplicate rows, and only 2,314 unique order IDs out of 2,419.
+> 🟢 customer_id is there too, but I leave it exactly as it is. This task is about money, not about who the customers are.
 
-> 🟢 So there are more duplicates than the exact copies: some orders have two versions.
+> 🖱️ I'm scrolling down inside the output of cell one, to the payments block: 1,243 rows.
 
-> 🟢 The orders also have an updated_at column, which will tell me which version is current.
+> 🖱️ I'm pointing at payout_id and settled: only 1,113 non-null out of 1,243.
 
-> 🖱️ I'm pointing at the activity line: 114 duplicate events. And 14 orders point to customers that don't exist.
+> 🟢 So 130 payments have no settlement. Some are failed attempts, which are never settled. The rest I'll have to explain.
 
-> 🖱️ I'm pointing at the phone column of the table: four different formats for the same kind of number.
+> 🟢 The dates are text here. I don't need date math: they're in year-month-day format, so they also sort correctly as text.
 
-**WHY:** el perfil decide la estrategia: el email tiene vacíos, el teléfono está completo pero con formatos distintos, y en pedidos hay más IDs repetidos que filas idénticas.
+> 🖱️ I'm scrolling down to refunds: 76 rows, linked by payment_id, not by order. So refunds attach to the payment first.
+
+> 🖱️ I'm pointing at products: 25 rows, but unit_cost has only 23 values. Two products have no cost.
+
+> 🖱️ I'm scrolling down to the terms table at the bottom of cell one.
+
+> 🟢 Card costs 2.9 percent plus 30 cents and settles in two days. Wallet is 3.49 percent plus 49 cents, one day. Bank transfer is 0.8 percent, three days.
+
+**WHY:** antes de unir nada hay que ver las claves y los vacíos. Los vacíos en `settled` y `unit_cost` anticipan dos excepciones: pagos sin liquidar y márgenes que no se pueden calcular.
 
 **EXPECTED RESULT:**
 
-- `customers (542, 7) duplicate rows: 0 nulls: 30`
-- `orders (2419, 6) duplicate rows: 57 nulls: 0`
-- `activity (5400, 3) duplicate rows: 114 nulls: 0`
-- `unique order_id: 2314 | orders without customer: 14`
-- Las 5 primeras filas de `customers`: teléfonos como `5989504447` y `(513) 390-6167`; la fila de C0005 con el email vacío (`NaN`).
+- `orders`: `RangeIndex: 1180 entries`, 6 columnas, todas `1180 non-null`.
+- `payments`: `1243 entries`, 8 columnas; `payout_id` y `settled` con `1113 non-null`.
+- `refunds`: `76 entries`, 4 columnas.
+- `products`: `25 entries`; `unit_cost` con `23 non-null`.
+- `processor_terms`: `3 entries`.
+- La tabla `t` al final: `card 0.0290 0.30 2`, `wallet 0.0349 0.49 1`, `bank_transfer 0.0080 0.00 3`.
+
+**VERIFY BEFORE CONTINUING:** aparecen los cinco bloques de `info` y la tabla de condiciones. En Colab los tipos de texto aparecen como `object`; está bien.
 
 📘 **What each line does** (para vos, no se lee):
 
 - `import pandas as pd`: loads pandas.
-- `c = pd.read_csv("customers.csv", parse_dates=["signup_date"])`: customer records, with the signup date as a date.
-- `o = pd.read_csv("orders.csv", parse_dates=["order_date", "updated_at"])`: orders, with order and last-update timestamps.
-- `a = pd.read_csv("customer_activity.csv", parse_dates=["event_date"])`: activity events.
-- `for name, d in {...}.items():`: loops over the three tables with their names.
-- `print(name, d.shape, ..., d.duplicated().sum(), ..., d.isna().sum().sum())`: rows, columns, exact duplicate rows and missing values.
-- `print("unique order_id:", ..., (~o.customer_id.isin(c.customer_id)).sum())`: distinct order IDs and orders with an unknown customer.
-- `c.head()`: first five customer records.
+- `import numpy as np`: loads numpy, used for `np.select` in cell 7.
+- `n = "orders payments refunds products processor_terms".split()`: the five file names as a list.
+- `o, p, r, k, t = [pd.read_csv(f + ".csv") for f in n]`: reads each file and unpacks the five tables.
+- `for d in [o, p, r, k, t]: d.info()`: prints rows, columns, non-null counts and types for each table.
+- `t`: shows the processor terms.
 
 ---
 
-### Bloque 2. Identidades
+### Bloque 2. Validación de datos
 
-**TIME:** 3:00–7:00 (4:00)
+**TIME:** 5:54–8:30 (2:36)
 
-**WHAT I DO:** clic en la celda 2 → tipear 5 tramos → Run → señalar los dos números.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los cuatro valores.
 
-**WHERE:** celda 2, vacía, debajo de la tabla de clientes.
+**WHERE:** botón **+ Code** arriba a la izquierda; la celda 2 aparece debajo de la salida de la celda 1.
 
 **SAY:**
 
-> 🖱️ I'm clicking inside cell two, the empty cell below the customers table.
+> 🖱️ I'm clicking plus Code at the top left, to add cell two below the output of cell one.
 
-> 🟢 First, identity: which records are the same person?
+> 🟢 Cell two is validation. Before matching anything, the keys have to be unique, or every join will double count.
 
-> 🗣️⌨️ First line of cell two: a normalized phone, digits only, so the four formats become one key.
-
-```python
-c["phone_n"] = c.phone.str.replace(r"\D", "", regex=True)
-```
-*(56 caracteres · ~25 s)*
-
-> 🗣️⌨️ Next line of cell two: sort by signup date, so the oldest record of each person comes first.
+> 🗣️⌨️ First two lines of cell two: keep the exact duplicate rows aside, so they go to the exceptions, then drop them from my working copy. The file on disk doesn't change.
 
 ```python
-c = c.sort_values("signup_date")
+dup = o[o.duplicated()]
+o = o.drop_duplicates()
 ```
-*(32 caracteres · ~14 s)*
+*(47 caracteres · ~21 s)*
 
-> 🗣️⌨️ Next line: the master ID is the oldest record's ID for each phone. That's my survivorship rule: the first registration wins.
+> 🗣️⌨️ Last line of cell two: how many duplicates, how many dollars they add, and whether order IDs and payment IDs are now unique.
 
 ```python
-c["master_id"] = c.groupby("phone_n").customer_id.transform("first")
+print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_unique)
 ```
-*(68 caracteres · ~30 s)*
-
-> 🗣️⌨️ Next line of cell two: records of the same person with different cities. I don't overwrite them; they go to the exceptions.
-
-```python
-conf = c[c.groupby("master_id").city.transform("nunique") > 1]
-```
-*(63 caracteres · ~28 s)*
-
-> 🗣️⌨️ Last line of cell two: how many people, and how many with a city conflict.
-
-```python
-print(c.master_id.nunique(), conf.master_id.nunique())
-```
-*(54 caracteres · ~24 s)*
+*(84 caracteres · ~37 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell two.
 
-> 🖱️ I'm pointing at the first number under cell two: 500.
+> 🖱️ I'm pointing at the first two numbers under cell two: 30 rows and 3,235 dollars.
 
-> 🟢 542 records are 500 real people: 42 were duplicates in different formats.
+> 🟢 30 orders were exported twice. Kept in, they would inflate billed revenue by 3,235 dollars.
 
-> 🟢 If I had matched on email, the 30 empty emails would each look like a new person, and the ones in uppercase or with spaces wouldn't match.
+> 🖱️ I'm pointing at the two True values.
 
-> 🟢 And the oldest-record rule is stable: running it again gives the same masters.
+> 🟢 After removing them, every order ID is unique, so the duplicates were full copies, not two different orders with the same ID. And every payment ID is unique too.
 
-> 🖱️ I'm pointing at the second number: 11.
+**WHY:** se borran solo filas idénticas en todas las columnas: no hay riesgo de perder un pedido real. Si quedaran IDs repetidos con datos distintos, habría que investigarlos y no borrarlos.
 
-> 🟢 Eleven people have two cities. A newer record doesn't prove a move, so I keep the master's city and report the conflict.
+**EXPECTED RESULT:** `30 3235.0 True True`
 
-**WHY:** el teléfono está completo y, normalizado, identifica a la persona; el email tiene 30 vacíos y 32 con mayúsculas o espacios. La regla de supervivencia (el registro más viejo) es explícita y reproducible.
-
-**EXPECTED RESULT:** `500 11`
-
-**DECISION:** ¿clave por email o por teléfono? **Teléfono normalizado**: completo en los 542 registros. ¿Pisar la ciudad con la del registro más nuevo? **No**: sin evidencia de mudanza, se documenta como excepción.
+**VERIFY BEFORE CONTINUING:** los dos `True`. Si `o.order_id.is_unique` diera `False`, la unión de la celda 3 fallaría.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `c["phone_n"] = c.phone.str.replace(r"\D", "", regex=True)`: removes every non-digit from the phone.
-- `c = c.sort_values("signup_date")`: oldest records first.
-- `c["master_id"] = c.groupby("phone_n").customer_id.transform("first")`: each record gets the ID of the oldest record with the same phone.
-- `conf = c[c.groupby("master_id").city.transform("nunique") > 1]`: records of people who appear with more than one city.
-- `print(c.master_id.nunique(), conf.master_id.nunique())`: number of people and people with a city conflict.
+- `dup = o[o.duplicated()]`: rows that repeat an earlier row in every column.
+- `o = o.drop_duplicates()`: working copy without those rows; `orders.csv` is not touched.
+- `print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_unique)`: count and dollars of duplicates, and two uniqueness checks.
 
 ---
 
-### Bloque 3. Pedidos duplicados
+### Bloque 3. Conciliación de pagos
 
-**TIME:** 7:00–9:40 (2:40)
+**TIME:** 8:30–12:22 (3:53)
 
-**WHAT I DO:** + Code → tipear 3 tramos → Run → señalar los dos números.
+**WHAT I DO:** + Code → tipear 3 tramos → Run → señalar el monto y los tres grupos.
 
-**WHERE:** botón **+ Code** arriba a la izquierda de la barra de Colab (agrega la celda 3 debajo de la celda 2).
+**WHERE:** **+ Code** arriba a la izquierda; la celda 3 aparece debajo de la salida de la celda 2.
 
 **SAY:**
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell three below cell two.
 
-> 🟢 Now the duplicate transactions.
+> 🟢 Cell three matches orders with payments. A payment attempt isn't revenue: only a captured payment is money.
 
-> 🗣️⌨️ First line of cell three: the order total before cleaning, to measure the impact in dollars.
-
-```python
-t = o.amount.sum()
-```
-*(18 caracteres · ~8 s)*
-
-> 🗣️⌨️ Next line of cell three: sort by last update and keep the latest version of each order ID. That removes exact copies and old versions in one step.
+> 🗣️⌨️ First line of cell three: c is the captured payments only, joined with the terms by payment method, so each one carries its fee rate.
 
 ```python
-o = o.sort_values("updated_at").drop_duplicates("order_id", keep="last")
+c = p[p.status.eq("captured")].merge(t, on="method")
 ```
-*(72 caracteres · ~32 s)*
+*(52 caracteres · ~23 s)*
 
-> 🗣️⌨️ Last line of cell three: orders left, and the dollars removed.
+> 🗣️⌨️ Next line of cell three: L is my ledger. An outer join keeps orders without a payment and payments without an order. The indicator marks which side each row came from, and validate one-to-one stops the cell if any order had two captures.
 
 ```python
-print(len(o), round(t - o.amount.sum(), 2))
+L = o.merge(c, on="order_id", how="outer", indicator=True, validate="1:1")
 ```
-*(43 caracteres · ~19 s)*
+*(74 caracteres · ~33 s)*
+
+> 🗣️⌨️ Last lines of cell three: the dollars in failed attempts, and how many rows came from each side.
+
+```python
+print(p.amount.sum() - c.amount.sum())
+L._merge.value_counts()
+```
+*(62 caracteres · ~28 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell three.
 
-> 🖱️ I'm pointing at the two numbers under cell three: 2,314 and 11,580.09.
+> 🖱️ I'm pointing at the first number under cell three: 12,501 dollars.
 
-> 🟢 One row per order ID now. 57 exact copies and 48 old versions inflated revenue by 11,580 dollars.
+> 🟢 That's 104 failed attempts. If I had summed every payment, revenue would be overstated by 12,501 dollars.
 
-> 🟢 Keeping the first version instead would keep a pending status that was later updated. The latest update is the true state.
+> 🟢 And the validate check passed: no order has two captures, so the join can't duplicate money.
 
-> 🟢 I measure the total before and after, so the impact is in dollars, not just rows. Without this step, every customer's spending would be overstated.
+> 🖱️ I'm pointing at both: 1,134 orders with exactly one capture.
 
-> 🟢 Cancelled and refunded orders stay in the table for now; I'll leave them out of spending in cell five.
+> 🖱️ I'm pointing at left only: 16 orders with no captured payment.
 
-**WHY:** un pedido con dos versiones (por ejemplo, `pending` y después `completed`) no son dos ventas. Quedarse con la última actualización refleja el estado real y elimina las copias exactas a la vez.
+> 🟢 Ten of them only had failed attempts, and six never had any attempt. That's billed revenue that was never collected.
 
-**EXPECTED RESULT:** `2314 11580.09`
+> 🖱️ I'm pointing at right only: 5 captures whose order ID doesn't exist in the orders file.
 
-**DECISION:** ¿primera o última versión? **Última** (`keep="last"` sobre `updated_at`): es el estado vigente del pedido.
+> 🟢 That's cash I received with no order behind it. I keep it in the ledger and flag it; I don't drop it.
+
+> 🟢 With an inner join, those 16 orders and 5 captures would silently disappear, and the totals would still look clean. That's exactly what an audit has to avoid.
+
+**WHY:** el `outer` es la decisión clave: un `inner` escondería justo las dos diferencias que hay que explicar (pedidos sin cobro y cobros sin pedido). `validate="1:1"` prueba que no hay doble cobro.
+
+**EXPECTED RESULT:**
+
+- `12501.0`
+- `both 1134`, `left_only 16`, `right_only 5`
+
+**VERIFY BEFORE CONTINUING:** no hay `MergeError`. 1.134 + 16 + 5 = 1.155 filas en el ledger.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `t = o.amount.sum()`: order total before deduplication.
-- `o = o.sort_values("updated_at").drop_duplicates("order_id", keep="last")`: one row per order ID, the most recently updated.
-- `print(len(o), round(t - o.amount.sum(), 2))`: orders left and dollars removed.
+- `c = p[p.status.eq("captured")].merge(t, on="method")`: captured payments with their fee terms.
+- `L = o.merge(c, on="order_id", how="outer", indicator=True, validate="1:1")`: the ledger; every order and every capture, one row per order, with a `_merge` column saying where each row came from.
+- `print(p.amount.sum() - c.amount.sum())`: dollars in failed attempts.
+- `L._merge.value_counts()`: rows matched on both sides, orders only, captures only.
 
 ---
 
-### Bloque 4. Vincular pedidos y actividad
+### Bloque 4. Conciliación con las liquidaciones del procesador
 
-**TIME:** 9:40–12:05 (2:25)
+**TIME:** 12:22–15:22 (3:00)
 
-**WHAT I DO:** + Code → tipear 3 tramos → Run (sin salida).
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el conteo de ceros y los seis faltantes.
 
-**WHERE:** botón **+ Code** arriba a la izquierda (agrega la celda 4 debajo de la salida de la celda 3).
+**WHERE:** **+ Code** arriba a la izquierda; la celda 4 aparece debajo de la salida de la celda 3.
 
 **SAY:**
 
-> 🖱️ I'm clicking plus Code at the top left, to add cell four below the order counts.
+> 🖱️ I'm clicking plus Code at the top left, to add cell four below cell three.
 
-> 🗣️⌨️ First line of cell four: a lookup from every customer ID to its master ID.
+> 🟢 Cell four goes from gross to net: what the processor should have paid me, against what it actually paid.
 
-```python
-m = c.set_index("customer_id").master_id
-```
-*(40 caracteres · ~18 s)*
-
-> 🗣️⌨️ Next line of cell four: each order gets its master ID. I use map, not merge: the lookup has one row per customer ID, so it can't multiply orders.
+> 🗣️⌨️ First line of cell four: the fee for each capture, the amount times the percentage plus the fixed fee, rounded to cents.
 
 ```python
-o = o.assign(master_id=o.customer_id.map(m))
+L["fee"] = (L.amount * L.fee_pct + L.fee_fixed).round(2)
 ```
-*(44 caracteres · ~20 s)*
+*(56 caracteres · ~25 s)*
 
-> 🗣️⌨️ Last lines of cell four: drop the duplicate events, and link each event to its master ID the same way.
+> 🗣️⌨️ Next lines of cell four: the gap is the expected net minus what was settled. Zero means the payout is exactly right. Then I count the gaps.
 
 ```python
-a = a.drop_duplicates()
-a = a.assign(master_id=a.customer_id.map(m))
+L["gap"] = (L.amount - L.fee - L.settled).round(2)
+L.gap.value_counts()
 ```
-*(68 caracteres · ~30 s)*
+*(71 caracteres · ~32 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell four.
 
-> 🟢 No output here. Orders and events with an unknown customer get an empty master ID; I'll report them, not guess.
+> 🖱️ I'm pointing at the first row under cell four: a gap of zero for 1,107 captures.
 
-> 🟢 A merge against a table with repeated keys is the classic way amounts get duplicated. Map avoids it by design, and cell six will prove it.
+> 🟢 So my fee formula reproduces the processor's payouts to the cent. That proves I'm applying the terms correctly.
 
-**WHY:** un `merge` contra una tabla con claves repetidas multiplica filas e infla importes. `map` sobre una serie indexada por `customer_id` (única) devuelve exactamente una fila por pedido.
+> 🟢 The rounding matters here. The processor charges whole cents, so without rounding the fee, almost every gap would be a fraction of a cent, and I couldn't tell real differences from noise.
 
-**EXPECTED RESULT:** sin salida. (`o` sigue con 2.314 filas; `a` queda con 5.286.)
+> 🖱️ I'm pointing at the six rows below: gaps from 7.80 to 30 dollars.
 
-**DECISION:** ¿asignar los pedidos huérfanos a un cliente parecido? **No**: no hay evidencia; se documentan como excepción.
+> 🟢 Six payouts came in short, 108.70 dollars in total. They aren't fees, because the fees already match. They're processor adjustments I can't explain from the data, so they go to the exceptions.
+
+> 🟢 Captures with no payout yet have no gap at all: they aren't settled. I'll handle them in cell seven.
+
+**WHY:** si los ceros no fueran mayoría, la fórmula de comisión estaría mal y todas las diferencias serían falsas. Primero se prueba la fórmula; después se buscan las excepciones.
+
+**EXPECTED RESULT:** `0.0 1107`, y seis filas con `1` cada una: `7.8`, `12.5`, `15.0`, `18.4`, `25.0`, `30.0` (en cualquier orden).
+
+**VERIFY BEFORE CONTINUING:** 1.107 ceros. Si aparecen cientos de valores chicos distintos, revisá que diga `L.fee_pct` y `L.fee_fixed`.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `m = c.set_index("customer_id").master_id`: Series from customer ID to master ID (unique index).
-- `o = o.assign(master_id=o.customer_id.map(m))`: master ID on each order, as a new table (no copy warning); empty for unknown customers.
-- `a = a.drop_duplicates()`: removes the 114 exact duplicate events.
-- `a = a.assign(master_id=a.customer_id.map(m))`: master ID on each event, as a new table; empty for unknown customers.
+- `L["fee"] = (L.amount * L.fee_pct + L.fee_fixed).round(2)`: expected processor fee per capture.
+- `L["gap"] = (L.amount - L.fee - L.settled).round(2)`: expected net minus settled net; empty when not settled.
+- `L.gap.value_counts()`: how many captures have each gap.
 
 ---
 
-### Bloque 5. Variables de comportamiento
+### Bloque 5. Conciliación de reembolsos
 
-**TIME:** 12:05–16:00 (3:55)
+**TIME:** 15:22–18:01 (2:38)
 
-**WHAT I DO:** + Code → tipear 5 tramos (la primera línea en tres tramos, sin Enter) → Run → señalar tres columnas.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el número.
 
-**WHERE:** botón **+ Code** arriba a la izquierda (agrega la celda 5 debajo de la celda 4).
+**WHERE:** **+ Code** arriba a la izquierda; la celda 5 aparece debajo de la salida de la celda 4.
 
 **SAY:**
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell five below cell four.
 
-> 🟢 Now one row per person, with their history.
+> 🟢 Cell five brings in refunds. A payment can have more than one refund, partial or full, so I add them up per payment first.
 
-> 🗣️⌨️ First line of cell five, in three parts. First part: the master record of each person, the oldest one, as the base row.
-
-```python
-d = c.drop_duplicates("master_id").set_index("master_id")
-```
-*(57 caracteres · ~25 s · sin Enter al final)*
-
-> 🗣️⌨️ Second part, same line: join only completed orders, grouped by person. Cancelled and refunded orders aren't revenue.
+> 🗣️⌨️ First line of cell five: total refunded per payment ID, mapped onto the ledger. Map can't add rows, so the ledger stays one row per transaction. No refund means zero.
 
 ```python
-.join(o[o.status.eq("completed")].groupby("master_id")
+L["refund"] = L.payment_id.map(r.groupby("payment_id").amount.sum()).fillna(0)
 ```
-*(54 caracteres · ~24 s · sin Enter al final)*
+*(78 caracteres · ~35 s)*
 
-> 🗣️⌨️ Third part: number of orders, total spent, and the date of the last order.
+> 🗣️⌨️ Last line of cell five: refunds in the file minus refunds that found a captured payment.
 
 ```python
-.agg(orders=("order_id", "size"), spent=("amount", "sum"), last=("order_date", "max")))
+r.amount.sum() - L.refund.sum()
 ```
-*(85 caracteres · ~38 s)*
-
-> 🗣️⌨️ Next line of cell five: number of activity events per person.
-
-```python
-d["events"] = a.groupby("master_id").size()
-```
-*(43 caracteres · ~19 s)*
-
-> 🗣️⌨️ Last line of cell five: a summary of the new columns.
-
-```python
-d.describe().round(1)
-```
-*(21 caracteres · ~9 s)*
+*(31 caracteres · ~14 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell five.
 
-> 🖱️ I'm pointing at the count row under cell five: 500 people, 483 with orders, 497 with events.
+> 🖱️ I'm pointing at the result under cell five: 488 dollars.
 
-> 🟢 Every person is kept, even the 17 who never completed an order. That's a behavior too.
+> 🟢 488 dollars of refunds don't match any captured payment. Two point to failed attempts, so money went back on a charge that never happened. Two point to payment IDs that don't exist.
 
-> 🖱️ I'm pointing at the median row: 4 orders, 413 dollars spent, 10 events.
+> 🟢 I don't force them onto an order. They go to the exceptions as bad references.
 
-> 🟢 Events per person show engagement, even for people who don't buy.
+> 🟢 Everything else matched: 5,020.65 dollars of refunds, partial and full, now sit on the payment they belong to.
 
-> 🖱️ I'm pointing at the last column's max date: December 19, 2025.
+> 🟢 One assumption: the processor keeps its fee when a payment is refunded, so the fee stays as a cost even on a full refund.
 
-> 🟢 Nothing after the December 31 cut-off, so these features only use history.
+**WHY:** los reembolsos se suman por pago antes de unir: si se unieran fila por fila, un pago con dos reembolsos duplicaría la fila del ledger.
 
-> 🟢 And the median last order is November 3rd: that's the recency of a typical customer, about two months before the cut-off.
+**EXPECTED RESULT:** `488.0`
 
-**WHY:** la base es la ficha del cliente (500 filas), no los pedidos: un `join` desde los clientes conserva a quienes no compraron. Solo los pedidos completados cuentan como gasto.
-
-**EXPECTED RESULT:** `describe` con `count`: `signup_date 500`, `orders 483.0`, `spent 483.0`, `last 483`, `events 497.0`. Medianas (`50%`): `orders 4.0`, `spent 413.5`, `events 10.0`. `max` de `last`: `2025-12-19`.
-
-**DECISION:** ¿contar cancelados y reembolsados? **No**: el gasto es lo que efectivamente se cobró.
+**VERIFY BEFORE CONTINUING:** el resultado es exactamente `488.0`.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `d = c.drop_duplicates("master_id").set_index("master_id")`: one row per person, the oldest record (the table is sorted by signup date).
-- `.join(o[o.status.eq("completed")].groupby("master_id")`: adds completed orders grouped by person; people with none keep empty values.
-- `.agg(orders=..., spent=..., last=...)`: order count, total amount and last order date.
-- `d["events"] = a.groupby("master_id").size()`: events per person.
-- `d.describe().round(1)`: count, mean, quartiles and max of each column.
+- `L["refund"] = L.payment_id.map(r.groupby("payment_id").amount.sum()).fillna(0)`: total refunded for each captured payment; zero if none.
+- `r.amount.sum() - L.refund.sum()`: refund dollars that didn't match a captured payment.
 
 ---
 
-### Bloque 6. Validación
+### Bloque 6. Costos de productos y margen
 
-**TIME:** 16:00–17:55 (1:55)
+**TIME:** 18:01–20:38 (2:38)
 
-**WHAT I DO:** + Code → tipear 2 tramos (sin Enter entre ellos) → Run → señalar los dos totales.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los dos productos.
 
-**WHERE:** botón **+ Code** arriba a la izquierda (agrega la celda 6 debajo del resumen).
-
-**SAY:**
-
-> 🖱️ I'm clicking plus Code at the top left, to add cell six below the summary.
-
-> 🟢 Now I prove that consolidating didn't lose or duplicate money.
-
-> 🗣️⌨️ In cell six, first part: the total spent in my customer table.
-
-```python
-print(d.spent.sum().round(2),
-```
-*(30 caracteres · ~13 s · sin Enter al final)*
-
-> 🗣️⌨️ Second part, same line: the completed orders with a known customer, straight from the deduplicated orders.
-
-```python
- o.dropna().query("status == 'completed'").amount.sum().round(2))
-```
-*(64 caracteres · ~28 s)*
-
-> 🖱️ I'm clicking the Run button on the left of cell six.
-
-> 🖱️ I'm pointing at the two numbers under cell six: 227,115.94 and 227,115.94.
-
-> 🟢 They match to the cent. The join didn't multiply any order, and no completed order with a known customer was lost.
-
-> 🟢 If the join had multiplied rows, the first number would be bigger; if I had lost orders, it would be smaller.
-
-**WHY:** si el `join` hubiera multiplicado filas, el total de `d` sería mayor; si se hubiera perdido algún pedido, menor. Que coincidan al centavo es la prueba.
-
-**EXPECTED RESULT:** `227115.94 227115.94`
-
-📘 **What each line does** (para vos, no se lee):
-
-- `print(d.spent.sum().round(2),`: total spent in the consolidated table.
-- `o.dropna().query("status == 'completed'").amount.sum().round(2))`: completed orders with a master ID (orphans have an empty one and drop out).
-
----
-
-### Bloque 7. Excepciones y exportación
-
-**TIME:** 17:55–21:55 (4:00)
-
-**WHAT I DO:** + Code → tipear 5 tramos (la primera línea en tres tramos, sin Enter) → Run → señalar el conteo → abrir y cerrar Files.
-
-**WHERE:** botón **+ Code** arriba a la izquierda (agrega la celda 7). Ícono de carpeta en la barra lateral izquierda.
+**WHERE:** **+ Code** arriba a la izquierda; la celda 6 aparece debajo de la salida de la celda 5.
 
 **SAY:**
 
-> 🖱️ I'm clicking plus Code at the top left, to add cell seven below the validation.
+> 🖱️ I'm clicking plus Code at the top left, to add cell six below cell five.
 
-> 🟢 Last step: everything I didn't resolve goes into one exceptions report, with a reason.
+> 🟢 Cell six adds product costs, so each transaction gets a margin.
 
-> 🗣️⌨️ First line of cell seven, in three parts. First: the city conflicts.
+> 🗣️⌨️ First line of cell six: cost of goods is the quantity times the unit cost of the product. Again I use map, so no rows are added.
 
 ```python
-x = pd.concat([conf.assign(issue="city_conflict"),
+L["cogs"] = L.quantity * L.product_id.map(k.set_index("product_id").unit_cost)
 ```
-*(50 caracteres · ~22 s · sin Enter al final)*
+*(78 caracteres · ~35 s)*
 
-> 🗣️⌨️ Second part: orders with no customer.
-
-```python
- o[o.master_id.isna()].assign(issue="orphan_order"),
-```
-*(52 caracteres · ~23 s · sin Enter al final)*
-
-> 🗣️⌨️ Third part: events with no customer.
+> 🗣️⌨️ Next lines of cell six: the margin is cash captured minus refunds, minus processor fees, minus cost. Then the products with no cost.
 
 ```python
- a[a.master_id.isna()].assign(issue="orphan_event")])
-```
-*(53 caracteres · ~24 s)*
-
-> 🗣️⌨️ Next lines of cell seven: save the exceptions report and the consolidated customers.
-
-```python
-x.to_csv("exceptions_report.csv")
-d.to_csv("customers_consolidated.csv")
+L["margin"] = L.amount - L.refund - L.fee - L.cogs
+k[k.unit_cost.isna()]
 ```
 *(72 caracteres · ~32 s)*
 
-> 🗣️⌨️ Last lines: rewrite the customers file with the normalized phone and the master ID next to the original columns, and count the exceptions.
+> 🖱️ I'm clicking the Run button on the left of cell six.
 
-```python
-c.to_csv("customers.csv")
-x.issue.value_counts()
-```
-*(48 caracteres · ~21 s)*
+> 🖱️ I'm pointing at the two rows under cell six: P017, the USB-C Hub, and P022, the Resistance Bands.
 
-> 🖱️ I'm clicking the Run button on the left of cell seven.
+> 🟢 Neither has a unit cost, so their margin stays empty. I don't fill it with an average: that would be an invented number. It's a limitation, and it goes to the exceptions.
 
-> 🖱️ I'm pointing at the counts under cell seven: 31 orphan events, 22 city-conflict records, 14 orphan orders.
+> 🟢 The margin is on cash, not on billed amounts, because that's the money the business actually kept.
 
-> 🟢 The 14 orphan orders are 1,316 dollars with no customer to assign them to. They stay out of the profiles, but they're documented.
+**WHY:** sin costo, el margen se deja vacío (NaN) a propósito: un margen inventado haría que la posición financiera parezca más completa de lo que es.
 
-> 🟢 The city conflicts are 22 rows because each of the 11 people has two records. Every row keeps its original customer ID, so anyone can trace it back to the source file.
+**EXPECTED RESULT:** dos filas: `P017 USB-C Hub Tech 79.0 NaN` y `P022 Resistance Bands Fitness 24.0 NaN`.
 
-> 🖱️ I'm clicking the folder icon in the left sidebar, to open the Files panel.
-
-> 🖱️ I'm pointing at exceptions_report and customers_consolidated, the two new files, and customers, rewritten.
-
-> 🖱️ I'm clicking the folder icon again to close the panel.
-
-**WHY:** auditable significa que cada fila excluida o no resuelta tiene un motivo y se puede rastrear hasta su registro original.
-
-**EXPECTED RESULT:** `orphan_event 31`, `city_conflict 22`, `orphan_order 14`. En Files: `exceptions_report.csv` (67 filas), `customers_consolidated.csv` (500 filas) y `customers.csv` reescrito. Si no se ven, decí: *"I'm clicking refresh at the top of the Files panel, to show the new files."*
+**VERIFY BEFORE CONTINUING:** aparecen solo esas dos filas.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `x = pd.concat([conf.assign(issue="city_conflict"),`: city-conflict records, tagged.
-- `o[o.master_id.isna()].assign(issue="orphan_order"),`: orders with an unknown customer, tagged.
-- `a[a.master_id.isna()].assign(issue="orphan_event")])`: events with an unknown customer, tagged.
-- `x.to_csv("exceptions_report.csv")`: saves the exceptions report.
-- `d.to_csv("customers_consolidated.csv")`: saves one row per person with the features.
-- `c.to_csv("customers.csv")`: rewrites the input with `phone_n` and `master_id`; original columns unchanged.
-- `x.issue.value_counts()`: rows per reason.
+- `L["cogs"] = L.quantity * L.product_id.map(k.set_index("product_id").unit_cost)`: cost of goods sold per transaction.
+- `L["margin"] = L.amount - L.refund - L.fee - L.cogs`: cash margin; empty if any part is missing.
+- `k[k.unit_cost.isna()]`: products with no cost.
 
 ---
 
-### Bloque 8. Conclusiones
+### Bloque 7. Registro de excepciones
 
-**TIME:** 21:55–23:35 (1:40)
+**TIME:** 20:38–26:44 (6:06)
 
-**WHAT I DO:** + Text → tipear 3 tramos → clic afuera → Cmd + S.
+**WHAT I DO:** + Code → tipear 6 tramos → Run → señalar cada tipo de excepción.
 
-**WHERE:** botón **+ Text** arriba a la izquierda de la barra de Colab (agrega la celda al final).
+**WHERE:** **+ Code** arriba a la izquierda; la celda 7 aparece debajo de la salida de la celda 6.
+
+**SAY:**
+
+> 🖱️ I'm clicking plus Code at the top left, to add cell seven below cell six.
+
+> 🟢 Cell seven labels every ledger row. Each exception type is one explicit rule, so anyone can audit why a row was flagged.
+
+> 🗣️⌨️ First line of cell seven: a dictionary of rules. An order with no payment, and a payment with no order.
+
+```python
+e = {"no_payment": L.payment_id.isna(), "no_order": L.order_total.isna(),
+```
+*(73 caracteres · ~32 s)*
+
+> 🗣️⌨️ Second line of cell seven, still inside the dictionary: charged a different amount than billed, and refunded more than was charged.
+
+```python
+     "amount_diff": L.amount.ne(L.order_total), "over_refund": L.refund.gt(L.amount),
+```
+*(85 caracteres · ~38 s)*
+
+> 🗣️⌨️ Third line, closing the dictionary: a short payout, a capture not settled yet, and a product with no cost.
+
+```python
+     "short_paid": L.gap.gt(0), "pending": L.settled.isna(), "no_cost": L.cogs.isna()}
+```
+*(86 caracteres · ~38 s)*
+
+> 🗣️⌨️ Next line of cell seven: the issue column. numpy select takes the first rule that is true, in that order; everything else is ok.
+
+```python
+L["issue"] = np.select(list(e.values()), list(e), "ok")
+```
+*(55 caracteres · ~24 s)*
+
+> 🗣️⌨️ Next line: the exception register. First, the flagged ledger rows and the duplicate order rows from cell two.
+
+```python
+x = pd.concat([L[L.issue.ne("ok")], dup.assign(issue="duplicate"), 
+```
+*(67 caracteres · ~30 s)*
+
+> 🗣️⌨️ Same line, continuing: the refunds that don't match a captured payment. Then the count per issue.
+
+*(sigue en la misma línea, sin Enter)*
+
+```python
+r[~r.payment_id.isin(c.payment_id)].assign(issue="bad_refund")])
+x.issue.value_counts()
+```
+*(87 caracteres · ~39 s)*
+
+> 🖱️ I'm clicking the Run button on the left of cell seven.
+
+> 🖱️ I'm pointing at the first row under cell seven: no_cost, 90 rows.
+
+> 🟢 90 sales of the two products with no cost. The money is fine; only the margin is missing.
+
+> 🖱️ I'm pointing at duplicate, 30, and pending, 26.
+
+> 🟢 The 26 pending captures are all from December 29 to 31. With one to three days to settle, they simply hadn't been paid out at year end. That's timing, not a loss.
+
+> 🖱️ I'm pointing at no_payment, 16, and amount_diff, 8.
+
+> 🟢 Eight orders were charged a different amount than billed, some more, some less: 865 dollars billed against 883 captured.
+
+> 🖱️ I'm pointing at the last four rows: short_paid 6, no_order 5, bad_refund 4, and over_refund 2.
+
+> 🟢 Over-refund means a payment was refunded twice: 217 dollars went back that shouldn't have. That one needs to be recovered.
+
+> 🟢 That's 187 rows in total, and each one has a rule that explains it.
+
+**WHY:** el orden de las reglas importa: un pedido sin pago también tiene `settled` vacío, y por eso `no_payment` va antes que `pending`. Así, cada fila queda con su causa real. Los duplicados y los reembolsos mal referenciados no están en el ledger, así que se suman aparte.
+
+**EXPECTED RESULT:** `no_cost 90`, `duplicate 30`, `pending 26`, `no_payment 16`, `amount_diff 8`, `short_paid 6`, `no_order 5`, `bad_refund 4`, `over_refund 2`.
+
+**VERIFY BEFORE CONTINUING:** la suma da 187 y no aparece `ok` en la lista.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `e = {"no_payment": L.payment_id.isna(), "no_order": L.order_total.isna(),`: rules for orders without a capture and captures without an order.
+- `"amount_diff": L.amount.ne(L.order_total), "over_refund": L.refund.gt(L.amount),`: captured amount different from the order total; refunds above the captured amount.
+- `"short_paid": L.gap.gt(0), "pending": L.settled.isna(), "no_cost": L.cogs.isna()}`: short payout; not settled yet; no product cost.
+- `L["issue"] = np.select(list(e.values()), list(e), "ok")`: first matching rule per row, or `ok`.
+- `x = pd.concat([L[L.issue.ne("ok")], dup.assign(issue="duplicate"), r[~r.payment_id.isin(c.payment_id)].assign(issue="bad_refund")])`: flagged ledger rows, duplicate order rows and unmatched refunds in one register.
+- `x.issue.value_counts()`: rows per issue type.
+
+---
+
+### Bloque 8. Entregables y resumen de control
+
+**TIME:** 26:44–31:57 (5:13)
+
+**WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla fila por fila.
+
+**WHERE:** **+ Code** arriba a la izquierda; la celda 8 aparece debajo de la salida de la celda 7.
+
+**SAY:**
+
+> 🖱️ I'm clicking plus Code at the top left, to add cell eight below cell seven.
+
+> 🟢 Cell eight builds the financial control summary and exports the three deliverables.
+
+> 🗣️⌨️ First line of cell eight: group the ledger by issue, and pick the eight money columns, from billed to margin.
+
+```python
+s = L.groupby("issue")["order_total amount refund fee settled gap cogs margin"
+```
+*(78 caracteres · ~35 s)*
+
+> 🗣️⌨️ Same line, continuing: add them up. min count one keeps a blank where nothing could be computed, instead of a fake zero.
+
+*(sigue en la misma línea, sin Enter)*
+
+```python
+.split()].sum(min_count=1)
+```
+*(26 caracteres · ~12 s)*
+
+> 🗣️⌨️ Next line of cell eight: a total row at the bottom.
+
+```python
+s.loc["total"] = s.sum()
+```
+*(24 caracteres · ~11 s)*
+
+> 🗣️⌨️ Next line of cell eight: export the ledger with a new file name, so the five inputs stay untouched. No index, because order and payment IDs already identify each row.
+
+```python
+L.to_csv("transaction_reconciliation_ledger.csv", index=False)
+```
+*(62 caracteres · ~28 s)*
+
+> 🗣️⌨️ Next line of cell eight: export the exception register, also with a new name.
+
+```python
+x.to_csv("exception_register.csv", index=False)
+```
+*(47 caracteres · ~21 s)*
+
+> 🗣️⌨️ Last lines of cell eight: export the summary, and show it rounded to cents.
+
+```python
+s.to_csv("financial_control_summary.csv")
+s.round(2)
+```
+*(52 caracteres · ~23 s)*
+
+> 🖱️ I'm clicking the Run button on the left of cell eight.
+
+> 🖱️ I'm pointing at the total row at the bottom of cell eight: 114,484 dollars billed and 112,613 captured.
+
+> 🟢 The difference is the revenue bridge: 2,300 dollars never collected, plus 18 dollars of amount differences, plus 411 dollars of captures with no order.
+
+> 🖱️ I'm pointing at the fee and settled columns of the total row: 3,488.53 in fees and 107,100.21 settled.
+
+> 🟢 Captured minus fees minus settled leaves about two thousand dollars: 108.70 short payouts, and the net of the 26 pending captures.
+
+> 🖱️ I'm pointing at the ok row: 100,494 dollars clean, with a margin of 38,930.
+
+> 🟢 That's about a 39 percent cash margin on clean transactions.
+
+> 🖱️ I'm pointing at the pending row: 1,966 dollars captured, and settled is blank.
+
+> 🟢 That's correct: nothing has been paid out for those yet. The money is real, it's just in transit at year end.
+
+> 🖱️ I'm pointing at the short_paid row: the gap column shows the same 108.70 from cell four.
+
+> 🖱️ I'm pointing at the over_refund row: a margin of minus 351 dollars, because of the double refunds.
+
+> 🖱️ I'm pointing at the blanks in the no_cost and no_payment rows.
+
+> 🟢 Blank means unknown, not zero. The total margin of 40,097 dollars leaves out the 90 sales with no cost, and the summary shows it.
+
+**WHY:** agrupar por `issue` hace que cada dólar del resumen se pueda rastrear hasta un tipo de excepción, y de ahí a las filas del ledger. `min_count=1` evita que un margen no calculable aparezca como 0.
+
+**EXPECTED RESULT:** tabla de 9 filas (8 tipos + `total`). Fila `total`: `114484.0 112613.0 5020.65 3488.53 107100.21 108.7 56860.23 40096.93`. Fila `ok`: `100494.0 100494.0 4586.65 3132.45 97361.55 0.0 53844.69 38930.21`.
+
+**VERIFY BEFORE CONTINUING:** la fila `total` coincide con la de arriba, y en `no_cost` las columnas `cogs` y `margin` dicen `NaN`.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `s = L.groupby("issue")[...].sum(min_count=1)`: money columns per issue; blank if no value exists.
+- `s.loc["total"] = s.sum()`: total row.
+- `L.to_csv("transaction_reconciliation_ledger.csv", index=False)`: transaction-level ledger, 1,155 rows.
+- `x.to_csv("exception_register.csv", index=False)`: exception register, 187 rows.
+- `s.to_csv("financial_control_summary.csv")`: summary with the issue as first column.
+- `s.round(2)`: shows the summary in cents.
+
+---
+
+### Bloque 9. Validación contra las fuentes y revisión de los archivos
+
+**TIME:** 31:57–35:40 (3:43)
+
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los ceros → Files: refrescar y abrir los tres entregables.
+
+**WHERE:** **+ Code** arriba a la izquierda; la celda 9 aparece debajo de la salida de la celda 8. Panel Files a la izquierda: botón de refrescar (flecha circular) arriba del panel.
+
+**SAY:**
+
+> 🖱️ I'm clicking plus Code at the top left, to add cell nine below cell eight.
+
+> 🟢 Cell nine proves the ledger didn't lose or invent money. I compare its totals with the original sources.
+
+> 🗣️⌨️ First part of cell nine: billed, captured and settled from the total row of the summary.
+
+```python
+(s.loc["total", ["order_total", "amount", "settled"]] - 
+```
+*(56 caracteres · ~25 s)*
+
+> 🗣️⌨️ Same line, continuing: minus the same three totals taken directly from the source tables, as absolute differences in cents.
+
+*(sigue en la misma línea, sin Enter)*
+
+```python
+[o.order_total.sum(), c.amount.sum(), p.settled.sum()]).abs().round(2)
+```
+*(70 caracteres · ~31 s)*
+
+> 🖱️ I'm clicking the Run button on the left of cell nine.
+
+> 🖱️ I'm pointing at the three zeros under cell nine.
+
+> 🟢 Billed, captured and settled all match the sources to the cent. The outer join kept every order and every capture, and the one-to-one check guarantees nothing was counted twice.
+
+> 🟢 Refunds are the one total that doesn't match, by design: the 488 dollars from cell five, which are in the register as bad refunds.
+
+> 🖱️ I'm clicking the refresh button at the top of the Files panel on the left.
+
+> 🖱️ I'm pointing at the three new files: transaction reconciliation ledger, exception register, and financial control summary. The five inputs are still there with their original names.
+
+> 🖱️ I'm double-clicking exception_register.csv in the Files panel, to open it on the right.
+
+> 🖱️ I'm scrolling right inside the file viewer, to the issue column near the end.
+
+> 🖱️ I'm pointing at the first rows: order O80003 is no_cost, captured and settled correctly, but its margin is blank. Order O80040 is no_payment: billed 38 dollars, with no payment at all.
+
+> 🖱️ I'm scrolling down to the last rows of the register: the bad refunds, like RF6056, pointing to payment PAY399120, which doesn't exist.
+
+> 🟢 Every row keeps its original order, payment or refund fields next to the issue, so anyone can trace it back to the source file.
+
+> 🖱️ I'm double-clicking financial_control_summary.csv, to check it saved with the issue labels as the first column.
+
+> 🖱️ I'm closing the file viewers with the X on their tabs, to go back to the notebook.
+
+**WHY:** la validación compara contra las tablas de origen, no contra el ledger: así prueba que la unión no perdió ni duplicó plata. Abrir los archivos muestra que los entregables existen y que los originales siguen intactos.
+
+**EXPECTED RESULT:** `order_total 0.0`, `amount 0.0`, `settled 0.0`. En Files: los cinco CSV originales y los tres nuevos.
+
+**VERIFY BEFORE CONTINUING:** los tres ceros. Si alguno no da cero, revisá en la celda 3 el `how="outer"`.
+
+📘 **What each line does** (para vos, no se lee):
+
+- `(s.loc["total", ["order_total", "amount", "settled"]] - [o.order_total.sum(), c.amount.sum(), p.settled.sum()]).abs().round(2)`: absolute difference between the summary totals and the source totals, in cents.
+
+---
+
+### Bloque 10. Conclusiones
+
+**TIME:** 35:40–37:01 (1:22)
+
+**WHAT I DO:** + Text → tipear 2 tramos → clic afuera → Cmd + S.
+
+**WHERE:** botón **+ Text** arriba a la izquierda de la barra de Colab, al lado de **+ Code**.
 
 **SAY:**
 
@@ -639,31 +847,24 @@ x.issue.value_counts()
 ```
 *(10 caracteres · ~4 s)*
 
-> 🗣️⌨️ Next line of the text cell: the main result in numbers.
+> 🗣️⌨️ Next line of the text cell: the result, and the AI declaration.
 
 ```markdown
-- 500 customers from 542 records; $11,580 of duplicates removed.
+- Ledger ties to the sources; inputs generated with AI.
 ```
-*(64 caracteres · ~28 s)*
-
-> 🗣️⌨️ Last line: the AI declaration.
-
-```markdown
-- Input files generated with AI.
-```
-*(32 caracteres · ~14 s)*
+*(55 caracteres · ~24 s)*
 
 > 🖱️ I'm clicking on the empty area below the text cell, to show it formatted.
 
 > 🖱️ I'm pressing Command and S to save the notebook; the save message appears at the bottom left.
 
-**EXPECTED RESULT:** la celda de texto con el título y dos viñetas, formateada.
+**EXPECTED RESULT:** la celda de texto con el título y una viñeta, formateada.
 
 ---
 
-### Bloque 9. Epilogue
+### Bloque 11. Epilogue
 
-**TIME:** 23:35–24:50 (1:15)
+**TIME:** 37:01–38:45 (1:44)
 
 **WHAT I DO:** scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
@@ -673,17 +874,19 @@ x.issue.value_counts()
 
 > 🖱️ I'm scrolling up slowly through the notebook, from the conclusions back to cell one.
 
-> 🟢 The key decisions: the normalized phone as identity key, because email was incomplete; the oldest record as master; and the latest version of each order.
+> 🟢 My approach was one ledger, with one row per order or capture, and each phase adding columns: fee, gap, refund, cost and margin.
 
-> 🟢 The check: total spent matches the completed orders to the cent.
+> 🟢 The key decisions: only captured payments count as revenue, the outer join keeps both kinds of orphans, and blanks stay blank instead of being estimated.
 
-> 🟢 The hardest part was the orders: there were more repeated IDs than exact copies, so I had to find the old versions too.
+> 🟢 The hardest part was the refunds and the pending payouts. Both looked like missing money, but the pending ones are just timing, and some refunds point to payments that never happened.
 
-> 🟢 Open items: 11 city conflicts and 1,316 dollars of orders without a customer, all in the exceptions report.
+> 🟢 The checks: the fee formula reproduces 1,107 payouts to the cent, and the ledger ties to the sources.
 
-> 🟢 With more time, I'd confirm the city conflicts with the customers, and look for the missing customer records behind the orphan orders. Thanks for watching!
+> 🟢 One limitation: each ledger row gets only its first issue. In this data no row had two, but with real data I'd keep a list of issues per row.
 
-**WHY:** no repite los pasos: cuenta las decisiones, cómo se validaron, el desafío y qué queda abierto.
+> 🟢 Open items: 217 dollars of double refunds to recover, 108.70 in short payouts to claim from the processor, 2,300 dollars uncollected, and two product costs to find. With more time, I'd confirm the pending payouts in early January. Thanks for watching!
+
+**WHY:** no repite los pasos: cuenta el enfoque, las decisiones, el desafío, cómo se validó y qué queda abierto.
 
 ---
 
@@ -693,50 +896,61 @@ x.issue.value_counts()
 | ----- | ----------------- |
 | Un nombre mal escrito | 🖱️ *"There's a typo in cell N. I'm clicking on that line to fix it, and running the cell again."* |
 | `NameError` | 🖱️ *"An earlier cell didn't run. I'm opening the Runtime menu at the top and choosing Run before."* |
-| Los totales de la celda 6 no coinciden | Revisá que en la celda 5 diga `o.status.eq("completed")` y en la celda 6 `'completed'` entre comillas simples. |
-| Aparece `SettingWithCopyWarning` | Es solo una advertencia. Revisá que en la celda 4 diga `o = o.assign(...)` y `a = a.assign(...)`, no `o["master_id"] = ...`. |
-| Hay que volver a correr la celda 1 después de la celda 7 | `customers.csv` ya está reescrito. 🖱️ *"The customers file was already rewritten, so I'm uploading the original from my Desktop again in the Files panel."* |
+| `FileNotFoundError` en la celda 1 | Algún CSV no está en Files o tiene otro nombre (por ejemplo `orders (1).csv`). 🖱️ *"One file name doesn't match. I'm checking the Files panel on the left."* |
+| `MergeError` en la celda 3 | La celda 2 no corrió o no se borraron los duplicados. Corré de nuevo la celda 2 y después la 3. |
+| La celda 4 no da 1.107 ceros | Revisá `L.amount * L.fee_pct + L.fee_fixed` y el `.round(2)` de las dos líneas. |
+| La celda 5 no da `488.0` | Revisá `.fillna(0)` y que agrupe por `"payment_id"`. |
+| La celda 7 da otros números | Revisá el orden de las reglas: `no_payment` y `no_order` tienen que ir primero, y `pending` antes que `no_cost`. |
+| La celda 9 no da ceros | Revisá en la celda 3 el `how="outer"`, y en la celda 8 el `min_count=1`. |
+| Hay que volver a correr todo | Los CSV de entrada nunca se reescriben: alcanza con Runtime → Run all. |
 
 ---
 
 ## Checklist de archivos y preparación previa
 
-- [ ] Practicá dos veces con cronómetro. [customer_reconstruction.ipynb](customer_reconstruction.ipynb) tiene el código completo para comparar.
-- [ ] En Colab, creá el notebook **customer_reconstruction** con **la celda 1 escrita** (copiala del bloque 1) y **la celda 2 vacía** debajo. **No ejecutes nada.**
-- [ ] En **Files**, subí los tres CSV de esta carpeta: `customers`, `orders` y `customer_activity`. Los de la carpeta son los originales: no los toques.
+- [ ] Practicá dos veces con cronómetro. [financial_reconstruction.ipynb](financial_reconstruction.ipynb) tiene el código completo para comparar. No lo abras en la grabación.
+- [ ] En Colab, creá el notebook **financial_reconstruction** **vacío**: una sola celda de código sin nada. **No ejecutes nada.**
+- [ ] En **Files**, subí los cinco CSV de esta carpeta: `orders`, `payments`, `refunds`, `products` y `processor_terms`. Revisá que los nombres no tengan `(1)`.
+- [ ] Cerrá el panel Files antes de empezar: se abre en el bloque 0.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
 - [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas de código.
-- [ ] Probá el `\` en Colab antes de grabar (**Option + ?**).
+- [ ] Probá el `~` en Colab antes de grabar (**Option + ñ** y espacio).
 - [ ] Zoom (`Cmd + +`). Firefox con la ventana 1 en la descripción de la tarea y la ventana 2 en Colab.
 
 ## Checklist de resultados que deben quedar generados
 
-- [ ] `500 11` (celda 2).
-- [ ] `2314 11580.09` (celda 3).
-- [ ] El resumen de `d` con 500 personas (celda 5).
-- [ ] `227115.94 227115.94` (celda 6).
-- [ ] `exceptions_report.csv` (67 filas), `customers_consolidated.csv` (500 filas) y `customers.csv` reescrito (celda 7).
+- [ ] Los cinco bloques de `info` y la tabla `t` (celda 1).
+- [ ] `30 3235.0 True True` (celda 2).
+- [ ] `12501.0` y `1134 / 16 / 5` (celda 3).
+- [ ] `0.0 1107` y seis faltantes (celda 4).
+- [ ] `488.0` (celda 5).
+- [ ] P017 y P022 sin costo (celda 6).
+- [ ] 187 excepciones en 9 tipos (celda 7).
+- [ ] La tabla resumen con la fila `total` (celda 8).
+- [ ] Tres ceros (celda 9).
+- [ ] En Files: `transaction_reconciliation_ledger.csv` (1.155 filas), `exception_register.csv` (187 filas) y `financial_control_summary.csv` (9 filas).
 - [ ] La celda de conclusiones y el notebook guardado.
-- [ ] Después: descargá el `.ipynb` y los tres CSV generados. Armá **Deliverables.zip** con eso y la carpeta `original/` con los tres CSV de esta carpeta. Marcá en Studio la opción de archivos generados con IA.
+- [ ] Después: descargá el `.ipynb` y los tres CSV generados. Armá **Deliverables.zip** con eso y los cinco CSV de entrada sin tocar. Marcá en Studio la opción de archivos generados con IA.
 
 ## Checklist de decisiones que debo explicar
 
-- [ ] **Clave de identidad:** teléfono normalizado, no email (30 vacíos).
-- [ ] **Supervivencia:** el registro más viejo es el master.
-- [ ] **Ciudades en conflicto:** no se pisan; van a excepciones (11 personas).
-- [ ] **Pedidos:** última versión por `updated_at`; $11,580.09 menos.
-- [ ] **`map` y no `merge`:** no puede multiplicar filas.
-- [ ] **Solo pedidos completados** como gasto.
-- [ ] **Validación:** el total cierra al centavo.
-- [ ] **Huérfanos:** no se asignan; se documentan ($1,315.58 en 14 pedidos, 31 eventos).
+- [ ] **Duplicados:** solo filas idénticas en todo; IDs únicos después.
+- [ ] **Ingreso = cobro capturado**, no intento ($12,501 fallidos fuera).
+- [ ] **`outer` + `validate="1:1"`:** se ven los dos tipos de huérfanos y no hay doble conteo.
+- [ ] **Comisiones** según `processor_terms.csv`: la fórmula reproduce 1.107 liquidaciones al centavo.
+- [ ] **Reembolsos** sumados por pago antes de unir; $488 sin cobro válido.
+- [ ] **Sin costo = margen vacío**, no estimado.
+- [ ] **Pendientes = timing** (29 al 31 de diciembre), no pérdida.
+- [ ] **Validación** contra las fuentes, no contra el ledger.
+- [ ] **Originales intactos:** los tres entregables tienen nombres nuevos.
 
 ---
 
 ## Conclusión para cerrar la grabación (en inglés)
 
-> The customer file had 542 records, but they're 500 people: I matched them by a normalized phone, because email was incomplete, and kept the oldest record as the master. Orders had exact copies and older versions that inflated revenue by 11,580 dollars; keeping the latest update fixed both. Every person now has one row with orders, spending, last order and activity, and the total matches the completed orders to the cent. What I couldn't resolve, 11 city conflicts and 1,316 dollars of orders with no customer, is in the exceptions report.
+> Billed revenue was 114,484 dollars, but only 112,613 was captured: 2,300 was never collected, 411 came in with no order, and eight orders were charged a different amount. Failed attempts, 12,501 dollars, were never counted as revenue. The processor fee terms reproduce 1,107 payouts to the cent; six payouts came in 108.70 short, and 26 year-end captures are simply waiting to settle. Refunds were matched by payment: 488 dollars point to no valid payment, and two payments were refunded twice. Every difference is in the exception register, and the ledger ties to the sources.
 
-*(Es la versión larga del epilogue. Si te sobra tiempo, podés decirla en lugar de las 🟢 del bloque 9.)*
+*(Es la versión larga del epilogue. Si te sobra tiempo, podés decirla en lugar de las 🟢 del bloque 11.)*
 
 ---
 
@@ -744,9 +958,6 @@ x.issue.value_counts()
 
 | Tema | Qué hacer |
 | ---- | --------- |
-| **Goal en TaskRecorder** | Confirmá que la descripción de TaskRecorder corresponde a este Goal. Abajo hay una propuesta. |
+| **Goal en TaskRecorder** | Confirmá que la descripción de TaskRecorder es la de la idea aprobada (el Goal de arriba). |
 | **Origen de los CSV** | Sintéticos, generados con IA. Decí "generated with AI" y marcá en Studio la opción de archivos generados con IA. |
-
-**Descripción (propuesta):**
-
-> Reconstruct customer-level data in Google Colab with pandas. I resolve duplicate customer identities with a normalized phone key and a survivorship rule, remove duplicate and outdated order versions, link orders and activity to each person without multiplying rows, build behavioral features, validate totals against the source, and export a consolidated customer dataset with an exceptions report.
+| **Generador** | Los CSV salen de [_generador/generate_data.py](_generador/generate_data.py). No lo subas ni lo muestres en la grabación. |

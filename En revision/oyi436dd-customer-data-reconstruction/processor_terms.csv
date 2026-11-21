@@ -1,0 +1,4 @@
+method,fee_pct,fee_fixed,payout_days
+card,0.029,0.3,2
+wallet,0.0349,0.49,1
+bank_transfer,0.008,0.0,3
