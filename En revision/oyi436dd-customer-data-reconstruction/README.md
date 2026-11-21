@@ -100,7 +100,7 @@ Cada bloque tiene:
 2. **Ningún tramo pasa de 45 segundos.** El más largo tiene 85 caracteres (~38 s a 135 car./min). Las líneas largas de las celdas 5, 6 y 7 se tipean en varios tramos, **sin Enter** entre ellos.
 3. **Nada de tipeo extra:** ni comentarios ni `print` de prueba.
 4. **Sin autocompletado.** Si aparece una caja de sugerencias, Escape.
-5. **`\` en Mac** (celda 2): con teclado español, **Option + º** (la tecla a la izquierda del 1); con teclado US, la tecla arriba de Enter.
+5. **`\` en Mac** (celda 2): **Option + ?** (la tecla de `?` y `¿`, a la derecha del 0). Probado en tu Mac.
 
 ---
 
@@ -705,7 +705,7 @@ x.issue.value_counts()
 - [ ] En **Files**, subí los tres CSV de esta carpeta: `customers`, `orders` y `customer_activity`. Los de la carpeta son los originales: no los toques.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
 - [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas de código.
-- [ ] Probá el `\` en Colab antes de grabar.
+- [ ] Probá el `\` en Colab antes de grabar (**Option + ?**).
 - [ ] Zoom (`Cmd + +`). Firefox con la ventana 1 en la descripción de la tarea y la ventana 2 en Colab.
 
 ## Checklist de resultados que deben quedar generados
