@@ -4,9 +4,9 @@ Guion para volver a grabar la tarea **oyi436dd** respetando la idea aprobada. Se
 
 > **Goal:** *Reconstruct the financial position of a simulated e-commerce business by reconciling customer orders, payment transactions, processor settlements, refunds, and product costs. Deliver an auditable transaction-level ledger that explains revenue differences, settlement discrepancies, and unresolved financial movements.*
 
-**Duración estimada: ~36:43** (tipeo ~30%). Es más que el objetivo de 25–30 min: el tiempo que se ahorra con la celda 1 armada va a explicar el análisis. Odin acepta hasta 50:59.
+**Duración estimada: ~29:27, con 35% de tipeo** (tipeando a 135 car./min). Límite absoluto: 30:00. Si tipeás más lento (120 car./min), da ~30:44 y 38%: practicá hasta tipear cada tramo en el tiempo indicado.
 
-**Punto de partida al grabar:** la **celda 1 ya está escrita** (imports, lectura de los cinco CSV, la función `export()` e `info`) y los cinco CSV ya están subidos en el panel **Files** de Colab. **Todo lo demás se tipea en vivo** (celdas 2 a 9 y las conclusiones). En el video se dice por qué: la celda 1 es preparación, no análisis, y el tiempo ahorrado va a explicar la conciliación.
+**Punto de partida al grabar:** la **celda 1 ya está escrita** (imports, lectura de los cinco CSV, la función `export()` e `info`) y los cinco CSV ya están subidos en el panel **Files** de Colab. **Todo lo demás se tipea en vivo** (celdas 2 a 9). No hay celda de conclusiones: se dicen en el epílogo. En el video se dice por qué: la celda 1 es preparación, no análisis, y el tiempo ahorrado va a explicar la conciliación.
 
 **Por qué se rechazó la grabación anterior y qué cambia:** la versión anterior deduplicaba identidades de clientes y armaba perfiles de comportamiento: eso no estaba en la idea aprobada. Esta versión hace solamente reconstrucción financiera:
 
@@ -20,19 +20,18 @@ Guion para volver a grabar la tarea **oyi436dd** respetando la idea aprobada. Se
 
 | # | Bloque | Fase | Celda | TIME | Duración |
 | - | ------ | ---- | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:44 | 1:44 |
-| 1 | Carga e inspección de los cinco archivos | 1. Input inspection | 1 | 1:44–5:08 | 3:24 |
-| 2 | Validación de datos | 2. Data validation | 2 | 5:08–7:44 | 2:36 |
-| 3 | Conciliación de pagos | 3. Payment reconciliation | 3 | 7:44–11:37 | 3:53 |
-| 4 | Conciliación con las liquidaciones del procesador | 4. Processor settlement | 4 | 11:37–14:37 | 3:00 |
-| 5 | Conciliación de reembolsos | 5. Refund reconciliation | 5 | 14:37–17:15 | 2:38 |
-| 6 | Costos de productos y margen | 6. Product cost | 6 | 17:15–19:53 | 2:38 |
-| 7 | Registro de excepciones | 7. Exception register | 7 | 19:53–25:59 | 6:06 |
-| 8 | Entregables y resumen de control | 7. Deliverables | 8 | 25:59–29:55 | 3:57 |
-| 9 | Validación contra las fuentes y revisión de los archivos | 7. Validation | 9 | 29:55–33:38 | 3:43 |
-| 10 | Conclusiones | — | texto | 33:38–35:00 | 1:22 |
-| 11 | Epilogue | — | — | 35:00–36:43 | 1:44 |
-| | **Total** | | | | **~36:43** |
+| 0 | Opening | — | — | 0:00–1:23 | 1:23 |
+| 1 | Celda 1: carga e inspección de los cinco archivos | 1. Input inspection | 1 | 1:23–3:42 | 2:19 |
+| 2 | Validación de datos | 2. Data validation | 2 | 3:42–6:03 | 2:21 |
+| 3 | Conciliación de pagos | 3. Payment reconciliation | 3 | 6:03–9:18 | 3:15 |
+| 4 | Conciliación con las liquidaciones del procesador | 4. Processor settlement | 4 | 9:18–11:49 | 2:31 |
+| 5 | Conciliación de reembolsos | 5. Refund reconciliation | 5 | 11:49–14:00 | 2:10 |
+| 6 | Costos de productos y margen | 6. Product cost | 6 | 14:00–16:04 | 2:04 |
+| 7 | Registro de excepciones | 7. Exception register | 7 | 16:04–22:11 | 6:07 |
+| 8 | Resumen de control y exportación | 7. Deliverables | 8 | 22:11–25:24 | 3:13 |
+| 9 | Validación contra las fuentes y revisión de los archivos | 7. Validation | 9 | 25:24–28:13 | 2:49 |
+| 10 | Epilogue | — | — | 28:13–29:27 | 1:14 |
+| | **Total** | | | | **~29:27** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -108,12 +107,12 @@ Cada bloque tiene:
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo en vivo (celdas 2 a 9 + conclusiones) | 1.496 caracteres | ~11,1 min a 135 car./min (~12,5 a 120) |
-| Narración | ~2.813 palabras | ~21,6 min |
-| Navegación y ejecución | 12 bloques | ~4,0 min |
-| **Total** | | **~36:43** (~38:06 si tipeás a 120 car./min) |
+| Tipeo en vivo (celdas 2 a 9) | 1.392 caracteres | ~10,3 min a 135 car./min (~11,6 a 120) |
+| Narración | ~2.011 palabras | ~15,5 min |
+| Navegación y ejecución | 11 bloques | ~3,7 min |
+| **Total** | | **~29:27** (~30:44 si tipeás a 120 car./min) |
 
-**Tipeo: ~30% del video a 135 car./min** (~33% a 120).
+**Tipeo: ~35% del video a 135 car./min** (~38% a 120).
 
 **Qué se hizo para que todo entre tipeado:**
 
@@ -152,7 +151,7 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:44 (1:44)
+**TIME:** 0:00–1:23 (1:23)
 
 **WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir el panel Files.
 
@@ -160,33 +159,29 @@ Cada bloque tiene:
 
 **SAY:**
 
-> 🟢 I will be beginning my task soon. The task is to rebuild the financial position of an online store for the last quarter of 2025.
+> 🟢 I will be beginning my task soon. I'm rebuilding the financial position of an online store for the last quarter of 2025, from five sources that don't agree: orders, payments, refunds, product costs, and the processor's fee terms.
 
-> 🟢 I have five sources: orders, payment attempts, refunds, product costs, and the payment processor's fee terms. They don't agree with each other, and my job is to explain every difference.
-
-> 🟢 By the end I'll have three files: a transaction-level ledger, an exception register, and a financial control summary that ties back to the sources.
+> 🟢 The result is three files: a transaction-level ledger, an exception register, and a control summary that ties back to the sources.
 
 > 🖱️ I'm clicking the yellow minimize button at the top left, to hide the task description.
 
-> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my Colab notebook, with cell one already written.
+> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my Colab notebook.
 
-> 🖱️ I'm clicking the folder icon in the left sidebar of Colab, to open the Files panel.
+> 🖱️ I'm clicking the folder icon in Colab's left sidebar, to open the Files panel and show my inputs.
 
-> 🖱️ I'm pointing at the five CSV files in the Files panel: orders, payments, refunds, products and processor terms. I uploaded them before recording. They're synthetic, generated with AI.
+> 🖱️ I'm pointing at the five CSV files in the Files panel. I uploaded them before recording. They're synthetic, generated with AI, and I never overwrite them.
 
-> 🟢 One rule for the whole session: I never overwrite these five files. Everything I produce gets a new file name.
+**WHY:** en menos de un minuto y medio el revisor ve el objetivo, los cinco archivos de la idea aprobada y los tres entregables.
 
-**WHY:** el revisor tiene que ver desde el principio el objetivo, los cinco archivos de la idea aprobada y los tres entregables. Así puede comparar cada paso con la descripción.
-
-**EXPECTED RESULT:** el notebook con la celda 1 escrita (sin ejecutar), y el panel Files abierto con los cinco CSV.
+**EXPECTED RESULT:** el notebook con la celda 1 escrita (sin ejecutar) y el panel Files abierto con los cinco CSV.
 
 **VERIFY BEFORE CONTINUING:** están los cinco archivos y no hay ningún otro CSV en Files.
 
 ---
 
-### Bloque 1. Carga e inspección de los cinco archivos
+### Bloque 1. Celda 1: carga e inspección de los cinco archivos
 
-**TIME:** 1:44–5:08 (3:24)
+**TIME:** 1:23–3:42 (2:19)
 
 **WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → recorrer la salida con scroll.
 
@@ -216,43 +211,31 @@ t
 
 **SAY:**
 
-> 🖱️ I'm pointing at cell one, which I wrote before recording. It's only setup: imports, reading the files, and the export. No analysis decision lives here, so I'd rather spend the time on the reconciliation. Everything after it I'll type live.
+> 🖱️ I'm pointing at cell one, at the top of the notebook. I wrote it before recording because it's only setup: imports, loading the five files, and the export. Everything after it I type live.
 
-> 🖱️ I'm pointing at the two imports at the top of cell one: pandas for the tables, and numpy for one labeling step in cell seven.
+> 🖱️ I'm pointing at the five read_csv lines in the middle of cell one: o is orders, p payments, r refunds, k products, and t the processor terms.
 
-> 🖱️ I'm pointing at the five read_csv lines: o for orders, p for payments, r for refunds, k for products, and t for the processor terms. These are the five files from the Files panel.
+> 🖱️ I'm pointing at the export function below them. It saves my three deliverables at the end, all with new names, so the inputs stay untouched.
 
-> 🖱️ I'm pointing at the export function in the middle of cell one. It writes my three deliverables at the end: the ledger, the exception register and the summary.
+> 🖱️ I'm clicking the Run button on the left of cell one, to load and describe the five files.
 
-> 🟢 All three have new file names, and none of them is one of the inputs. That's how I guarantee the five original files are never overwritten.
+> 🖱️ I'm pointing at the orders block under cell one: 1,180 rows and no missing values.
 
-> 🖱️ I'm pointing at the last lines of cell one: info for each table, which shows rows, columns, types and missing values. Then the terms table itself, because it's only three rows.
+> 🟢 There's no discount, tax or shipping column: order_total is quantity times price. customer_id stays as it is; this task is about money, not customers.
 
-> 🖱️ I'm clicking the Run button on the left of cell one.
+> 🖱️ I'm scrolling down inside the output of cell one, to the payments block, to check the payout columns.
 
-> 🖱️ I'm pointing at the first block under cell one, orders: 1,180 rows and six columns, with no missing values.
+> 🖱️ I'm pointing at payout_id and settled: 1,113 values out of 1,243. Failed attempts and unsettled captures have none.
 
-> 🟢 order_id links to payments, product_id links to products, and order_total is what the customer was billed.
+> 🖱️ I'm scrolling down to the products block, to check the costs.
 
-> 🟢 customer_id is there too, but I leave it exactly as it is. This task is about money, not about who the customers are.
+> 🖱️ I'm pointing at unit_cost: 23 values out of 25. There's one cost per product and no cost history, so cost of goods uses that cost.
 
-> 🖱️ I'm scrolling down inside the output of cell one, to the payments block: 1,243 rows.
+> 🖱️ I'm scrolling down to the terms table at the bottom of cell one, to read the processor's rates.
 
-> 🖱️ I'm pointing at payout_id and settled: only 1,113 non-null out of 1,243.
+> 🟢 Card is 2.9 percent plus 30 cents, wallet 3.49 percent plus 49 cents, bank transfer 0.8 percent. Payouts arrive one to three days later.
 
-> 🟢 So 130 payments have no settlement. Some are failed attempts, which are never settled. The rest I'll have to explain.
-
-> 🟢 The dates are text here. I don't need date math: they're in year-month-day format, so they also sort correctly as text.
-
-> 🖱️ I'm scrolling down to refunds: 76 rows, linked by payment_id, not by order. So refunds attach to the payment first.
-
-> 🖱️ I'm pointing at products: 25 rows, but unit_cost has only 23 values. Two products have no cost.
-
-> 🖱️ I'm scrolling down to the terms table at the bottom of cell one.
-
-> 🟢 Card costs 2.9 percent plus 30 cents and settles in two days. Wallet is 3.49 percent plus 49 cents, one day. Bank transfer is 0.8 percent, three days.
-
-**WHY:** antes de unir nada hay que ver las claves y los vacíos. Los vacíos en `settled` y `unit_cost` anticipan dos excepciones: pagos sin liquidar y márgenes que no se pueden calcular.
+**WHY:** antes de unir nada hay que ver las claves y los vacíos. Los vacíos en `settled` y `unit_cost` anticipan dos excepciones. Las dos frases sobre descuentos/impuestos/envíos y costos históricos dejan dicho que no existen en los datos, en vez de inventarlos.
 
 **EXPECTED RESULT:**
 
@@ -279,9 +262,9 @@ t
 
 ### Bloque 2. Validación de datos
 
-**TIME:** 5:08–7:44 (2:36)
+**TIME:** 3:42–6:03 (2:21)
 
-**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los cuatro valores.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar la salida.
 
 **WHERE:** botón **+ Code** arriba a la izquierda; la celda 2 aparece debajo de la salida de la celda 1.
 
@@ -289,9 +272,7 @@ t
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell two below the output of cell one.
 
-> 🟢 Cell two is validation. Before matching anything, the keys have to be unique, or every join will double count.
-
-> 🗣️⌨️ First two lines of cell two: keep the exact duplicate rows aside, so they go to the exceptions, then drop them from my working copy. The file on disk doesn't change.
+> 🗣️⌨️ Cell two is validation. First two lines: I set aside the exact duplicate rows for the exceptions, and drop them from my working copy. The file itself doesn't change.
 
 ```python
 dup = o[o.duplicated()]
@@ -299,7 +280,7 @@ o = o.drop_duplicates()
 ```
 *(47 caracteres · ~21 s)*
 
-> 🗣️⌨️ Last line of cell two: how many duplicates, how many dollars they add, and whether order IDs and payment IDs are now unique.
+> 🗣️⌨️ Last line of cell two: how many duplicates, their dollars, and whether order IDs and payment IDs are now unique.
 
 ```python
 print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_unique)
@@ -308,15 +289,13 @@ print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_uni
 
 > 🖱️ I'm clicking the Run button on the left of cell two.
 
-> 🖱️ I'm pointing at the first two numbers under cell two: 30 rows and 3,235 dollars.
+> 🖱️ I'm pointing at the output under cell two: 30 rows, 3,235 dollars, and two Trues.
 
-> 🟢 30 orders were exported twice. Kept in, they would inflate billed revenue by 3,235 dollars.
+> 🟢 30 orders were exported twice. Without them, every order ID and payment ID is unique, so my joins can't double count.
 
-> 🖱️ I'm pointing at the two True values.
+> 🟢 I only drop rows that are identical in every column. If two rows shared an ID with different data, I'd investigate them instead.
 
-> 🟢 After removing them, every order ID is unique, so the duplicates were full copies, not two different orders with the same ID. And every payment ID is unique too.
-
-**WHY:** se borran solo filas idénticas en todas las columnas: no hay riesgo de perder un pedido real. Si quedaran IDs repetidos con datos distintos, habría que investigarlos y no borrarlos.
+**WHY:** se borran solo filas idénticas en todas las columnas: no hay riesgo de perder un pedido real.
 
 **EXPECTED RESULT:** `30 3235.0 True True`
 
@@ -332,7 +311,7 @@ print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_uni
 
 ### Bloque 3. Conciliación de pagos
 
-**TIME:** 7:44–11:37 (3:53)
+**TIME:** 6:03–9:18 (3:15)
 
 **WHAT I DO:** + Code → tipear 3 tramos → Run → señalar el monto y los tres grupos.
 
@@ -342,16 +321,14 @@ print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_uni
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell three below cell two.
 
-> 🟢 Cell three matches orders with payments. A payment attempt isn't revenue: only a captured payment is money.
-
-> 🗣️⌨️ First line of cell three: c is the captured payments only, joined with the terms by payment method, so each one carries its fee rate.
+> 🗣️⌨️ First line of cell three: c keeps only captured payments, because an attempt isn't revenue, and joins the fee terms by payment method.
 
 ```python
 c = p[p.status.eq("captured")].merge(t, on="method")
 ```
 *(52 caracteres · ~23 s)*
 
-> 🗣️⌨️ Next line of cell three: L is my ledger. An outer join keeps orders without a payment and payments without an order. The indicator marks which side each row came from, and validate one-to-one stops the cell if any order had two captures.
+> 🗣️⌨️ Next line of cell three: L is my ledger. The outer join keeps orders with no payment and payments with no order. Validate one-to-one stops the cell if any order was captured twice.
 
 ```python
 L = o.merge(c, on="order_id", how="outer", indicator=True, validate="1:1")
@@ -368,25 +345,19 @@ L._merge.value_counts()
 
 > 🖱️ I'm clicking the Run button on the left of cell three.
 
-> 🖱️ I'm pointing at the first number under cell three: 12,501 dollars.
+> 🖱️ I'm pointing at the first number under cell three: 12,501 dollars of failed attempts, which never count as revenue.
 
-> 🟢 That's 104 failed attempts. If I had summed every payment, revenue would be overstated by 12,501 dollars.
+> 🖱️ I'm pointing at both, just below: 1,134 orders matched to exactly one capture.
 
-> 🟢 And the validate check passed: no order has two captures, so the join can't duplicate money.
+> 🖱️ I'm pointing at left only: 16 orders with no capture. Billed, but never collected.
 
-> 🖱️ I'm pointing at both: 1,134 orders with exactly one capture.
+> 🟢 Ten of them only had failed attempts, and six never had any attempt at all.
 
-> 🖱️ I'm pointing at left only: 16 orders with no captured payment.
+> 🖱️ I'm pointing at right only: 5 captures whose order doesn't exist. Cash with nothing behind it, so I keep it and flag it.
 
-> 🟢 Ten of them only had failed attempts, and six never had any attempt. That's billed revenue that was never collected.
+> 🟢 An inner join would hide both groups, and the totals would still look clean.
 
-> 🖱️ I'm pointing at right only: 5 captures whose order ID doesn't exist in the orders file.
-
-> 🟢 That's cash I received with no order behind it. I keep it in the ledger and flag it; I don't drop it.
-
-> 🟢 With an inner join, those 16 orders and 5 captures would silently disappear, and the totals would still look clean. That's exactly what an audit has to avoid.
-
-**WHY:** el `outer` es la decisión clave: un `inner` escondería justo las dos diferencias que hay que explicar (pedidos sin cobro y cobros sin pedido). `validate="1:1"` prueba que no hay doble cobro.
+**WHY:** el `outer` muestra las dos diferencias que hay que explicar; `validate="1:1"` prueba que no hay doble cobro.
 
 **EXPECTED RESULT:**
 
@@ -406,9 +377,9 @@ L._merge.value_counts()
 
 ### Bloque 4. Conciliación con las liquidaciones del procesador
 
-**TIME:** 11:37–14:37 (3:00)
+**TIME:** 9:18–11:49 (2:31)
 
-**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el conteo de ceros y los seis faltantes.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los ceros y los seis faltantes.
 
 **WHERE:** **+ Code** arriba a la izquierda; la celda 4 aparece debajo de la salida de la celda 3.
 
@@ -416,16 +387,14 @@ L._merge.value_counts()
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell four below cell three.
 
-> 🟢 Cell four goes from gross to net: what the processor should have paid me, against what it actually paid.
-
-> 🗣️⌨️ First line of cell four: the fee for each capture, the amount times the percentage plus the fixed fee, rounded to cents.
+> 🗣️⌨️ First line of cell four: the expected fee, the amount times the rate plus the fixed fee, rounded to cents like the processor does.
 
 ```python
 L["fee"] = (L.amount * L.fee_pct + L.fee_fixed).round(2)
 ```
 *(56 caracteres · ~25 s)*
 
-> 🗣️⌨️ Next lines of cell four: the gap is the expected net minus what was settled. Zero means the payout is exactly right. Then I count the gaps.
+> 🗣️⌨️ Next lines of cell four: the gap, expected net minus what was actually settled, and a count of the gaps.
 
 ```python
 L["gap"] = (L.amount - L.fee - L.settled).round(2)
@@ -437,17 +406,15 @@ L.gap.value_counts()
 
 > 🖱️ I'm pointing at the first row under cell four: a gap of zero for 1,107 captures.
 
-> 🟢 So my fee formula reproduces the processor's payouts to the cent. That proves I'm applying the terms correctly.
+> 🟢 My formula reproduces the processor's payouts to the cent, so the terms are applied correctly.
 
-> 🟢 The rounding matters here. The processor charges whole cents, so without rounding the fee, almost every gap would be a fraction of a cent, and I couldn't tell real differences from noise.
+> 🟢 That's why I round the fee: the processor charges whole cents, and without rounding almost every gap would be a fraction of a cent.
 
-> 🖱️ I'm pointing at the six rows below: gaps from 7.80 to 30 dollars.
+> 🖱️ I'm pointing at the six rows below it: gaps from 7.80 to 30 dollars.
 
-> 🟢 Six payouts came in short, 108.70 dollars in total. They aren't fees, because the fees already match. They're processor adjustments I can't explain from the data, so they go to the exceptions.
+> 🟢 Six payouts came in 108.70 dollars short. The fees already match, so these are unexplained processor adjustments, and they go to the exceptions.
 
-> 🟢 Captures with no payout yet have no gap at all: they aren't settled. I'll handle them in cell seven.
-
-**WHY:** si los ceros no fueran mayoría, la fórmula de comisión estaría mal y todas las diferencias serían falsas. Primero se prueba la fórmula; después se buscan las excepciones.
+**WHY:** primero se prueba la fórmula de comisión; recién después las diferencias son creíbles.
 
 **EXPECTED RESULT:** `0.0 1107`, y seis filas con `1` cada una: `7.8`, `12.5`, `15.0`, `18.4`, `25.0`, `30.0` (en cualquier orden).
 
@@ -463,7 +430,7 @@ L.gap.value_counts()
 
 ### Bloque 5. Conciliación de reembolsos
 
-**TIME:** 14:37–17:15 (2:38)
+**TIME:** 11:49–14:00 (2:10)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el número.
 
@@ -473,9 +440,7 @@ L.gap.value_counts()
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell five below cell four.
 
-> 🟢 Cell five brings in refunds. A payment can have more than one refund, partial or full, so I add them up per payment first.
-
-> 🗣️⌨️ First line of cell five: total refunded per payment ID, mapped onto the ledger. Map can't add rows, so the ledger stays one row per transaction. No refund means zero.
+> 🗣️⌨️ First line of cell five: the total refunded per payment, partial and full together, mapped onto the ledger. Map can't add rows, so each refund is subtracted only once.
 
 ```python
 L["refund"] = L.payment_id.map(r.groupby("payment_id").amount.sum()).fillna(0)
@@ -493,13 +458,9 @@ r.amount.sum() - L.refund.sum()
 
 > 🖱️ I'm pointing at the result under cell five: 488 dollars.
 
-> 🟢 488 dollars of refunds don't match any captured payment. Two point to failed attempts, so money went back on a charge that never happened. Two point to payment IDs that don't exist.
+> 🟢 Two refunds point to failed attempts, and two to payment IDs that don't exist. I don't force them onto an order; they're exceptions.
 
-> 🟢 I don't force them onto an order. They go to the exceptions as bad references.
-
-> 🟢 Everything else matched: 5,020.65 dollars of refunds, partial and full, now sit on the payment they belong to.
-
-> 🟢 One assumption: the processor keeps its fee when a payment is refunded, so the fee stays as a cost even on a full refund.
+> 🟢 Everything else matched: 5,020.65 dollars of refunds now sit on the payment they belong to. The processor keeps its fee on a refund, so the fee stays as a cost.
 
 **WHY:** los reembolsos se suman por pago antes de unir: si se unieran fila por fila, un pago con dos reembolsos duplicaría la fila del ledger.
 
@@ -516,9 +477,9 @@ r.amount.sum() - L.refund.sum()
 
 ### Bloque 6. Costos de productos y margen
 
-**TIME:** 17:15–19:53 (2:38)
+**TIME:** 14:00–16:04 (2:04)
 
-**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los dos productos.
+**WHAT I DO:** + Code → tipear 2 tramos → Run (no muestra salida).
 
 **WHERE:** **+ Code** arriba a la izquierda; la celda 6 aparece debajo de la salida de la celda 5.
 
@@ -526,67 +487,57 @@ r.amount.sum() - L.refund.sum()
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell six below cell five.
 
-> 🟢 Cell six adds product costs, so each transaction gets a margin.
-
-> 🗣️⌨️ First line of cell six: cost of goods is the quantity times the unit cost of the product. Again I use map, so no rows are added.
+> 🗣️⌨️ First line of cell six: cost of goods, the quantity times the product's unit cost, again with map so no rows are added.
 
 ```python
 L["cogs"] = L.quantity * L.product_id.map(k.set_index("product_id").unit_cost)
 ```
 *(78 caracteres · ~35 s)*
 
-> 🗣️⌨️ Next lines of cell six: the margin is cash captured minus refunds, minus processor fees, minus cost. Then the products with no cost.
+> 🗣️⌨️ Last line of cell six: the margin, cash captured minus refunds, fees and cost.
 
 ```python
 L["margin"] = L.amount - L.refund - L.fee - L.cogs
-k[k.unit_cost.isna()]
 ```
-*(72 caracteres · ~32 s)*
+*(50 caracteres · ~22 s)*
 
-> 🖱️ I'm clicking the Run button on the left of cell six.
+> 🖱️ I'm clicking the Run button on the left of cell six. There's no output: it only adds two columns, and I check them in cells seven and eight.
 
-> 🖱️ I'm pointing at the two rows under cell six: P017, the USB-C Hub, and P022, the Resistance Bands.
+> 🟢 Where a product has no cost, the margin stays blank. I don't fill it with an average; that would be an invented number.
 
-> 🟢 Neither has a unit cost, so their margin stays empty. I don't fill it with an average: that would be an invented number. It's a limitation, and it goes to the exceptions.
+**WHY:** sin costo, el margen se deja vacío (NaN) a propósito. Los 90 casos aparecen como `no_cost` en la celda 7 y en blanco en la celda 8.
 
-> 🟢 The margin is on cash, not on billed amounts, because that's the money the business actually kept.
+**EXPECTED RESULT:** la celda corre sin salida y sin error (aparece el tilde verde a la izquierda).
 
-**WHY:** sin costo, el margen se deja vacío (NaN) a propósito: un margen inventado haría que la posición financiera parezca más completa de lo que es.
-
-**EXPECTED RESULT:** dos filas: `P017 USB-C Hub Tech 79.0 NaN` y `P022 Resistance Bands Fitness 24.0 NaN`.
-
-**VERIFY BEFORE CONTINUING:** aparecen solo esas dos filas.
+**VERIFY BEFORE CONTINUING:** no hay `KeyError`. Si lo hay, revisá `"product_id"` y `unit_cost`.
 
 📘 **What each line does** (para vos, no se lee):
 
 - `L["cogs"] = L.quantity * L.product_id.map(k.set_index("product_id").unit_cost)`: cost of goods sold per transaction.
 - `L["margin"] = L.amount - L.refund - L.fee - L.cogs`: cash margin; empty if any part is missing.
-- `k[k.unit_cost.isna()]`: products with no cost.
 
 ---
 
 ### Bloque 7. Registro de excepciones
 
-**TIME:** 19:53–25:59 (6:06)
+**TIME:** 16:04–22:11 (6:07)
 
-**WHAT I DO:** + Code → tipear 6 tramos → Run → señalar cada tipo de excepción.
+**WHAT I DO:** + Code → tipear 6 tramos → Run → señalar los tipos de excepción.
 
-**WHERE:** **+ Code** arriba a la izquierda; la celda 7 aparece debajo de la salida de la celda 6.
+**WHERE:** **+ Code** arriba a la izquierda; la celda 7 aparece debajo de la celda 6.
 
 **SAY:**
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell seven below cell six.
 
-> 🟢 Cell seven labels every ledger row. Each exception type is one explicit rule, so anyone can audit why a row was flagged.
-
-> 🗣️⌨️ First line of cell seven: a dictionary of rules. An order with no payment, and a payment with no order.
+> 🗣️⌨️ Cell seven labels every ledger row. First line: a dictionary of rules, starting with an order with no payment, and a payment with no order.
 
 ```python
 e = {"no_payment": L.payment_id.isna(), "no_order": L.order_total.isna(),
 ```
 *(73 caracteres · ~32 s)*
 
-> 🗣️⌨️ Second line of cell seven, still inside the dictionary: charged a different amount than billed, and refunded more than was charged.
+> 🗣️⌨️ Second line of cell seven, inside the dictionary: charged a different amount than billed, and refunded more than captured.
 
 ```python
      "amount_diff": L.amount.ne(L.order_total), "over_refund": L.refund.gt(L.amount),
@@ -607,14 +558,14 @@ L["issue"] = np.select(list(e.values()), list(e), "ok")
 ```
 *(55 caracteres · ~24 s)*
 
-> 🗣️⌨️ Next line: the exception register. First, the flagged ledger rows and the duplicate order rows from cell two.
+> 🗣️⌨️ Next line: the exception register. The flagged ledger rows, plus the duplicate rows from cell two.
 
 ```python
 x = pd.concat([L[L.issue.ne("ok")], dup.assign(issue="duplicate"), 
 ```
 *(67 caracteres · ~30 s)*
 
-> 🗣️⌨️ Same line, continuing: the refunds that don't match a captured payment. Then the count per issue.
+> 🗣️⌨️ Same line, continuing: plus the refunds with no captured payment. Then the count per issue.
 
 *(sigue en la misma línea, sin Enter)*
 
@@ -626,25 +577,25 @@ x.issue.value_counts()
 
 > 🖱️ I'm clicking the Run button on the left of cell seven.
 
-> 🖱️ I'm pointing at the first row under cell seven: no_cost, 90 rows.
+> 🖱️ I'm pointing at the first row under cell seven: no_cost, 90 sales of P017 and P022, the two products with no cost.
 
-> 🟢 90 sales of the two products with no cost. The money is fine; only the margin is missing.
+> 🖱️ I'm pointing at duplicate, 30, in the second row: the export copies from cell two.
 
-> 🖱️ I'm pointing at duplicate, 30, and pending, 26.
+> 🖱️ I'm pointing at pending, 26, in the third row.
 
-> 🟢 The 26 pending captures are all from December 29 to 31. With one to three days to settle, they simply hadn't been paid out at year end. That's timing, not a loss.
+> 🟢 They're all from December 29 to 31. With one to three payout days in the terms, they just hadn't settled at year end. That's timing, not a loss.
 
-> 🖱️ I'm pointing at no_payment, 16, and amount_diff, 8.
+> 🖱️ I'm pointing at no_payment, 16, the orders never collected from cell three.
 
-> 🟢 Eight orders were charged a different amount than billed, some more, some less: 865 dollars billed against 883 captured.
+> 🖱️ I'm pointing at amount_diff, 8: orders charged a different amount than billed, 865 dollars billed against 883 captured.
 
-> 🖱️ I'm pointing at the last four rows: short_paid 6, no_order 5, bad_refund 4, and over_refund 2.
+> 🖱️ I'm pointing at short_paid 6, no_order 5 and bad_refund 4: the short payouts, orphan captures and bad refunds I found in cells four, three and five.
 
-> 🟢 Over-refund means a payment was refunded twice: 217 dollars went back that shouldn't have. That one needs to be recovered.
+> 🖱️ I'm pointing at the last row, over_refund, 2: payments refunded twice, 217 dollars to recover.
 
-> 🟢 That's 187 rows in total, and each one has a rule that explains it.
+> 🟢 187 rows in total, each explained by one rule. The order matters: an order with no payment also has no settlement, so no_payment comes before pending.
 
-**WHY:** el orden de las reglas importa: un pedido sin pago también tiene `settled` vacío, y por eso `no_payment` va antes que `pending`. Así, cada fila queda con su causa real. Los duplicados y los reembolsos mal referenciados no están en el ledger, así que se suman aparte.
+**WHY:** cada tipo de excepción es una regla explícita y auditable. Los duplicados y los reembolsos mal referenciados no están en el ledger, así que se suman aparte.
 
 **EXPECTED RESULT:** `no_cost 90`, `duplicate 30`, `pending 26`, `no_payment 16`, `amount_diff 8`, `short_paid 6`, `no_order 5`, `bad_refund 4`, `over_refund 2`.
 
@@ -656,24 +607,22 @@ x.issue.value_counts()
 - `"amount_diff": L.amount.ne(L.order_total), "over_refund": L.refund.gt(L.amount),`: captured amount different from the order total; refunds above the captured amount.
 - `"short_paid": L.gap.gt(0), "pending": L.settled.isna(), "no_cost": L.cogs.isna()}`: short payout; not settled yet; no product cost.
 - `L["issue"] = np.select(list(e.values()), list(e), "ok")`: first matching rule per row, or `ok`.
-- `x = pd.concat([L[L.issue.ne("ok")], dup.assign(issue="duplicate"), r[~r.payment_id.isin(c.payment_id)].assign(issue="bad_refund")])`: flagged ledger rows, duplicate order rows and unmatched refunds in one register.
+- `x = pd.concat([...])`: flagged ledger rows, duplicate order rows and unmatched refunds in one register.
 - `x.issue.value_counts()`: rows per issue type.
 
 ---
 
-### Bloque 8. Entregables y resumen de control
+### Bloque 8. Resumen de control y exportación
 
-**TIME:** 25:59–29:55 (3:57)
+**TIME:** 22:11–25:24 (3:13)
 
-**WHAT I DO:** + Code → tipear 4 tramos → Run → recorrer la tabla fila por fila.
+**WHAT I DO:** + Code → tipear 4 tramos → Run → recorrer la tabla.
 
 **WHERE:** **+ Code** arriba a la izquierda; la celda 8 aparece debajo de la salida de la celda 7.
 
 **SAY:**
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell eight below cell seven.
-
-> 🟢 Cell eight builds the financial control summary and exports the three deliverables.
 
 > 🗣️⌨️ First line of cell eight: group the ledger by issue, and pick the eight money columns, from billed to margin.
 
@@ -682,7 +631,7 @@ s = L.groupby("issue")["order_total amount refund fee settled gap cogs margin"
 ```
 *(78 caracteres · ~35 s)*
 
-> 🗣️⌨️ Same line, continuing: add them up. min count one keeps a blank where nothing could be computed, instead of a fake zero.
+> 🗣️⌨️ Same line, continuing: add them up. Min count one leaves a blank where nothing could be computed, instead of a fake zero.
 
 *(sigue en la misma línea, sin Enter)*
 
@@ -698,7 +647,7 @@ s.loc["total"] = s.sum()
 ```
 *(24 caracteres · ~11 s)*
 
-> 🗣️⌨️ Last lines of cell eight: export, the function from cell one, writes the three deliverables with new names, so the five inputs stay untouched. Then the summary, rounded to cents.
+> 🗣️⌨️ Last lines of cell eight: export, the function from cell one, writes the three deliverables. Then the summary, rounded to cents.
 
 ```python
 export()
@@ -710,29 +659,21 @@ s.round(2)
 
 > 🖱️ I'm pointing at the total row at the bottom of cell eight: 114,484 dollars billed and 112,613 captured.
 
-> 🟢 The difference is the revenue bridge: 2,300 dollars never collected, plus 18 dollars of amount differences, plus 411 dollars of captures with no order.
+> 🟢 The difference: 2,300 never collected, plus 411 with no order, plus 18 dollars of amount differences.
 
-> 🖱️ I'm pointing at the fee and settled columns of the total row: 3,488.53 in fees and 107,100.21 settled.
+> 🖱️ I'm pointing at the fee and settled columns of the total row: 3,488.53 in fees, 107,100.21 settled.
 
-> 🟢 Captured minus fees minus settled leaves about two thousand dollars: 108.70 short payouts, and the net of the 26 pending captures.
+> 🟢 What's left between captured and settled is the 108.70 short and the 26 pending payouts.
 
-> 🖱️ I'm pointing at the ok row: 100,494 dollars clean, with a margin of 38,930.
-
-> 🟢 That's about a 39 percent cash margin on clean transactions.
-
-> 🖱️ I'm pointing at the pending row: 1,966 dollars captured, and settled is blank.
-
-> 🟢 That's correct: nothing has been paid out for those yet. The money is real, it's just in transit at year end.
-
-> 🖱️ I'm pointing at the short_paid row: the gap column shows the same 108.70 from cell four.
+> 🖱️ I'm pointing at the pending row: 1,966 dollars captured, and settled is blank. Correct: nothing has been paid out for those yet.
 
 > 🖱️ I'm pointing at the over_refund row: a margin of minus 351 dollars, because of the double refunds.
 
-> 🖱️ I'm pointing at the blanks in the no_cost and no_payment rows.
+> 🖱️ I'm pointing at the ok row: 100,494 dollars clean, with a margin of 38,930, about 39 percent.
 
-> 🟢 Blank means unknown, not zero. The total margin of 40,097 dollars leaves out the 90 sales with no cost, and the summary shows it.
+> 🖱️ I'm pointing at the blanks in the no_cost row: unknown, not zero.
 
-**WHY:** agrupar por `issue` hace que cada dólar del resumen se pueda rastrear hasta un tipo de excepción, y de ahí a las filas del ledger. `min_count=1` evita que un margen no calculable aparezca como 0.
+**WHY:** agrupar por `issue` hace que cada dólar del resumen se pueda rastrear hasta un tipo de excepción, y de ahí a las filas del ledger.
 
 **EXPECTED RESULT:** tabla de 9 filas (8 tipos + `total`). Fila `total`: `114484.0 112613.0 5020.65 3488.53 107100.21 108.7 56860.23 40096.93`. Fila `ok`: `100494.0 100494.0 4586.65 3132.45 97361.55 0.0 53844.69 38930.21`.
 
@@ -749,9 +690,9 @@ s.round(2)
 
 ### Bloque 9. Validación contra las fuentes y revisión de los archivos
 
-**TIME:** 29:55–33:38 (3:43)
+**TIME:** 25:24–28:13 (2:49)
 
-**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los ceros → Files: refrescar y abrir los tres entregables.
+**WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los ceros → Files: refrescar → abrir `exception_register.csv` → cerrar el visor.
 
 **WHERE:** **+ Code** arriba a la izquierda; la celda 9 aparece debajo de la salida de la celda 8. Panel Files a la izquierda: botón de refrescar (flecha circular) arriba del panel.
 
@@ -759,121 +700,77 @@ s.round(2)
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell nine below cell eight.
 
-> 🟢 Cell nine proves the ledger didn't lose or invent money. I compare its totals with the original sources.
-
-> 🗣️⌨️ First part of cell nine: billed, captured and settled from the total row of the summary.
+> 🗣️⌨️ Cell nine checks the ledger against the sources. First part: billed, captured and settled from the total row of the summary.
 
 ```python
-(s.loc["total", ["order_total", "amount", "settled"]] - 
+s.loc["total", ["order_total", "amount", "settled"]] - 
 ```
-*(56 caracteres · ~25 s)*
+*(55 caracteres · ~24 s)*
 
-> 🗣️⌨️ Same line, continuing: minus the same three totals taken directly from the source tables, as absolute differences in cents.
+> 🗣️⌨️ Same line, continuing: minus the same three totals, straight from the original tables.
 
 *(sigue en la misma línea, sin Enter)*
 
 ```python
-[o.order_total.sum(), c.amount.sum(), p.settled.sum()]).abs().round(2)
+[o.order_total.sum(), c.amount.sum(), p.settled.sum()]
 ```
-*(70 caracteres · ~31 s)*
+*(54 caracteres · ~24 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell nine.
 
 > 🖱️ I'm pointing at the three zeros under cell nine.
 
-> 🟢 Billed, captured and settled all match the sources to the cent. The outer join kept every order and every capture, and the one-to-one check guarantees nothing was counted twice.
+> 🟢 Nothing lost and nothing counted twice. Refunds differ only by the 488 dollars already in the register.
 
-> 🟢 Refunds are the one total that doesn't match, by design: the 488 dollars from cell five, which are in the register as bad refunds.
+> 🖱️ I'm clicking the refresh button at the top of the Files panel, to see the new files.
 
-> 🖱️ I'm clicking the refresh button at the top of the Files panel on the left.
-
-> 🖱️ I'm pointing at the three new files: transaction reconciliation ledger, exception register, and financial control summary. The five inputs are still there with their original names.
+> 🖱️ I'm pointing at the three deliverables in the Files panel, next to the five untouched inputs.
 
 > 🖱️ I'm double-clicking exception_register.csv in the Files panel, to open it on the right.
 
 > 🖱️ I'm scrolling right inside the file viewer, to the issue column near the end.
 
-> 🖱️ I'm pointing at the first rows: order O80003 is no_cost, captured and settled correctly, but its margin is blank. Order O80040 is no_payment: billed 38 dollars, with no payment at all.
+> 🖱️ I'm pointing at the first rows: O80003 is no_cost, settled correctly but with no margin, and O80040 is no_payment.
 
-> 🖱️ I'm scrolling down to the last rows of the register: the bad refunds, like RF6056, pointing to payment PAY399120, which doesn't exist.
+> 🖱️ I'm scrolling down to the last rows of the viewer, to the bad refunds, like RF6056 pointing to PAY399120, which doesn't exist.
 
-> 🟢 Every row keeps its original order, payment or refund fields next to the issue, so anyone can trace it back to the source file.
+> 🟢 In these bad_refund rows, amount is the refund amount, because there's no valid payment.
 
-> 🖱️ I'm double-clicking financial_control_summary.csv, to check it saved with the issue labels as the first column.
+> 🖱️ I'm closing the file viewer with the X on its tab, to go back to the notebook.
 
-> 🖱️ I'm closing the file viewers with the X on their tabs, to go back to the notebook.
-
-**WHY:** la validación compara contra las tablas de origen, no contra el ledger: así prueba que la unión no perdió ni duplicó plata. Abrir los archivos muestra que los entregables existen y que los originales siguen intactos.
+**WHY:** la validación compara contra las tablas de origen, no contra el ledger: así prueba que la unión no perdió ni duplicó plata. Abrir un entregable muestra que existe y que es legible.
 
 **EXPECTED RESULT:** `order_total 0.0`, `amount 0.0`, `settled 0.0`. En Files: los cinco CSV originales y los tres nuevos.
 
-**VERIFY BEFORE CONTINUING:** los tres ceros. Si alguno no da cero, revisá en la celda 3 el `how="outer"`.
+**VERIFY BEFORE CONTINUING:** los tres ceros. Si el doble clic no abre el visor, no insistas: 🖱️ *"The viewer didn't open, so I'm pointing at the file in the Files panel instead."* y seguí.
 
 📘 **What each line does** (para vos, no se lee):
 
-- `(s.loc["total", ["order_total", "amount", "settled"]] - [o.order_total.sum(), c.amount.sum(), p.settled.sum()]).abs().round(2)`: absolute difference between the summary totals and the source totals, in cents.
+- `s.loc["total", ["order_total", "amount", "settled"]] - [o.order_total.sum(), c.amount.sum(), p.settled.sum()]`: difference between the summary totals and the source totals.
 
 ---
 
-### Bloque 10. Conclusiones
+### Bloque 10. Epilogue
 
-**TIME:** 33:38–35:00 (1:22)
-
-**WHAT I DO:** + Text → tipear 2 tramos → clic afuera → Cmd + S.
-
-**WHERE:** botón **+ Text** arriba a la izquierda de la barra de Colab, al lado de **+ Code**.
-
-**SAY:**
-
-> 🖱️ I'm clicking plus Text at the top left, to add a text cell at the end of the notebook for the conclusions.
-
-> 🗣️⌨️ In the text cell: the title.
-
-```markdown
-## Summary
-```
-*(10 caracteres · ~4 s)*
-
-> 🗣️⌨️ Next line of the text cell: the result, and the AI declaration.
-
-```markdown
-- Ledger ties to the sources; inputs generated with AI.
-```
-*(55 caracteres · ~24 s)*
-
-> 🖱️ I'm clicking on the empty area below the text cell, to show it formatted.
-
-> 🖱️ I'm pressing Command and S to save the notebook; the save message appears at the bottom left.
-
-**EXPECTED RESULT:** la celda de texto con el título y una viñeta, formateada.
-
----
-
-### Bloque 11. Epilogue
-
-**TIME:** 35:00–36:43 (1:44)
+**TIME:** 28:13–29:27 (1:14)
 
 **WHAT I DO:** scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
-**WHERE:** Colab, desde las conclusiones hasta la celda 1.
+**WHERE:** Colab, desde la celda 9 hasta la celda 1.
 
 **SAY:**
 
-> 🖱️ I'm scrolling up slowly through the notebook, from the conclusions back to cell one.
+> 🖱️ I'm scrolling up slowly through the notebook, from cell nine back to cell one, to recap.
 
-> 🟢 My approach was one ledger, with one row per order or capture, and each phase adding columns: fee, gap, refund, cost and margin.
+> 🟢 My approach was one ledger, one row per order or capture, with each step adding a column: fee, gap, refund, cost and margin.
 
-> 🟢 The key decisions: only captured payments count as revenue, the outer join keeps both kinds of orphans, and blanks stay blank instead of being estimated.
+> 🟢 The key decisions: only captures count as revenue, the outer join keeps both kinds of orphans, and blanks stay blank instead of being estimated.
 
-> 🟢 The hardest part was the refunds and the pending payouts. Both looked like missing money, but the pending ones are just timing, and some refunds point to payments that never happened.
+> 🟢 The hardest part was telling timing from loss: the pending payouts are timing, while the bad refunds and double refunds are real money.
 
-> 🟢 The checks: the fee formula reproduces 1,107 payouts to the cent, and the ledger ties to the sources.
+> 🟢 Open items: 217 dollars of double refunds, 108.70 in short payouts, 2,300 uncollected, and two missing product costs. One limitation: each row keeps only its first issue. Thanks for watching!
 
-> 🟢 One limitation: each ledger row gets only its first issue. In this data no row had two, but with real data I'd keep a list of issues per row.
-
-> 🟢 Open items: 217 dollars of double refunds to recover, 108.70 in short payouts to claim from the processor, 2,300 dollars uncollected, and two product costs to find. With more time, I'd confirm the pending payouts in early January. Thanks for watching!
-
-**WHY:** no repite los pasos: cuenta el enfoque, las decisiones, el desafío, cómo se validó y qué queda abierto.
+**WHY:** no repite los pasos: cuenta el enfoque, las decisiones, el desafío y lo que queda abierto. La declaración de IA ya se dijo en el opening.
 
 ---
 
@@ -888,7 +785,7 @@ s.round(2)
 | La celda 4 no da 1.107 ceros | Revisá `L.amount * L.fee_pct + L.fee_fixed` y el `.round(2)` de las dos líneas. |
 | La celda 5 no da `488.0` | Revisá `.fillna(0)` y que agrupe por `"payment_id"`. |
 | La celda 7 da otros números | Revisá el orden de las reglas: `no_payment` y `no_order` tienen que ir primero, y `pending` antes que `no_cost`. |
-| La celda 9 no da ceros | Revisá en la celda 3 el `how="outer"`, y en la celda 8 el `min_count=1`. |
+| La celda 9 no da ceros | Si ves un número diminuto como `1e-11` o `-0.0`, es redondeo de decimales: decí *"That's floating-point noise, effectively zero."* Si es un número real, revisá en la celda 3 el `how="outer"`. |
 | Hay que volver a correr todo | Los CSV de entrada nunca se reescriben: alcanza con Runtime → Run all. |
 
 ---
@@ -911,12 +808,12 @@ s.round(2)
 - [ ] `12501.0` y `1134 / 16 / 5` (celda 3).
 - [ ] `0.0 1107` y seis faltantes (celda 4).
 - [ ] `488.0` (celda 5).
-- [ ] P017 y P022 sin costo (celda 6).
+- [ ] La celda 6 corre sin salida y sin error.
 - [ ] 187 excepciones en 9 tipos (celda 7).
 - [ ] La tabla resumen con la fila `total` (celda 8).
 - [ ] Tres ceros (celda 9).
 - [ ] En Files: `transaction_reconciliation_ledger.csv` (1.155 filas), `exception_register.csv` (187 filas) y `financial_control_summary.csv` (9 filas).
-- [ ] La celda de conclusiones y el notebook guardado.
+- [ ] El notebook guardado (Cmd + S) después de terminar la grabación.
 - [ ] Después: descargá el `.ipynb` y los tres CSV generados. Armá **Deliverables.zip** con eso y los cinco CSV de entrada sin tocar. Marcá en Studio la opción de archivos generados con IA.
 
 ## Checklist de decisiones que debo explicar
@@ -937,7 +834,7 @@ s.round(2)
 
 > Billed revenue was 114,484 dollars, but only 112,613 was captured: 2,300 was never collected, 411 came in with no order, and eight orders were charged a different amount. Failed attempts, 12,501 dollars, were never counted as revenue. The processor fee terms reproduce 1,107 payouts to the cent; six payouts came in 108.70 short, and 26 year-end captures are simply waiting to settle. Refunds were matched by payment: 488 dollars point to no valid payment, and two payments were refunded twice. Every difference is in the exception register, and the ledger ties to the sources.
 
-*(Es la versión larga del epilogue. Si te sobra tiempo, podés decirla en lugar de las 🟢 del bloque 11.)*
+*(Es la versión larga del epilogue. No la uses en la grabación: alargaría el video. Sirve si te preguntan.)*
 
 ---
 
