@@ -4,9 +4,9 @@ Guion para volver a grabar la tarea **oyi436dd** respetando la idea aprobada. Se
 
 > **Goal:** *Reconstruct the financial position of a simulated e-commerce business by reconciling customer orders, payment transactions, processor settlements, refunds, and product costs. Deliver an auditable transaction-level ledger that explains revenue differences, settlement discrepancies, and unresolved financial movements.*
 
-**Duración estimada: ~38:45** (tipeo ≤35%). Es más que el objetivo de 25 min, pero vos elegiste priorizar el límite de tipeo; Odin acepta hasta 50:59.
+**Duración estimada: ~36:43** (tipeo ~30%). Es más que el objetivo de 25–30 min: el tiempo que se ahorra con la celda 1 armada va a explicar el análisis. Odin acepta hasta 50:59.
 
-**Punto de partida al grabar:** el notebook está **vacío** (una celda de código sin nada) y los cinco CSV ya están subidos en el panel **Files** de Colab. **Todo el código se tipea en vivo**, incluida la celda 1.
+**Punto de partida al grabar:** la **celda 1 ya está escrita** (imports, lectura de los cinco CSV, la función `export()` e `info`) y los cinco CSV ya están subidos en el panel **Files** de Colab. **Todo lo demás se tipea en vivo** (celdas 2 a 9 y las conclusiones). En el video se dice por qué: la celda 1 es preparación, no análisis, y el tiempo ahorrado va a explicar la conciliación.
 
 **Por qué se rechazó la grabación anterior y qué cambia:** la versión anterior deduplicaba identidades de clientes y armaba perfiles de comportamiento: eso no estaba en la idea aprobada. Esta versión hace solamente reconstrucción financiera:
 
@@ -20,19 +20,19 @@ Guion para volver a grabar la tarea **oyi436dd** respetando la idea aprobada. Se
 
 | # | Bloque | Fase | Celda | TIME | Duración |
 | - | ------ | ---- | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:42 | 1:42 |
-| 1 | Carga e inspección de los cinco archivos | 1. Input inspection | 1 | 1:42–5:54 | 4:12 |
-| 2 | Validación de datos | 2. Data validation | 2 | 5:54–8:30 | 2:36 |
-| 3 | Conciliación de pagos | 3. Payment reconciliation | 3 | 8:30–12:22 | 3:53 |
-| 4 | Conciliación con las liquidaciones del procesador | 4. Processor settlement | 4 | 12:22–15:22 | 3:00 |
-| 5 | Conciliación de reembolsos | 5. Refund reconciliation | 5 | 15:22–18:01 | 2:38 |
-| 6 | Costos de productos y margen | 6. Product cost | 6 | 18:01–20:38 | 2:38 |
-| 7 | Registro de excepciones | 7. Exception register | 7 | 20:38–26:44 | 6:06 |
-| 8 | Entregables y resumen de control | 7. Deliverables | 8 | 26:44–31:57 | 5:13 |
-| 9 | Validación contra las fuentes y revisión de los archivos | 7. Validation | 9 | 31:57–35:40 | 3:43 |
-| 10 | Conclusiones | — | texto | 35:40–37:01 | 1:22 |
-| 11 | Epilogue | — | — | 37:01–38:45 | 1:44 |
-| | **Total** | | | | **~38:45** |
+| 0 | Opening | — | — | 0:00–1:44 | 1:44 |
+| 1 | Carga e inspección de los cinco archivos | 1. Input inspection | 1 | 1:44–5:08 | 3:24 |
+| 2 | Validación de datos | 2. Data validation | 2 | 5:08–7:44 | 2:36 |
+| 3 | Conciliación de pagos | 3. Payment reconciliation | 3 | 7:44–11:37 | 3:53 |
+| 4 | Conciliación con las liquidaciones del procesador | 4. Processor settlement | 4 | 11:37–14:37 | 3:00 |
+| 5 | Conciliación de reembolsos | 5. Refund reconciliation | 5 | 14:37–17:15 | 2:38 |
+| 6 | Costos de productos y margen | 6. Product cost | 6 | 17:15–19:53 | 2:38 |
+| 7 | Registro de excepciones | 7. Exception register | 7 | 19:53–25:59 | 6:06 |
+| 8 | Entregables y resumen de control | 7. Deliverables | 8 | 25:59–29:55 | 3:57 |
+| 9 | Validación contra las fuentes y revisión de los archivos | 7. Validation | 9 | 29:55–33:38 | 3:43 |
+| 10 | Conclusiones | — | texto | 33:38–35:00 | 1:22 |
+| 11 | Epilogue | — | — | 35:00–36:43 | 1:44 |
+| | **Total** | | | | **~36:43** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -108,17 +108,17 @@ Cada bloque tiene:
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo en vivo (celdas 1 a 9 + conclusiones) | 1.826 caracteres | ~13,5 min a 135 car./min (~15,2 a 120) |
-| Narración | ~2.759 palabras | ~21,2 min |
+| Tipeo en vivo (celdas 2 a 9 + conclusiones) | 1.496 caracteres | ~11,1 min a 135 car./min (~12,5 a 120) |
+| Narración | ~2.813 palabras | ~21,6 min |
 | Navegación y ejecución | 12 bloques | ~4,0 min |
-| **Total** | | **~38:45** (~40:26 si tipeás a 120 car./min) |
+| **Total** | | **~36:43** (~38:06 si tipeás a 120 car./min) |
 
-**Tipeo: ~35% del video a 135 car./min** (~38% a 120).
+**Tipeo: ~30% del video a 135 car./min** (~33% a 120).
 
 **Qué se hizo para que todo entre tipeado:**
 
 - Nombres cortos: `o` pedidos, `p` pagos, `r` reembolsos, `k` productos, `t` condiciones del procesador, `c` cobros capturados, `L` ledger, `x` excepciones, `s` resumen.
-- Los cinco archivos se cargan con una sola línea.
+- La celda 1 (imports, lectura de los CSV, la función `export()` e `info`) va escrita antes de grabar: es preparación, no análisis.
 - Un único ledger `L` al que cada fase le agrega columnas. Las excepciones salen de una sola regla por tipo.
 
 **Reglas de tipeo:**
@@ -152,7 +152,7 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:42 (1:42)
+**TIME:** 0:00–1:44 (1:44)
 
 **WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir el panel Files.
 
@@ -168,7 +168,7 @@ Cada bloque tiene:
 
 > 🖱️ I'm clicking the yellow minimize button at the top left, to hide the task description.
 
-> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my empty Colab notebook.
+> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my Colab notebook, with cell one already written.
 
 > 🖱️ I'm clicking the folder icon in the left sidebar of Colab, to open the Files panel.
 
@@ -178,7 +178,7 @@ Cada bloque tiene:
 
 **WHY:** el revisor tiene que ver desde el principio el objetivo, los cinco archivos de la idea aprobada y los tres entregables. Así puede comparar cada paso con la descripción.
 
-**EXPECTED RESULT:** el notebook vacío con una celda de código, y el panel Files abierto con los cinco CSV.
+**EXPECTED RESULT:** el notebook con la celda 1 escrita (sin ejecutar), y el panel Files abierto con los cinco CSV.
 
 **VERIFY BEFORE CONTINUING:** están los cinco archivos y no hay ningún otro CSV en Files.
 
@@ -186,45 +186,47 @@ Cada bloque tiene:
 
 ### Bloque 1. Carga e inspección de los cinco archivos
 
-**TIME:** 1:42–5:54 (4:12)
+**TIME:** 1:44–5:08 (3:24)
 
-**WHAT I DO:** clic en la celda 1 → tipear 4 tramos → Run → recorrer la salida con scroll.
+**WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → recorrer la salida con scroll.
 
-**WHERE:** celda 1, la única del notebook, a la derecha del panel Files.
+**WHERE:** celda 1, la única del notebook, a la derecha del panel Files. Botón Run (triángulo) a la izquierda de la celda.
 
-**SAY:**
-
-> 🖱️ I'm clicking inside cell one, the empty code cell at the top of the notebook.
-
-> 🗣️⌨️ First two lines of cell one: pandas for the tables, and numpy for one labeling step later.
+**Celda 1 (ya escrita antes de grabar, no se tipea):**
 
 ```python
 import pandas as pd
 import numpy as np
-```
-*(38 caracteres · ~17 s)*
 
-> 🗣️⌨️ Next line of cell one: the five file names, in one string that I split into a list.
+o = pd.read_csv("orders.csv")
+p = pd.read_csv("payments.csv")
+r = pd.read_csv("refunds.csv")
+k = pd.read_csv("products.csv")
+t = pd.read_csv("processor_terms.csv")
 
-```python
-n = "orders payments refunds products processor_terms".split()
-```
-*(62 caracteres · ~28 s)*
+def export():
+    L.to_csv("transaction_reconciliation_ledger.csv", index=False)
+    x.to_csv("exception_register.csv", index=False)
+    s.to_csv("financial_control_summary.csv")
 
-> 🗣️⌨️ Next line: read the five files, in that order, into five short names: o for orders, p for payments, r for refunds, k for products, and t for terms.
-
-```python
-o, p, r, k, t = [pd.read_csv(f + ".csv") for f in n]
-```
-*(52 caracteres · ~23 s)*
-
-> 🗣️⌨️ Last lines of cell one: info for each table, which shows rows, columns, types and missing values. Then the terms table itself, because it's only three rows.
-
-```python
-for d in [o, p, r, k, t]: d.info()
+for d in [o, p, r, k, t]:
+    d.info()
 t
 ```
-*(36 caracteres · ~16 s)*
+
+**SAY:**
+
+> 🖱️ I'm pointing at cell one, which I wrote before recording. It's only setup: imports, reading the files, and the export. No analysis decision lives here, so I'd rather spend the time on the reconciliation. Everything after it I'll type live.
+
+> 🖱️ I'm pointing at the two imports at the top of cell one: pandas for the tables, and numpy for one labeling step in cell seven.
+
+> 🖱️ I'm pointing at the five read_csv lines: o for orders, p for payments, r for refunds, k for products, and t for the processor terms. These are the five files from the Files panel.
+
+> 🖱️ I'm pointing at the export function in the middle of cell one. It writes my three deliverables at the end: the ledger, the exception register and the summary.
+
+> 🟢 All three have new file names, and none of them is one of the inputs. That's how I guarantee the five original files are never overwritten.
+
+> 🖱️ I'm pointing at the last lines of cell one: info for each table, which shows rows, columns, types and missing values. Then the terms table itself, because it's only three rows.
 
 > 🖱️ I'm clicking the Run button on the left of cell one.
 
@@ -267,16 +269,17 @@ t
 
 - `import pandas as pd`: loads pandas.
 - `import numpy as np`: loads numpy, used for `np.select` in cell 7.
-- `n = "orders payments refunds products processor_terms".split()`: the five file names as a list.
-- `o, p, r, k, t = [pd.read_csv(f + ".csv") for f in n]`: reads each file and unpacks the five tables.
-- `for d in [o, p, r, k, t]: d.info()`: prints rows, columns, non-null counts and types for each table.
+- `o = pd.read_csv("orders.csv")` … `t = pd.read_csv("processor_terms.csv")`: reads each input into a short name.
+- `def export():`: defines the export of the three deliverables; it only runs when cell 8 calls it, so it uses the final `L`, `x` and `s`.
+- `L.to_csv(..., index=False)` / `x.to_csv(..., index=False)` / `s.to_csv(...)`: ledger, exception register and summary, with new file names.
+- `for d in [o, p, r, k, t]:` + `d.info()`: prints rows, columns, non-null counts and types for each table.
 - `t`: shows the processor terms.
 
 ---
 
 ### Bloque 2. Validación de datos
 
-**TIME:** 5:54–8:30 (2:36)
+**TIME:** 5:08–7:44 (2:36)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los cuatro valores.
 
@@ -329,7 +332,7 @@ print(len(dup), dup.order_total.sum(), o.order_id.is_unique, p.payment_id.is_uni
 
 ### Bloque 3. Conciliación de pagos
 
-**TIME:** 8:30–12:22 (3:53)
+**TIME:** 7:44–11:37 (3:53)
 
 **WHAT I DO:** + Code → tipear 3 tramos → Run → señalar el monto y los tres grupos.
 
@@ -403,7 +406,7 @@ L._merge.value_counts()
 
 ### Bloque 4. Conciliación con las liquidaciones del procesador
 
-**TIME:** 12:22–15:22 (3:00)
+**TIME:** 11:37–14:37 (3:00)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el conteo de ceros y los seis faltantes.
 
@@ -460,7 +463,7 @@ L.gap.value_counts()
 
 ### Bloque 5. Conciliación de reembolsos
 
-**TIME:** 15:22–18:01 (2:38)
+**TIME:** 14:37–17:15 (2:38)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el número.
 
@@ -513,7 +516,7 @@ r.amount.sum() - L.refund.sum()
 
 ### Bloque 6. Costos de productos y margen
 
-**TIME:** 18:01–20:38 (2:38)
+**TIME:** 17:15–19:53 (2:38)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los dos productos.
 
@@ -564,7 +567,7 @@ k[k.unit_cost.isna()]
 
 ### Bloque 7. Registro de excepciones
 
-**TIME:** 20:38–26:44 (6:06)
+**TIME:** 19:53–25:59 (6:06)
 
 **WHAT I DO:** + Code → tipear 6 tramos → Run → señalar cada tipo de excepción.
 
@@ -660,9 +663,9 @@ x.issue.value_counts()
 
 ### Bloque 8. Entregables y resumen de control
 
-**TIME:** 26:44–31:57 (5:13)
+**TIME:** 25:59–29:55 (3:57)
 
-**WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla fila por fila.
+**WHAT I DO:** + Code → tipear 4 tramos → Run → recorrer la tabla fila por fila.
 
 **WHERE:** **+ Code** arriba a la izquierda; la celda 8 aparece debajo de la salida de la celda 7.
 
@@ -695,27 +698,13 @@ s.loc["total"] = s.sum()
 ```
 *(24 caracteres · ~11 s)*
 
-> 🗣️⌨️ Next line of cell eight: export the ledger with a new file name, so the five inputs stay untouched. No index, because order and payment IDs already identify each row.
+> 🗣️⌨️ Last lines of cell eight: export, the function from cell one, writes the three deliverables with new names, so the five inputs stay untouched. Then the summary, rounded to cents.
 
 ```python
-L.to_csv("transaction_reconciliation_ledger.csv", index=False)
-```
-*(62 caracteres · ~28 s)*
-
-> 🗣️⌨️ Next line of cell eight: export the exception register, also with a new name.
-
-```python
-x.to_csv("exception_register.csv", index=False)
-```
-*(47 caracteres · ~21 s)*
-
-> 🗣️⌨️ Last lines of cell eight: export the summary, and show it rounded to cents.
-
-```python
-s.to_csv("financial_control_summary.csv")
+export()
 s.round(2)
 ```
-*(52 caracteres · ~23 s)*
+*(19 caracteres · ~8 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell eight.
 
@@ -753,16 +742,14 @@ s.round(2)
 
 - `s = L.groupby("issue")[...].sum(min_count=1)`: money columns per issue; blank if no value exists.
 - `s.loc["total"] = s.sum()`: total row.
-- `L.to_csv("transaction_reconciliation_ledger.csv", index=False)`: transaction-level ledger, 1,155 rows.
-- `x.to_csv("exception_register.csv", index=False)`: exception register, 187 rows.
-- `s.to_csv("financial_control_summary.csv")`: summary with the issue as first column.
+- `export()`: runs the function from cell 1: ledger (1,155 rows), exception register (187 rows) and summary (9 rows).
 - `s.round(2)`: shows the summary in cents.
 
 ---
 
 ### Bloque 9. Validación contra las fuentes y revisión de los archivos
 
-**TIME:** 31:57–35:40 (3:43)
+**TIME:** 29:55–33:38 (3:43)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar los ceros → Files: refrescar y abrir los tres entregables.
 
@@ -830,7 +817,7 @@ s.round(2)
 
 ### Bloque 10. Conclusiones
 
-**TIME:** 35:40–37:01 (1:22)
+**TIME:** 33:38–35:00 (1:22)
 
 **WHAT I DO:** + Text → tipear 2 tramos → clic afuera → Cmd + S.
 
@@ -864,7 +851,7 @@ s.round(2)
 
 ### Bloque 11. Epilogue
 
-**TIME:** 37:01–38:45 (1:44)
+**TIME:** 35:00–36:43 (1:44)
 
 **WHAT I DO:** scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
@@ -909,7 +896,7 @@ s.round(2)
 ## Checklist de archivos y preparación previa
 
 - [ ] Practicá dos veces con cronómetro. [financial_reconstruction.ipynb](financial_reconstruction.ipynb) tiene el código completo para comparar. No lo abras en la grabación.
-- [ ] En Colab, creá el notebook **financial_reconstruction** **vacío**: una sola celda de código sin nada. **No ejecutes nada.**
+- [ ] En Colab, creá el notebook **financial_reconstruction** con **la celda 1 escrita** (copiala del bloque 1) y nada más. **No ejecutes nada.**
 - [ ] En **Files**, subí los cinco CSV de esta carpeta: `orders`, `payments`, `refunds`, `products` y `processor_terms`. Revisá que los nombres no tengan `(1)`.
 - [ ] Cerrá el panel Files antes de empezar: se abre en el bloque 0.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
@@ -960,4 +947,3 @@ s.round(2)
 | ---- | --------- |
 | **Goal en TaskRecorder** | Confirmá que la descripción de TaskRecorder es la de la idea aprobada (el Goal de arriba). |
 | **Origen de los CSV** | Sintéticos, generados con IA. Decí "generated with AI" y marcá en Studio la opción de archivos generados con IA. |
-| **Generador** | Los CSV salen de [_generador/generate_data.py](_generador/generate_data.py). No lo subas ni lo muestres en la grabación. |
