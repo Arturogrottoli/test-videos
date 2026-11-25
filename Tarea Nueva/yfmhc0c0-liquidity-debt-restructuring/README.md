@@ -4,7 +4,7 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 > **Goal:** *Reconstruct and stress-test the 13-week liquidity position of a simulated mid-sized company facing tightening cash availability, customer payment delays, and upcoming debt obligations. Deliver an auditable weekly liquidity model, scenario comparisons, and a justified financing action plan that maintains minimum cash requirements while respecting contractual borrowing limits.*
 
-**Duración estimada: ~29:06, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:22 y 38%: practicá hasta tipear cada tramo en el tiempo indicado.
+**Duración estimada: ~29:15, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:31 y 37%: practicá hasta tipear cada tramo en el tiempo indicado.
 
 **Punto de partida al grabar:** el notebook **liquidity_assessment** tiene la **celda 1 ya escrita** y los cinco CSV ya están subidos en el panel **Files** de Colab. La celda 1 es solo preparación: librerías, lectura de los CSV, la fecha de la semana 1, la fila del revolver, dos fórmulas auxiliares (semana y caja de cierre) y la función `export()`. **Todo lo demás se tipea en vivo** (celdas 2 a 7). En el video se dice que la celda 1 estaba escrita y por qué.
 
@@ -23,14 +23,14 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 | - | ------ | ---- | ----- | ---- | -------- |
 | 0 | Opening | — | — | 0:00–1:39 | 1:39 |
 | 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:39–4:02 | 2:23 |
-| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:02–6:31 | 2:29 |
-| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:31–9:06 | 2:35 |
-| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:06–14:27 | 5:21 |
-| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:27–18:53 | 4:26 |
-| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:53–24:06 | 5:13 |
-| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:06–27:39 | 3:33 |
-| 8 | Epilogue | — | — | 27:39–29:06 | 1:27 |
-| | **Total** | | | | **~29:06** |
+| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:02–6:34 | 2:32 |
+| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:34–9:09 | 2:35 |
+| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:09–14:33 | 5:24 |
+| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:33–18:59 | 4:26 |
+| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:59–24:12 | 5:13 |
+| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:12–27:48 | 3:35 |
+| 8 | Epilogue | — | — | 27:48–29:15 | 1:27 |
+| | **Total** | | | | **~29:15** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -110,11 +110,11 @@ Cada bloque tiene:
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
 | Tipeo en vivo (celdas 2 a 7) | 1.369 caracteres | ~10,1 min a 135 car./min (~11,4 a 120) |
-| Narración | ~2.075 palabras | ~16,0 min |
+| Narración | ~2.094 palabras | ~16,1 min |
 | Navegación y ejecución | 9 bloques | ~3,0 min |
-| **Total** | | **~29:06** (~30:22 si tipeás a 120 car./min) |
+| **Total** | | **~29:15** (~30:31 si tipeás a 120 car./min) |
 
-**Tipeo: ~35% del video a 135 car./min** (~38% a 120).
+**Tipeo: ~35% del video a 135 car./min** (~37% a 120).
 
 **Reglas de tipeo:**
 
@@ -257,7 +257,7 @@ debt.set_index("facility_id").T
 
 ### Bloque 2. Phase 1: caja libre real
 
-**TIME:** 4:02–6:31 (2:29)
+**TIME:** 4:02–6:34 (2:32)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar las tres filas.
 
@@ -284,15 +284,15 @@ pos
 
 > 🖱️ I'm clicking the Run button on the left of cell two.
 
-> 🖱️ I'm pointing at operating cleared under cell two: 590 (five hundred ninety) thousand dollars.
+> 🖱️ I'm pointing at operating cleared under cell two: about 590 (five hundred ninety) thousand dollars.
 
-> 🟢 The raw bank file says 793 (seven hundred ninety-three) thousand. The 202 (two hundred two) thousand difference was the duplicated transactions.
+> 🟢 The raw bank file says about 793 (seven hundred ninety-three) thousand. The about 202 (two hundred two) thousand difference was the duplicated transactions.
 
-> 🖱️ I'm pointing at operating pending: minus 64 (sixty-four) thousand.
+> 🖱️ I'm pointing at operating pending: minus about 64 (sixty-four) thousand.
 
-> 🟢 Those are checks I already issued. The money is gone even if the bank hasn't cleared them, so I subtract them. Free cash is 526 (five hundred twenty-six) thousand dollars.
+> 🟢 Those are checks I already issued. The money is gone even if the bank hasn't cleared them, so I subtract them. Free cash is about 526 (five hundred twenty-six) thousand dollars.
 
-> 🖱️ I'm pointing at restricted: 382 (three hundred eighty-two) thousand.
+> 🖱️ I'm pointing at restricted: about 382 (three hundred eighty-two) thousand.
 
 > 🟢 That's the debt service reserve. The lender controls it, so it doesn't count toward the 500 (five hundred) thousand minimum.
 
@@ -312,7 +312,7 @@ pos
 
 ### Bloque 3. Phase 2: confiabilidad de los cobros
 
-**TIME:** 6:31–9:06 (2:35)
+**TIME:** 6:34–9:09 (2:35)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar tres clientes.
 
@@ -365,7 +365,7 @@ d
 
 ### Bloque 4. Phase 3: forecast de 13 semanas
 
-**TIME:** 9:06–14:27 (5:21)
+**TIME:** 9:09–14:33 (5:24)
 
 **WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla.
 
@@ -426,19 +426,19 @@ fc
 
 > 🖱️ I'm clicking the Run button on the left of cell four.
 
-> 🖱️ I'm pointing at week 1 (one) under cell four: 502 (five hundred two) thousand going out and closing cash of 371 (three hundred seventy-one) thousand.
+> 🖱️ I'm pointing at week 1 (one) under cell four: about 502 (five hundred two) thousand going out and closing cash of about 371 (three hundred seventy-one) thousand.
 
 > 🟢 We're below the 500 (five hundred) thousand minimum in the very first week, because overdue bills and payroll all land at once.
 
-> 🖱️ I'm pointing at week 5 (five) in the inflow column: 453 (four hundred fifty-three) thousand, the best collection week, which is why cash briefly recovers.
+> 🖱️ I'm pointing at week 5 (five) in the inflow column: about 453 (four hundred fifty-three) thousand, the best collection week, which is why cash briefly recovers.
 
-> 🖱️ I'm pointing at week 9 (nine) in the close column: 301 (three hundred one) thousand, the lowest point.
+> 🖱️ I'm pointing at week 9 (nine) in the close column: about 301 (three hundred one) thousand, the lowest point.
 
-> 🟢 That's a 199 (one hundred ninety-nine) thousand dollar deficit. Cash only gets back above the minimum in weeks 4 (four) to 6 (six) and week 12 (twelve).
+> 🟢 That's a deficit of about 199 (one hundred ninety-nine) thousand dollars. Cash only gets back above the minimum in weeks 4 (four) to 6 (six) and week 12 (twelve).
 
 > 🖱️ I'm pointing at week 8 (eight) in the outflow column: 376 (three hundred seventy-six) thousand, which includes the 168 (one hundred sixty-eight) thousand term loan payment from the debt file.
 
-> 🖱️ I'm pointing at week 13 (thirteen) at the bottom: 498 (four hundred ninety-eight) thousand.
+> 🖱️ I'm pointing at week 13 (thirteen) at the bottom: about 498 (four hundred ninety-eight) thousand.
 
 > 🟢 Even at the end we're still short. So this isn't just timing that fixes itself: it's a funding gap that needs action.
 
@@ -459,7 +459,7 @@ fc
 
 ### Bloque 5. Phase 4: capacidad real de endeudamiento
 
-**TIME:** 14:27–18:53 (4:26)
+**TIME:** 14:33–18:59 (4:26)
 
 **WHAT I DO:** + Code → tipear 5 tramos → Run → señalar las cuatro filas.
 
@@ -519,7 +519,7 @@ bba
 
 > 🖱️ I'm pointing at base and commitment, in the middle of the output under cell five.
 
-> 🟢 There's 450 (four hundred fifty) thousand left under the commitment, but the borrowing base only supports 380 (three hundred eighty) thousand.
+> 🟢 There's 450 (four hundred fifty) thousand left under the commitment, but the borrowing base only supports about 380 (three hundred eighty) thousand.
 
 > 🖱️ I'm pointing at leverage: 235 (two hundred thirty-five) thousand, the smallest.
 
@@ -542,7 +542,7 @@ bba
 
 ### Bloque 6. Phase 4–5: estrategias y estrés
 
-**TIME:** 18:53–24:06 (5:13)
+**TIME:** 18:59–24:12 (5:13)
 
 **WHAT I DO:** + Code → tipear 7 tramos → Run → señalar el gráfico.
 
@@ -636,7 +636,7 @@ t.plot().axhline(500000);
 
 ### Bloque 7. Phase 5: validación, exportación y archivos
 
-**TIME:** 24:06–27:39 (3:33)
+**TIME:** 24:12–27:48 (3:35)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el reporte y los mínimos → Files: refrescar, señalar los cinco entregables y abrir el forecast → cerrar el visor.
 
@@ -670,11 +670,11 @@ t.min()
 
 > 🟢 The plan is legal, but tight: there's almost no covenant room left. That's the main remaining risk.
 
-> 🖱️ I'm pointing at the minimum for base and levers: 301 (three hundred one) thousand and 486 (four hundred eighty-six) thousand, both below 500 (five hundred) thousand. Rejected.
+> 🖱️ I'm pointing at the minimum for base and levers: about 301 (three hundred one) thousand and about 486 (four hundred eighty-six) thousand, both below 500 (five hundred) thousand. Rejected.
 
-> 🖱️ I'm pointing at credit and credit_stress: 536 (five hundred thirty-six) thousand, but 348 (three hundred forty-eight) thousand under stress. Rejected.
+> 🖱️ I'm pointing at credit and credit_stress: about 536 (five hundred thirty-six) thousand, but about 348 (three hundred forty-eight) thousand under stress. Rejected.
 
-> 🖱️ I'm pointing at combined and stress: 711 (seven hundred eleven) thousand and 519 (five hundred nineteen) thousand. Both above the minimum.
+> 🖱️ I'm pointing at combined and stress: about 711 (seven hundred eleven) thousand and about 519 (five hundred nineteen) thousand. Both above the minimum.
 
 > 🟢 So my recommendation is the combined plan: defer 179 (one hundred seventy-nine) thousand of discretionary spend, stretch only the non-critical suppliers, and draw 225 (two hundred twenty-five) thousand on the revolver. It holds even if Northwind pays two weeks later.
 
@@ -709,7 +709,7 @@ t.min()
 
 ### Bloque 8. Epilogue
 
-**TIME:** 27:39–29:06 (1:27)
+**TIME:** 27:48–29:15 (1:27)
 
 **WHAT I DO:** Cmd + S → scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
