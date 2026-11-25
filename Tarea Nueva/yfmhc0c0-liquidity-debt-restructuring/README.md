@@ -4,7 +4,7 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 > **Goal:** *Reconstruct and stress-test the 13-week liquidity position of a simulated mid-sized company facing tightening cash availability, customer payment delays, and upcoming debt obligations. Deliver an auditable weekly liquidity model, scenario comparisons, and a justified financing action plan that maintains minimum cash requirements while respecting contractual borrowing limits.*
 
-**Duración estimada: ~28:57, con 35% de tipeo** (tipeando a 135 car./min). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:13 y 38%: practicá hasta tipear cada tramo en el tiempo indicado.
+**Duración estimada: ~29:06, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:22 y 38%: practicá hasta tipear cada tramo en el tiempo indicado.
 
 **Punto de partida al grabar:** el notebook **liquidity_assessment** tiene la **celda 1 ya escrita** y los cinco CSV ya están subidos en el panel **Files** de Colab. La celda 1 es solo preparación: librerías, lectura de los CSV, la fecha de la semana 1, la fila del revolver, dos fórmulas auxiliares (semana y caja de cierre) y la función `export()`. **Todo lo demás se tipea en vivo** (celdas 2 a 7). En el video se dice que la celda 1 estaba escrita y por qué.
 
@@ -21,16 +21,16 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 | # | Bloque | Fase | Celda | TIME | Duración |
 | - | ------ | ---- | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:36 | 1:36 |
-| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:36–3:58 | 2:22 |
-| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 3:58–6:31 | 2:33 |
-| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:31–9:12 | 2:41 |
-| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:12–14:21 | 5:09 |
-| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:21–18:45 | 4:24 |
-| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:45–24:09 | 5:24 |
-| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:09–27:31 | 3:22 |
-| 8 | Epilogue | — | — | 27:31–28:57 | 1:26 |
-| | **Total** | | | | **~28:57** |
+| 0 | Opening | — | — | 0:00–1:39 | 1:39 |
+| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:39–4:02 | 2:23 |
+| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:02–6:31 | 2:29 |
+| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:31–9:06 | 2:35 |
+| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:06–14:27 | 5:21 |
+| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:27–18:53 | 4:26 |
+| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:53–24:06 | 5:13 |
+| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:06–27:39 | 3:33 |
+| 8 | Epilogue | — | — | 27:39–29:06 | 1:27 |
+| | **Total** | | | | **~29:06** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -110,9 +110,9 @@ Cada bloque tiene:
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
 | Tipeo en vivo (celdas 2 a 7) | 1.369 caracteres | ~10,1 min a 135 car./min (~11,4 a 120) |
-| Narración | ~2.055 palabras | ~15,8 min |
+| Narración | ~2.075 palabras | ~16,0 min |
 | Navegación y ejecución | 9 bloques | ~3,0 min |
-| **Total** | | **~28:57** (~30:13 si tipeás a 120 car./min) |
+| **Total** | | **~29:06** (~30:22 si tipeás a 120 car./min) |
 
 **Tipeo: ~35% del video a 135 car./min** (~38% a 120).
 
@@ -145,7 +145,7 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:36 (1:36)
+**TIME:** 0:00–1:39 (1:39)
 
 **WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir el panel Files.
 
@@ -153,9 +153,9 @@ Cada bloque tiene:
 
 **SAY:**
 
-> 🟢 I will be beginning my task soon. A mid-sized company is running short of cash: customers pay late, and debt payments are coming. I'm building its 13-week liquidity forecast, and a financing plan that keeps 500,000 dollars of free cash without breaking its loan limits.
+> 🟢 I will be beginning my task soon. A mid-sized company is running short of cash: customers pay late, and debt payments are coming. I'm building its 13-week liquidity forecast, and a financing plan that keeps 500 (five hundred) thousand dollars of free cash without breaking its loan limits.
 
-> 🟢 The constraints: a 1.2 million dollar revolver, but only what the borrowing base and a 3.5 times leverage covenant allow. I'll deliver five CSV files: cash position, forecast, borrowing base, scenarios, and a risk report.
+> 🟢 The constraints: a 1.2 (one point two) million dollar revolver, but only what the borrowing base and a 3.5 (three point five) times leverage covenant allow. I'll deliver five CSV files: cash position, forecast, borrowing base, scenarios, and a risk report.
 
 > 🖱️ I'm clicking the yellow minimize button at the top left, to hide the task description.
 
@@ -175,7 +175,7 @@ Cada bloque tiene:
 
 ### Bloque 1. Celda 1: carga y contratos
 
-**TIME:** 1:36–3:58 (2:22)
+**TIME:** 1:39–4:02 (2:23)
 
 **WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → señalar la salida.
 
@@ -222,17 +222,15 @@ debt.set_index("facility_id").T
 
 > 🖱️ I'm clicking the Run button on the left of cell one.
 
-> 🖱️ I'm pointing at the bank line under cell one: 163 rows and 5 duplicate rows.
-
-> 🟢 Five duplicated transactions mean the bank file overstates cash. I'll deal with that first, in cell two.
+> 🖱️ I'm pointing at the bank line under cell one: 163 (one hundred sixty-three) rows and 5 (five) duplicate rows.
 
 > 🖱️ I'm pointing at the other four lines: receivables, payables, debt and the operating forecast have no duplicate rows.
 
 > 🖱️ I'm pointing at the RCF-01 column of the debt table, below the counts.
 
-> 🟢 The revolver has a 1.2 million commitment, 750,000 already drawn, an 80 percent advance rate and a 150,000 reserve. The covenant is 3.5 times leverage on 1.07 million of EBITDA, and the minimum cash is 500,000.
+> 🟢 The revolver has a 1.2 (one point two) million commitment, 750 (seven hundred fifty) thousand already drawn, an 80 (eighty) percent advance rate and a 150 (one hundred fifty) thousand reserve. The covenant is 3.5 (three point five) times leverage on 1.07 (one point zero seven) million of EBITDA, and the minimum cash is 500 (five hundred) thousand.
 
-> 🖱️ I'm pointing at the term loan column: a 168,000 dollar payment in January, inside my 13 weeks.
+> 🖱️ I'm pointing at the term loan column: a 168 (one hundred sixty-eight) thousand dollar payment in January, inside my 13 (thirteen) weeks.
 
 **WHY:** el revisor ve de dónde sale cada restricción: todas están en `debt_facilities.csv`, no inventadas.
 
@@ -259,7 +257,7 @@ debt.set_index("facility_id").T
 
 ### Bloque 2. Phase 1: caja libre real
 
-**TIME:** 3:58–6:31 (2:33)
+**TIME:** 4:02–6:31 (2:29)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar las tres filas.
 
@@ -286,19 +284,17 @@ pos
 
 > 🖱️ I'm clicking the Run button on the left of cell two.
 
-> 🖱️ I'm pointing at operating cleared under cell two: 590,088 dollars.
+> 🖱️ I'm pointing at operating cleared under cell two: 590 (five hundred ninety) thousand dollars.
 
-> 🟢 The raw bank file says 792,541. The 202,453 difference was the duplicated transactions.
+> 🟢 The raw bank file says 793 (seven hundred ninety-three) thousand. The 202 (two hundred two) thousand difference was the duplicated transactions.
 
-> 🖱️ I'm pointing at operating pending: minus 64,150.
+> 🖱️ I'm pointing at operating pending: minus 64 (sixty-four) thousand.
 
-> 🟢 Those are checks I already issued. The money is gone even if the bank hasn't cleared them, so I subtract them. Free cash is 525,938 dollars.
+> 🟢 Those are checks I already issued. The money is gone even if the bank hasn't cleared them, so I subtract them. Free cash is 526 (five hundred twenty-six) thousand dollars.
 
-> 🖱️ I'm pointing at restricted: 381,900.
+> 🖱️ I'm pointing at restricted: 382 (three hundred eighty-two) thousand.
 
-> 🟢 That's the debt service reserve. The lender controls it, so it doesn't count toward the 500,000 minimum.
-
-> 🟢 If I had used the raw bank total, about 1.1 million, the company would look safe. The real free cash is less than half of that.
+> 🟢 That's the debt service reserve. The lender controls it, so it doesn't count toward the 500 (five hundred) thousand minimum.
 
 **WHY:** tres decisiones de tesorería en una tabla: duplicados fuera, cheques pendientes restados (criterio conservador) y caja restringida excluida.
 
@@ -316,7 +312,7 @@ pos
 
 ### Bloque 3. Phase 2: confiabilidad de los cobros
 
-**TIME:** 6:31–9:12 (2:41)
+**TIME:** 6:31–9:06 (2:35)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar tres clientes.
 
@@ -333,7 +329,7 @@ ar["late"] = (ar.paid_date - ar.due_date).dt.days
 ```
 *(49 caracteres · ~22 s)*
 
-> 🗣️⌨️ Next lines of cell three: the median delay per customer, only for payments in the last 90 days. The median ignores one-off outliers, and recent behavior predicts the next weeks better than all of history.
+> 🗣️⌨️ Next lines of cell three: the median delay per customer, only for payments in the last 90 (ninety) days. The median ignores one-off outliers, and recent behavior predicts the next weeks better than all of history.
 
 ```python
 d = ar[ar.paid_date > "2026-08-22"].groupby("customer").late.median()
@@ -343,15 +339,13 @@ d
 
 > 🖱️ I'm clicking the Run button on the left of cell three.
 
-> 🖱️ I'm pointing at Northwind Retail at the bottom of the list under cell three: 26.5 days late.
+> 🖱️ I'm pointing at Northwind Retail at the bottom of the list under cell three: 26.5 (twenty-six point five) days late.
 
-> 🟢 Northwind is 46 percent of what customers owe us. A delay that big, on that much money, is the biggest risk in this forecast.
+> 🟢 Northwind is 46 (forty-six) percent of what customers owe us. A delay that big, on that much money, is the biggest risk in this forecast.
 
-> 🖱️ I'm pointing at Harbor Cafe Group and Keystone Office: 17 days each.
+> 🖱️ I'm pointing at Harbor Cafe Group and Keystone Office: 17 (seventeen) days each.
 
 > 🖱️ I'm pointing at Lakeside Clinics: half a day. Most customers pay on time.
-
-> 🟢 I only add the late column in memory. The receivables file itself is never rewritten.
 
 > 🟢 Management's forecast assumes everyone pays on the due date. I'll replace that with each customer's real delay. And there's no evidence anyone pays early, so I reject accelerating collections as a lever.
 
@@ -371,7 +365,7 @@ d
 
 ### Bloque 4. Phase 3: forecast de 13 semanas
 
-**TIME:** 9:12–14:21 (5:09)
+**TIME:** 9:06–14:27 (5:21)
 
 **WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla.
 
@@ -432,19 +426,19 @@ fc
 
 > 🖱️ I'm clicking the Run button on the left of cell four.
 
-> 🖱️ I'm pointing at week 1 under cell four: 501,612 going out and closing cash of 371,025.
+> 🖱️ I'm pointing at week 1 (one) under cell four: 502 (five hundred two) thousand going out and closing cash of 371 (three hundred seventy-one) thousand.
 
-> 🟢 We're below the 500,000 minimum in the very first week, because overdue bills and payroll all land at once.
+> 🟢 We're below the 500 (five hundred) thousand minimum in the very first week, because overdue bills and payroll all land at once.
 
-> 🖱️ I'm pointing at week 5 in the inflow column: 452,840, the best collection week, which is why cash briefly recovers.
+> 🖱️ I'm pointing at week 5 (five) in the inflow column: 453 (four hundred fifty-three) thousand, the best collection week, which is why cash briefly recovers.
 
-> 🖱️ I'm pointing at week 9 in the close column: 301,347, the lowest point.
+> 🖱️ I'm pointing at week 9 (nine) in the close column: 301 (three hundred one) thousand, the lowest point.
 
-> 🟢 That's a 198,653 dollar deficit. Cash only gets back above the minimum in weeks 4 to 6 and week 12.
+> 🟢 That's a 199 (one hundred ninety-nine) thousand dollar deficit. Cash only gets back above the minimum in weeks 4 (four) to 6 (six) and week 12 (twelve).
 
-> 🖱️ I'm pointing at week 8 in the outflow column: 376,000, which includes the 168,000 term loan payment from the debt file.
+> 🖱️ I'm pointing at week 8 (eight) in the outflow column: 376 (three hundred seventy-six) thousand, which includes the 168 (one hundred sixty-eight) thousand term loan payment from the debt file.
 
-> 🖱️ I'm pointing at week 13 at the bottom: 497,983.
+> 🖱️ I'm pointing at week 13 (thirteen) at the bottom: 498 (four hundred ninety-eight) thousand.
 
 > 🟢 Even at the end we're still short. So this isn't just timing that fixes itself: it's a funding gap that needs action.
 
@@ -465,7 +459,7 @@ fc
 
 ### Bloque 5. Phase 4: capacidad real de endeudamiento
 
-**TIME:** 14:21–18:45 (4:24)
+**TIME:** 14:27–18:53 (4:26)
 
 **WHAT I DO:** + Code → tipear 5 tramos → Run → señalar las cuatro filas.
 
@@ -475,16 +469,16 @@ fc
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell five below cell four.
 
-> 🟢 The revolver says 1.2 million, but that's never what you can really draw. Cell five calculates the real number.
+> 🟢 The revolver says 1.2 (one point two) million, but that's never what you can really draw. Cell five calculates the real number.
 
-> 🗣️⌨️ First line of cell five: eligible receivables. Open invoices only, so the disputed ones are out, and each customer capped at 25 percent of the total. The file has no concentration limit, so that cap is my documented assumption.
+> 🗣️⌨️ First line of cell five: eligible receivables. Open invoices only, so the disputed ones are out, and each customer capped at 25 (twenty-five) percent of the total. The file has no concentration limit, so that cap is my documented assumption.
 
 ```python
 e = o.groupby("customer").amount.sum().clip(upper=o.amount.sum() / 4).sum()
 ```
 *(75 caracteres · ~33 s)*
 
-> 🗣️⌨️ Next line of cell five: the borrowing base, 80 percent of eligible receivables, minus the reserve, minus what's already drawn.
+> 🗣️⌨️ Next line of cell five: the borrowing base, 80 (eighty) percent of eligible receivables, minus the reserve, minus what's already drawn.
 
 ```python
 bba = pd.Series({"eligible": e, "base": r.advance_rate * e - r.reserve - r.drawn, 
@@ -500,7 +494,7 @@ bba = pd.Series({"eligible": e, "base": r.advance_rate * e - r.reserve - r.drawn
 ```
 *(38 caracteres · ~17 s)*
 
-> 🗣️⌨️ Same line, continuing: room left under the leverage covenant, 3.5 times EBITDA minus all the debt.
+> 🗣️⌨️ Same line, continuing: room left under the leverage covenant, 3.5 (three point five) times EBITDA minus all the debt.
 
 *(sigue en la misma línea, sin Enter)*
 
@@ -519,19 +513,17 @@ bba
 
 > 🖱️ I'm clicking the Run button on the left of cell five.
 
-> 🖱️ I'm pointing at eligible under cell five: about 1.6 million.
+> 🖱️ I'm pointing at eligible under cell five: about 1.6 (one point six) million.
 
-> 🟢 The 25 percent cap removed about 426,000 of Northwind's invoices. Lending against one customer that pays a month late isn't safe.
+> 🟢 The 25 (twenty-five) percent cap removed about 426 (four hundred twenty-six) thousand of Northwind's invoices. Lending against one customer that pays a month late isn't safe.
 
 > 🖱️ I'm pointing at base and commitment, in the middle of the output under cell five.
 
-> 🟢 There's 450,000 left under the commitment, but the borrowing base only supports 379,919.
+> 🟢 There's 450 (four hundred fifty) thousand left under the commitment, but the borrowing base only supports 380 (three hundred eighty) thousand.
 
-> 🖱️ I'm pointing at leverage: 235,000, the smallest.
+> 🖱️ I'm pointing at leverage: 235 (two hundred thirty-five) thousand, the smallest.
 
-> 🟢 3.5 times 1.07 million of EBITDA is 3.745 million of debt allowed. The three loans already add up to 3.51 million.
-
-> 🟢 The covenant is the binding limit. Of the 1.2 million revolver, I can really draw 235,000. Drawing more would break the 3.5 times leverage.
+> 🟢 The covenant is the binding limit. Of the 1.2 (one point two) million revolver, I can really draw 235 (two hundred thirty-five) thousand. Drawing more would break the 3.5 (three point five) times leverage.
 
 **WHY:** la capacidad es el mínimo de tres límites. Se demuestra que el compromiso nominal no está disponible: manda el covenant de apalancamiento.
 
@@ -550,7 +542,7 @@ bba
 
 ### Bloque 6. Phase 4–5: estrategias y estrés
 
-**TIME:** 18:45–24:09 (5:24)
+**TIME:** 18:53–24:06 (5:13)
 
 **WHAT I DO:** + Code → tipear 7 tramos → Run → señalar el gráfico.
 
@@ -560,7 +552,7 @@ bba
 
 > 🖱️ I'm clicking plus Code at the top left, to add cell six below cell five.
 
-> 🗣️⌨️ First line of cell six: the first lever, defer the discretionary spending, marketing and capex, beyond the 13 weeks.
+> 🗣️⌨️ First line of cell six: the first lever, defer the discretionary spending, marketing and capex, beyond the 13 (thirteen) weeks.
 
 ```python
 p = f[f.discretionary.ne("Y")]
@@ -581,7 +573,7 @@ N = lambda x: x.assign(week=x.week + 2 * x.customer.eq(d.idxmax()))
 ```
 *(67 caracteres · ~30 s)*
 
-> 🗣️⌨️ Next line of cell six: the draw I need so the stressed plan stays above 500,000, rounded up to 25,000.
+> 🗣️⌨️ Next line of cell six: the draw I need so the stressed plan stays above 500 (five hundred) thousand, rounded up to 25 (twenty-five) thousand.
 
 ```python
 x = np.ceil((500000 - c(N(q)).min()) / 25000) * 25000
@@ -604,24 +596,22 @@ t = pd.DataFrame({"base": c(f), "credit": c(f) + cap, "credit_stress": c(N(f)) +
 ```
 *(61 caracteres · ~27 s)*
 
-> 🗣️⌨️ Last line of cell six: a chart of all six, with the 500,000 minimum as a line.
+> 🗣️⌨️ Last line of cell six: a chart of all six, with the 500 (five hundred) thousand minimum as a line.
 
 ```python
 t.plot().axhline(500000);
 ```
 *(25 caracteres · ~11 s)*
 
-> 🟢 Before running it: the levers are deferring 179,000 of discretionary spend, which is marketing, warehouse racking and a forklift, and moving non-critical bills by three or four weeks, which is 21 or 28 days.
-
 > 🖱️ I'm clicking the Run button on the left of cell six.
 
-> 🖱️ I'm pointing at the horizontal line in the chart under cell six: the 500,000 minimum.
+> 🖱️ I'm pointing at the horizontal line in the chart under cell six: the 500 (five hundred) thousand minimum.
 
 > 🖱️ I'm pointing at the lowest line, base: below the minimum most of the quarter.
 
 > 🖱️ I'm pointing at the credit lines: credit only stays above, but its stressed version drops well below.
 
-> 🟢 Drawing all 235,000 uses the whole capacity and still fails if Northwind slips. That's why I reject credit only.
+> 🟢 Drawing all 235 (two hundred thirty-five) thousand uses the whole capacity and still fails if Northwind slips. That's why I reject credit only.
 
 > 🖱️ I'm pointing at the levers line: it gets close, but dips under the minimum. Cutting costs alone isn't enough.
 
@@ -646,7 +636,7 @@ t.plot().axhline(500000);
 
 ### Bloque 7. Phase 5: validación, exportación y archivos
 
-**TIME:** 24:09–27:31 (3:22)
+**TIME:** 24:06–27:39 (3:33)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el reporte y los mínimos → Files: refrescar, señalar los cinco entregables y abrir el forecast → cerrar el visor.
 
@@ -674,21 +664,19 @@ t.min()
 
 > 🖱️ I'm clicking the Run button on the left of cell seven.
 
-> 🖱️ I'm pointing at draw under cell seven: 225,000. That's below the 235,000 capacity.
+> 🖱️ I'm pointing at draw under cell seven: 225 (two hundred twenty-five) thousand. That's below the 235 (two hundred thirty-five) thousand capacity.
 
-> 🖱️ I'm pointing at leverage: 3.49 times, just under the 3.5 covenant.
+> 🖱️ I'm pointing at leverage: 3.49 (three point four nine) times, just under the 3.5 (three point five) covenant.
 
 > 🟢 The plan is legal, but tight: there's almost no covenant room left. That's the main remaining risk.
 
-> 🖱️ I'm pointing at the minimum for base and levers: 301,347 and 485,707, both below 500,000. Rejected.
+> 🖱️ I'm pointing at the minimum for base and levers: 301 (three hundred one) thousand and 486 (four hundred eighty-six) thousand, both below 500 (five hundred) thousand. Rejected.
 
-> 🖱️ I'm pointing at credit and credit_stress: 536,347, but 348,449 under stress. Rejected.
+> 🖱️ I'm pointing at credit and credit_stress: 536 (five hundred thirty-six) thousand, but 348 (three hundred forty-eight) thousand under stress. Rejected.
 
-> 🖱️ I'm pointing at combined and stress: 710,707 and 518,909. Both above the minimum.
+> 🖱️ I'm pointing at combined and stress: 711 (seven hundred eleven) thousand and 519 (five hundred nineteen) thousand. Both above the minimum.
 
-> 🟢 So my recommendation is the combined plan: defer 179,000 of discretionary spend, stretch only the non-critical suppliers, and draw 225,000 on the revolver. It holds even if Northwind pays two weeks later.
-
-> 🟢 And as cash recovers, the draw should be repaid first, to rebuild covenant room.
+> 🟢 So my recommendation is the combined plan: defer 179 (one hundred seventy-nine) thousand of discretionary spend, stretch only the non-critical suppliers, and draw 225 (two hundred twenty-five) thousand on the revolver. It holds even if Northwind pays two weeks later.
 
 > 🖱️ I'm clicking the refresh button at the top of the Files panel, to see the new files.
 
@@ -696,7 +684,7 @@ t.min()
 
 > 🖱️ I'm double-clicking 13_week_liquidity_forecast.csv in the Files panel, to open it on the right and check it saved correctly.
 
-> 🖱️ I'm pointing at the columns in the viewer: week, outflow, inflow and close, the same 13 rows as cell four.
+> 🖱️ I'm pointing at the columns in the viewer: week, outflow, inflow and close, the same 13 (thirteen) rows as cell four.
 
 > 🖱️ I'm closing the file viewer with the X on its tab, to go back to the notebook.
 
@@ -721,7 +709,7 @@ t.min()
 
 ### Bloque 8. Epilogue
 
-**TIME:** 27:31–28:57 (1:26)
+**TIME:** 27:39–29:06 (1:27)
 
 **WHAT I DO:** Cmd + S → scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
@@ -735,11 +723,11 @@ t.min()
 
 > 🟢 My approach: rebuild free cash from the bank, replace management's on-time assumption with real customer delays, then size the financing against the real limits, not the headline commitment.
 
-> 🟢 The key decisions: pending checks reduce cash, restricted cash doesn't count, Northwind is capped at 25 percent, and critical suppliers are never stretched.
+> 🟢 The key decisions: pending checks reduce cash, restricted cash doesn't count, Northwind is capped at 25 (twenty-five) percent, and critical suppliers are never stretched.
 
 > 🟢 The hardest part was Northwind: almost half of receivables, paying a month late. The draw is sized so the plan survives if it slips even more.
 
-> 🟢 Remaining risks: leverage ends at 3.49 times, so there's no room for another draw, and stretching suppliers costs some goodwill. With more time, I'd negotiate covenant headroom with the bank. Thanks for watching!
+> 🟢 Remaining risks: leverage ends at 3.49 (three point four nine) times, so there's no room for another draw, and stretching suppliers costs some goodwill. With more time, I'd negotiate covenant headroom with the bank. Thanks for watching!
 
 **WHY:** es el resumen ejecutivo: enfoque, decisiones, desafío, recomendación y riesgos que quedan.
 
