@@ -1,0 +1,10 @@
+Adjustment_ID,Period,Description,Account_Code,Amount,Adjustment_Category,Management_Rationale,Supporting_Document_Reference,Recurrence_Indicator
+ADJ-001,2024,Legal settlement — one-time litigation cost,6030,185000,Non-recurring expense,Settled a supplier contract dispute in Q2 2024; not expected to recur.,LEGAL-SET-2024,One-time
+ADJ-002,2024,Restructuring charges — workforce right-sizing Nov 2024,6100,95000,Non-recurring expense,One-time headcount reduction to align with revised operating model.,RESTR-2024-11,One-time
+ADJ-003,2025,Restructuring charges — operational consolidation Feb 2025,6100,78000,Non-recurring expense,One-time cost to consolidate two distribution facilities.,RESTR-2025-02,One-time
+ADJ-004,2025,Owner compensation normalization,6010,120000,Normalization,CEO compensation above market rate; normalized to $280k benchmark.,HR-COMP-2025,Recurring
+ADJ-005,2025,Strategic consulting — ERP implementation advisory,6030,95000,Non-recurring expense,One-time cost for external ERP advisory engagement (project NOVA).,CONS-ERP-2025,One-time
+ADJ-006,2025,Depreciation normalization — accelerated assets,6040,42000,Normalization,Accelerated depreciation on legacy tooling; normalized to straight-line.,FA-DEP-2025,Recurring
+ADJ-007,2025,Above-market rent normalization,6020,36000,Normalization,Facility rent $36k above comparable market lease; normalized to market.,LEASE-MKT-2025,Recurring
+ADJ-008,2024,Duplicate maintenance charge reversal — PO-2024-0892,5010,42300,Accounting correction,TechServ maintenance invoice PO-2024-0892 posted twice in Oct 2024.,PO-2024-0892,One-time
+ADJ-009,2025,FX revaluation loss — non-operational,6030,18500,Non-recurring expense,Mark-to-market FX loss on USD/EUR exposure; non-cash and non-recurring.,FX-REVAL-2025,One-time

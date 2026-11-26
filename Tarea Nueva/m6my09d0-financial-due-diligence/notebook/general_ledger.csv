@@ -1,0 +1,623 @@
+Transaction_ID,Transaction_Date,Posting_Date,Account_Code,Account_Name,Debit,Credit,Description,Journal_Reference,Counterparty,Document_Reference
+TXN10017,2024-01-02,2024-01-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5009,Landlord Corp,RENT-2024-01
+TXN10018,2024-01-02,2024-01-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5009,Landlord Corp,RENT-2024-01
+TXN10001,2024-01-06,2024-01-07,1200,Accounts Receivable,566349.0,0.0,Customer invoice — GridPoint Systems,JNL5001,GridPoint Systems,INV2024-01-001
+TXN10002,2024-01-06,2024-01-07,4010,Revenue,0.0,566349.0,Customer invoice — GridPoint Systems,JNL5001,GridPoint Systems,INV2024-01-001
+TXN10011,2024-01-05,2024-01-07,5010,Cost of Goods Sold,79108.0,0.0,Inventory purchase,JNL5006,RawMat Supplies Inc,PO-2024-2002
+TXN10012,2024-01-05,2024-01-07,2010,Accounts Payable,0.0,79108.0,Inventory purchase,JNL5006,RawMat Supplies Inc,PO-2024-2002
+TXN10003,2024-01-11,2024-01-12,1200,Accounts Receivable,154228.0,0.0,Customer invoice — Cascade Engineering,JNL5002,Cascade Engineering,INV2024-01-002
+TXN10004,2024-01-11,2024-01-12,4010,Revenue,0.0,154228.0,Customer invoice — Cascade Engineering,JNL5002,Cascade Engineering,INV2024-01-002
+TXN10013,2024-01-15,2024-01-16,5010,Cost of Goods Sold,375902.0,0.0,Equipment maintenance,JNL5007,TechServ Maintenance,PO-2024-2003
+TXN10014,2024-01-15,2024-01-16,2010,Accounts Payable,0.0,375902.0,Equipment maintenance,JNL5007,TechServ Maintenance,PO-2024-2003
+TXN10009,2024-01-19,2024-01-19,5010,Cost of Goods Sold,333673.0,0.0,Equipment maintenance,JNL5005,TechServ Maintenance,PO-2024-2001
+TXN10010,2024-01-19,2024-01-19,2010,Accounts Payable,0.0,333673.0,Equipment maintenance,JNL5005,TechServ Maintenance,PO-2024-2001
+TXN10007,2024-01-19,2024-01-21,1200,Accounts Receivable,87926.0,0.0,Customer invoice — Cascade Engineering,JNL5004,Cascade Engineering,INV2024-01-004
+TXN10008,2024-01-19,2024-01-21,4010,Revenue,0.0,87926.0,Customer invoice — Cascade Engineering,JNL5004,Cascade Engineering,INV2024-01-004
+TXN10005,2024-01-22,2024-01-22,1200,Accounts Receivable,497745.0,0.0,Customer invoice — Cascade Engineering,JNL5003,Cascade Engineering,INV2024-01-003
+TXN10006,2024-01-22,2024-01-22,4010,Revenue,0.0,497745.0,Customer invoice — Cascade Engineering,JNL5003,Cascade Engineering,INV2024-01-003
+TXN10015,2024-01-30,2024-01-30,6010,Payroll Expenses,209026.0,0.0,Monthly payroll — 2024-01,JNL5008,Payroll,PAY-2024-01
+TXN10016,2024-01-30,2024-01-30,1010,Cash,0.0,209026.0,Monthly payroll — 2024-01,JNL5008,Payroll,PAY-2024-01
+TXN10019,2024-01-31,2024-01-31,6030,SGA Expenses,90062.0,0.0,Selling and administrative expenses,JNL5010,Various,SGA-2024-01
+TXN10020,2024-01-31,2024-01-31,2010,Accounts Payable,0.0,90062.0,Selling and administrative expenses,JNL5010,Various,SGA-2024-01
+TXN10021,2024-01-31,2024-01-31,6040,Depreciation & Amortization,50868.0,0.0,Monthly depreciation,JNL5011,Internal,DEP-2024-01
+TXN10022,2024-01-31,2024-01-31,1510,Accumulated Depreciation,0.0,50868.0,Monthly depreciation,JNL5011,Internal,DEP-2024-01
+TXN10043,2024-02-02,2024-02-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5022,Landlord Corp,RENT-2024-02
+TXN10044,2024-02-02,2024-02-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5022,Landlord Corp,RENT-2024-02
+TXN10023,2024-02-08,2024-02-10,1200,Accounts Receivable,69709.0,0.0,Customer invoice — JetStream Precision,JNL5012,JetStream Precision,INV2024-02-001
+TXN10024,2024-02-08,2024-02-10,4010,Revenue,0.0,69709.0,Customer invoice — JetStream Precision,JNL5012,JetStream Precision,INV2024-02-001
+TXN10033,2024-02-09,2024-02-10,1200,Accounts Receivable,222856.0,0.0,Customer invoice — Cascade Engineering,JNL5017,Cascade Engineering,INV2024-02-006
+TXN10034,2024-02-09,2024-02-10,4010,Revenue,0.0,222856.0,Customer invoice — Cascade Engineering,JNL5017,Cascade Engineering,INV2024-02-006
+TXN10027,2024-02-13,2024-02-13,1200,Accounts Receivable,81879.0,0.0,Customer invoice — JetStream Precision,JNL5014,JetStream Precision,INV2024-02-003
+TXN10028,2024-02-13,2024-02-13,4010,Revenue,0.0,81879.0,Customer invoice — JetStream Precision,JNL5014,JetStream Precision,INV2024-02-003
+TXN10029,2024-02-11,2024-02-13,1200,Accounts Receivable,461662.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5015,Apex Manufacturing Corp,INV2024-02-004
+TXN10030,2024-02-11,2024-02-13,4010,Revenue,0.0,461662.0,Customer invoice — Apex Manufacturing Corp,JNL5015,Apex Manufacturing Corp,INV2024-02-004
+TXN10025,2024-02-16,2024-02-17,1200,Accounts Receivable,281418.0,0.0,Customer invoice — Evergreen Components,JNL5013,Evergreen Components,INV2024-02-002
+TXN10026,2024-02-16,2024-02-17,4010,Revenue,0.0,281418.0,Customer invoice — Evergreen Components,JNL5013,Evergreen Components,INV2024-02-002
+TXN10039,2024-02-18,2024-02-20,5010,Cost of Goods Sold,133598.0,0.0,Inventory purchase,JNL5020,RawMat Supplies Inc,PO-2024-2006
+TXN10040,2024-02-18,2024-02-20,2010,Accounts Payable,0.0,133598.0,Inventory purchase,JNL5020,RawMat Supplies Inc,PO-2024-2006
+TXN10037,2024-02-23,2024-02-23,5010,Cost of Goods Sold,72798.0,0.0,Inventory purchase,JNL5019,BuildCo Components,PO-2024-2005
+TXN10038,2024-02-23,2024-02-23,2010,Accounts Payable,0.0,72798.0,Inventory purchase,JNL5019,BuildCo Components,PO-2024-2005
+TXN10035,2024-02-22,2024-02-24,5010,Cost of Goods Sold,556373.0,0.0,Inventory purchase,JNL5018,RawMat Supplies Inc,PO-2024-2004
+TXN10036,2024-02-22,2024-02-24,2010,Accounts Payable,0.0,556373.0,Inventory purchase,JNL5018,RawMat Supplies Inc,PO-2024-2004
+TXN10031,2024-02-26,2024-02-27,1200,Accounts Receivable,132461.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5016,Apex Manufacturing Corp,INV2024-02-005
+TXN10032,2024-02-26,2024-02-27,4010,Revenue,0.0,132461.0,Customer invoice — Apex Manufacturing Corp,JNL5016,Apex Manufacturing Corp,INV2024-02-005
+TXN10041,2024-02-28,2024-02-28,6010,Payroll Expenses,198754.0,0.0,Monthly payroll — 2024-02,JNL5021,Payroll,PAY-2024-02
+TXN10042,2024-02-28,2024-02-28,1010,Cash,0.0,198754.0,Monthly payroll — 2024-02,JNL5021,Payroll,PAY-2024-02
+TXN10045,2024-02-29,2024-02-29,6030,SGA Expenses,71952.0,0.0,Selling and administrative expenses,JNL5023,Various,SGA-2024-02
+TXN10046,2024-02-29,2024-02-29,2010,Accounts Payable,0.0,71952.0,Selling and administrative expenses,JNL5023,Various,SGA-2024-02
+TXN10047,2024-02-29,2024-02-29,6040,Depreciation & Amortization,53129.0,0.0,Monthly depreciation,JNL5024,Internal,DEP-2024-02
+TXN10048,2024-02-29,2024-02-29,1510,Accumulated Depreciation,0.0,53129.0,Monthly depreciation,JNL5024,Internal,DEP-2024-02
+TXN10073,2024-03-02,2024-03-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5037,Landlord Corp,RENT-2024-03
+TXN10074,2024-03-02,2024-03-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5037,Landlord Corp,RENT-2024-03
+TXN10049,2024-03-07,2024-03-09,1200,Accounts Receivable,92571.0,0.0,Customer invoice — Delta Industrial,JNL5025,Delta Industrial,INV2024-03-001
+TXN10050,2024-03-07,2024-03-09,4010,Revenue,0.0,92571.0,Customer invoice — Delta Industrial,JNL5025,Delta Industrial,INV2024-03-001
+TXN10069,2024-03-09,2024-03-09,5010,Cost of Goods Sold,163783.0,0.0,Equipment maintenance,JNL5035,TechServ Maintenance,PO-2024-2011
+TXN10070,2024-03-09,2024-03-09,2010,Accounts Payable,0.0,163783.0,Equipment maintenance,JNL5035,TechServ Maintenance,PO-2024-2011
+TXN10061,2024-03-10,2024-03-10,5010,Cost of Goods Sold,153009.0,0.0,Equipment maintenance,JNL5031,TechServ Maintenance,PO-2024-2007
+TXN10062,2024-03-10,2024-03-10,2010,Accounts Payable,0.0,153009.0,Equipment maintenance,JNL5031,TechServ Maintenance,PO-2024-2007
+TXN10051,2024-03-10,2024-03-11,1200,Accounts Receivable,142523.0,0.0,Customer invoice — HorizonTech Ltd,JNL5026,HorizonTech Ltd,INV2024-03-002
+TXN10052,2024-03-10,2024-03-11,4010,Revenue,0.0,142523.0,Customer invoice — HorizonTech Ltd,JNL5026,HorizonTech Ltd,INV2024-03-002
+TXN10063,2024-03-11,2024-03-12,5010,Cost of Goods Sold,227859.0,0.0,Inventory purchase,JNL5032,BuildCo Components,PO-2024-2008
+TXN10064,2024-03-11,2024-03-12,2010,Accounts Payable,0.0,227859.0,Inventory purchase,JNL5032,BuildCo Components,PO-2024-2008
+TXN10065,2024-03-12,2024-03-14,5010,Cost of Goods Sold,152857.0,0.0,Equipment maintenance,JNL5033,TechServ Maintenance,PO-2024-2009
+TXN10066,2024-03-12,2024-03-14,2010,Accounts Payable,0.0,152857.0,Equipment maintenance,JNL5033,TechServ Maintenance,PO-2024-2009
+TXN10059,2024-03-14,2024-03-16,1200,Accounts Receivable,245939.0,0.0,Customer invoice — Delta Industrial,JNL5030,Delta Industrial,INV2024-03-006
+TXN10060,2024-03-14,2024-03-16,4010,Revenue,0.0,245939.0,Customer invoice — Delta Industrial,JNL5030,Delta Industrial,INV2024-03-006
+TXN10057,2024-03-17,2024-03-17,1200,Accounts Receivable,115186.0,0.0,Customer invoice — Cascade Engineering,JNL5029,Cascade Engineering,INV2024-03-005
+TXN10058,2024-03-17,2024-03-17,4010,Revenue,0.0,115186.0,Customer invoice — Cascade Engineering,JNL5029,Cascade Engineering,INV2024-03-005
+TXN10067,2024-03-23,2024-03-25,5010,Cost of Goods Sold,190870.0,0.0,Inventory purchase,JNL5034,RawMat Supplies Inc,PO-2024-2010
+TXN10068,2024-03-23,2024-03-25,2010,Accounts Payable,0.0,190870.0,Inventory purchase,JNL5034,RawMat Supplies Inc,PO-2024-2010
+TXN10053,2024-03-29,2024-03-29,1200,Accounts Receivable,241048.0,0.0,Customer invoice — GridPoint Systems,JNL5027,GridPoint Systems,INV2024-03-003
+TXN10054,2024-03-29,2024-03-29,4010,Revenue,0.0,241048.0,Customer invoice — GridPoint Systems,JNL5027,GridPoint Systems,INV2024-03-003
+TXN10055,2024-03-30,2024-03-30,1200,Accounts Receivable,610699.0,0.0,Customer invoice — Keystone Assembly,JNL5028,Keystone Assembly,INV2024-03-004
+TXN10056,2024-03-30,2024-03-30,4010,Revenue,0.0,610699.0,Customer invoice — Keystone Assembly,JNL5028,Keystone Assembly,INV2024-03-004
+TXN10071,2024-03-30,2024-03-30,6010,Payroll Expenses,227351.0,0.0,Monthly payroll — 2024-03,JNL5036,Payroll,PAY-2024-03
+TXN10072,2024-03-30,2024-03-30,1010,Cash,0.0,227351.0,Monthly payroll — 2024-03,JNL5036,Payroll,PAY-2024-03
+TXN10075,2024-03-31,2024-03-31,6030,SGA Expenses,103465.0,0.0,Selling and administrative expenses,JNL5038,Various,SGA-2024-03
+TXN10076,2024-03-31,2024-03-31,2010,Accounts Payable,0.0,103465.0,Selling and administrative expenses,JNL5038,Various,SGA-2024-03
+TXN10077,2024-03-31,2024-03-31,6040,Depreciation & Amortization,61443.0,0.0,Monthly depreciation,JNL5039,Internal,DEP-2024-03
+TXN10078,2024-03-31,2024-03-31,1510,Accumulated Depreciation,0.0,61443.0,Monthly depreciation,JNL5039,Internal,DEP-2024-03
+TXN10099,2024-04-02,2024-04-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5050,Landlord Corp,RENT-2024-04
+TXN10100,2024-04-02,2024-04-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5050,Landlord Corp,RENT-2024-04
+TXN10089,2024-04-06,2024-04-06,1200,Accounts Receivable,127586.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5045,Apex Manufacturing Corp,INV2024-04-006
+TXN10090,2024-04-06,2024-04-06,4010,Revenue,0.0,127586.0,Customer invoice — Apex Manufacturing Corp,JNL5045,Apex Manufacturing Corp,INV2024-04-006
+TXN10087,2024-04-05,2024-04-07,1200,Accounts Receivable,53642.0,0.0,Customer invoice — FrontLine Fabricators,JNL5044,FrontLine Fabricators,INV2024-04-005
+TXN10088,2024-04-05,2024-04-07,4010,Revenue,0.0,53642.0,Customer invoice — FrontLine Fabricators,JNL5044,FrontLine Fabricators,INV2024-04-005
+TXN10081,2024-04-09,2024-04-09,1200,Accounts Receivable,65351.0,0.0,Customer invoice — Cascade Engineering,JNL5041,Cascade Engineering,INV2024-04-002
+TXN10082,2024-04-09,2024-04-09,4010,Revenue,0.0,65351.0,Customer invoice — Cascade Engineering,JNL5041,Cascade Engineering,INV2024-04-002
+TXN10085,2024-04-15,2024-04-16,1200,Accounts Receivable,266700.0,0.0,Customer invoice — Keystone Assembly,JNL5043,Keystone Assembly,INV2024-04-004
+TXN10086,2024-04-15,2024-04-16,4010,Revenue,0.0,266700.0,Customer invoice — Keystone Assembly,JNL5043,Keystone Assembly,INV2024-04-004
+TXN10093,2024-04-18,2024-04-19,5010,Cost of Goods Sold,33648.0,0.0,Inventory purchase,JNL5047,BuildCo Components,PO-2024-2013
+TXN10094,2024-04-18,2024-04-19,2010,Accounts Payable,0.0,33648.0,Inventory purchase,JNL5047,BuildCo Components,PO-2024-2013
+TXN10083,2024-04-24,2024-04-24,1200,Accounts Receivable,488822.0,0.0,Customer invoice — Keystone Assembly,JNL5042,Keystone Assembly,INV2024-04-003
+TXN10084,2024-04-24,2024-04-24,4010,Revenue,0.0,488822.0,Customer invoice — Keystone Assembly,JNL5042,Keystone Assembly,INV2024-04-003
+TXN10079,2024-04-27,2024-04-27,1200,Accounts Receivable,486617.0,0.0,Customer invoice — IronBridge Works,JNL5040,IronBridge Works,INV2024-04-001
+TXN10080,2024-04-27,2024-04-27,4010,Revenue,0.0,486617.0,Customer invoice — IronBridge Works,JNL5040,IronBridge Works,INV2024-04-001
+TXN10095,2024-04-26,2024-04-28,5010,Cost of Goods Sold,216000.0,0.0,Inventory purchase,JNL5048,RawMat Supplies Inc,PO-2024-2014
+TXN10096,2024-04-26,2024-04-28,2010,Accounts Payable,0.0,216000.0,Inventory purchase,JNL5048,RawMat Supplies Inc,PO-2024-2014
+TXN10097,2024-04-29,2024-04-29,6010,Payroll Expenses,221660.0,0.0,Monthly payroll — 2024-04,JNL5049,Payroll,PAY-2024-04
+TXN10098,2024-04-29,2024-04-29,1010,Cash,0.0,221660.0,Monthly payroll — 2024-04,JNL5049,Payroll,PAY-2024-04
+TXN10091,2024-04-28,2024-04-30,5010,Cost of Goods Sold,652652.0,0.0,Inventory purchase,JNL5046,RawMat Supplies Inc,PO-2024-2012
+TXN10092,2024-04-28,2024-04-30,2010,Accounts Payable,0.0,652652.0,Inventory purchase,JNL5046,RawMat Supplies Inc,PO-2024-2012
+TXN10101,2024-04-30,2024-04-30,6030,SGA Expenses,106522.0,0.0,Selling and administrative expenses,JNL5051,Various,SGA-2024-04
+TXN10102,2024-04-30,2024-04-30,2010,Accounts Payable,0.0,106522.0,Selling and administrative expenses,JNL5051,Various,SGA-2024-04
+TXN10103,2024-04-30,2024-04-30,6040,Depreciation & Amortization,65975.0,0.0,Monthly depreciation,JNL5052,Internal,DEP-2024-04
+TXN10104,2024-04-30,2024-04-30,1510,Accumulated Depreciation,0.0,65975.0,Monthly depreciation,JNL5052,Internal,DEP-2024-04
+TXN10121,2024-05-02,2024-05-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5061,Landlord Corp,RENT-2024-05
+TXN10122,2024-05-02,2024-05-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5061,Landlord Corp,RENT-2024-05
+TXN10105,2024-05-03,2024-05-04,1200,Accounts Receivable,1050864.0,0.0,Customer invoice — IronBridge Works,JNL5053,IronBridge Works,INV2024-05-001
+TXN10106,2024-05-03,2024-05-04,4010,Revenue,0.0,1050864.0,Customer invoice — IronBridge Works,JNL5053,IronBridge Works,INV2024-05-001
+TXN10107,2024-05-10,2024-05-10,1200,Accounts Receivable,217539.0,0.0,Customer invoice — Keystone Assembly,JNL5054,Keystone Assembly,INV2024-05-002
+TXN10108,2024-05-10,2024-05-10,4010,Revenue,0.0,217539.0,Customer invoice — Keystone Assembly,JNL5054,Keystone Assembly,INV2024-05-002
+TXN10117,2024-05-13,2024-05-13,5010,Cost of Goods Sold,500861.0,0.0,Inventory purchase,JNL5059,BuildCo Components,PO-2024-2017
+TXN10118,2024-05-13,2024-05-13,2010,Accounts Payable,0.0,500861.0,Inventory purchase,JNL5059,BuildCo Components,PO-2024-2017
+TXN10109,2024-05-16,2024-05-17,1200,Accounts Receivable,202134.0,0.0,Customer invoice — FrontLine Fabricators,JNL5055,FrontLine Fabricators,INV2024-05-003
+TXN10110,2024-05-16,2024-05-17,4010,Revenue,0.0,202134.0,Customer invoice — FrontLine Fabricators,JNL5055,FrontLine Fabricators,INV2024-05-003
+TXN10113,2024-05-20,2024-05-22,5010,Cost of Goods Sold,465520.0,0.0,Inventory purchase,JNL5057,RawMat Supplies Inc,PO-2024-2015
+TXN10114,2024-05-20,2024-05-22,2010,Accounts Payable,0.0,465520.0,Inventory purchase,JNL5057,RawMat Supplies Inc,PO-2024-2015
+TXN10115,2024-05-23,2024-05-23,5010,Cost of Goods Sold,11461.0,0.0,Inventory purchase,JNL5058,RawMat Supplies Inc,PO-2024-2016
+TXN10116,2024-05-23,2024-05-23,2010,Accounts Payable,0.0,11461.0,Inventory purchase,JNL5058,RawMat Supplies Inc,PO-2024-2016
+TXN10119,2024-05-30,2024-05-30,6010,Payroll Expenses,262434.0,0.0,Monthly payroll — 2024-05,JNL5060,Payroll,PAY-2024-05
+TXN10120,2024-05-30,2024-05-30,1010,Cash,0.0,262434.0,Monthly payroll — 2024-05,JNL5060,Payroll,PAY-2024-05
+TXN10111,2024-05-30,2024-05-31,1200,Accounts Receivable,153541.0,0.0,Customer invoice — Evergreen Components,JNL5056,Evergreen Components,INV2024-05-004
+TXN10112,2024-05-30,2024-05-31,4010,Revenue,0.0,153541.0,Customer invoice — Evergreen Components,JNL5056,Evergreen Components,INV2024-05-004
+TXN10123,2024-05-31,2024-05-31,6030,SGA Expenses,118334.0,0.0,Selling and administrative expenses,JNL5062,Various,SGA-2024-05
+TXN10124,2024-05-31,2024-05-31,2010,Accounts Payable,0.0,118334.0,Selling and administrative expenses,JNL5062,Various,SGA-2024-05
+TXN10125,2024-05-31,2024-05-31,6040,Depreciation & Amortization,74357.0,0.0,Monthly depreciation,JNL5063,Internal,DEP-2024-05
+TXN10126,2024-05-31,2024-05-31,1510,Accumulated Depreciation,0.0,74357.0,Monthly depreciation,JNL5063,Internal,DEP-2024-05
+TXN10147,2024-06-02,2024-06-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5074,Landlord Corp,RENT-2024-06
+TXN10148,2024-06-02,2024-06-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5074,Landlord Corp,RENT-2024-06
+TXN10127,2024-06-04,2024-06-04,1200,Accounts Receivable,58067.0,0.0,Customer invoice — HorizonTech Ltd,JNL5064,HorizonTech Ltd,INV2024-06-001
+TXN10128,2024-06-04,2024-06-04,4010,Revenue,0.0,58067.0,Customer invoice — HorizonTech Ltd,JNL5064,HorizonTech Ltd,INV2024-06-001
+TXN10131,2024-06-07,2024-06-08,1200,Accounts Receivable,528962.0,0.0,Customer invoice — FrontLine Fabricators,JNL5066,FrontLine Fabricators,INV2024-06-003
+TXN10132,2024-06-07,2024-06-08,4010,Revenue,0.0,528962.0,Customer invoice — FrontLine Fabricators,JNL5066,FrontLine Fabricators,INV2024-06-003
+TXN10141,2024-06-08,2024-06-08,5010,Cost of Goods Sold,374046.0,0.0,Equipment maintenance,JNL5071,TechServ Maintenance,PO-2024-2019
+TXN10142,2024-06-08,2024-06-08,2010,Accounts Payable,0.0,374046.0,Equipment maintenance,JNL5071,TechServ Maintenance,PO-2024-2019
+TXN10129,2024-06-08,2024-06-10,1200,Accounts Receivable,255352.0,0.0,Customer invoice — JetStream Precision,JNL5065,JetStream Precision,INV2024-06-002
+TXN10130,2024-06-08,2024-06-10,4010,Revenue,0.0,255352.0,Customer invoice — JetStream Precision,JNL5065,JetStream Precision,INV2024-06-002
+TXN10137,2024-06-09,2024-06-10,1200,Accounts Receivable,10759.0,0.0,Customer invoice — HorizonTech Ltd,JNL5069,HorizonTech Ltd,INV2024-06-006
+TXN10138,2024-06-09,2024-06-10,4010,Revenue,0.0,10759.0,Customer invoice — HorizonTech Ltd,JNL5069,HorizonTech Ltd,INV2024-06-006
+TXN10139,2024-06-09,2024-06-10,5010,Cost of Goods Sold,66099.0,0.0,Equipment maintenance,JNL5070,TechServ Maintenance,PO-2024-2018
+TXN10140,2024-06-09,2024-06-10,2010,Accounts Payable,0.0,66099.0,Equipment maintenance,JNL5070,TechServ Maintenance,PO-2024-2018
+TXN10133,2024-06-23,2024-06-24,1200,Accounts Receivable,71054.0,0.0,Customer invoice — GridPoint Systems,JNL5067,GridPoint Systems,INV2024-06-004
+TXN10134,2024-06-23,2024-06-24,4010,Revenue,0.0,71054.0,Customer invoice — GridPoint Systems,JNL5067,GridPoint Systems,INV2024-06-004
+TXN10135,2024-06-27,2024-06-29,1200,Accounts Receivable,766574.0,0.0,Customer invoice — Keystone Assembly,JNL5068,Keystone Assembly,INV2024-06-005
+TXN10136,2024-06-27,2024-06-29,4010,Revenue,0.0,766574.0,Customer invoice — Keystone Assembly,JNL5068,Keystone Assembly,INV2024-06-005
+TXN10145,2024-06-29,2024-06-29,6010,Payroll Expenses,251271.0,0.0,Monthly payroll — 2024-06,JNL5073,Payroll,PAY-2024-06
+TXN10146,2024-06-29,2024-06-29,1010,Cash,0.0,251271.0,Monthly payroll — 2024-06,JNL5073,Payroll,PAY-2024-06
+TXN10149,2024-06-30,2024-06-30,6030,SGA Expenses,98210.0,0.0,Selling and administrative expenses,JNL5075,Various,SGA-2024-06
+TXN10150,2024-06-30,2024-06-30,2010,Accounts Payable,0.0,98210.0,Selling and administrative expenses,JNL5075,Various,SGA-2024-06
+TXN10151,2024-06-30,2024-06-30,6040,Depreciation & Amortization,75798.0,0.0,Monthly depreciation,JNL5076,Internal,DEP-2024-06
+TXN10152,2024-06-30,2024-06-30,1510,Accumulated Depreciation,0.0,75798.0,Monthly depreciation,JNL5076,Internal,DEP-2024-06
+TXN10143,2024-06-30,2024-07-02,5010,Cost of Goods Sold,581644.0,0.0,Inventory purchase,JNL5072,RawMat Supplies Inc,PO-2024-2020
+TXN10144,2024-06-30,2024-07-02,2010,Accounts Payable,0.0,581644.0,Inventory purchase,JNL5072,RawMat Supplies Inc,PO-2024-2020
+TXN10163,2024-07-02,2024-07-02,1200,Accounts Receivable,450968.0,0.0,Customer invoice — IronBridge Works,JNL5082,IronBridge Works,INV2024-07-006
+TXN10164,2024-07-02,2024-07-02,4010,Revenue,0.0,450968.0,Customer invoice — IronBridge Works,JNL5082,IronBridge Works,INV2024-07-006
+TXN10173,2024-07-02,2024-07-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5087,Landlord Corp,RENT-2024-07
+TXN10174,2024-07-02,2024-07-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5087,Landlord Corp,RENT-2024-07
+TXN10157,2024-07-05,2024-07-05,1200,Accounts Receivable,333608.0,0.0,Customer invoice — Cascade Engineering,JNL5079,Cascade Engineering,INV2024-07-003
+TXN10158,2024-07-05,2024-07-05,4010,Revenue,0.0,333608.0,Customer invoice — Cascade Engineering,JNL5079,Cascade Engineering,INV2024-07-003
+TXN10159,2024-07-05,2024-07-06,1200,Accounts Receivable,65314.0,0.0,Customer invoice — GridPoint Systems,JNL5080,GridPoint Systems,INV2024-07-004
+TXN10160,2024-07-05,2024-07-06,4010,Revenue,0.0,65314.0,Customer invoice — GridPoint Systems,JNL5080,GridPoint Systems,INV2024-07-004
+TXN10165,2024-07-13,2024-07-15,5010,Cost of Goods Sold,95691.0,0.0,Inventory purchase,JNL5083,BuildCo Components,PO-2024-2021
+TXN10166,2024-07-13,2024-07-15,2010,Accounts Payable,0.0,95691.0,Inventory purchase,JNL5083,BuildCo Components,PO-2024-2021
+TXN10161,2024-07-17,2024-07-17,1200,Accounts Receivable,435461.0,0.0,Customer invoice — Cascade Engineering,JNL5081,Cascade Engineering,INV2024-07-005
+TXN10162,2024-07-17,2024-07-17,4010,Revenue,0.0,435461.0,Customer invoice — Cascade Engineering,JNL5081,Cascade Engineering,INV2024-07-005
+TXN10153,2024-07-29,2024-07-29,1200,Accounts Receivable,204016.0,0.0,Customer invoice — JetStream Precision,JNL5077,JetStream Precision,INV2024-07-001
+TXN10154,2024-07-29,2024-07-29,4010,Revenue,0.0,204016.0,Customer invoice — JetStream Precision,JNL5077,JetStream Precision,INV2024-07-001
+TXN10155,2024-07-29,2024-07-30,1200,Accounts Receivable,54487.0,0.0,Customer invoice — Keystone Assembly,JNL5078,Keystone Assembly,INV2024-07-002
+TXN10156,2024-07-29,2024-07-30,4010,Revenue,0.0,54487.0,Customer invoice — Keystone Assembly,JNL5078,Keystone Assembly,INV2024-07-002
+TXN10169,2024-07-28,2024-07-30,5010,Cost of Goods Sold,153735.0,0.0,Inventory purchase,JNL5085,BuildCo Components,PO-2024-2023
+TXN10170,2024-07-28,2024-07-30,2010,Accounts Payable,0.0,153735.0,Inventory purchase,JNL5085,BuildCo Components,PO-2024-2023
+TXN10171,2024-07-30,2024-07-30,6010,Payroll Expenses,235533.0,0.0,Monthly payroll — 2024-07,JNL5086,Payroll,PAY-2024-07
+TXN10172,2024-07-30,2024-07-30,1010,Cash,0.0,235533.0,Monthly payroll — 2024-07,JNL5086,Payroll,PAY-2024-07
+TXN10175,2024-07-31,2024-07-31,6030,SGA Expenses,96351.0,0.0,Selling and administrative expenses,JNL5088,Various,SGA-2024-07
+TXN10176,2024-07-31,2024-07-31,2010,Accounts Payable,0.0,96351.0,Selling and administrative expenses,JNL5088,Various,SGA-2024-07
+TXN10177,2024-07-31,2024-07-31,6040,Depreciation & Amortization,65916.0,0.0,Monthly depreciation,JNL5089,Internal,DEP-2024-07
+TXN10178,2024-07-31,2024-07-31,1510,Accumulated Depreciation,0.0,65916.0,Monthly depreciation,JNL5089,Internal,DEP-2024-07
+TXN10167,2024-07-31,2024-08-01,5010,Cost of Goods Sold,699041.0,0.0,Inventory purchase,JNL5084,RawMat Supplies Inc,PO-2024-2022
+TXN10168,2024-07-31,2024-08-01,2010,Accounts Payable,0.0,699041.0,Inventory purchase,JNL5084,RawMat Supplies Inc,PO-2024-2022
+TXN10179,2024-08-02,2024-08-02,1200,Accounts Receivable,59105.0,0.0,Customer invoice — Delta Industrial,JNL5090,Delta Industrial,INV2024-08-001
+TXN10180,2024-08-02,2024-08-02,4010,Revenue,0.0,59105.0,Customer invoice — Delta Industrial,JNL5090,Delta Industrial,INV2024-08-001
+TXN10203,2024-08-02,2024-08-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5102,Landlord Corp,RENT-2024-08
+TXN10204,2024-08-02,2024-08-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5102,Landlord Corp,RENT-2024-08
+TXN10183,2024-08-04,2024-08-04,1200,Accounts Receivable,389195.0,0.0,Customer invoice — JetStream Precision,JNL5092,JetStream Precision,INV2024-08-003
+TXN10184,2024-08-04,2024-08-04,4010,Revenue,0.0,389195.0,Customer invoice — JetStream Precision,JNL5092,JetStream Precision,INV2024-08-003
+TXN10185,2024-08-04,2024-08-04,1200,Accounts Receivable,99579.0,0.0,Customer invoice — JetStream Precision,JNL5093,JetStream Precision,INV2024-08-004
+TXN10186,2024-08-04,2024-08-04,4010,Revenue,0.0,99579.0,Customer invoice — JetStream Precision,JNL5093,JetStream Precision,INV2024-08-004
+TXN10193,2024-08-17,2024-08-17,5010,Cost of Goods Sold,290360.0,0.0,Inventory purchase,JNL5097,BuildCo Components,PO-2024-2025
+TXN10194,2024-08-17,2024-08-17,2010,Accounts Payable,0.0,290360.0,Inventory purchase,JNL5097,BuildCo Components,PO-2024-2025
+TXN10197,2024-08-15,2024-08-17,5010,Cost of Goods Sold,157362.0,0.0,Inventory purchase,JNL5099,BuildCo Components,PO-2024-2027
+TXN10198,2024-08-15,2024-08-17,2010,Accounts Payable,0.0,157362.0,Inventory purchase,JNL5099,BuildCo Components,PO-2024-2027
+TXN10191,2024-08-23,2024-08-23,5010,Cost of Goods Sold,205798.0,0.0,Inventory purchase,JNL5096,BuildCo Components,PO-2024-2024
+TXN10192,2024-08-23,2024-08-23,2010,Accounts Payable,0.0,205798.0,Inventory purchase,JNL5096,BuildCo Components,PO-2024-2024
+TXN10199,2024-08-22,2024-08-23,5010,Cost of Goods Sold,99908.0,0.0,Equipment maintenance,JNL5100,TechServ Maintenance,PO-2024-2028
+TXN10200,2024-08-22,2024-08-23,2010,Accounts Payable,0.0,99908.0,Equipment maintenance,JNL5100,TechServ Maintenance,PO-2024-2028
+TXN10189,2024-08-26,2024-08-28,1200,Accounts Receivable,582877.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5095,Apex Manufacturing Corp,INV2024-08-006
+TXN10190,2024-08-26,2024-08-28,4010,Revenue,0.0,582877.0,Customer invoice — Apex Manufacturing Corp,JNL5095,Apex Manufacturing Corp,INV2024-08-006
+TXN10181,2024-08-29,2024-08-30,1200,Accounts Receivable,84722.0,0.0,Customer invoice — Evergreen Components,JNL5091,Evergreen Components,INV2024-08-002
+TXN10182,2024-08-29,2024-08-30,4010,Revenue,0.0,84722.0,Customer invoice — Evergreen Components,JNL5091,Evergreen Components,INV2024-08-002
+TXN10201,2024-08-30,2024-08-30,6010,Payroll Expenses,227561.0,0.0,Monthly payroll — 2024-08,JNL5101,Payroll,PAY-2024-08
+TXN10202,2024-08-30,2024-08-30,1010,Cash,0.0,227561.0,Monthly payroll — 2024-08,JNL5101,Payroll,PAY-2024-08
+TXN10187,2024-08-29,2024-08-31,1200,Accounts Receivable,255886.0,0.0,Customer invoice — FrontLine Fabricators,JNL5094,FrontLine Fabricators,INV2024-08-005
+TXN10188,2024-08-29,2024-08-31,4010,Revenue,0.0,255886.0,Customer invoice — FrontLine Fabricators,JNL5094,FrontLine Fabricators,INV2024-08-005
+TXN10205,2024-08-31,2024-08-31,6030,SGA Expenses,87602.0,0.0,Selling and administrative expenses,JNL5103,Various,SGA-2024-08
+TXN10206,2024-08-31,2024-08-31,2010,Accounts Payable,0.0,87602.0,Selling and administrative expenses,JNL5103,Various,SGA-2024-08
+TXN10207,2024-08-31,2024-08-31,6040,Depreciation & Amortization,65767.0,0.0,Monthly depreciation,JNL5104,Internal,DEP-2024-08
+TXN10208,2024-08-31,2024-08-31,1510,Accumulated Depreciation,0.0,65767.0,Monthly depreciation,JNL5104,Internal,DEP-2024-08
+TXN10195,2024-08-30,2024-09-01,5010,Cost of Goods Sold,125857.0,0.0,Equipment maintenance,JNL5098,TechServ Maintenance,PO-2024-2026
+TXN10196,2024-08-30,2024-09-01,2010,Accounts Payable,0.0,125857.0,Equipment maintenance,JNL5098,TechServ Maintenance,PO-2024-2026
+TXN10225,2024-09-02,2024-09-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5113,Landlord Corp,RENT-2024-09
+TXN10226,2024-09-02,2024-09-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5113,Landlord Corp,RENT-2024-09
+TXN10217,2024-09-10,2024-09-11,5010,Cost of Goods Sold,457943.0,0.0,Inventory purchase,JNL5109,BuildCo Components,PO-2024-2029
+TXN10218,2024-09-10,2024-09-11,2010,Accounts Payable,0.0,457943.0,Inventory purchase,JNL5109,BuildCo Components,PO-2024-2029
+TXN10209,2024-09-11,2024-09-12,1200,Accounts Receivable,317637.0,0.0,Customer invoice — Delta Industrial,JNL5105,Delta Industrial,INV2024-09-001
+TXN10210,2024-09-11,2024-09-12,4010,Revenue,0.0,317637.0,Customer invoice — Delta Industrial,JNL5105,Delta Industrial,INV2024-09-001
+TXN10211,2024-09-11,2024-09-13,1200,Accounts Receivable,573108.0,0.0,Customer invoice — GridPoint Systems,JNL5106,GridPoint Systems,INV2024-09-002
+TXN10212,2024-09-11,2024-09-13,4010,Revenue,0.0,573108.0,Customer invoice — GridPoint Systems,JNL5106,GridPoint Systems,INV2024-09-002
+TXN10213,2024-09-14,2024-09-15,1200,Accounts Receivable,579475.0,0.0,Customer invoice — Evergreen Components,JNL5107,Evergreen Components,INV2024-09-003
+TXN10214,2024-09-14,2024-09-15,4010,Revenue,0.0,579475.0,Customer invoice — Evergreen Components,JNL5107,Evergreen Components,INV2024-09-003
+TXN10221,2024-09-20,2024-09-20,5010,Cost of Goods Sold,376119.0,0.0,Equipment maintenance,JNL5111,TechServ Maintenance,PO-2024-2031
+TXN10222,2024-09-20,2024-09-20,2010,Accounts Payable,0.0,376119.0,Equipment maintenance,JNL5111,TechServ Maintenance,PO-2024-2031
+TXN10215,2024-09-21,2024-09-21,1200,Accounts Receivable,154112.0,0.0,Customer invoice — Cascade Engineering,JNL5108,Cascade Engineering,INV2024-09-004
+TXN10216,2024-09-21,2024-09-21,4010,Revenue,0.0,154112.0,Customer invoice — Cascade Engineering,JNL5108,Cascade Engineering,INV2024-09-004
+TXN10223,2024-09-29,2024-09-29,6010,Payroll Expenses,256326.0,0.0,Monthly payroll — 2024-09,JNL5112,Payroll,PAY-2024-09
+TXN10224,2024-09-29,2024-09-29,1010,Cash,0.0,256326.0,Monthly payroll — 2024-09,JNL5112,Payroll,PAY-2024-09
+TXN10227,2024-09-30,2024-09-30,6030,SGA Expenses,99486.0,0.0,Selling and administrative expenses,JNL5114,Various,SGA-2024-09
+TXN10228,2024-09-30,2024-09-30,2010,Accounts Payable,0.0,99486.0,Selling and administrative expenses,JNL5114,Various,SGA-2024-09
+TXN10229,2024-09-30,2024-09-30,6040,Depreciation & Amortization,75243.0,0.0,Monthly depreciation,JNL5115,Internal,DEP-2024-09
+TXN10230,2024-09-30,2024-09-30,1510,Accumulated Depreciation,0.0,75243.0,Monthly depreciation,JNL5115,Internal,DEP-2024-09
+TXN10219,2024-09-29,2024-10-01,5010,Cost of Goods Sold,159466.0,0.0,Equipment maintenance,JNL5110,TechServ Maintenance,PO-2024-2030
+TXN10220,2024-09-29,2024-10-01,2010,Accounts Payable,0.0,159466.0,Equipment maintenance,JNL5110,TechServ Maintenance,PO-2024-2030
+TXN10247,2024-10-02,2024-10-02,5010,Cost of Goods Sold,972556.0,0.0,Equipment maintenance,JNL5124,TechServ Maintenance,PO-2024-2034
+TXN10248,2024-10-02,2024-10-02,2010,Accounts Payable,0.0,972556.0,Equipment maintenance,JNL5124,TechServ Maintenance,PO-2024-2034
+TXN10251,2024-10-02,2024-10-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5126,Landlord Corp,RENT-2024-10
+TXN10252,2024-10-02,2024-10-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5126,Landlord Corp,RENT-2024-10
+TXN10235,2024-10-03,2024-10-04,1200,Accounts Receivable,186162.0,0.0,Customer invoice — HorizonTech Ltd,JNL5118,HorizonTech Ltd,INV2024-10-003
+TXN10236,2024-10-03,2024-10-04,4010,Revenue,0.0,186162.0,Customer invoice — HorizonTech Ltd,JNL5118,HorizonTech Ltd,INV2024-10-003
+TXN10243,2024-10-05,2024-10-05,5010,Cost of Goods Sold,42300.0,0.0,Equipment maintenance,JNL5122,TechServ Maintenance,PO-2024-0892
+TXN10244,2024-10-05,2024-10-05,2010,Accounts Payable,0.0,42300.0,Equipment maintenance,JNL5122,TechServ Maintenance,PO-2024-0892
+TXN10245,2024-10-08,2024-10-08,5010,Cost of Goods Sold,42300.0,0.0,Equipment maintenance,JNL5123,TechServ Maintenance,PO-2024-0892
+TXN10246,2024-10-08,2024-10-08,2010,Accounts Payable,0.0,42300.0,Equipment maintenance,JNL5123,TechServ Maintenance,PO-2024-0892
+TXN10237,2024-10-19,2024-10-19,1200,Accounts Receivable,523217.0,0.0,Customer invoice — IronBridge Works,JNL5119,IronBridge Works,INV2024-10-004
+TXN10238,2024-10-19,2024-10-19,4010,Revenue,0.0,523217.0,Customer invoice — IronBridge Works,JNL5119,IronBridge Works,INV2024-10-004
+TXN10231,2024-10-27,2024-10-29,1200,Accounts Receivable,479121.0,0.0,Customer invoice — GridPoint Systems,JNL5116,GridPoint Systems,INV2024-10-001
+TXN10232,2024-10-27,2024-10-29,4010,Revenue,0.0,479121.0,Customer invoice — GridPoint Systems,JNL5116,GridPoint Systems,INV2024-10-001
+TXN10239,2024-10-30,2024-10-30,1200,Accounts Receivable,410884.0,0.0,Customer invoice — GridPoint Systems,JNL5120,GridPoint Systems,INV2024-10-005
+TXN10240,2024-10-30,2024-10-30,4010,Revenue,0.0,410884.0,Customer invoice — GridPoint Systems,JNL5120,GridPoint Systems,INV2024-10-005
+TXN10241,2024-10-30,2024-10-30,1200,Accounts Receivable,95075.0,0.0,Customer invoice — Cascade Engineering,JNL5121,Cascade Engineering,INV2024-10-006
+TXN10242,2024-10-30,2024-10-30,4010,Revenue,0.0,95075.0,Customer invoice — Cascade Engineering,JNL5121,Cascade Engineering,INV2024-10-006
+TXN10249,2024-10-30,2024-10-30,6010,Payroll Expenses,266655.0,0.0,Monthly payroll — 2024-10,JNL5125,Payroll,PAY-2024-10
+TXN10250,2024-10-30,2024-10-30,1010,Cash,0.0,266655.0,Monthly payroll — 2024-10,JNL5125,Payroll,PAY-2024-10
+TXN10233,2024-10-30,2024-10-31,1200,Accounts Receivable,59431.0,0.0,Customer invoice — Cascade Engineering,JNL5117,Cascade Engineering,INV2024-10-002
+TXN10234,2024-10-30,2024-10-31,4010,Revenue,0.0,59431.0,Customer invoice — Cascade Engineering,JNL5117,Cascade Engineering,INV2024-10-002
+TXN10253,2024-10-31,2024-10-31,6030,SGA Expenses,120404.0,0.0,Selling and administrative expenses,JNL5127,Various,SGA-2024-10
+TXN10254,2024-10-31,2024-10-31,2010,Accounts Payable,0.0,120404.0,Selling and administrative expenses,JNL5127,Various,SGA-2024-10
+TXN10255,2024-10-31,2024-10-31,6040,Depreciation & Amortization,69099.0,0.0,Monthly depreciation,JNL5128,Internal,DEP-2024-10
+TXN10256,2024-10-31,2024-10-31,1510,Accumulated Depreciation,0.0,69099.0,Monthly depreciation,JNL5128,Internal,DEP-2024-10
+TXN10279,2024-11-02,2024-11-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5140,Landlord Corp,RENT-2024-11
+TXN10280,2024-11-02,2024-11-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5140,Landlord Corp,RENT-2024-11
+TXN10261,2024-11-08,2024-11-09,1200,Accounts Receivable,248845.0,0.0,Customer invoice — FrontLine Fabricators,JNL5131,FrontLine Fabricators,INV2024-11-003
+TXN10262,2024-11-08,2024-11-09,4010,Revenue,0.0,248845.0,Customer invoice — FrontLine Fabricators,JNL5131,FrontLine Fabricators,INV2024-11-003
+TXN10273,2024-11-10,2024-11-10,5010,Cost of Goods Sold,385310.0,0.0,Equipment maintenance,JNL5137,TechServ Maintenance,PO-2024-2038
+TXN10274,2024-11-10,2024-11-10,2010,Accounts Payable,0.0,385310.0,Equipment maintenance,JNL5137,TechServ Maintenance,PO-2024-2038
+TXN10257,2024-11-22,2024-11-24,1200,Accounts Receivable,351205.0,0.0,Customer invoice — HorizonTech Ltd,JNL5129,HorizonTech Ltd,INV2024-11-001
+TXN10258,2024-11-22,2024-11-24,4010,Revenue,0.0,351205.0,Customer invoice — HorizonTech Ltd,JNL5129,HorizonTech Ltd,INV2024-11-001
+TXN10265,2024-11-24,2024-11-24,1200,Accounts Receivable,422892.0,0.0,Customer invoice — Cascade Engineering,JNL5133,Cascade Engineering,INV2024-11-005
+TXN10266,2024-11-24,2024-11-24,4010,Revenue,0.0,422892.0,Customer invoice — Cascade Engineering,JNL5133,Cascade Engineering,INV2024-11-005
+TXN10269,2024-11-23,2024-11-24,5010,Cost of Goods Sold,38806.0,0.0,Inventory purchase,JNL5135,BuildCo Components,PO-2024-2036
+TXN10270,2024-11-23,2024-11-24,2010,Accounts Payable,0.0,38806.0,Inventory purchase,JNL5135,BuildCo Components,PO-2024-2036
+TXN10259,2024-11-24,2024-11-25,1200,Accounts Receivable,125083.0,0.0,Customer invoice — Keystone Assembly,JNL5130,Keystone Assembly,INV2024-11-002
+TXN10260,2024-11-24,2024-11-25,4010,Revenue,0.0,125083.0,Customer invoice — Keystone Assembly,JNL5130,Keystone Assembly,INV2024-11-002
+TXN10267,2024-11-23,2024-11-25,5010,Cost of Goods Sold,334291.0,0.0,Inventory purchase,JNL5134,RawMat Supplies Inc,PO-2024-2035
+TXN10268,2024-11-23,2024-11-25,2010,Accounts Payable,0.0,334291.0,Inventory purchase,JNL5134,RawMat Supplies Inc,PO-2024-2035
+TXN10271,2024-11-24,2024-11-25,5010,Cost of Goods Sold,215998.0,0.0,Inventory purchase,JNL5136,RawMat Supplies Inc,PO-2024-2037
+TXN10272,2024-11-24,2024-11-25,2010,Accounts Payable,0.0,215998.0,Inventory purchase,JNL5136,RawMat Supplies Inc,PO-2024-2037
+TXN10275,2024-11-29,2024-11-29,5010,Cost of Goods Sold,22693.0,0.0,Inventory purchase,JNL5138,RawMat Supplies Inc,PO-2024-2039
+TXN10276,2024-11-29,2024-11-29,2010,Accounts Payable,0.0,22693.0,Inventory purchase,JNL5138,RawMat Supplies Inc,PO-2024-2039
+TXN10277,2024-11-29,2024-11-29,6010,Payroll Expenses,266414.0,0.0,Monthly payroll — 2024-11,JNL5139,Payroll,PAY-2024-11
+TXN10278,2024-11-29,2024-11-29,1010,Cash,0.0,266414.0,Monthly payroll — 2024-11,JNL5139,Payroll,PAY-2024-11
+TXN10263,2024-11-28,2024-11-30,1200,Accounts Receivable,527355.0,0.0,Customer invoice — Cascade Engineering,JNL5132,Cascade Engineering,INV2024-11-004
+TXN10264,2024-11-28,2024-11-30,4010,Revenue,0.0,527355.0,Customer invoice — Cascade Engineering,JNL5132,Cascade Engineering,INV2024-11-004
+TXN10281,2024-11-30,2024-11-30,6030,SGA Expenses,114423.0,0.0,Selling and administrative expenses,JNL5141,Various,SGA-2024-11
+TXN10282,2024-11-30,2024-11-30,2010,Accounts Payable,0.0,114423.0,Selling and administrative expenses,JNL5141,Various,SGA-2024-11
+TXN10283,2024-11-30,2024-11-30,6040,Depreciation & Amortization,75479.0,0.0,Monthly depreciation,JNL5142,Internal,DEP-2024-11
+TXN10284,2024-11-30,2024-11-30,1510,Accumulated Depreciation,0.0,75479.0,Monthly depreciation,JNL5142,Internal,DEP-2024-11
+TXN10285,2024-11-30,2024-11-30,6100,Restructuring Charges,95000.0,0.0,Workforce restructuring and severance costs,JNL5143,Internal,RESTR-2024-11
+TXN10286,2024-11-30,2024-11-30,2020,Accrued Liabilities,0.0,95000.0,Workforce restructuring and severance costs,JNL5143,Internal,RESTR-2024-11
+TXN10301,2024-12-01,2024-12-01,5010,Cost of Goods Sold,555143.0,0.0,Equipment maintenance,JNL5151,TechServ Maintenance,PO-2024-2043
+TXN10302,2024-12-01,2024-12-01,2010,Accounts Payable,0.0,555143.0,Equipment maintenance,JNL5151,TechServ Maintenance,PO-2024-2043
+TXN10305,2024-12-02,2024-12-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5153,Landlord Corp,RENT-2024-12
+TXN10306,2024-12-02,2024-12-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5153,Landlord Corp,RENT-2024-12
+TXN10299,2024-12-02,2024-12-04,5010,Cost of Goods Sold,164607.0,0.0,Equipment maintenance,JNL5150,TechServ Maintenance,PO-2024-2042
+TXN10300,2024-12-02,2024-12-04,2010,Accounts Payable,0.0,164607.0,Equipment maintenance,JNL5150,TechServ Maintenance,PO-2024-2042
+TXN10297,2024-12-04,2024-12-05,5010,Cost of Goods Sold,166102.0,0.0,Inventory purchase,JNL5149,RawMat Supplies Inc,PO-2024-2041
+TXN10298,2024-12-04,2024-12-05,2010,Accounts Payable,0.0,166102.0,Inventory purchase,JNL5149,RawMat Supplies Inc,PO-2024-2041
+TXN10287,2024-12-06,2024-12-07,1200,Accounts Receivable,1416439.0,0.0,Customer invoice — Keystone Assembly,JNL5144,Keystone Assembly,INV2024-12-001
+TXN10288,2024-12-06,2024-12-07,4010,Revenue,0.0,1416439.0,Customer invoice — Keystone Assembly,JNL5144,Keystone Assembly,INV2024-12-001
+TXN10291,2024-12-19,2024-12-20,1200,Accounts Receivable,190840.0,0.0,Customer invoice — IronBridge Works,JNL5146,IronBridge Works,INV2024-12-003
+TXN10292,2024-12-19,2024-12-20,4010,Revenue,0.0,190840.0,Customer invoice — IronBridge Works,JNL5146,IronBridge Works,INV2024-12-003
+TXN10295,2024-12-28,2024-12-29,5010,Cost of Goods Sold,384835.0,0.0,Inventory purchase,JNL5148,BuildCo Components,PO-2024-2040
+TXN10296,2024-12-28,2024-12-29,2010,Accounts Payable,0.0,384835.0,Inventory purchase,JNL5148,BuildCo Components,PO-2024-2040
+TXN10303,2024-12-30,2024-12-30,6010,Payroll Expenses,328015.0,0.0,Monthly payroll — 2024-12,JNL5152,Payroll,PAY-2024-12
+TXN10304,2024-12-30,2024-12-30,1010,Cash,0.0,328015.0,Monthly payroll — 2024-12,JNL5152,Payroll,PAY-2024-12
+TXN10289,2024-12-30,2024-12-31,1200,Accounts Receivable,347386.0,0.0,Customer invoice — Keystone Assembly,JNL5145,Keystone Assembly,INV2024-12-002
+TXN10290,2024-12-30,2024-12-31,4010,Revenue,0.0,347386.0,Customer invoice — Keystone Assembly,JNL5145,Keystone Assembly,INV2024-12-002
+TXN10307,2024-12-31,2024-12-31,6030,SGA Expenses,121554.0,0.0,Selling and administrative expenses,JNL5154,Various,SGA-2024-12
+TXN10308,2024-12-31,2024-12-31,2010,Accounts Payable,0.0,121554.0,Selling and administrative expenses,JNL5154,Various,SGA-2024-12
+TXN10309,2024-12-31,2024-12-31,6040,Depreciation & Amortization,82329.0,0.0,Monthly depreciation,JNL5155,Internal,DEP-2024-12
+TXN10310,2024-12-31,2024-12-31,1510,Accumulated Depreciation,0.0,82329.0,Monthly depreciation,JNL5155,Internal,DEP-2024-12
+TXN10321,2025-01-01,2025-01-01,5010,Cost of Goods Sold,563492.0,0.0,Inventory purchase,JNL5161,BuildCo Components,PO-2025-2044
+TXN10322,2025-01-01,2025-01-01,2010,Accounts Payable,0.0,563492.0,Inventory purchase,JNL5161,BuildCo Components,PO-2025-2044
+TXN10329,2025-01-02,2025-01-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5165,Landlord Corp,RENT-2025-01
+TXN10330,2025-01-02,2025-01-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5165,Landlord Corp,RENT-2025-01
+TXN10293,2024-12-28,2025-01-08,1200,Accounts Receivable,148500.0,0.0,Customer invoice — Cascade Engineering,JNL5147,Cascade Engineering,INV2024-12-C002
+TXN10294,2024-12-28,2025-01-08,4010,Revenue,0.0,148500.0,Customer invoice — Cascade Engineering,JNL5147,Cascade Engineering,INV2024-12-C002
+TXN10323,2025-01-15,2025-01-15,5010,Cost of Goods Sold,6707.0,0.0,Inventory purchase,JNL5162,RawMat Supplies Inc,PO-2025-2045
+TXN10324,2025-01-15,2025-01-15,2010,Accounts Payable,0.0,6707.0,Inventory purchase,JNL5162,RawMat Supplies Inc,PO-2025-2045
+TXN10313,2025-01-17,2025-01-17,1200,Accounts Receivable,480332.0,0.0,Customer invoice — IronBridge Works,JNL5157,IronBridge Works,INV2025-01-002
+TXN10314,2025-01-17,2025-01-17,4010,Revenue,0.0,480332.0,Customer invoice — IronBridge Works,JNL5157,IronBridge Works,INV2025-01-002
+TXN10317,2025-01-22,2025-01-22,1200,Accounts Receivable,70570.0,0.0,Customer invoice — JetStream Precision,JNL5159,JetStream Precision,INV2025-01-004
+TXN10318,2025-01-22,2025-01-22,4010,Revenue,0.0,70570.0,Customer invoice — JetStream Precision,JNL5159,JetStream Precision,INV2025-01-004
+TXN10319,2025-01-26,2025-01-26,1200,Accounts Receivable,14914.0,0.0,Customer invoice — IronBridge Works,JNL5160,IronBridge Works,INV2025-01-005
+TXN10320,2025-01-26,2025-01-26,4010,Revenue,0.0,14914.0,Customer invoice — IronBridge Works,JNL5160,IronBridge Works,INV2025-01-005
+TXN10325,2025-01-25,2025-01-27,5010,Cost of Goods Sold,303720.0,0.0,Inventory purchase,JNL5163,BuildCo Components,PO-2025-2046
+TXN10326,2025-01-25,2025-01-27,2010,Accounts Payable,0.0,303720.0,Inventory purchase,JNL5163,BuildCo Components,PO-2025-2046
+TXN10327,2025-01-30,2025-01-30,6010,Payroll Expenses,225431.0,0.0,Monthly payroll — 2025-01,JNL5164,Payroll,PAY-2025-01
+TXN10328,2025-01-30,2025-01-30,1010,Cash,0.0,225431.0,Monthly payroll — 2025-01,JNL5164,Payroll,PAY-2025-01
+TXN10311,2025-01-29,2025-01-31,1200,Accounts Receivable,284795.0,0.0,Customer invoice — GridPoint Systems,JNL5156,GridPoint Systems,INV2025-01-001
+TXN10312,2025-01-29,2025-01-31,4010,Revenue,0.0,284795.0,Customer invoice — GridPoint Systems,JNL5156,GridPoint Systems,INV2025-01-001
+TXN10315,2025-01-31,2025-01-31,1200,Accounts Receivable,595265.0,0.0,Customer invoice — Evergreen Components,JNL5158,Evergreen Components,INV2025-01-003
+TXN10316,2025-01-31,2025-01-31,4010,Revenue,0.0,595265.0,Customer invoice — Evergreen Components,JNL5158,Evergreen Components,INV2025-01-003
+TXN10331,2025-01-31,2025-01-31,6030,SGA Expenses,101645.0,0.0,Selling and administrative expenses,JNL5166,Various,SGA-2025-01
+TXN10332,2025-01-31,2025-01-31,2010,Accounts Payable,0.0,101645.0,Selling and administrative expenses,JNL5166,Various,SGA-2025-01
+TXN10333,2025-01-31,2025-01-31,6040,Depreciation & Amortization,64121.0,0.0,Monthly depreciation,JNL5167,Internal,DEP-2025-01
+TXN10334,2025-01-31,2025-01-31,1510,Accumulated Depreciation,0.0,64121.0,Monthly depreciation,JNL5167,Internal,DEP-2025-01
+TXN10355,2025-02-02,2025-02-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5178,Landlord Corp,RENT-2025-02
+TXN10356,2025-02-02,2025-02-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5178,Landlord Corp,RENT-2025-02
+TXN10335,2025-02-02,2025-02-04,1200,Accounts Receivable,865725.0,0.0,Customer invoice — Cascade Engineering,JNL5168,Cascade Engineering,INV2025-02-001
+TXN10336,2025-02-02,2025-02-04,4010,Revenue,0.0,865725.0,Customer invoice — Cascade Engineering,JNL5168,Cascade Engineering,INV2025-02-001
+TXN10345,2025-02-04,2025-02-06,5010,Cost of Goods Sold,225013.0,0.0,Inventory purchase,JNL5173,RawMat Supplies Inc,PO-2025-2048
+TXN10346,2025-02-04,2025-02-06,2010,Accounts Payable,0.0,225013.0,Inventory purchase,JNL5173,RawMat Supplies Inc,PO-2025-2048
+TXN10339,2025-02-07,2025-02-07,1200,Accounts Receivable,17647.0,0.0,Customer invoice — Keystone Assembly,JNL5170,Keystone Assembly,INV2025-02-003
+TXN10340,2025-02-07,2025-02-07,4010,Revenue,0.0,17647.0,Customer invoice — Keystone Assembly,JNL5170,Keystone Assembly,INV2025-02-003
+TXN10341,2025-02-07,2025-02-07,1200,Accounts Receivable,1991.0,0.0,Customer invoice — JetStream Precision,JNL5171,JetStream Precision,INV2025-02-004
+TXN10342,2025-02-07,2025-02-07,4010,Revenue,0.0,1991.0,Customer invoice — JetStream Precision,JNL5171,JetStream Precision,INV2025-02-004
+TXN10343,2025-02-13,2025-02-13,5010,Cost of Goods Sold,201786.0,0.0,Inventory purchase,JNL5172,BuildCo Components,PO-2025-2047
+TXN10344,2025-02-13,2025-02-13,2010,Accounts Payable,0.0,201786.0,Inventory purchase,JNL5172,BuildCo Components,PO-2025-2047
+TXN10351,2025-02-13,2025-02-13,5010,Cost of Goods Sold,8605.0,0.0,Inventory purchase,JNL5176,BuildCo Components,PO-2025-2051
+TXN10352,2025-02-13,2025-02-13,2010,Accounts Payable,0.0,8605.0,Inventory purchase,JNL5176,BuildCo Components,PO-2025-2051
+TXN10347,2025-02-16,2025-02-18,5010,Cost of Goods Sold,228443.0,0.0,Equipment maintenance,JNL5174,TechServ Maintenance,PO-2025-2049
+TXN10348,2025-02-16,2025-02-18,2010,Accounts Payable,0.0,228443.0,Equipment maintenance,JNL5174,TechServ Maintenance,PO-2025-2049
+TXN10349,2025-02-18,2025-02-18,5010,Cost of Goods Sold,167008.0,0.0,Equipment maintenance,JNL5175,TechServ Maintenance,PO-2025-2050
+TXN10350,2025-02-18,2025-02-18,2010,Accounts Payable,0.0,167008.0,Equipment maintenance,JNL5175,TechServ Maintenance,PO-2025-2050
+TXN10353,2025-02-27,2025-02-27,6010,Payroll Expenses,208686.0,0.0,Monthly payroll — 2025-02,JNL5177,Payroll,PAY-2025-02
+TXN10354,2025-02-27,2025-02-27,1010,Cash,0.0,208686.0,Monthly payroll — 2025-02,JNL5177,Payroll,PAY-2025-02
+TXN10337,2025-02-28,2025-02-28,1200,Accounts Receivable,485269.0,0.0,Customer invoice — HorizonTech Ltd,JNL5169,HorizonTech Ltd,INV2025-02-002
+TXN10338,2025-02-28,2025-02-28,4010,Revenue,0.0,485269.0,Customer invoice — HorizonTech Ltd,JNL5169,HorizonTech Ltd,INV2025-02-002
+TXN10357,2025-02-28,2025-02-28,6030,SGA Expenses,76230.0,0.0,Selling and administrative expenses,JNL5179,Various,SGA-2025-02
+TXN10358,2025-02-28,2025-02-28,2010,Accounts Payable,0.0,76230.0,Selling and administrative expenses,JNL5179,Various,SGA-2025-02
+TXN10359,2025-02-28,2025-02-28,6040,Depreciation & Amortization,58070.0,0.0,Monthly depreciation,JNL5180,Internal,DEP-2025-02
+TXN10360,2025-02-28,2025-02-28,1510,Accumulated Depreciation,0.0,58070.0,Monthly depreciation,JNL5180,Internal,DEP-2025-02
+TXN10361,2025-02-28,2025-02-28,6100,Restructuring Charges,78000.0,0.0,Workforce restructuring and severance costs,JNL5181,Internal,RESTR-2025-02
+TXN10362,2025-02-28,2025-02-28,2020,Accrued Liabilities,0.0,78000.0,Workforce restructuring and severance costs,JNL5181,Internal,RESTR-2025-02
+TXN10365,2025-03-02,2025-03-02,1200,Accounts Receivable,638783.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5183,Apex Manufacturing Corp,INV2025-03-002
+TXN10366,2025-03-02,2025-03-02,4010,Revenue,0.0,638783.0,Customer invoice — Apex Manufacturing Corp,JNL5183,Apex Manufacturing Corp,INV2025-03-002
+TXN10385,2025-03-02,2025-03-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5193,Landlord Corp,RENT-2025-03
+TXN10386,2025-03-02,2025-03-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5193,Landlord Corp,RENT-2025-03
+TXN10363,2025-03-03,2025-03-04,1200,Accounts Receivable,123678.0,0.0,Customer invoice — IronBridge Works,JNL5182,IronBridge Works,INV2025-03-001
+TXN10364,2025-03-03,2025-03-04,4010,Revenue,0.0,123678.0,Customer invoice — IronBridge Works,JNL5182,IronBridge Works,INV2025-03-001
+TXN10369,2025-03-06,2025-03-07,1200,Accounts Receivable,509362.0,0.0,Customer invoice — FrontLine Fabricators,JNL5185,FrontLine Fabricators,INV2025-03-004
+TXN10370,2025-03-06,2025-03-07,4010,Revenue,0.0,509362.0,Customer invoice — FrontLine Fabricators,JNL5185,FrontLine Fabricators,INV2025-03-004
+TXN10377,2025-03-13,2025-03-14,5010,Cost of Goods Sold,545263.0,0.0,Inventory purchase,JNL5189,RawMat Supplies Inc,PO-2025-2053
+TXN10378,2025-03-13,2025-03-14,2010,Accounts Payable,0.0,545263.0,Inventory purchase,JNL5189,RawMat Supplies Inc,PO-2025-2053
+TXN10381,2025-03-14,2025-03-16,5010,Cost of Goods Sold,28720.0,0.0,Equipment maintenance,JNL5191,TechServ Maintenance,PO-2025-2055
+TXN10382,2025-03-14,2025-03-16,2010,Accounts Payable,0.0,28720.0,Equipment maintenance,JNL5191,TechServ Maintenance,PO-2025-2055
+TXN10367,2025-03-15,2025-03-17,1200,Accounts Receivable,83243.0,0.0,Customer invoice — JetStream Precision,JNL5184,JetStream Precision,INV2025-03-003
+TXN10368,2025-03-15,2025-03-17,4010,Revenue,0.0,83243.0,Customer invoice — JetStream Precision,JNL5184,JetStream Precision,INV2025-03-003
+TXN10379,2025-03-22,2025-03-22,5010,Cost of Goods Sold,249740.0,0.0,Equipment maintenance,JNL5190,TechServ Maintenance,PO-2025-2054
+TXN10380,2025-03-22,2025-03-22,2010,Accounts Payable,0.0,249740.0,Equipment maintenance,JNL5190,TechServ Maintenance,PO-2025-2054
+TXN10371,2025-03-24,2025-03-24,1200,Accounts Receivable,204504.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5186,Apex Manufacturing Corp,INV2025-03-005
+TXN10372,2025-03-24,2025-03-24,4010,Revenue,0.0,204504.0,Customer invoice — Apex Manufacturing Corp,JNL5186,Apex Manufacturing Corp,INV2025-03-005
+TXN10383,2025-03-30,2025-03-30,6010,Payroll Expenses,255953.0,0.0,Monthly payroll — 2025-03,JNL5192,Payroll,PAY-2025-03
+TXN10384,2025-03-30,2025-03-30,1010,Cash,0.0,255953.0,Monthly payroll — 2025-03,JNL5192,Payroll,PAY-2025-03
+TXN10373,2025-03-31,2025-03-31,1200,Accounts Receivable,40658.0,0.0,Customer invoice — Evergreen Components,JNL5187,Evergreen Components,INV2025-03-006
+TXN10374,2025-03-31,2025-03-31,4010,Revenue,0.0,40658.0,Customer invoice — Evergreen Components,JNL5187,Evergreen Components,INV2025-03-006
+TXN10375,2025-03-30,2025-03-31,5010,Cost of Goods Sold,141487.0,0.0,Inventory purchase,JNL5188,RawMat Supplies Inc,PO-2025-2052
+TXN10376,2025-03-30,2025-03-31,2010,Accounts Payable,0.0,141487.0,Inventory purchase,JNL5188,RawMat Supplies Inc,PO-2025-2052
+TXN10387,2025-03-31,2025-03-31,6030,SGA Expenses,95500.0,0.0,Selling and administrative expenses,JNL5194,Various,SGA-2025-03
+TXN10388,2025-03-31,2025-03-31,2010,Accounts Payable,0.0,95500.0,Selling and administrative expenses,JNL5194,Various,SGA-2025-03
+TXN10389,2025-03-31,2025-03-31,6040,Depreciation & Amortization,61742.0,0.0,Monthly depreciation,JNL5195,Internal,DEP-2025-03
+TXN10390,2025-03-31,2025-03-31,1510,Accumulated Depreciation,0.0,61742.0,Monthly depreciation,JNL5195,Internal,DEP-2025-03
+TXN10409,2025-04-02,2025-04-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5205,Landlord Corp,RENT-2025-04
+TXN10410,2025-04-02,2025-04-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5205,Landlord Corp,RENT-2025-04
+TXN10405,2025-04-03,2025-04-04,5010,Cost of Goods Sold,254452.0,0.0,Inventory purchase,JNL5203,RawMat Supplies Inc,PO-2025-2059
+TXN10406,2025-04-03,2025-04-04,2010,Accounts Payable,0.0,254452.0,Inventory purchase,JNL5203,RawMat Supplies Inc,PO-2025-2059
+TXN10393,2025-04-09,2025-04-09,1200,Accounts Receivable,218303.0,0.0,Customer invoice — Keystone Assembly,JNL5197,Keystone Assembly,INV2025-04-002
+TXN10394,2025-04-09,2025-04-09,4010,Revenue,0.0,218303.0,Customer invoice — Keystone Assembly,JNL5197,Keystone Assembly,INV2025-04-002
+TXN10401,2025-04-09,2025-04-10,5010,Cost of Goods Sold,286637.0,0.0,Inventory purchase,JNL5201,RawMat Supplies Inc,PO-2025-2057
+TXN10402,2025-04-09,2025-04-10,2010,Accounts Payable,0.0,286637.0,Inventory purchase,JNL5201,RawMat Supplies Inc,PO-2025-2057
+TXN10399,2025-04-10,2025-04-12,5010,Cost of Goods Sold,308222.0,0.0,Equipment maintenance,JNL5200,TechServ Maintenance,PO-2025-2056
+TXN10400,2025-04-10,2025-04-12,2010,Accounts Payable,0.0,308222.0,Equipment maintenance,JNL5200,TechServ Maintenance,PO-2025-2056
+TXN10403,2025-04-15,2025-04-15,5010,Cost of Goods Sold,145582.0,0.0,Equipment maintenance,JNL5202,TechServ Maintenance,PO-2025-2058
+TXN10404,2025-04-15,2025-04-15,2010,Accounts Payable,0.0,145582.0,Equipment maintenance,JNL5202,TechServ Maintenance,PO-2025-2058
+TXN10395,2025-04-19,2025-04-20,1200,Accounts Receivable,126170.0,0.0,Customer invoice — Evergreen Components,JNL5198,Evergreen Components,INV2025-04-003
+TXN10396,2025-04-19,2025-04-20,4010,Revenue,0.0,126170.0,Customer invoice — Evergreen Components,JNL5198,Evergreen Components,INV2025-04-003
+TXN10397,2025-04-19,2025-04-20,1200,Accounts Receivable,29541.0,0.0,Customer invoice — IronBridge Works,JNL5199,IronBridge Works,INV2025-04-004
+TXN10398,2025-04-19,2025-04-20,4010,Revenue,0.0,29541.0,Customer invoice — IronBridge Works,JNL5199,IronBridge Works,INV2025-04-004
+TXN10407,2025-04-29,2025-04-29,6010,Payroll Expenses,260394.0,0.0,Monthly payroll — 2025-04,JNL5204,Payroll,PAY-2025-04
+TXN10408,2025-04-29,2025-04-29,1010,Cash,0.0,260394.0,Monthly payroll — 2025-04,JNL5204,Payroll,PAY-2025-04
+TXN10391,2025-04-30,2025-04-30,1200,Accounts Receivable,1281735.0,0.0,Customer invoice — Cascade Engineering,JNL5196,Cascade Engineering,INV2025-04-001
+TXN10392,2025-04-30,2025-04-30,4010,Revenue,0.0,1281735.0,Customer invoice — Cascade Engineering,JNL5196,Cascade Engineering,INV2025-04-001
+TXN10411,2025-04-30,2025-04-30,6030,SGA Expenses,109512.0,0.0,Selling and administrative expenses,JNL5206,Various,SGA-2025-04
+TXN10412,2025-04-30,2025-04-30,2010,Accounts Payable,0.0,109512.0,Selling and administrative expenses,JNL5206,Various,SGA-2025-04
+TXN10413,2025-04-30,2025-04-30,6040,Depreciation & Amortization,75898.0,0.0,Monthly depreciation,JNL5207,Internal,DEP-2025-04
+TXN10414,2025-04-30,2025-04-30,1510,Accumulated Depreciation,0.0,75898.0,Monthly depreciation,JNL5207,Internal,DEP-2025-04
+TXN10429,2025-05-02,2025-05-02,5010,Cost of Goods Sold,849896.0,0.0,Equipment maintenance,JNL5215,TechServ Maintenance,PO-2025-2062
+TXN10430,2025-05-02,2025-05-02,2010,Accounts Payable,0.0,849896.0,Equipment maintenance,JNL5215,TechServ Maintenance,PO-2025-2062
+TXN10433,2025-05-02,2025-05-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5217,Landlord Corp,RENT-2025-05
+TXN10434,2025-05-02,2025-05-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5217,Landlord Corp,RENT-2025-05
+TXN10425,2025-05-08,2025-05-08,5010,Cost of Goods Sold,88129.0,0.0,Inventory purchase,JNL5213,BuildCo Components,PO-2025-2060
+TXN10426,2025-05-08,2025-05-08,2010,Accounts Payable,0.0,88129.0,Inventory purchase,JNL5213,BuildCo Components,PO-2025-2060
+TXN10415,2025-05-11,2025-05-12,1200,Accounts Receivable,424831.0,0.0,Customer invoice — GridPoint Systems,JNL5208,GridPoint Systems,INV2025-05-001
+TXN10416,2025-05-11,2025-05-12,4010,Revenue,0.0,424831.0,Customer invoice — GridPoint Systems,JNL5208,GridPoint Systems,INV2025-05-001
+TXN10417,2025-05-14,2025-05-15,1200,Accounts Receivable,434846.0,0.0,Customer invoice — Cascade Engineering,JNL5209,Cascade Engineering,INV2025-05-002
+TXN10418,2025-05-14,2025-05-15,4010,Revenue,0.0,434846.0,Customer invoice — Cascade Engineering,JNL5209,Cascade Engineering,INV2025-05-002
+TXN10419,2025-05-17,2025-05-18,1200,Accounts Receivable,30425.0,0.0,Customer invoice — HorizonTech Ltd,JNL5210,HorizonTech Ltd,INV2025-05-003
+TXN10420,2025-05-17,2025-05-18,4010,Revenue,0.0,30425.0,Customer invoice — HorizonTech Ltd,JNL5210,HorizonTech Ltd,INV2025-05-003
+TXN10421,2025-05-16,2025-05-18,1200,Accounts Receivable,24336.0,0.0,Customer invoice — Keystone Assembly,JNL5211,Keystone Assembly,INV2025-05-004
+TXN10422,2025-05-16,2025-05-18,4010,Revenue,0.0,24336.0,Customer invoice — Keystone Assembly,JNL5211,Keystone Assembly,INV2025-05-004
+TXN10423,2025-05-18,2025-05-20,1200,Accounts Receivable,883871.0,0.0,Customer invoice — IronBridge Works,JNL5212,IronBridge Works,INV2025-05-005
+TXN10424,2025-05-18,2025-05-20,4010,Revenue,0.0,883871.0,Customer invoice — IronBridge Works,JNL5212,IronBridge Works,INV2025-05-005
+TXN10427,2025-05-26,2025-05-27,5010,Cost of Goods Sold,146585.0,0.0,Equipment maintenance,JNL5214,TechServ Maintenance,PO-2025-2061
+TXN10428,2025-05-26,2025-05-27,2010,Accounts Payable,0.0,146585.0,Equipment maintenance,JNL5214,TechServ Maintenance,PO-2025-2061
+TXN10431,2025-05-30,2025-05-30,6010,Payroll Expenses,286644.0,0.0,Monthly payroll — 2025-05,JNL5216,Payroll,PAY-2025-05
+TXN10432,2025-05-30,2025-05-30,1010,Cash,0.0,286644.0,Monthly payroll — 2025-05,JNL5216,Payroll,PAY-2025-05
+TXN10435,2025-05-31,2025-05-31,6030,SGA Expenses,104912.0,0.0,Selling and administrative expenses,JNL5218,Various,SGA-2025-05
+TXN10436,2025-05-31,2025-05-31,2010,Accounts Payable,0.0,104912.0,Selling and administrative expenses,JNL5218,Various,SGA-2025-05
+TXN10437,2025-05-31,2025-05-31,6040,Depreciation & Amortization,68744.0,0.0,Monthly depreciation,JNL5219,Internal,DEP-2025-05
+TXN10438,2025-05-31,2025-05-31,1510,Accumulated Depreciation,0.0,68744.0,Monthly depreciation,JNL5219,Internal,DEP-2025-05
+TXN10459,2025-06-02,2025-06-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5230,Landlord Corp,RENT-2025-06
+TXN10460,2025-06-02,2025-06-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5230,Landlord Corp,RENT-2025-06
+TXN10453,2025-06-05,2025-06-07,5010,Cost of Goods Sold,125363.0,0.0,Inventory purchase,JNL5227,BuildCo Components,PO-2025-2066
+TXN10454,2025-06-05,2025-06-07,2010,Accounts Payable,0.0,125363.0,Inventory purchase,JNL5227,BuildCo Components,PO-2025-2066
+TXN10441,2025-06-10,2025-06-10,1200,Accounts Receivable,64733.0,0.0,Customer invoice — IronBridge Works,JNL5221,IronBridge Works,INV2025-06-002
+TXN10442,2025-06-10,2025-06-10,4010,Revenue,0.0,64733.0,Customer invoice — IronBridge Works,JNL5221,IronBridge Works,INV2025-06-002
+TXN10451,2025-06-10,2025-06-12,5010,Cost of Goods Sold,530936.0,0.0,Equipment maintenance,JNL5226,TechServ Maintenance,PO-2025-2065
+TXN10452,2025-06-10,2025-06-12,2010,Accounts Payable,0.0,530936.0,Equipment maintenance,JNL5226,TechServ Maintenance,PO-2025-2065
+TXN10455,2025-06-12,2025-06-14,5010,Cost of Goods Sold,227608.0,0.0,Inventory purchase,JNL5228,BuildCo Components,PO-2025-2067
+TXN10456,2025-06-12,2025-06-14,2010,Accounts Payable,0.0,227608.0,Inventory purchase,JNL5228,BuildCo Components,PO-2025-2067
+TXN10439,2025-06-15,2025-06-15,1200,Accounts Receivable,1055813.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5220,Apex Manufacturing Corp,INV2025-06-001
+TXN10440,2025-06-15,2025-06-15,4010,Revenue,0.0,1055813.0,Customer invoice — Apex Manufacturing Corp,JNL5220,Apex Manufacturing Corp,INV2025-06-001
+TXN10449,2025-06-14,2025-06-16,5010,Cost of Goods Sold,96580.0,0.0,Inventory purchase,JNL5225,BuildCo Components,PO-2025-2064
+TXN10450,2025-06-14,2025-06-16,2010,Accounts Payable,0.0,96580.0,Inventory purchase,JNL5225,BuildCo Components,PO-2025-2064
+TXN10445,2025-06-25,2025-06-27,1200,Accounts Receivable,618059.0,0.0,Customer invoice — FrontLine Fabricators,JNL5223,FrontLine Fabricators,INV2025-06-004
+TXN10446,2025-06-25,2025-06-27,4010,Revenue,0.0,618059.0,Customer invoice — FrontLine Fabricators,JNL5223,FrontLine Fabricators,INV2025-06-004
+TXN10443,2025-06-28,2025-06-28,1200,Accounts Receivable,132844.0,0.0,Customer invoice — IronBridge Works,JNL5222,IronBridge Works,INV2025-06-003
+TXN10444,2025-06-28,2025-06-28,4010,Revenue,0.0,132844.0,Customer invoice — IronBridge Works,JNL5222,IronBridge Works,INV2025-06-003
+TXN10447,2025-06-29,2025-06-29,5010,Cost of Goods Sold,160062.0,0.0,Equipment maintenance,JNL5224,TechServ Maintenance,PO-2025-2063
+TXN10448,2025-06-29,2025-06-29,2010,Accounts Payable,0.0,160062.0,Equipment maintenance,JNL5224,TechServ Maintenance,PO-2025-2063
+TXN10457,2025-06-29,2025-06-29,6010,Payroll Expenses,289076.0,0.0,Monthly payroll — 2025-06,JNL5229,Payroll,PAY-2025-06
+TXN10458,2025-06-29,2025-06-29,1010,Cash,0.0,289076.0,Monthly payroll — 2025-06,JNL5229,Payroll,PAY-2025-06
+TXN10461,2025-06-30,2025-06-30,6030,SGA Expenses,108966.0,0.0,Selling and administrative expenses,JNL5231,Various,SGA-2025-06
+TXN10462,2025-06-30,2025-06-30,2010,Accounts Payable,0.0,108966.0,Selling and administrative expenses,JNL5231,Various,SGA-2025-06
+TXN10463,2025-06-30,2025-06-30,6040,Depreciation & Amortization,80492.0,0.0,Monthly depreciation,JNL5232,Internal,DEP-2025-06
+TXN10464,2025-06-30,2025-06-30,1510,Accumulated Depreciation,0.0,80492.0,Monthly depreciation,JNL5232,Internal,DEP-2025-06
+TXN10485,2025-07-02,2025-07-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5243,Landlord Corp,RENT-2025-07
+TXN10486,2025-07-02,2025-07-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5243,Landlord Corp,RENT-2025-07
+TXN10479,2025-07-02,2025-07-03,5010,Cost of Goods Sold,303345.0,0.0,Inventory purchase,JNL5240,BuildCo Components,PO-2025-2070
+TXN10480,2025-07-02,2025-07-03,2010,Accounts Payable,0.0,303345.0,Inventory purchase,JNL5240,BuildCo Components,PO-2025-2070
+TXN10475,2025-07-05,2025-07-05,5010,Cost of Goods Sold,69927.0,0.0,Inventory purchase,JNL5238,BuildCo Components,PO-2025-2068
+TXN10476,2025-07-05,2025-07-05,2010,Accounts Payable,0.0,69927.0,Inventory purchase,JNL5238,BuildCo Components,PO-2025-2068
+TXN10481,2025-07-06,2025-07-06,5010,Cost of Goods Sold,401870.0,0.0,Inventory purchase,JNL5241,RawMat Supplies Inc,PO-2025-2071
+TXN10482,2025-07-06,2025-07-06,2010,Accounts Payable,0.0,401870.0,Inventory purchase,JNL5241,RawMat Supplies Inc,PO-2025-2071
+TXN10477,2025-07-08,2025-07-10,5010,Cost of Goods Sold,250300.0,0.0,Inventory purchase,JNL5239,RawMat Supplies Inc,PO-2025-2069
+TXN10478,2025-07-08,2025-07-10,2010,Accounts Payable,0.0,250300.0,Inventory purchase,JNL5239,RawMat Supplies Inc,PO-2025-2069
+TXN10473,2025-07-14,2025-07-16,1200,Accounts Receivable,521142.0,0.0,Customer invoice — GridPoint Systems,JNL5237,GridPoint Systems,INV2025-07-005
+TXN10474,2025-07-14,2025-07-16,4010,Revenue,0.0,521142.0,Customer invoice — GridPoint Systems,JNL5237,GridPoint Systems,INV2025-07-005
+TXN10471,2025-07-21,2025-07-21,1200,Accounts Receivable,405642.0,0.0,Customer invoice — Keystone Assembly,JNL5236,Keystone Assembly,INV2025-07-004
+TXN10472,2025-07-21,2025-07-21,4010,Revenue,0.0,405642.0,Customer invoice — Keystone Assembly,JNL5236,Keystone Assembly,INV2025-07-004
+TXN10465,2025-07-26,2025-07-28,1200,Accounts Receivable,18043.0,0.0,Customer invoice — FrontLine Fabricators,JNL5233,FrontLine Fabricators,INV2025-07-001
+TXN10466,2025-07-26,2025-07-28,4010,Revenue,0.0,18043.0,Customer invoice — FrontLine Fabricators,JNL5233,FrontLine Fabricators,INV2025-07-001
+TXN10469,2025-07-27,2025-07-29,1200,Accounts Receivable,278396.0,0.0,Customer invoice — Delta Industrial,JNL5235,Delta Industrial,INV2025-07-003
+TXN10470,2025-07-27,2025-07-29,4010,Revenue,0.0,278396.0,Customer invoice — Delta Industrial,JNL5235,Delta Industrial,INV2025-07-003
+TXN10483,2025-07-30,2025-07-30,6010,Payroll Expenses,259753.0,0.0,Monthly payroll — 2025-07,JNL5242,Payroll,PAY-2025-07
+TXN10484,2025-07-30,2025-07-30,1010,Cash,0.0,259753.0,Monthly payroll — 2025-07,JNL5242,Payroll,PAY-2025-07
+TXN10467,2025-07-30,2025-07-31,1200,Accounts Receivable,460794.0,0.0,Customer invoice — Keystone Assembly,JNL5234,Keystone Assembly,INV2025-07-002
+TXN10468,2025-07-30,2025-07-31,4010,Revenue,0.0,460794.0,Customer invoice — Keystone Assembly,JNL5234,Keystone Assembly,INV2025-07-002
+TXN10487,2025-07-31,2025-07-31,6030,SGA Expenses,105454.0,0.0,Selling and administrative expenses,JNL5244,Various,SGA-2025-07
+TXN10488,2025-07-31,2025-07-31,2010,Accounts Payable,0.0,105454.0,Selling and administrative expenses,JNL5244,Various,SGA-2025-07
+TXN10489,2025-07-31,2025-07-31,6040,Depreciation & Amortization,69070.0,0.0,Monthly depreciation,JNL5245,Internal,DEP-2025-07
+TXN10490,2025-07-31,2025-07-31,1510,Accumulated Depreciation,0.0,69070.0,Monthly depreciation,JNL5245,Internal,DEP-2025-07
+TXN10507,2025-08-02,2025-08-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5254,Landlord Corp,RENT-2025-08
+TXN10508,2025-08-02,2025-08-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5254,Landlord Corp,RENT-2025-08
+TXN10495,2025-08-13,2025-08-15,1200,Accounts Receivable,80135.0,0.0,Customer invoice — HorizonTech Ltd,JNL5248,HorizonTech Ltd,INV2025-08-003
+TXN10496,2025-08-13,2025-08-15,4010,Revenue,0.0,80135.0,Customer invoice — HorizonTech Ltd,JNL5248,HorizonTech Ltd,INV2025-08-003
+TXN10501,2025-08-17,2025-08-19,5010,Cost of Goods Sold,441447.0,0.0,Equipment maintenance,JNL5251,TechServ Maintenance,PO-2025-2073
+TXN10502,2025-08-17,2025-08-19,2010,Accounts Payable,0.0,441447.0,Equipment maintenance,JNL5251,TechServ Maintenance,PO-2025-2073
+TXN10493,2025-08-20,2025-08-21,1200,Accounts Receivable,546989.0,0.0,Customer invoice — JetStream Precision,JNL5247,JetStream Precision,INV2025-08-002
+TXN10494,2025-08-20,2025-08-21,4010,Revenue,0.0,546989.0,Customer invoice — JetStream Precision,JNL5247,JetStream Precision,INV2025-08-002
+TXN10497,2025-08-24,2025-08-25,1200,Accounts Receivable,252036.0,0.0,Customer invoice — IronBridge Works,JNL5249,IronBridge Works,INV2025-08-004
+TXN10498,2025-08-24,2025-08-25,4010,Revenue,0.0,252036.0,Customer invoice — IronBridge Works,JNL5249,IronBridge Works,INV2025-08-004
+TXN10499,2025-08-27,2025-08-27,5010,Cost of Goods Sold,165097.0,0.0,Inventory purchase,JNL5250,BuildCo Components,PO-2025-2072
+TXN10500,2025-08-27,2025-08-27,2010,Accounts Payable,0.0,165097.0,Inventory purchase,JNL5250,BuildCo Components,PO-2025-2072
+TXN10503,2025-08-27,2025-08-28,5010,Cost of Goods Sold,390507.0,0.0,Inventory purchase,JNL5252,BuildCo Components,PO-2025-2074
+TXN10504,2025-08-27,2025-08-28,2010,Accounts Payable,0.0,390507.0,Inventory purchase,JNL5252,BuildCo Components,PO-2025-2074
+TXN10491,2025-08-27,2025-08-29,1200,Accounts Receivable,776422.0,0.0,Customer invoice — FrontLine Fabricators,JNL5246,FrontLine Fabricators,INV2025-08-001
+TXN10492,2025-08-27,2025-08-29,4010,Revenue,0.0,776422.0,Customer invoice — FrontLine Fabricators,JNL5246,FrontLine Fabricators,INV2025-08-001
+TXN10505,2025-08-30,2025-08-30,6010,Payroll Expenses,247058.0,0.0,Monthly payroll — 2025-08,JNL5253,Payroll,PAY-2025-08
+TXN10506,2025-08-30,2025-08-30,1010,Cash,0.0,247058.0,Monthly payroll — 2025-08,JNL5253,Payroll,PAY-2025-08
+TXN10509,2025-08-31,2025-08-31,6030,SGA Expenses,94964.0,0.0,Selling and administrative expenses,JNL5255,Various,SGA-2025-08
+TXN10510,2025-08-31,2025-08-31,2010,Accounts Payable,0.0,94964.0,Selling and administrative expenses,JNL5255,Various,SGA-2025-08
+TXN10511,2025-08-31,2025-08-31,6040,Depreciation & Amortization,78837.0,0.0,Monthly depreciation,JNL5256,Internal,DEP-2025-08
+TXN10512,2025-08-31,2025-08-31,1510,Accumulated Depreciation,0.0,78837.0,Monthly depreciation,JNL5256,Internal,DEP-2025-08
+TXN10521,2025-09-01,2025-09-02,1200,Accounts Receivable,35055.0,0.0,Customer invoice — Delta Industrial,JNL5261,Delta Industrial,INV2025-09-005
+TXN10522,2025-09-01,2025-09-02,4010,Revenue,0.0,35055.0,Customer invoice — Delta Industrial,JNL5261,Delta Industrial,INV2025-09-005
+TXN10535,2025-09-02,2025-09-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5268,Landlord Corp,RENT-2025-09
+TXN10536,2025-09-02,2025-09-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5268,Landlord Corp,RENT-2025-09
+TXN10517,2025-09-06,2025-09-06,1200,Accounts Receivable,473117.0,0.0,Customer invoice — Evergreen Components,JNL5259,Evergreen Components,INV2025-09-003
+TXN10518,2025-09-06,2025-09-06,4010,Revenue,0.0,473117.0,Customer invoice — Evergreen Components,JNL5259,Evergreen Components,INV2025-09-003
+TXN10519,2025-09-10,2025-09-10,1200,Accounts Receivable,125199.0,0.0,Customer invoice — Evergreen Components,JNL5260,Evergreen Components,INV2025-09-004
+TXN10520,2025-09-10,2025-09-10,4010,Revenue,0.0,125199.0,Customer invoice — Evergreen Components,JNL5260,Evergreen Components,INV2025-09-004
+TXN10513,2025-09-12,2025-09-14,1200,Accounts Receivable,878622.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5257,Apex Manufacturing Corp,INV2025-09-001
+TXN10514,2025-09-12,2025-09-14,4010,Revenue,0.0,878622.0,Customer invoice — Apex Manufacturing Corp,JNL5257,Apex Manufacturing Corp,INV2025-09-001
+TXN10515,2025-09-19,2025-09-20,1200,Accounts Receivable,317189.0,0.0,Customer invoice — Keystone Assembly,JNL5258,Keystone Assembly,INV2025-09-002
+TXN10516,2025-09-19,2025-09-20,4010,Revenue,0.0,317189.0,Customer invoice — Keystone Assembly,JNL5258,Keystone Assembly,INV2025-09-002
+TXN10527,2025-09-19,2025-09-21,5010,Cost of Goods Sold,230883.0,0.0,Inventory purchase,JNL5264,BuildCo Components,PO-2025-2077
+TXN10528,2025-09-19,2025-09-21,2010,Accounts Payable,0.0,230883.0,Inventory purchase,JNL5264,BuildCo Components,PO-2025-2077
+TXN10523,2025-09-22,2025-09-23,5010,Cost of Goods Sold,360457.0,0.0,Inventory purchase,JNL5262,RawMat Supplies Inc,PO-2025-2075
+TXN10524,2025-09-22,2025-09-23,2010,Accounts Payable,0.0,360457.0,Inventory purchase,JNL5262,RawMat Supplies Inc,PO-2025-2075
+TXN10525,2025-09-22,2025-09-24,5010,Cost of Goods Sold,135508.0,0.0,Equipment maintenance,JNL5263,TechServ Maintenance,PO-2025-2076
+TXN10526,2025-09-22,2025-09-24,2010,Accounts Payable,0.0,135508.0,Equipment maintenance,JNL5263,TechServ Maintenance,PO-2025-2076
+TXN10531,2025-09-28,2025-09-29,5010,Cost of Goods Sold,373446.0,0.0,Equipment maintenance,JNL5266,TechServ Maintenance,PO-2025-2079
+TXN10532,2025-09-28,2025-09-29,2010,Accounts Payable,0.0,373446.0,Equipment maintenance,JNL5266,TechServ Maintenance,PO-2025-2079
+TXN10533,2025-09-29,2025-09-29,6010,Payroll Expenses,277527.0,0.0,Monthly payroll — 2025-09,JNL5267,Payroll,PAY-2025-09
+TXN10534,2025-09-29,2025-09-29,1010,Cash,0.0,277527.0,Monthly payroll — 2025-09,JNL5267,Payroll,PAY-2025-09
+TXN10537,2025-09-30,2025-09-30,6030,SGA Expenses,136061.0,0.0,Selling and administrative expenses,JNL5269,Various,SGA-2025-09
+TXN10538,2025-09-30,2025-09-30,2010,Accounts Payable,0.0,136061.0,Selling and administrative expenses,JNL5269,Various,SGA-2025-09
+TXN10539,2025-09-30,2025-09-30,6040,Depreciation & Amortization,83754.0,0.0,Monthly depreciation,JNL5270,Internal,DEP-2025-09
+TXN10540,2025-09-30,2025-09-30,1510,Accumulated Depreciation,0.0,83754.0,Monthly depreciation,JNL5270,Internal,DEP-2025-09
+TXN10551,2025-10-01,2025-10-01,1200,Accounts Receivable,135129.0,0.0,Customer invoice — Evergreen Components,JNL5276,Evergreen Components,INV2025-10-006
+TXN10552,2025-10-01,2025-10-01,4010,Revenue,0.0,135129.0,Customer invoice — Evergreen Components,JNL5276,Evergreen Components,INV2025-10-006
+TXN10529,2025-09-30,2025-10-02,5010,Cost of Goods Sold,13667.0,0.0,Equipment maintenance,JNL5265,TechServ Maintenance,PO-2025-2078
+TXN10530,2025-09-30,2025-10-02,2010,Accounts Payable,0.0,13667.0,Equipment maintenance,JNL5265,TechServ Maintenance,PO-2025-2078
+TXN10561,2025-10-02,2025-10-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5281,Landlord Corp,RENT-2025-10
+TXN10562,2025-10-02,2025-10-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5281,Landlord Corp,RENT-2025-10
+TXN10557,2025-10-03,2025-10-05,5010,Cost of Goods Sold,418845.0,0.0,Equipment maintenance,JNL5279,TechServ Maintenance,PO-2025-2082
+TXN10558,2025-10-03,2025-10-05,2010,Accounts Payable,0.0,418845.0,Equipment maintenance,JNL5279,TechServ Maintenance,PO-2025-2082
+TXN10543,2025-10-13,2025-10-15,1200,Accounts Receivable,103496.0,0.0,Customer invoice — HorizonTech Ltd,JNL5272,HorizonTech Ltd,INV2025-10-002
+TXN10544,2025-10-13,2025-10-15,4010,Revenue,0.0,103496.0,Customer invoice — HorizonTech Ltd,JNL5272,HorizonTech Ltd,INV2025-10-002
+TXN10541,2025-10-18,2025-10-20,1200,Accounts Receivable,844791.0,0.0,Customer invoice — HorizonTech Ltd,JNL5271,HorizonTech Ltd,INV2025-10-001
+TXN10542,2025-10-18,2025-10-20,4010,Revenue,0.0,844791.0,Customer invoice — HorizonTech Ltd,JNL5271,HorizonTech Ltd,INV2025-10-001
+TXN10549,2025-10-24,2025-10-25,1200,Accounts Receivable,174752.0,0.0,Customer invoice — Keystone Assembly,JNL5275,Keystone Assembly,INV2025-10-005
+TXN10550,2025-10-24,2025-10-25,4010,Revenue,0.0,174752.0,Customer invoice — Keystone Assembly,JNL5275,Keystone Assembly,INV2025-10-005
+TXN10547,2025-10-26,2025-10-28,1200,Accounts Receivable,21552.0,0.0,Customer invoice — Delta Industrial,JNL5274,Delta Industrial,INV2025-10-004
+TXN10548,2025-10-26,2025-10-28,4010,Revenue,0.0,21552.0,Customer invoice — Delta Industrial,JNL5274,Delta Industrial,INV2025-10-004
+TXN10553,2025-10-27,2025-10-28,5010,Cost of Goods Sold,596246.0,0.0,Inventory purchase,JNL5277,RawMat Supplies Inc,PO-2025-2080
+TXN10554,2025-10-27,2025-10-28,2010,Accounts Payable,0.0,596246.0,Inventory purchase,JNL5277,RawMat Supplies Inc,PO-2025-2080
+TXN10559,2025-10-30,2025-10-30,6010,Payroll Expenses,294878.0,0.0,Monthly payroll — 2025-10,JNL5280,Payroll,PAY-2025-10
+TXN10560,2025-10-30,2025-10-30,1010,Cash,0.0,294878.0,Monthly payroll — 2025-10,JNL5280,Payroll,PAY-2025-10
+TXN10545,2025-10-31,2025-10-31,1200,Accounts Receivable,662677.0,0.0,Customer invoice — Cascade Engineering,JNL5273,Cascade Engineering,INV2025-10-003
+TXN10546,2025-10-31,2025-10-31,4010,Revenue,0.0,662677.0,Customer invoice — Cascade Engineering,JNL5273,Cascade Engineering,INV2025-10-003
+TXN10555,2025-10-31,2025-10-31,5010,Cost of Goods Sold,158092.0,0.0,Inventory purchase,JNL5278,RawMat Supplies Inc,PO-2025-2081
+TXN10556,2025-10-31,2025-10-31,2010,Accounts Payable,0.0,158092.0,Inventory purchase,JNL5278,RawMat Supplies Inc,PO-2025-2081
+TXN10563,2025-10-31,2025-10-31,6030,SGA Expenses,110576.0,0.0,Selling and administrative expenses,JNL5282,Various,SGA-2025-10
+TXN10564,2025-10-31,2025-10-31,2010,Accounts Payable,0.0,110576.0,Selling and administrative expenses,JNL5282,Various,SGA-2025-10
+TXN10565,2025-10-31,2025-10-31,6040,Depreciation & Amortization,91343.0,0.0,Monthly depreciation,JNL5283,Internal,DEP-2025-10
+TXN10566,2025-10-31,2025-10-31,1510,Accumulated Depreciation,0.0,91343.0,Monthly depreciation,JNL5283,Internal,DEP-2025-10
+TXN10589,2025-11-02,2025-11-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5295,Landlord Corp,RENT-2025-11
+TXN10590,2025-11-02,2025-11-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5295,Landlord Corp,RENT-2025-11
+TXN10567,2025-11-02,2025-11-03,1200,Accounts Receivable,507405.0,0.0,Customer invoice — Apex Manufacturing Corp,JNL5284,Apex Manufacturing Corp,INV2025-11-001
+TXN10568,2025-11-02,2025-11-03,4010,Revenue,0.0,507405.0,Customer invoice — Apex Manufacturing Corp,JNL5284,Apex Manufacturing Corp,INV2025-11-001
+TXN10569,2025-11-02,2025-11-03,1200,Accounts Receivable,251642.0,0.0,Customer invoice — Keystone Assembly,JNL5285,Keystone Assembly,INV2025-11-002
+TXN10570,2025-11-02,2025-11-03,4010,Revenue,0.0,251642.0,Customer invoice — Keystone Assembly,JNL5285,Keystone Assembly,INV2025-11-002
+TXN10575,2025-11-01,2025-11-03,1200,Accounts Receivable,8787.0,0.0,Customer invoice — IronBridge Works,JNL5288,IronBridge Works,INV2025-11-005
+TXN10576,2025-11-01,2025-11-03,4010,Revenue,0.0,8787.0,Customer invoice — IronBridge Works,JNL5288,IronBridge Works,INV2025-11-005
+TXN10585,2025-11-08,2025-11-08,5010,Cost of Goods Sold,6125.0,0.0,Inventory purchase,JNL5293,BuildCo Components,PO-2025-2087
+TXN10586,2025-11-08,2025-11-08,2010,Accounts Payable,0.0,6125.0,Inventory purchase,JNL5293,BuildCo Components,PO-2025-2087
+TXN10579,2025-11-21,2025-11-22,5010,Cost of Goods Sold,1532.0,0.0,Inventory purchase,JNL5290,RawMat Supplies Inc,PO-2025-2084
+TXN10580,2025-11-21,2025-11-22,2010,Accounts Payable,0.0,1532.0,Inventory purchase,JNL5290,RawMat Supplies Inc,PO-2025-2084
+TXN10573,2025-11-22,2025-11-23,1200,Accounts Receivable,518709.0,0.0,Customer invoice — IronBridge Works,JNL5287,IronBridge Works,INV2025-11-004
+TXN10574,2025-11-22,2025-11-23,4010,Revenue,0.0,518709.0,Customer invoice — IronBridge Works,JNL5287,IronBridge Works,INV2025-11-004
+TXN10581,2025-11-23,2025-11-24,5010,Cost of Goods Sold,113271.0,0.0,Inventory purchase,JNL5291,RawMat Supplies Inc,PO-2025-2085
+TXN10582,2025-11-23,2025-11-24,2010,Accounts Payable,0.0,113271.0,Inventory purchase,JNL5291,RawMat Supplies Inc,PO-2025-2085
+TXN10583,2025-11-27,2025-11-28,5010,Cost of Goods Sold,549452.0,0.0,Inventory purchase,JNL5292,BuildCo Components,PO-2025-2086
+TXN10584,2025-11-27,2025-11-28,2010,Accounts Payable,0.0,549452.0,Inventory purchase,JNL5292,BuildCo Components,PO-2025-2086
+TXN10587,2025-11-29,2025-11-29,6010,Payroll Expenses,285488.0,0.0,Monthly payroll — 2025-11,JNL5294,Payroll,PAY-2025-11
+TXN10588,2025-11-29,2025-11-29,1010,Cash,0.0,285488.0,Monthly payroll — 2025-11,JNL5294,Payroll,PAY-2025-11
+TXN10571,2025-11-28,2025-11-30,1200,Accounts Receivable,588174.0,0.0,Customer invoice — Cascade Engineering,JNL5286,Cascade Engineering,INV2025-11-003
+TXN10572,2025-11-28,2025-11-30,4010,Revenue,0.0,588174.0,Customer invoice — Cascade Engineering,JNL5286,Cascade Engineering,INV2025-11-003
+TXN10577,2025-11-29,2025-11-30,5010,Cost of Goods Sold,452664.0,0.0,Inventory purchase,JNL5289,BuildCo Components,PO-2025-2083
+TXN10578,2025-11-29,2025-11-30,2010,Accounts Payable,0.0,452664.0,Inventory purchase,JNL5289,BuildCo Components,PO-2025-2083
+TXN10591,2025-11-30,2025-11-30,6030,SGA Expenses,124827.0,0.0,Selling and administrative expenses,JNL5296,Various,SGA-2025-11
+TXN10592,2025-11-30,2025-11-30,2010,Accounts Payable,0.0,124827.0,Selling and administrative expenses,JNL5296,Various,SGA-2025-11
+TXN10593,2025-11-30,2025-11-30,6040,Depreciation & Amortization,74553.0,0.0,Monthly depreciation,JNL5297,Internal,DEP-2025-11
+TXN10594,2025-11-30,2025-11-30,1510,Accumulated Depreciation,0.0,74553.0,Monthly depreciation,JNL5297,Internal,DEP-2025-11
+TXN10615,2025-12-02,2025-12-02,6020,Rent,42000.0,0.0,Monthly office and warehouse rent,JNL5308,Landlord Corp,RENT-2025-12
+TXN10616,2025-12-02,2025-12-02,1010,Cash,0.0,42000.0,Monthly office and warehouse rent,JNL5308,Landlord Corp,RENT-2025-12
+TXN10609,2025-12-02,2025-12-03,5010,Cost of Goods Sold,53678.0,0.0,Equipment maintenance,JNL5305,TechServ Maintenance,PO-2025-2090
+TXN10610,2025-12-02,2025-12-03,2010,Accounts Payable,0.0,53678.0,Equipment maintenance,JNL5305,TechServ Maintenance,PO-2025-2090
+TXN10595,2025-12-04,2025-12-04,1200,Accounts Receivable,181503.0,0.0,Customer invoice — JetStream Precision,JNL5298,JetStream Precision,INV2025-12-001
+TXN10596,2025-12-04,2025-12-04,4010,Revenue,0.0,181503.0,Customer invoice — JetStream Precision,JNL5298,JetStream Precision,INV2025-12-001
+TXN10605,2025-12-06,2025-12-08,5010,Cost of Goods Sold,689950.0,0.0,Inventory purchase,JNL5303,BuildCo Components,PO-2025-2088
+TXN10606,2025-12-06,2025-12-08,2010,Accounts Payable,0.0,689950.0,Inventory purchase,JNL5303,BuildCo Components,PO-2025-2088
+TXN10601,2025-12-11,2025-12-12,1200,Accounts Receivable,416303.0,0.0,Customer invoice — HorizonTech Ltd,JNL5301,HorizonTech Ltd,INV2025-12-004
+TXN10602,2025-12-11,2025-12-12,4010,Revenue,0.0,416303.0,Customer invoice — HorizonTech Ltd,JNL5301,HorizonTech Ltd,INV2025-12-004
+TXN10603,2025-12-14,2025-12-16,1200,Accounts Receivable,140701.0,0.0,Customer invoice — IronBridge Works,JNL5302,IronBridge Works,INV2025-12-005
+TXN10604,2025-12-14,2025-12-16,4010,Revenue,0.0,140701.0,Customer invoice — IronBridge Works,JNL5302,IronBridge Works,INV2025-12-005
+TXN10599,2025-12-22,2025-12-22,1200,Accounts Receivable,286955.0,0.0,Customer invoice — Cascade Engineering,JNL5300,Cascade Engineering,INV2025-12-003
+TXN10600,2025-12-22,2025-12-22,4010,Revenue,0.0,286955.0,Customer invoice — Cascade Engineering,JNL5300,Cascade Engineering,INV2025-12-003
+TXN10607,2025-12-22,2025-12-24,5010,Cost of Goods Sold,250004.0,0.0,Inventory purchase,JNL5304,BuildCo Components,PO-2025-2089
+TXN10608,2025-12-22,2025-12-24,2010,Accounts Payable,0.0,250004.0,Inventory purchase,JNL5304,BuildCo Components,PO-2025-2089
+TXN10611,2025-12-29,2025-12-29,5010,Cost of Goods Sold,434523.0,0.0,Equipment maintenance,JNL5306,TechServ Maintenance,PO-2025-2091
+TXN10612,2025-12-29,2025-12-29,2010,Accounts Payable,0.0,434523.0,Equipment maintenance,JNL5306,TechServ Maintenance,PO-2025-2091
+TXN10597,2025-12-28,2025-12-30,1200,Accounts Receivable,1315122.0,0.0,Customer invoice — GridPoint Systems,JNL5299,GridPoint Systems,INV2025-12-002
+TXN10598,2025-12-28,2025-12-30,4010,Revenue,0.0,1315122.0,Customer invoice — GridPoint Systems,JNL5299,GridPoint Systems,INV2025-12-002
+TXN10613,2025-12-30,2025-12-30,6010,Payroll Expenses,369982.0,0.0,Monthly payroll — 2025-12,JNL5307,Payroll,PAY-2025-12
+TXN10614,2025-12-30,2025-12-30,1010,Cash,0.0,369982.0,Monthly payroll — 2025-12,JNL5307,Payroll,PAY-2025-12
+TXN10617,2025-12-31,2025-12-31,6030,SGA Expenses,148959.0,0.0,Selling and administrative expenses,JNL5309,Various,SGA-2025-12
+TXN10618,2025-12-31,2025-12-31,2010,Accounts Payable,0.0,148959.0,Selling and administrative expenses,JNL5309,Various,SGA-2025-12
+TXN10619,2025-12-31,2025-12-31,6040,Depreciation & Amortization,103625.0,0.0,Monthly depreciation,JNL5310,Internal,DEP-2025-12
+TXN10620,2025-12-31,2025-12-31,1510,Accumulated Depreciation,0.0,103625.0,Monthly depreciation,JNL5310,Internal,DEP-2025-12
+TXN10621,2025-12-15,2025-12-15,6030,SGA Expenses,55000.0,0.0,Strategic consulting services Q4 2025,JNL5311,Consulting Partners LLC,CONS-2025-Q4
+TXN10622,2025-12-15,2025-12-15,1010,Cash,0.0,55000.0,Strategic consulting services Q4 2025,JNL5311,Consulting Partners LLC,CONS-2025-Q4

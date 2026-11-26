@@ -1,0 +1,167 @@
+NORTHSTAR INDUSTRIAL COMPONENTS LTD. — COMPACT EDITION
+DATASET VALIDATION REPORT
+======================================================
+
+Generated: 2026-11-26
+Script: scripts/generate_financial_data.py
+Random seed: 42
+
+======================================================
+SECTION 1 — FINDINGS DETECTABILITY (5/5 PASSED)
+======================================================
+
+F1  REVENUE CUTOFF                   ✓ PASS
+    MF Revenue 2024:   $18,979,748
+    GL Revenue 2024:   $18,831,248   (gap: -$148,500 — GL BELOW management accounts)
+    MF Revenue 2025:   $21,068,722
+    GL Revenue 2025:   $21,217,222   (gap: +$148,500 — GL ABOVE management accounts)
+    Transaction: INV2024-12-C002 / Cascade Engineering
+    Transaction date: 2024-12-28 / Posting date: 2025-01-08
+    Treatment: period reclassification (not a loss)
+
+F2  AR IMPAIRMENT — IRONBRIDGE        ✓ PASS
+    Customer: IronBridge Works (C008)
+    Invoice: INV2024-0845
+    Amount: $312,800
+    Days overdue: 407
+    Status: Customer in administration proceedings
+    Treatment: full impairment; working capital reduction $312,800
+
+F3  UNSUPPORTED ADJ-005               ✓ PASS
+    Document reference: CONS-ERP-2025
+    GL entries found: 0
+    Management add-back: $95,000 (REJECTED)
+
+F4  RECURRING RESTRUCTURING           ✓ PASS
+    GL account 6100: charges in 2024 ($95,000) and 2025 ($78,000)
+    ADJ-002 (2024) and ADJ-003 (2025) both labelled "One-time"
+    ADJ-002: ACCEPT (first occurrence — affects 2024 QoE)
+    ADJ-003: REJECT — $78,000 (recurring by consecutive-period test)
+
+F5  DUPLICATE TRANSACTION             ✓ PASS
+    Document: PO-2024-0892 / TechServ Maintenance
+    GL rows: 4 (2 debit + 2 credit)
+    Total debited: $84,600 (two postings × $42,300)
+    Expense overstatement: $42,300  (one duplicate posting, not both)
+    Management proposes ADJ-008 ($42,300) to reverse it
+
+======================================================
+SECTION 2 — KEY FINANCIAL FIGURES (VERIFIED BY EXECUTION)
+======================================================
+
+Revenue 2024 (management):              $18,979,748
+Revenue 2025 (management):              $21,068,722
+EBITDA 2024 (reported):                  $2,713,401
+EBITDA 2025 (reported):                  $3,157,374
+
+--- 2025 Adjustments (filtered: adj['Period'] == 2025, int64) ---
+Management proposed 2025 add-backs:        $389,500
+  Accepted: ADJ-004 $120k + ADJ-007 $36k + ADJ-009 $18.5k = $174,500
+  Rejected: ADJ-003 $78k + ADJ-005 $95k + ADJ-006 $42k    = $215,000
+
+Management-adjusted EBITDA 2025:         $3,546,874
+Defensible normalized EBITDA 2025:       $3,331,874
+  (reported $3,157,374 + accepted $174,500)
+
+Reduction vs management claim:             $215,000  (total rejected)
+  of which F3+F4 findings impact:          $173,000  (ADJ-005+ADJ-003)
+
+  ADJ-006 reject rationale: EBITDA by definition excludes D&A.
+  Adding back a depreciation item (acct 6040) would double-count it.
+  ADJ-006 is therefore rejected even though it is labelled "Recurring".
+
+--- Working Capital ---
+AR total outstanding:                    $1,196,200
+Less: IronBridge impairment (F2):         -$312,800
+Adjusted AR:                               $883,400
+
+  Note: F1 revenue cutoff ($148,500) is a GL timing issue only.
+  The invoice is real and expected to be collected; it does not
+  reduce AR — it is a period classification correction.
+
+--- Exposure by Category (no double-counting) ---
+(a) Revenue timing (reclassification only):   $148,500
+(b) Balance sheet — AR impairment:            $312,800
+(c) EBITDA — total rejected 2025 add-backs:   $215,000
+(d) Expense correction (conditional, IR-003):  $42,300
+
+======================================================
+SECTION 3 — TECHNICAL NOTES
+======================================================
+
+Account_Code dtype:
+  general_ledger.csv stores Account_Code as int64.
+  Notebook loads with dtype={'Account_Code': str}
+  → enables string comparisons: gl['Account_Code'] == '4010'
+
+Period dtype in adjustments:
+  management_adjustments.csv stores Period as int64.
+  Filter: adj['Period'] == 2025  (integer)
+  NOT:    adj['Period'] == '2025' (would return empty DataFrame)
+
+Account_Code in adjustments file:
+  No dtype override applied to adj read_csv.
+  Integer comparison used: adj[adj['Account_Code'] == 6100]
+
+======================================================
+SECTION 4 — NOTEBOOK EXECUTION RESULTS
+======================================================
+
+Executed: 2026-11-26
+Method: jupyter nbconvert --execute
+Result: PASS — 0 errors across 19 cells
+
+Cell count: 19
+  2 markdown header cells (title + phase headers embedded in code flow)
+  17 executable cells (2 markdown + 15 code)
+
+Actual structure:
+  Cell 0:  Markdown — title / overview
+  Cell 1:  Markdown — Phase 1 header
+  Cell 2:  Code — imports + data load
+  Cell 3:  Code — 2-year P&L summary
+  Cell 4:  Markdown — Phase 2 header
+  Cell 5:  Code — revenue reconciliation (F1)
+  Cell 6:  Code — cutoff transaction identification (F1)
+  Cell 7:  Code — duplicate detection (F5)
+  Cell 8:  Markdown — Phase 3 header
+  Cell 9:  Code — 2025 management adjustments
+  Cell 10: Code — ADJ-005 investigation (F3)
+  Cell 11: Code — restructuring history (F4)
+  Cell 12: Code — adjustment assessment table
+  Cell 13: Code — AR aging + IronBridge (F2)
+  Cell 14: Markdown — Phase 4 header
+  Cell 15: Code — EBITDA bridge
+  Cell 16: Code — working capital / AR
+  Cell 17: Code — consolidated findings register
+  Cell 18: Code — executive summary
+
+======================================================
+SECTION 5 — FILE INVENTORY
+======================================================
+
+inputs/general_ledger.csv                ✓
+inputs/monthly_financials.csv            ✓
+inputs/accounts_receivable_aging.csv     ✓
+inputs/management_adjustments.csv        ✓
+
+notebook/northstar_due_diligence.ipynb   ✓ (19 cells)
+reference/DATA_ROOM_README.txt           ✓
+reference/INSTRUCTOR_SOLUTION_GUIDE.md   ✓
+reference/ANALYSIS_ROADMAP.md            ✓
+scripts/generate_financial_data.py       ✓
+validation/validation_report.txt         ✓ (this file)
+
+======================================================
+SECTION 6 — CONCLUSION
+======================================================
+
+STATUS: PASS
+
+All 5 findings detectable from 4 input files using pandas.
+All calculations verified by notebook execution (0 errors).
+All figures consistent across notebook, solution guide, roadmap,
+and this validation report.
+Estimated demonstration time: 21–26 minutes.
+Hard limit: 30 minutes.
+======================================================

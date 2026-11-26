@@ -1,0 +1,10 @@
+Customer_ID,Customer_Name,Invoice_Number,Invoice_Date,Due_Date,Outstanding_Amount,Days_Overdue,Aging_Bucket,Dispute_Status,Collection_Notes
+C001,Apex Manufacturing Corp,INV2025-1120,2025-12-05,2026-01-04,287400,0,Current,No,Within terms
+C003,Delta Industrial,INV2025-1118,2025-11-28,2025-12-28,143200,3,1-30,No,Payment expected imminently
+C005,FrontLine Fabricators,INV2025-1105,2025-11-10,2025-12-10,98600,21,1-30,No,Chaser sent 2025-12-18
+C006,GridPoint Systems,INV2025-1082,2025-10-20,2025-11-19,74300,42,31-60,No,Partial payment promised
+C007,HorizonTech Ltd,INV2025-1061,2025-10-01,2025-10-31,56800,61,61-90,No,Credit hold applied
+C004,Evergreen Components,INV2025-1044,2025-09-15,2025-10-15,112500,77,61-90,No,Repayment plan agreed
+C008,IronBridge Works,INV2024-0845,2024-10-20,2024-11-19,312800,407,Over 90,No,Customer in administration proceedings — legal counsel engaged 2025-08
+C010,Keystone Assembly,INV2025-0988,2025-07-10,2025-08-09,67400,144,Over 90,No,Slow payer — monitoring
+C002,Cascade Engineering,INV2025-0954,2025-06-01,2025-07-01,43200,183,Over 90,No,Settlement discussion ongoing
