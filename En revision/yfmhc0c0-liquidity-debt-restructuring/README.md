@@ -4,7 +4,7 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 > **Goal:** *Reconstruct and stress-test the 13-week liquidity position of a simulated mid-sized company facing tightening cash availability, customer payment delays, and upcoming debt obligations. Deliver an auditable weekly liquidity model, scenario comparisons, and a justified financing action plan that maintains minimum cash requirements while respecting contractual borrowing limits.*
 
-**Duración estimada: ~29:29, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:45 y 37%: practicá hasta tipear cada tramo en el tiempo indicado.
+**Duración estimada: ~29:22, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:39 y 37%: practicá hasta tipear cada tramo en el tiempo indicado.
 
 **Punto de partida al grabar:** el notebook **liquidity_assessment** tiene la **celda 1 ya escrita** y los cinco CSV ya están subidos en el panel **Files** de Colab. La celda 1 es solo preparación: librerías, lectura de los CSV, la fecha de la semana 1, la fila del revolver, dos fórmulas auxiliares (semana y caja de cierre) y la función `export()`. **Todo lo demás se tipea en vivo** (celdas 2 a 7). En el video se dice que la celda 1 estaba escrita y por qué.
 
@@ -21,16 +21,16 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 | # | Bloque | Fase | Celda | TIME | Duración |
 | - | ------ | ---- | ----- | ---- | -------- |
-| 0 | Opening | — | — | 0:00–1:39 | 1:39 |
-| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:39–4:06 | 2:26 |
-| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:06–6:38 | 2:32 |
-| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:38–9:13 | 2:35 |
-| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:13–14:37 | 5:24 |
-| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:37–19:03 | 4:26 |
-| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 19:03–24:24 | 5:20 |
-| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:24–28:01 | 3:38 |
-| 8 | Epilogue | — | — | 28:01–29:29 | 1:27 |
-| | **Total** | | | | **~29:29** |
+| 0 | Opening | — | — | 0:00–1:33 | 1:33 |
+| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:33–3:59 | 2:26 |
+| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 3:59–6:31 | 2:32 |
+| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:31–9:06 | 2:35 |
+| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:06–14:31 | 5:24 |
+| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:31–18:57 | 4:26 |
+| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:57–24:17 | 5:20 |
+| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:17–27:55 | 3:38 |
+| 8 | Epilogue | — | — | 27:55–29:22 | 1:27 |
+| | **Total** | | | | **~29:22** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -110,11 +110,11 @@ Cada bloque tiene:
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
 | Tipeo en vivo (celdas 2 a 7) | 1.380 caracteres | ~10,2 min a 135 car./min (~11,5 a 120) |
-| Narración | ~2.113 palabras | ~16,3 min |
+| Narración | ~2.099 palabras | ~16,1 min |
 | Navegación y ejecución | 9 bloques | ~3,0 min |
-| **Total** | | **~29:29** (~30:45 si tipeás a 120 car./min) |
+| **Total** | | **~29:22** (~30:39 si tipeás a 120 car./min) |
 
-**Tipeo: ~35% del video a 135 car./min** (~37% a 120).
+**Tipeo: ~35% del video a 135 car./min** (~38% a 120).
 
 **Reglas de tipeo:**
 
@@ -145,11 +145,11 @@ Cada bloque tiene:
 
 ### Bloque 0. Opening
 
-**TIME:** 0:00–1:39 (1:39)
+**TIME:** 0:00–1:33 (1:33)
 
-**WHAT I DO:** hablar con la descripción de la tarea en pantalla → minimizar → abrir Colab desde el Dock → abrir el panel Files.
+**WHAT I DO:** hablar con la descripción de la tarea en pantalla → pasar a la segunda pestaña (Colab) → abrir el panel Files.
 
-**WHERE:** Firefox ventana 1 (descripción). Botón amarillo arriba a la izquierda. Ícono de Firefox en el Dock, a la derecha (Mac); segunda ventana de la lista. Ícono de carpeta en la barra lateral izquierda de Colab.
+**WHERE:** Firefox, pestaña 1 (descripción). Pestaña 2, arriba en la barra de pestañas de Firefox (Colab). Ícono de carpeta en la barra lateral izquierda de Colab.
 
 **SAY:**
 
@@ -157,9 +157,7 @@ Cada bloque tiene:
 
 > 🟢 The constraints: a 1.2 (one point two) million dollar revolver, but only what the borrowing base and a 3.5 (three point five) times leverage covenant allow. I'll deliver five CSV files: cash position, forecast, borrowing base, scenarios, and a risk report.
 
-> 🖱️ I'm clicking the yellow minimize button at the top left, to hide the task description.
-
-> 🖱️ I'm clicking the Firefox icon in the Dock on the right, and choosing the second window: my Colab notebook, liquidity assessment.
+> 🖱️ I'm clicking the second tab at the top of Firefox, to leave the task description and open my Colab notebook, liquidity assessment.
 
 > 🖱️ I'm clicking the folder icon in Colab's left sidebar, to open the Files panel and show my inputs.
 
@@ -175,7 +173,7 @@ Cada bloque tiene:
 
 ### Bloque 1. Celda 1: carga y contratos
 
-**TIME:** 1:39–4:06 (2:26)
+**TIME:** 1:33–3:59 (2:26)
 
 **WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → señalar la salida.
 
@@ -257,7 +255,7 @@ debt.set_index("facility_id").T
 
 ### Bloque 2. Phase 1: caja libre real
 
-**TIME:** 4:06–6:38 (2:32)
+**TIME:** 3:59–6:31 (2:32)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar las tres filas.
 
@@ -312,7 +310,7 @@ pos
 
 ### Bloque 3. Phase 2: confiabilidad de los cobros
 
-**TIME:** 6:38–9:13 (2:35)
+**TIME:** 6:31–9:06 (2:35)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar tres clientes.
 
@@ -365,7 +363,7 @@ d
 
 ### Bloque 4. Phase 3: forecast de 13 semanas
 
-**TIME:** 9:13–14:37 (5:24)
+**TIME:** 9:06–14:31 (5:24)
 
 **WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla.
 
@@ -459,7 +457,7 @@ fc
 
 ### Bloque 5. Phase 4: capacidad real de endeudamiento
 
-**TIME:** 14:37–19:03 (4:26)
+**TIME:** 14:31–18:57 (4:26)
 
 **WHAT I DO:** + Code → tipear 5 tramos → Run → señalar las cuatro filas.
 
@@ -542,7 +540,7 @@ bba
 
 ### Bloque 6. Phase 4–5: estrategias y estrés
 
-**TIME:** 19:03–24:24 (5:20)
+**TIME:** 18:57–24:17 (5:20)
 
 **WHAT I DO:** + Code → tipear 7 tramos → Run → señalar el gráfico.
 
@@ -636,7 +634,7 @@ t.plot().axhline(500000, color="k");
 
 ### Bloque 7. Phase 5: validación, exportación y archivos
 
-**TIME:** 24:24–28:01 (3:38)
+**TIME:** 24:17–27:55 (3:38)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el reporte y los mínimos → Files: refrescar, señalar los cinco entregables y abrir el forecast → cerrar el visor.
 
@@ -709,7 +707,7 @@ t.min()
 
 ### Bloque 8. Epilogue
 
-**TIME:** 28:01–29:29 (1:27)
+**TIME:** 27:55–29:22 (1:27)
 
 **WHAT I DO:** Cmd + S → scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
@@ -755,7 +753,7 @@ t.min()
 - [ ] Cerrá el panel Files antes de empezar: se abre en el bloque 0.
 - [ ] **Tools → Settings → AI assistance**: ocultá las funciones de IA.
 - [ ] **Tools → Settings → Editor**: si está la opción, desactivá las sugerencias automáticas de código.
-- [ ] Zoom (`Cmd + +`). Firefox con la ventana 1 en la descripción de la tarea y la ventana 2 en Colab.
+- [ ] Zoom (`Cmd + +`). Firefox con la pestaña 1 en la descripción de la tarea y la pestaña 2 en Colab, en la misma ventana.
 
 ## Checklist de resultados que deben quedar generados
 
