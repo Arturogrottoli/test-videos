@@ -153,7 +153,7 @@ Cada bloque tiene:
 
 **SAY:**
 
-> 🟢 I will be beginning my task soon. A mid-sized company is running short of cash: customers pay late, and debt payments are coming. I'm building its 13-week liquidity forecast, and a financing plan that keeps 500 (five hundred) thousand dollars of free cash without breaking its loan limits.
+> 🟢 I will be beginning my task soon. A mid-sized company is running short of cash: customers pay late, and debt payments are coming. I'm building its 13-week (thirteen-week) liquidity forecast, and a financing plan that keeps 500 (five hundred) thousand dollars of free cash without breaking its loan limits.
 
 > 🟢 The constraints: a 1.2 (one point two) million dollar revolver, but only what the borrowing base and a 3.5 (three point five) times leverage covenant allow. I'll deliver five CSV files: cash position, forecast, borrowing base, scenarios, and a risk report.
 
@@ -214,7 +214,7 @@ debt.set_index("facility_id").T
 
 > 🖱️ I'm pointing at the five read_csv lines: bank, receivables, payables, debt and the operating forecast, with their dates parsed.
 
-> 🖱️ I'm pointing at W1, the Monday of week one, and r, the revolver's row in the debt file.
+> 🖱️ I'm pointing at W1 (W one), the Monday of week one, and r, the revolver's row in the debt file.
 
 > 🖱️ I'm pointing at the two helpers below. W turns a date into a forecast week; past-due items fall into week one. c turns any set of flows into weekly closing cash, starting from the opening cash I'll calculate in cell two.
 
@@ -226,7 +226,7 @@ debt.set_index("facility_id").T
 
 > 🖱️ I'm pointing at the other four lines: receivables, payables, debt and the operating forecast have no duplicate rows.
 
-> 🖱️ I'm pointing at the RCF-01 column of the debt table, below the counts.
+> 🖱️ I'm pointing at the RCF-01 (R C F zero one) column of the debt table, below the counts.
 
 > 🟢 The revolver has a 1.2 (one point two) million commitment, 750 (seven hundred fifty) thousand already drawn, an 80 (eighty) percent advance rate and a 150 (one hundred fifty) thousand reserve. The covenant is 3.5 (three point five) times leverage on 1.07 (one point zero seven) million of EBITDA, and the minimum cash is 500 (five hundred) thousand.
 
@@ -680,9 +680,9 @@ t.min()
 
 > 🖱️ I'm clicking the refresh button at the top of the Files panel, to see the new files.
 
-> 🖱️ I'm pointing at the five new files in the Files panel: cash position, 13-week forecast, borrowing base, scenario comparison and risk report, next to the five untouched inputs.
+> 🖱️ I'm pointing at the five new files in the Files panel: cash position, 13-week (thirteen-week) forecast, borrowing base, scenario comparison and risk report, next to the five untouched inputs.
 
-> 🖱️ I'm double-clicking 13_week_liquidity_forecast.csv in the Files panel, to open it on the right and check it saved correctly.
+> 🖱️ I'm double-clicking 13_week_liquidity_forecast.csv (thirteen week liquidity forecast) in the Files panel, to open it on the right and check it saved correctly.
 
 > 🖱️ I'm pointing at the columns in the viewer: week, outflow, inflow and close, the same 13 (thirteen) rows as cell four.
 
