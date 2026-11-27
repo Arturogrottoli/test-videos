@@ -4,7 +4,7 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 
 > **Goal:** *Reconstruct and stress-test the 13-week liquidity position of a simulated mid-sized company facing tightening cash availability, customer payment delays, and upcoming debt obligations. Deliver an auditable weekly liquidity model, scenario comparisons, and a justified financing action plan that maintains minimum cash requirements while respecting contractual borrowing limits.*
 
-**Duración estimada: ~29:15, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:31 y 37%: practicá hasta tipear cada tramo en el tiempo indicado.
+**Duración estimada: ~29:29, con 35% de tipeo** (tipeando a 135 car./min; ya cuenta los números leídos en palabras). Límite absoluto: 30:00. Si tipeás a 120 car./min da ~30:45 y 37%: practicá hasta tipear cada tramo en el tiempo indicado.
 
 **Punto de partida al grabar:** el notebook **liquidity_assessment** tiene la **celda 1 ya escrita** y los cinco CSV ya están subidos en el panel **Files** de Colab. La celda 1 es solo preparación: librerías, lectura de los CSV, la fecha de la semana 1, la fila del revolver, dos fórmulas auxiliares (semana y caja de cierre) y la función `export()`. **Todo lo demás se tipea en vivo** (celdas 2 a 7). En el video se dice que la celda 1 estaba escrita y por qué.
 
@@ -22,15 +22,15 @@ Guion para grabar la tarea **yfmhc0c0** en **Google Colab** (app principal), con
 | # | Bloque | Fase | Celda | TIME | Duración |
 | - | ------ | ---- | ----- | ---- | -------- |
 | 0 | Opening | — | — | 0:00–1:39 | 1:39 |
-| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:39–4:02 | 2:23 |
-| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:02–6:34 | 2:32 |
-| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:34–9:09 | 2:35 |
-| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:09–14:33 | 5:24 |
-| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:33–18:59 | 4:26 |
-| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 18:59–24:12 | 5:13 |
-| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:12–27:48 | 3:35 |
-| 8 | Epilogue | — | — | 27:48–29:15 | 1:27 |
-| | **Total** | | | | **~29:15** |
+| 1 | Celda 1: carga y contratos | 1. Data reconstruction | 1 | 1:39–4:06 | 2:26 |
+| 2 | Phase 1: caja libre real | 1. Data reconstruction | 2 | 4:06–6:38 | 2:32 |
+| 3 | Phase 2: confiabilidad de los cobros | 2. Cash flow reliability | 3 | 6:38–9:13 | 2:35 |
+| 4 | Phase 3: forecast de 13 semanas | 3. 13-week forecast | 4 | 9:13–14:37 | 5:24 |
+| 5 | Phase 4: capacidad real de endeudamiento | 4. Financing alternatives | 5 | 14:37–19:03 | 4:26 |
+| 6 | Phase 4–5: estrategias y estrés | 4–5. Strategies and stress | 6 | 19:03–24:24 | 5:20 |
+| 7 | Phase 5: validación, exportación y archivos | 5. Validation | 7 | 24:24–28:01 | 3:38 |
+| 8 | Epilogue | — | — | 28:01–29:29 | 1:27 |
+| | **Total** | | | | **~29:29** |
 
 *(Calculado con 130 palabras/min de narración, 135 caracteres/min de tipeo en silencio, todo sumado, más ~20 s de navegación y ejecución por bloque.)*
 
@@ -109,10 +109,10 @@ Cada bloque tiene:
 
 | | Cantidad | Tiempo |
 | - | -------- | ------ |
-| Tipeo en vivo (celdas 2 a 7) | 1.369 caracteres | ~10,1 min a 135 car./min (~11,4 a 120) |
-| Narración | ~2.094 palabras | ~16,1 min |
+| Tipeo en vivo (celdas 2 a 7) | 1.380 caracteres | ~10,2 min a 135 car./min (~11,5 a 120) |
+| Narración | ~2.113 palabras | ~16,3 min |
 | Navegación y ejecución | 9 bloques | ~3,0 min |
-| **Total** | | **~29:15** (~30:31 si tipeás a 120 car./min) |
+| **Total** | | **~29:29** (~30:45 si tipeás a 120 car./min) |
 
 **Tipeo: ~35% del video a 135 car./min** (~37% a 120).
 
@@ -175,7 +175,7 @@ Cada bloque tiene:
 
 ### Bloque 1. Celda 1: carga y contratos
 
-**TIME:** 1:39–4:02 (2:23)
+**TIME:** 1:39–4:06 (2:26)
 
 **WHAT I DO:** señalar cada grupo de líneas de la celda 1 (ya escrita) → Run → señalar la salida.
 
@@ -197,11 +197,11 @@ W = lambda s: (s - W1).dt.days.clip(0) // 7 + 1
 c = lambda x: cash0 + x.groupby("week").amount.sum().loc[:13].cumsum()
 
 def export():
-    pos.to_csv("reconciled_cash_position.csv")
-    fc.to_csv("13_week_liquidity_forecast.csv")
-    bba.to_csv("borrowing_base_analysis.csv")
-    t.to_csv("scenario_comparison.csv")
-    k.to_csv("liquidity_risk_report.csv")
+    pos.round(2).to_csv("reconciled_cash_position.csv")
+    fc.rename(int).round(2).to_csv("13_week_liquidity_forecast.csv")
+    bba.round(2).rename("amount").to_csv("borrowing_base_analysis.csv")
+    t.rename(int).round(2).to_csv("scenario_comparison.csv")
+    k.round(4).rename("value").to_csv("liquidity_risk_report.csv")
 
 for n, d in {"bank": b, "ar": ar, "ap": ap, "debt": debt, "op": op}.items():
     print(n, d.shape, "| duplicate rows:", d.duplicated().sum())
@@ -257,7 +257,7 @@ debt.set_index("facility_id").T
 
 ### Bloque 2. Phase 1: caja libre real
 
-**TIME:** 4:02–6:34 (2:32)
+**TIME:** 4:06–6:38 (2:32)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar las tres filas.
 
@@ -312,7 +312,7 @@ pos
 
 ### Bloque 3. Phase 2: confiabilidad de los cobros
 
-**TIME:** 6:34–9:09 (2:35)
+**TIME:** 6:38–9:13 (2:35)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar tres clientes.
 
@@ -365,7 +365,7 @@ d
 
 ### Bloque 4. Phase 3: forecast de 13 semanas
 
-**TIME:** 9:09–14:33 (5:24)
+**TIME:** 9:13–14:37 (5:24)
 
 **WHAT I DO:** + Code → tipear 6 tramos → Run → recorrer la tabla.
 
@@ -459,7 +459,7 @@ fc
 
 ### Bloque 5. Phase 4: capacidad real de endeudamiento
 
-**TIME:** 14:33–18:59 (4:26)
+**TIME:** 14:37–19:03 (4:26)
 
 **WHAT I DO:** + Code → tipear 5 tramos → Run → señalar las cuatro filas.
 
@@ -542,7 +542,7 @@ bba
 
 ### Bloque 6. Phase 4–5: estrategias y estrés
 
-**TIME:** 18:59–24:12 (5:13)
+**TIME:** 19:03–24:24 (5:20)
 
 **WHAT I DO:** + Code → tipear 7 tramos → Run → señalar el gráfico.
 
@@ -596,30 +596,30 @@ t = pd.DataFrame({"base": c(f), "credit": c(f) + cap, "credit_stress": c(N(f)) +
 ```
 *(61 caracteres · ~27 s)*
 
-> 🗣️⌨️ Last line of cell six: a chart of all six, with the 500 (five hundred) thousand minimum as a line.
+> 🗣️⌨️ Last line of cell six: a chart of all six, with the 500 (five hundred) thousand minimum as a black line.
 
 ```python
-t.plot().axhline(500000);
+t.plot().axhline(500000, color="k");
 ```
-*(25 caracteres · ~11 s)*
+*(36 caracteres · ~16 s)*
 
 > 🖱️ I'm clicking the Run button on the left of cell six.
 
-> 🖱️ I'm pointing at the horizontal line in the chart under cell six: the 500 (five hundred) thousand minimum.
+> 🖱️ I'm pointing at the black horizontal line in the chart under cell six: the 500 (five hundred) thousand minimum.
 
-> 🖱️ I'm pointing at the lowest line, base: below the minimum most of the quarter.
+> 🖱️ I'm pointing at the blue line, base: below the minimum in 9 (nine) of the 13 (thirteen) weeks.
 
-> 🖱️ I'm pointing at the credit lines: credit only stays above, but its stressed version drops well below.
+> 🖱️ I'm pointing at the orange line, credit only: above. The green one, credit under stress, drops well below.
 
 > 🟢 Drawing all 235 (two hundred thirty-five) thousand uses the whole capacity and still fails if Northwind slips. That's why I reject credit only.
 
-> 🖱️ I'm pointing at the levers line: it gets close, but dips under the minimum. Cutting costs alone isn't enough.
+> 🖱️ I'm pointing at the red line, levers: it dips under the minimum. Cutting costs alone isn't enough.
 
-> 🖱️ I'm pointing at the combined and stress lines at the top: both stay above the minimum every week.
+> 🖱️ I'm pointing at the purple line, combined, and the brown one, stress: both stay above the black line every week.
 
 **WHY:** el giro `x` se dimensiona sobre el caso estresado, no sobre el base: así el plan aguanta el riesgo de concentración. Estirar a proveedores críticos se descarta por la consecuencia operativa (cortan el suministro).
 
-**EXPECTED RESULT:** un gráfico de líneas con seis series y una línea horizontal en 500,000.
+**EXPECTED RESULT:** un gráfico con seis líneas y una horizontal negra en 500,000. Colores: `base` azul, `credit` naranja, `credit_stress` verde, `levers` rojo, `combined` violeta (la de más arriba), `stress` marrón. Debajo del mínimo: `base` en 9 semanas, `credit_stress` en 7, `levers` en las semanas 1 y 9; `credit`, `combined` y `stress` nunca.
 
 **VERIFY BEFORE CONTINUING:** aparece el gráfico sin error. Si aparece una línea de texto tipo `<matplotlib.lines.Line2D…>`, falta el `;` al final.
 
@@ -630,13 +630,13 @@ t.plot().axhline(500000);
 - `N = lambda x: x.assign(week=x.week + 2 * x.customer.eq(d.idxmax()))`: stress: the slowest payer's collections two weeks later.
 - `x = np.ceil((500000 - c(N(q)).min()) / 25000) * 25000`: draw needed to keep the stressed plan at the minimum, rounded up to 25,000.
 - `t = pd.DataFrame({...})`: weekly closing cash for six scenarios.
-- `t.plot().axhline(500000);`: chart with the minimum cash line.
+- `t.plot().axhline(500000, color="k");`: chart with the minimum cash line in black, so it doesn't share the blue of `base`.
 
 ---
 
 ### Bloque 7. Phase 5: validación, exportación y archivos
 
-**TIME:** 24:12–27:48 (3:35)
+**TIME:** 24:24–28:01 (3:38)
 
 **WHAT I DO:** + Code → tipear 2 tramos → Run → señalar el reporte y los mínimos → Files: refrescar, señalar los cinco entregables y abrir el forecast → cerrar el visor.
 
@@ -709,7 +709,7 @@ t.min()
 
 ### Bloque 8. Epilogue
 
-**TIME:** 27:48–29:15 (1:27)
+**TIME:** 28:01–29:29 (1:27)
 
 **WHAT I DO:** Cmd + S → scroll lento hacia arriba, sin tipear. Recién **después** abrís TaskRecorder para detener la grabación.
 
@@ -742,7 +742,7 @@ t.min()
 | `NameError: cash0` en la celda 4 | La celda 2 no corrió: `c` usa `cash0`. Corré la celda 2 y después la 4. |
 | La celda 4 no da 301,347 en la semana 9 | Revisá `"2026-08-22"` en la celda 3 y el `// 7` de la celda 4. |
 | La celda 5 no da 235,000 en `leverage` | Revisá `debt.drawn.sum()` (suma las tres líneas de deuda, no solo el revolver). |
-| El gráfico muestra texto debajo | Falta el `;` al final de `t.plot().axhline(500000);`. No es un error: seguí. |
+| El gráfico muestra texto debajo | Falta el `;` al final de `t.plot().axhline(500000, color="k");`. No es un error: seguí. |
 | Hay que volver a correr todo | Los CSV de entrada nunca se reescriben: alcanza con Runtime → Run all. |
 
 ---
